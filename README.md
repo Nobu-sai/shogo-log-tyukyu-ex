@@ -1,4 +1,47 @@
-# Getting Started with Create React App
+
+# TOC
+## Used Technologies
+## Font Family
+## File Structure
+## Styles (How to use, SASS Partials, and so on.)
+## Blocks
+## Create React App
+
+
+
+
+
+# /////////////////////////////////////////////
+# Used Technologies
+## BEM
+## Sass
+## React (create-react-app)
+
+# /////////////////////////////////////////////
+# Font Family
+
+
+
+
+# /////////////////////////////////////////////
+# File Structure
+## blocks/ 
+: For React Components.
+: 
+
+# Styles (How to use, SASS Partials, and so on.)
+
+
+## Sass
+
+
+
+# /////////////////////////////////////////////
+# Blocks
+
+
+# /////////////////////////////////////////////
+# Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
