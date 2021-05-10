@@ -1,14 +1,22 @@
 // utiliities/
 
-
 // vendors/
 
 
 // base/
-
+@import './base/typography';
 
 // blocks
+@import './blocks/Header/Header';
+@import './blocks/Header/__Contents/Header__Contents';
+@import './blocks/Header/__Main/Header__Main';
+@import './blocks/Header/__Menu/Header__Menu';
+@import './blocks/Header/__Reservation/Header__Reservation';
+@import './blocks/Header/__Button/_Open/Header__Button_Open';
+@import './blocks/Header/__Button/_Close/Header__Button_Close';
 
+//// small components
+@import './blocks/Link/Link';
 
 // pages/
 @import './pages/Home/Home';

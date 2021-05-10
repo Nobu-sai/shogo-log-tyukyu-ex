@@ -1,0 +1,96 @@
+@use '../../../utilities/variables/font-size';
+@use '../../../utilities/responsive';
+@use '../../../utilities/mixins/background-image';
+
+@use '../../../../node_modules/rfs/scss.scss' as rfs;
+
+.header__main {
+  
+  @include responsive.respond-to('min', '200') {
+    height: 100%;
+
+    &_contents-color-white {
+      color: #fff;
+    }
+
+    &_contents-color-black {
+      color: #000;
+    }
+
+    &_flex-container {      
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+    &_logo {
+      width: 80px;
+      height: 80px;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      &_color-white {
+        @include background-image.background-image('sakura-logo-white');
+      }
+      &_color-black {
+        @include background-image.background-image('sakura-logo-black');
+
+      }
+    }
+
+    
+    &_title {
+      margin-top: 24px;
+      font-size: #{font-size.$large}px;
+    }
+  }
+
+  @include responsive.respond-to('min', '600') {
+
+    &_flex-container {
+      padding: 0 14px;
+
+      flex-direction: row; 
+      align-items: center;
+      justify-content: start;
+      
+      
+    } 
+    &_logo {
+      width: 40px;
+      height: 40px;
+    }
+    &_title {
+      margin: 0;
+      margin-left: 14px;
+      font-size: #{font-size.$medium}px;
+    }
+  }
+
+  @include responsive.respond-to('min', '800') {
+    &_title {
+      justify-self: start;  
+    }
+
+  } 
+
+  @include responsive.respond-to('min', '2000') {
+    &_flex-container {      
+      padding: 0 #{font-size.$base * 2};
+    }  
+    &_logo {
+      // margin-left: 28px;
+      width: 80px;
+      height: 80px;
+    }
+    &_title {
+      font-size: #{font-size.$medium * 2 }px;
+    }
+  } 
+
+}
+
+

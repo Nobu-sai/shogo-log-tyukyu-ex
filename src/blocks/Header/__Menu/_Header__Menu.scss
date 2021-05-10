@@ -1,0 +1,71 @@
+@use '../../../utilities/responsive';
+@use '../../../utilities/variables/font-size';
+
+
+.header__menu {
+
+  @include responsive.respond-to('min', '200') {
+    &_grid-container {
+      height: 100%;
+      display: grid;
+      grid-template: 
+      [row1-start] "oheya" 30% [row1-end]
+      [row2-start] "oryori" 30% [row2-end]
+      [row3-start] "onsen" 30% [row3-end]
+      / 100%; 
+            
+      place-content: center center;
+      place-items: center center;
+    }
+
+    &_oheya {
+      grid-area: oheya;
+    }
+    &_oryori {
+      grid-area: oryori;
+    }
+    &_onsen {
+      grid-area: onsen;
+    }
+
+    &_grid-item {
+      font-size: #{font-size.$medium}px;
+    }
+  }
+
+  @include responsive.respond-to('min', '600') {
+
+    &_grid-container {
+
+      grid-template: 
+      [row1-start] "oheya oryori onsen" 100% [row1-end]            
+      / 20% 20% 20%;
+
+      justify-content: start;
+      justify-items: start;    
+    } 
+
+    &_grid-item {
+      font-size: #{font-size.$base}px;
+    }
+  } 
+  @include responsive.respond-to('min', '800') {
+
+    &_grid-container {
+
+      grid-template: 
+      [row1-start] "oheya oryori onsen" 100% [row1-end]            
+      / 15% 15% 15%;
+
+      // justify-content: start;
+      // justify-items: start;    
+    }
+  } 
+
+  @include responsive.respond-to('min', '2000') {
+    &_grid-item {
+      font-size: #{font-size.$base * 2}px;
+    }
+  } 
+ 
+}  

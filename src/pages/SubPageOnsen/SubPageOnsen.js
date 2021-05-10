@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class SubPageHotspring extends Component {
+export default class SubPageOnsen extends Component {
   constructor(props) {
     super(props)
 
@@ -30,7 +30,7 @@ export default class SubPageHotspring extends Component {
   render() {
     return (
       <>
-        Hotspring
+        温泉
       </>
     )
   }

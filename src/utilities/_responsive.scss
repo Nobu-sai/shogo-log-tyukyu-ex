@@ -1,8 +1,7 @@
 @use "sass:string";
 
-
-
 $breakpoints: (  
+  '200': (200px),
   '400': (400px),
   '600': (600px),
   '800': (800px),
@@ -23,14 +22,12 @@ $breakpoints: (
   $raw-query: map-get($breakpoints, $breakpoint);
 
 
-  @debug $raw-query;
   @if $raw-query {
     $query: if(
       type-of($raw-query) == 'string',
       unquote($raw-query),
       inspect($raw-query)
     );
-    @debug $query;
 
     $raw-min-max: string.unquote($min-max);
 
@@ -44,5 +41,3 @@ $breakpoints: (
 
 }
   
-// @function unquote-min-max($min-max) {
-//   string.unquote()

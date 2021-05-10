@@ -1,3 +1,336 @@
+@charset "UTF-8";
+.App {
+  font-family: "Times New Roman", "游明朝", "Yu Mincho", "游明朝体", "YuMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif, "Noto Serif JP";
+}
 
+.header {
+  position: relative;
+}
+@media (min-width: 600px) {
+  .header {
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 200px) {
+  .header__contents {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: transform 0.3s;
+    overflow: scroll;
+    z-index: 1000;
+  }
+  .header__contents_black {
+    background-color: #000;
+    opacity: 0.9;
+    color: #fff;
+  }
+  .header__contents_white {
+    background-color: #fff;
+    color: #000;
+  }
+}
+@media (min-width: 200px) and (min-width: 200px) {
+  .header__contents_hide {
+    width: 100vw;
+    transform: translate3d(-100vw, 0, 0);
+  }
+}
+@media (min-width: 200px) and (min-width: 200px) and (min-width: 600px) {
+  .header__contents_hide {
+    transform: translate3d(0vw, 0, 0);
+    overflow: hidden;
+  }
+}
+@media (min-width: 200px) and (min-width: 200px) {
+  .header__contents_show {
+    width: 100vw;
+    transform: translate3d(0vw, 0, 0);
+    overflow: hidden;
+  }
+}
+@media (min-width: 200px) {
+  .header__contents_grid-container {
+    display: grid;
+    grid-template: [row1-start] "main" 30% [row1-end] [row2-start] "menu" 30% [row2-end] [row3-start] "reservation" 30% [row3-end]/auto;
+    place-content: center center;
+    place-items: center center;
+  }
+}
+@media (min-width: 200px) {
+  .header__contents_main {
+    grid-area: main;
+  }
+}
+@media (min-width: 200px) {
+  .header__contents_menu {
+    grid-area: menu;
+  }
+}
+@media (min-width: 200px) {
+  .header__contents_reservation {
+    grid-area: reservation;
+  }
+}
+@media (min-width: 200px) {
+  .header__contents_grid-item {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (min-width: 600px) {
+  .header__contents {
+    height: 70px;
+  }
+  .header__contents_grid-container {
+    grid-template: [row1-start] "main menu reservation" 100% [row1-end]/30% 50% 20%;
+  }
+}
+@media (min-width: 1000px) {
+  .header__contents_grid-container {
+    grid-template: [row1-start] "main menu reservation" 100% [row1-end]/20% 60% 20%;
+  }
+}
+@media (min-width: 2000px) {
+  .header__contents {
+    height: 140px;
+  }
+}
+
+@media (min-width: 200px) {
+  .header__main {
+    height: 100%;
+  }
+  .header__main_contents-color-white {
+    color: #fff;
+  }
+  .header__main_contents-color-black {
+    color: #000;
+  }
+  .header__main_flex-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .header__main_logo {
+    width: 80px;
+    height: 80px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .header__main_logo_color-white {
+    background-image: url(./assets/images/sakura-logo-white.png);
+  }
+  .header__main_logo_color-black {
+    background-image: url(./assets/images/sakura-logo-black.png);
+  }
+  .header__main_title {
+    margin-top: 24px;
+    font-size: 32px;
+  }
+}
+@media (min-width: 600px) {
+  .header__main_flex-container {
+    padding: 0 14px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+  }
+  .header__main_logo {
+    width: 40px;
+    height: 40px;
+  }
+  .header__main_title {
+    margin: 0;
+    margin-left: 14px;
+    font-size: 22px;
+  }
+}
+@media (min-width: 800px) {
+  .header__main_title {
+    justify-self: start;
+  }
+}
+@media (min-width: 2000px) {
+  .header__main_flex-container {
+    padding: 0 28;
+  }
+  .header__main_logo {
+    width: 80px;
+    height: 80px;
+  }
+  .header__main_title {
+    font-size: 44px;
+  }
+}
+
+@media (min-width: 200px) {
+  .header__menu_grid-container {
+    height: 100%;
+    display: grid;
+    grid-template: [row1-start] "oheya" 30% [row1-end] [row2-start] "oryori" 30% [row2-end] [row3-start] "onsen" 30% [row3-end]/100%;
+    place-content: center center;
+    place-items: center center;
+  }
+  .header__menu_oheya {
+    grid-area: oheya;
+  }
+  .header__menu_oryori {
+    grid-area: oryori;
+  }
+  .header__menu_onsen {
+    grid-area: onsen;
+  }
+  .header__menu_grid-item {
+    font-size: 22px;
+  }
+}
+@media (min-width: 600px) {
+  .header__menu_grid-container {
+    grid-template: [row1-start] "oheya oryori onsen" 100% [row1-end]/20% 20% 20%;
+    justify-content: start;
+    justify-items: start;
+  }
+  .header__menu_grid-item {
+    font-size: 14px;
+  }
+}
+@media (min-width: 800px) {
+  .header__menu_grid-container {
+    grid-template: [row1-start] "oheya oryori onsen" 100% [row1-end]/15% 15% 15%;
+  }
+}
+@media (min-width: 2000px) {
+  .header__menu_grid-item {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 200px) {
+  .header__reservation {
+    height: 100%;
+    color: #fff;
+  }
+  .header__reservation_button {
+    width: 200px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #988f10;
+    transition: all 0.4s ease;
+  }
+  .header__reservation_button:hover {
+    background-color: #aaa346;
+  }
+  .header__reservation_calendar-icon {
+    width: 32px;
+    height: 32px;
+    background-position: center;
+    background-size: contain;
+    background-image: url(./assets/images/calendar-icon.png);
+  }
+  .header__reservation_title {
+    margin-left: 14px;
+    font-size: 22px;
+  }
+}
+@media (min-width: 600px) {
+  .header__reservation {
+    padding: 0 14px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .header__reservation_button {
+    width: 150px;
+  }
+  .header__reservation_calendar-icon {
+    width: 14px;
+    height: 14px;
+  }
+  .header__reservation_title {
+    font-size: 14px;
+  }
+}
+@media (min-width: 2000px) {
+  .header__reservation {
+    padding: 0 28px;
+  }
+  .header__reservation_button {
+    width: 300px;
+    height: 96px;
+  }
+  .header__reservation_calendar-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .header__reservation_title {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 200px) {
+  .header__button_open {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 14px;
+    height: 14px;
+    color: #505050;
+    outline: none;
+    transition: all 0.2s cubic-bezier(0, 1.26, 0.8, 1.28);
+  }
+}
+@media (min-width: 200px) and (min-width: 200px) {
+  .header__button_open:hover {
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+  }
+}
+@media (min-width: 200px) and (min-width: 200px) {
+  .header__button_open:active {
+    color: black;
+  }
+}
+@media (min-width: 600px) {
+  .header__button_open {
+    right: -100px;
+  }
+}
+
+.header__button_close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+.header__button_close_color-white {
+  color: #fff;
+}
+.header__button_close_color-black {
+  color: #000;
+}
+@media (min-width: 600px) {
+  .header__button_close {
+    right: -100px;
+  }
+}
+
+.link {
+  color: #FFF;
+  text-decoration: none;
+}
+.link:hover {
+  font-weight: bold;
+}
+.link_black {
+  color: #000;
+}
 
 /*# sourceMappingURL=main.css.map */

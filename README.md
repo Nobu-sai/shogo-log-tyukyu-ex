@@ -5,7 +5,7 @@
 ## File Structure
 ## Styles (How to use, SASS Partials, and so on.)
 ## Blocks
-## Create React App
+## Create React App (like scripts)
 
 
 
@@ -41,7 +41,7 @@
 
 
 # /////////////////////////////////////////////
-# Create React App
+# Create React App (like scripts)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

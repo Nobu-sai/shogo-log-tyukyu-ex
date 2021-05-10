@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class SubPageFood extends Component {
+export default class SubPageOheya extends Component {
   constructor(props) {
     super(props)
 
@@ -30,7 +30,8 @@ export default class SubPageFood extends Component {
   render() {
     return (
       <>
-        Food
+        お部屋
+        
       </>
     )
   }

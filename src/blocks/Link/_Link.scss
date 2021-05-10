@@ -1,0 +1,14 @@
+
+.link {
+  color: #FFF;
+  text-decoration: none;
+  &:hover {
+    font-weight: bold;
+  }
+  &_black {
+    color: #000;
+
+  }
+}
+
+

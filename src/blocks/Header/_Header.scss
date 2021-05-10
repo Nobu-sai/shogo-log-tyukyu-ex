@@ -1,0 +1,9 @@
+@use '../../utilities/responsive';
+
+.header {
+  position: relative;
+  @include responsive.respond-to('min', '600') {
+    overflow: hidden;
+    // Hide the Header__Button_Open which is placed right: -100 when the screen is larger than 600px
+  } 
+}

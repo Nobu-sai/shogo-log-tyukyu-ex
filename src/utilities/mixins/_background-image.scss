@@ -1,0 +1,16 @@
+@use 'sass:list';
+
+@mixin background-image($img-name) {
+
+  $png-images: 'sakura-logo-white' 'sakura-logo-black' 'calendar-icon' 'calendar-icon-black' 'map' 'map@2x';
+ 
+  @if list.index($png-images, $img-name) {
+
+    background-image: url(./assets/images/#{$img-name}.png);
+
+  } @else {
+
+    background-image: url(./assets/images/#{$img-name}.jpg);
+    
+  }
+}

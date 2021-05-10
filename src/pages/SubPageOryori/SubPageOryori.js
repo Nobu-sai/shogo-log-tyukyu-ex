@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class SubPageRoom extends Component {
+export default class SubPageOryori extends Component {
   constructor(props) {
     super(props)
 
@@ -30,8 +30,7 @@ export default class SubPageRoom extends Component {
   render() {
     return (
       <>
-        Room
-        
+        お料理
       </>
     )
   }

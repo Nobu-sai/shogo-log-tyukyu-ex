@@ -1,0 +1,36 @@
+@use '../../../../utilities/responsive';
+
+
+.header__button_open {
+    @include responsive.respond-to('min', '200') {
+      position: absolute;
+      // Absolte to Header Block
+      top: 14px;
+      right: 14px;
+      // border: 2px solid #0065A6;
+      // border-radius: 50%;
+      width: 14px;
+      height: 14px;
+
+      // background-color:cadetblue;
+      // background-color: #96D9FF;
+      color: rgb(80, 80, 80);
+      outline: none;
+      transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);
+
+      &:hover {
+        @include responsive.respond-to('min', '200') { 
+          cursor: pointer;
+          transform: scale(1.2, 1.2);
+        }
+      }
+      &:active {
+        @include responsive.respond-to('min', '200') { 
+          color: hsla(0, 0%, 0%);
+        }  
+      }
+    }
+    @include responsive.respond-to('min', '600') {
+      right: -100px;
+    } 
+  }
