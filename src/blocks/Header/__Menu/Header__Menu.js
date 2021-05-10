@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 // import { withRouter } from "react-router";
 
-export default class Header_Menu extends Component {
+export default class HeaderMenu extends Component {
   constructor(props) {
     super(props)
 
@@ -16,11 +16,11 @@ export default class Header_Menu extends Component {
 
   render() {
     
-    const {
-      props: {
-      }
+    // const {
+    //   props: {
+    //   }
     
-    } = this;
+    // } = this;
 
 
     return (

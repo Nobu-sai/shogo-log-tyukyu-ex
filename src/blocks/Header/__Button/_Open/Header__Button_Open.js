@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 
-export default class Header__Button_Open extends Component {
+export default class HeaderButtonOpen extends Component {
   constructor(props) {
     super(props)
 

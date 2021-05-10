@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import CloseIcon from '@material-ui/icons/Close';
 
-export default class Header__Button_Close extends Component {
+ export default class HeaderButtonClose extends Component {
   constructor(props) {
     super(props)
 

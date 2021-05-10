@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from "react-router";
 
-import Header__Contents from './__Contents/Header__Contents';
-import Header__Button_Open from './__Button/_Open/Header__Button_Open';
+import HeaderContents from './__Contents/Header__Contents';
+import HeaderButtonOpen from './__Button/_Open/Header__Button_Open';
 
 
 class Header extends Component {
@@ -38,7 +38,7 @@ class Header extends Component {
 
   setHeaderColor() {
     let headerColor = 'black';
-    if(this.props.location.pathname == "/") {     
+    if(this.props.location.pathname === "/") {     
       // When the path is the home. 
       headerColor = 'black';
     } else {
@@ -72,14 +72,14 @@ class Header extends Component {
     return (
       <div className="header">
      
-        <Header__Contents 
+        <HeaderContents 
           handleOnClick={this.handleOnClick}
           menuVisibility={this.state.menuVisibility}
           headerColor={this.setHeaderColor()}
           contentsColor={this.setContentsColor()}
         />
           {/* All the LAYOUT like Grid go here */}
-        <Header__Button_Open 
+        <HeaderButtonOpen 
           handleOnClick={this.handleOnClick}
           contentsColor={this.setContentsColor()}
         />

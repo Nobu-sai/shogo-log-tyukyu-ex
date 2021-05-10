@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { withRouter } from "react-router";
 
 // Components
-import Header__Main from '../__Main/Header__Main';
-import Header__Menu from '../__Menu/Header__Menu';
-import Header__Reservation from '../__Reservation/Header__Reservation';
-import Header__Button_Close from '../__Button/_Close/Header__Button_Close';
+import HeaderMain from '../__Main/Header__Main';
+import HeaderMenu from '../__Menu/Header__Menu';
+import HeaderReservation from '../__Reservation/Header__Reservation';
+import HeaderButtonClose from '../__Button/_Close/Header__Button_Close';
 // Liberaries
 
-class Header__Contents extends Component {
+class HeaderContents extends Component {
   constructor(props) {
     super(props)
 
@@ -21,11 +21,11 @@ class Header__Contents extends Component {
   render() {
 
 
-    const {
-      props: {
-      }
+    // const {
+    //   props: {
+    //   }
     
-    } = this;
+    // } = this;
 
     let menuVisibility = "hide";
  
@@ -56,12 +56,12 @@ class Header__Contents extends Component {
           className="header__contents_grid-item header-contents__grid-item header__contents_main"
           onClick={this.props.handleOnClick}
         >
-          <Header__Main contentsColor={this.props.contentsColor}/>
+          <HeaderMain contentsColor={this.props.contentsColor}/>
         </div>
 
         <div 
           className="header__contents_grid-item header__contents_grid-item header__contents_menu">          
-          <Header__Menu 
+          <HeaderMenu 
             handleOnClick={this.props.handleOnClick}
             contentsColor={this.props.contentsColor}
           />
@@ -69,11 +69,11 @@ class Header__Contents extends Component {
 
         <div 
           className="header__contents_grid-item header__contents_reservation">
-            <Header__Reservation contentsColor={this.props.contentsColor}/>
+            <HeaderReservation contentsColor={this.props.contentsColor}/>
         </div>
 
         <div>
-          <Header__Button_Close 
+          <HeaderButtonClose 
             handleOnClick={this.props.handleOnClick}
             contentsColor={this.props.contentsColor}
           />
@@ -85,4 +85,4 @@ class Header__Contents extends Component {
   }
 }
 
-export default withRouter(Header__Contents);
+export default withRouter(HeaderContents);
