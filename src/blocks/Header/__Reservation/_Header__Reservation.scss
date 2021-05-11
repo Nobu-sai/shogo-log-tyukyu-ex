@@ -20,7 +20,7 @@
 
 
     &_button {
-      // padding: 8px 32px;
+      padding: 8px 0;
       width: 200px;
       height: 48px;
       
@@ -28,6 +28,7 @@
       align-items: center;
       justify-content: center;
       background-color: #{base-color.$yellow};
+      opacity: 1;
       transition: all .4s ease;
 
       &:hover {
@@ -57,6 +58,7 @@
     align-items: center;
 
     &_button {
+      padding: 0;
       width: 150px;
     }
 

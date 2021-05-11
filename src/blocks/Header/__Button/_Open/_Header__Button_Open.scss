@@ -12,11 +12,15 @@
       width: 14px;
       height: 14px;
 
-      // background-color:cadetblue;
-      // background-color: #96D9FF;
-      color: rgb(80, 80, 80);
       outline: none;
       transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);
+
+      &_color_white {
+        color: #fff;
+      }
+      &_color_black {
+        color: #000;
+      }
 
       &:hover {
         @include responsive.respond-to('min', '200') { 

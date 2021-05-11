@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-// Page Components
+
+import HomeTopMainpicture from './HomeTop/__MainPicture/HomeTop__MainPicture';
+
 export default class Home extends Component {
   constructor(props) {
     super(props)
@@ -13,11 +15,9 @@ export default class Home extends Component {
 
   render() {
     return (
-      <>
-        {/* Grid Layout */}
-        Home
-  
-      </>
+      <div className="home">
+        <HomeTopMainpicture />
+      </div>        
     )
   }
 }

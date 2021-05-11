@@ -1,0 +1,81 @@
+@use './../../../../utilities/responsive';
+@use './../../../../utilities/mixins/background-image';
+@use './../../../../utilities/variables/font-size';
+
+
+
+.home-top__main-picture {
+  width: 100vw;
+  height: 50vh;
+  @include background-image.background-image('mainbg01');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #fff;
+
+  
+  
+  
+  @include responsive.respond-to('min', '200') {
+    &_flex-container {
+      display: flex;
+      align-items: center;
+    }
+    &_flex-item {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: start;
+      justify-content: center;
+      
+    }
+    &_text {       
+      padding-top: 100px;          
+      padding-left: 60px;
+      writing-mode: vertical-rl;
+      font-size: #{font-size.$medium}px;
+
+    }
+  }
+  @include responsive.respond-to('min', '600') {
+    height: 100vh;
+    
+    &_flex-item {
+      height: 50%;
+      align-items: center;;
+    }
+
+    &_text {            
+      padding-top: 0;
+      font-size: #{font-size.$medium + 4}px;
+
+    }
+  
+  }
+
+  @include responsive.respond-to('min', '800') {
+    &_text {             
+      padding-left: 0;
+    }
+  }
+  @include responsive.respond-to('min', '1000') {
+    &_text {             
+      padding-right: 60px;
+    }
+  
+  }
+  @include responsive.respond-to('min', '1400') {
+    &_text {             
+      padding-right: 120px;
+    }
+  
+  }
+  @include responsive.respond-to('min', '2000') {
+    &_text {      
+      font-size: #{(font-size.$medium + 4) * 2}px;
+
+    }
+  
+  }
+}

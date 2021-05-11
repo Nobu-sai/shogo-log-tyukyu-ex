@@ -18,7 +18,7 @@ export default class HeaderButtonOpen extends Component {
       
       <div>
         <MenuOpenIcon 
-          className="header__button_open"
+          className={`header__button_open header__button_open_color_${this.props.contentsColor}`}
           onClick={this.props.handleOnClick}
         /> 
       </div>

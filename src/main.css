@@ -224,12 +224,14 @@
     color: #fff;
   }
   .header__reservation_button {
+    padding: 8px 0;
     width: 200px;
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #988f10;
+    opacity: 1;
     transition: all 0.4s ease;
   }
   .header__reservation_button:hover {
@@ -255,6 +257,7 @@
     align-items: center;
   }
   .header__reservation_button {
+    padding: 0;
     width: 150px;
   }
   .header__reservation_calendar-icon {
@@ -289,9 +292,14 @@
     right: 14px;
     width: 14px;
     height: 14px;
-    color: #505050;
     outline: none;
     transition: all 0.2s cubic-bezier(0, 1.26, 0.8, 1.28);
+  }
+  .header__button_open_color_white {
+    color: #fff;
+  }
+  .header__button_open_color_black {
+    color: #000;
   }
 }
 @media (min-width: 200px) and (min-width: 200px) {
@@ -543,6 +551,68 @@
 }
 .link_color_black {
   color: #000;
+}
+
+.home-top__main-picture {
+  width: 100vw;
+  height: 50vh;
+  background-image: url(./assets/images/mainbg01.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+@media (min-width: 200px) {
+  .home-top__main-picture_flex-container {
+    display: flex;
+    align-items: center;
+  }
+  .home-top__main-picture_flex-item {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+  }
+  .home-top__main-picture_text {
+    padding-top: 100px;
+    padding-left: 60px;
+    writing-mode: vertical-rl;
+    font-size: 22px;
+  }
+}
+@media (min-width: 600px) {
+  .home-top__main-picture {
+    height: 100vh;
+  }
+  .home-top__main-picture_flex-item {
+    height: 50%;
+    align-items: center;
+  }
+  .home-top__main-picture_text {
+    padding-top: 0;
+    font-size: 26px;
+  }
+}
+@media (min-width: 800px) {
+  .home-top__main-picture_text {
+    padding-left: 0;
+  }
+}
+@media (min-width: 1000px) {
+  .home-top__main-picture_text {
+    padding-right: 60px;
+  }
+}
+@media (min-width: 1400px) {
+  .home-top__main-picture_text {
+    padding-right: 120px;
+  }
+}
+@media (min-width: 2000px) {
+  .home-top__main-picture_text {
+    font-size: 52px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
