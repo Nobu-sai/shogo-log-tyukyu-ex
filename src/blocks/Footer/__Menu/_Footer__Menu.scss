@@ -1,0 +1,53 @@
+@use '../../../utilities/responsive';
+@use '../../../utilities/variables/font-size';
+
+// Rules
+  // .footer__menu_grid-container/Row Height (grid-template-rows)
+  // = The HALF of the height of footer_grid-item_menu.
+
+
+.footer__menu {
+  @include responsive.respond-to('min', '200') {
+    width: 100%;
+    height: 100%;
+    font-size: #{font-size.$base}px;
+
+    display: flex;
+    justify-content: center;
+
+    &_grid-container {
+      width: 200px;
+      height: 100%;
+      // background-color: cadetblue;
+
+      display: grid;
+      grid-template-columns: repeat(3, 15%);
+      grid-template-rows: 45px;
+    
+      
+      place-content:  center center;
+      place-items: start center;
+    }
+
+    &_grid-item {
+      writing-mode: vertical-rl; 
+    }
+  }
+  @include responsive.respond-to('min', '2000') {
+    &_grid-container {
+      width: 400px;
+      grid-template-rows: 75px; 
+    }
+  }
+
+  @include responsive.respond-to('min', '2000') {
+    font-size: #{font-size.$base * 2}px;
+    &_grid-container {
+      width: 800px;
+      grid-template-rows: 150px; 
+    }
+  }
+
+
+  
+}
