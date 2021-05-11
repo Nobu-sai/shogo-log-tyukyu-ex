@@ -2,11 +2,12 @@
 
 @mixin background-image($img-name) {
 
-  $png-images: 'sakura-logo-white' 'sakura-logo-black' 'calendar-icon' 'calendar-icon-black' 'map' 'map@2x';
+  $png-images: 'sakura-logo-black' 'sakura-logo-white' 'sakura-logo-skelton-black' 'calendar-icon' 'calendar-icon-black' 'map' 'map@2x';
  
   @if list.index($png-images, $img-name) {
 
     background-image: url(./assets/images/#{$img-name}.png);
+    
 
   } @else {
 

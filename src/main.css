@@ -104,10 +104,10 @@
   .header__main {
     height: 100%;
   }
-  .header__main_contents-color-white {
+  .header__main_contents-color_white {
     color: #fff;
   }
-  .header__main_contents-color-black {
+  .header__main_contents-color_black {
     color: #000;
   }
   .header__main_flex-container {
@@ -124,16 +124,22 @@
     background-size: contain;
     background-repeat: no-repeat;
   }
-  .header__main_logo_color-white {
+  .header__main_logo_color_white {
     background-image: url(./assets/images/sakura-logo-white.png);
   }
-  .header__main_logo_color-black {
+  .header__main_logo_color_black {
     background-image: url(./assets/images/sakura-logo-black.png);
   }
-  .header__main_title {
-    margin-top: 24px;
-    font-size: 32px;
-  }
+}
+.header__main_title {
+  margin-top: 24px;
+  font-size: 32px;
+}
+.header__main_title_color_black {
+  color: #000;
+}
+.header__main_title_color_white {
+  color: #fff;
 }
 @media (min-width: 600px) {
   .header__main_flex-container {
@@ -322,6 +328,212 @@
   }
 }
 
+@media (min-width: 200px) {
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 300px;
+    background-color: burlywood;
+    background-image: url(./assets/images/bg3.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  .footer_grid-container {
+    width: 100%;
+    display: grid;
+    grid-template: [row1-start] "menu" 30% [row1-end] [row2-start] "main" 30% [row2-end] [row3-start] "info" 25% [row3-end] [row4-start] "copy-right" 15% [row4-end]/100%;
+    place-content: center center;
+    place-items: center center;
+  }
+  .footer_grid-item {
+    width: 100%;
+    height: 100%;
+  }
+  .footer_menu {
+    grid-area: menu;
+  }
+  .footer_main {
+    grid-area: main;
+  }
+  .footer_info {
+    grid-area: info;
+  }
+  .footer_copy-right {
+    grid-area: copy-right;
+  }
+}
+@media (min-width: 600px) {
+  .footer {
+    height: 500px;
+  }
+}
+@media (min-width: 2000px) {
+  .footer {
+    height: 1000px;
+    background-image: url(./assets/images/bg3@2x.jpg);
+  }
+}
+
+@media (min-width: 200px) {
+  .footer__menu {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+  }
+  .footer__menu_grid-container {
+    width: 200px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 15%);
+    grid-template-rows: 45px;
+    place-content: center center;
+    place-items: start center;
+  }
+  .footer__menu_grid-item {
+    writing-mode: vertical-rl;
+  }
+}
+@media (min-width: 2000px) {
+  .footer__menu_grid-container {
+    width: 400px;
+    grid-template-rows: 75px;
+  }
+}
+@media (min-width: 2000px) {
+  .footer__menu {
+    font-size: 28px;
+  }
+  .footer__menu_grid-container {
+    width: 800px;
+    grid-template-rows: 150px;
+  }
+}
+
+@media (min-width: 200px) {
+  .footer__main {
+    width: 100%;
+    height: 100%;
+  }
+  .footer__main_flex-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__main_logo {
+    width: 33px;
+    height: 33px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(./assets/images/sakura-logo-skelton-black.png);
+  }
+  .footer__main_title {
+    margin-top: 8px;
+    font-size: 22px;
+  }
+}
+@media (min-width: 2000px) {
+  .footer__main_logo {
+    width: 66px;
+    height: 66px;
+  }
+  .footer__main_title {
+    margin-top: 16px;
+    font-size: 44px;
+  }
+}
+
+.footer__info {
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 200px) {
+  .footer__info {
+    font-size: 12px;
+  }
+  .footer__info_grid-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: [row1-start] "post" 30% [row1-end] [row2-start] "tel" 30% [row2-end] [row3-start] "fax" 30% [row3-end]/90%;
+    place-content: center center;
+    place-items: center center;
+  }
+  .footer__info_grid-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__info_grid-item_post {
+    grid-area: post;
+  }
+  .footer__info_grid-item_post-region {
+    margin-left: 8px;
+  }
+  .footer__info_grid-item_tel {
+    grid-area: tel;
+  }
+  .footer__info_grid-item_fax {
+    grid-area: fax;
+  }
+}
+@media (min-width: 600px) {
+  .footer__info_grid-container {
+    grid-template: [row1-start] "post post" 20% [row1-end] [row2-start] "tel fax" 20% [row2-end]/50% 50%;
+    column-gap: 14px;
+    place-content: center center;
+    place-items: center center;
+  }
+  .footer__info_grid-item_post-region {
+    margin-left: 14px;
+  }
+  .footer__info_grid-item_tel {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .footer__info_grid-item_fax {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+@media (min-width: 2000px) {
+  .footer__info {
+    font-size: 24px;
+  }
+  .footer__info_grid-container {
+    column-gap: 28px;
+  }
+  .footer__info_grid-item_post-region {
+    margin-left: 28px;
+  }
+}
+
+@media (min-width: 200px) {
+  .footer__copy-right {
+    font-size: 8px;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (min-width: 2000px) {
+  .footer__copy-right {
+    font-size: 16px;
+  }
+}
+
 .link {
   color: #FFF;
   text-decoration: none;
@@ -329,7 +541,7 @@
 .link:hover {
   font-weight: bold;
 }
-.link_black {
+.link_color_black {
   color: #000;
 }
 

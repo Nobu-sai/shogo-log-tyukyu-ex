@@ -9,11 +9,11 @@
   @include responsive.respond-to('min', '200') {
     height: 100%;
 
-    &_contents-color-white {
+    &_contents-color_white {
       color: #fff;
     }
 
-    &_contents-color-black {
+    &_contents-color_black {
       color: #000;
     }
 
@@ -32,12 +32,13 @@
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
-      &_color-white {
-        @include background-image.background-image('sakura-logo-white');
-      }
-      &_color-black {
-        @include background-image.background-image('sakura-logo-black');
+        &_color_white {
+          @include background-image.background-image('sakura-logo-white');
+        }
+        &_color_black {
+          @include background-image.background-image('sakura-logo-black');
 
+        }
       }
     }
 
@@ -45,7 +46,12 @@
     &_title {
       margin-top: 24px;
       font-size: #{font-size.$large}px;
-    }
+      &_color_black {
+        color: #000;        
+      }
+      &_color_white {
+        color: #fff;        
+      }
   }
 
   @include responsive.respond-to('min', '600') {

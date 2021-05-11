@@ -6,6 +6,7 @@ import SubPageOryori from './pages/SubPageOryori/SubPageOryori';
 import SubPageOnsen from './pages/SubPageOnsen/SubPageOnsen';
 // Components for communal parts
 import Header from './blocks/Header/Header';
+import Footer from './blocks/Footer/Footer'
 // Libraries
 import {
   BrowserRouter as Router,
@@ -39,6 +40,8 @@ function App() {
           </Route> 
 
         </Switch>
+
+        <Footer />
 
       </div>
     </Router>
