@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+
+import ScrollingSection from '../../../blocks/SrollingSection/ScrollingSection';
+
 import { Link } from 'react-router-dom';
+import Scrollingsection from '../../../blocks/SrollingSection/ScrollingSection';
 
 export default class Homefeatures extends Component {
   constructor(props) {
@@ -14,8 +18,7 @@ export default class Homefeatures extends Component {
   render() {
     return (
       <div className="home-features">
-        <div className="home-features_scroll-container">
-          <div className="home-features_scroll-contents">
+          <ScrollingSection >
             <div className="home-features_grid-container">
                 <div className="home-features_grid-item home-features_grid-item_picture home-features_grid-item_picture-1"></div>
                 <div className="home-features_grid-item home-features_grid-item_description-1">
@@ -70,8 +73,7 @@ export default class Homefeatures extends Component {
 
                 </div>
             </div>
-          </div>
-        </div>
+          </ ScrollingSection>
       </div>
     )
   }
