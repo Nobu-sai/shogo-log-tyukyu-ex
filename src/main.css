@@ -718,4 +718,176 @@
   }
 }
 
+@media (min-width: 200px) {
+  .home-features {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  .home-features_scroll-container {
+    padding: 40px 0;
+    width: 100%;
+    height: 80%;
+    background-color: black;
+  }
+  .home-features_scroll-contents {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    background-color: #fff;
+  }
+  .home-features_grid-container {
+    width: 100%;
+    height: 200vh;
+    display: grid;
+    grid-template: [row1-start] "picture-1" 30% [row1-end] [row2-start] "description-1" 30% [row1-end] [row3-start] "picture-2" 30% [row3-end] [row4start] "description-2" 30% [row4-end] [row5-start] "picture-3" 30% [row5-end] [row6-start] "description-3" 30% [row6-end]/100%;
+    place-items: center center;
+  }
+  .home-features_grid-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .home-features_grid-item_picture {
+    background-color: black;
+    background-size: contain;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  .home-features_grid-item_picture-1 {
+    grid-area: picture-1;
+    background-image: url(./assets/images/oheya-top.jpg);
+  }
+  .home-features_grid-item_picture-2 {
+    grid-area: picture-2;
+    background-image: url(./assets/images/oryori-top.jpg);
+  }
+  .home-features_grid-item_picture-3 {
+    grid-area: picture-3;
+    background-image: url(./assets/images/onsen-top.jpg);
+  }
+  .home-features_grid-item_description-1 {
+    grid-area: description-1;
+  }
+  .home-features_grid-item_description-2 {
+    grid-area: description-2;
+  }
+  .home-features_grid-item_description-3 {
+    grid-area: description-3;
+  }
+  .home-features__description-container {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: scroll;
+  }
+  .home-features__description-title {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .home-features__description-texts {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 12px;
+  }
+  .home-features__description-button_container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .home-features__description-button {
+    border: 1px solid #707070;
+    padding: 14px 0;
+    width: 100px;
+    text-align: center;
+    font-size: 12px;
+    transition: all 0.4s ease;
+  }
+  .home-features__description-button:hover {
+    background-color: #b3b3b3;
+  }
+}
+@media (min-width: 600px) {
+  .home-features_grid-item_picture {
+    background-size: cover;
+  }
+}
+@media (min-width: 1000px) {
+  .home-features {
+    height: 200vh;
+  }
+  .home-features_scroll-container {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+  }
+  .home-features_scroll-contents {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    overflow: auto;
+  }
+  .home-features_grid-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: [row1-start] "picture-1 picture-1 picture-1  description-1 description-1" 30% [row1-end] [row2-start] "description-2 description-2 picture-2 picture-2 picture-2" 30% [row2-end] [row3-start] "picture-3 picture-3 picture-3 description-3 description-3" 30% [row3-end]/20% 20% 20% 20% 20%;
+    place-content: space-evenly center;
+    place-items: center center;
+  }
+  .home-features_grid-item {
+    width: 100%;
+    height: 100%;
+  }
+  .home-features_grid-item_picture {
+    background-color: transparent;
+    background-position: center;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+  }
+}
+@media (min-width: 1000px) {
+  .home-features_grid-container {
+    grid-template: [row1-start] "picture-1 picture-1 picture-1  description-1 description-1" 30% [row1-end] [row2-start] "description-2 description-2 picture-2 picture-2 picture-2" 30% [row2-end] [row3-start] "picture-3 picture-3 picture-3 description-3 description-3" 30% [row3-end]/20% 20% 20% 20% 20%;
+  }
+  .home-features__description-title {
+    font-size: 22px;
+  }
+  .home-features__description-texts {
+    font-size: 14px;
+  }
+  .home-features__description-button {
+    padding: 14px 0;
+    width: 200px;
+    font-size: 14px;
+  }
+}
+@media (min-width: 2000px) {
+  .home-features__description-title {
+    font-size: 44px;
+  }
+  .home-features__description-texts {
+    font-size: 28px;
+  }
+  .home-features__description-button {
+    padding: 28px 0;
+    width: 400px;
+    font-size: 28px;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */

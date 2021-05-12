@@ -8,30 +8,68 @@ export default class Homefeatures extends Component {
          
     }
 
-    this.handleEvent = this.handleEvent.bind(this)
   }
-
-  componentDidMount() {
-    
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) { if (prevState.name !== this.state.name) { this.handler() } }
-
-  componentWillUnmount() {
-    
-  }
-
-  // Prototype methods, Bind in Constructor (ES2015)
-  handleEvent() {}
-
-  // Class Properties (Stage 3 Proposal)
-  handler = () => { this.setState() }
 
   render() {
     return (
-      <>
-        {/* Grid Layout */}
-      </>
+      <div className="home-features">
+        <div className="home-features_scroll-container">
+          <div className="home-features_scroll-contents">
+            <div className="home-features_grid-container">
+                <div className="home-features_grid-item home-features_grid-item_picture home-features_grid-item_picture-1"></div>
+                <div className="home-features_grid-item home-features_grid-item_description-1">
+                  <div className="home-features__description-container">
+                    <div className="home-features__description-title">
+                      喧騒から離れた空間<br/>心落ち着く至極のひととき
+                    </div>
+                      <div className="home-features__description-texts">
+                        まるで時が止まったかのような、圧倒的な静寂のなかで、<br/>ひたすらにゆったりと…。<br/>最高級の「何もしない時間」をお過ごしください。
+                      </div>
+                      <div className="home-features__description-button_container">
+                        <div className="home-features__description-button">
+                          お部屋について
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div className="home-features_grid-item home-features_grid-item_picture home-features_grid-item_picture-2"></div>
+                <div className="home-features_grid-item home-features_grid-item_description-2">
+                  <div className="home-features__description-container">
+                    <div className="home-features__description-title">
+                      出迎えるのは<br/>極上の温海料理
+                    </div>
+                      <div className="home-features__description-texts">
+                        最も旬の食材を愉しむ、最高の贅沢を<br/>最高級A5ランクの米沢牛と共に頂く。<br/>あなたの人生史に残る「極上の感動」を<br/>お約束します。
+                      </div>
+                      <div className="home-features__description-button_container">
+                        <div className="home-features__description-button">
+                          お料理について
+                        </div>
+                      </div>
+                  </div>
+
+                </div>
+                <div className="home-features_grid-item home-features_grid-item_picture home-features_grid-item_picture-3"></div>
+                <div className="home-features_grid-item home-features_grid-item_description-3">
+                  <div className="home-features__description-container">
+                    <div className="home-features__description-title">
+                      疲れ切った身体にやすらぎを<br/>温海の源泉に癒やされて
+                    </div>
+                      <div className="home-features__description-texts">
+                        古くは弘法大師の病をも治療したと言われる熱海の泉質。<br/>現代人の疲弊しきった身体を修復する最高級の湯治場として<br/>ご活用ください。
+                      </div>
+                      <div className="home-features__description-button_container">
+                        <div className="home-features__description-button">
+                          お温泉について
+                        </div>
+                      </div>
+                  </div>
+
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
     )
   }
 }

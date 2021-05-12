@@ -1,0 +1,270 @@
+@use '../../../utilities/responsive';
+@use '../../../utilities/mixins/background-image';
+@use '../../../utilities/variables/font-size';
+@use '../../../utilities/variables/base-color';
+
+.home-features {
+  @include responsive.respond-to('min', '200') {
+    width: 100vw;
+    height: 100vh;
+    // background-color: aquamarine;
+    display: flex;
+    align-items: center;
+
+    &_scroll-container {
+      padding: 40px 0;
+      width: 100%;
+      height: 80%;
+      background-color: rgb(0, 0, 0);
+    }
+    &_scroll-contents {
+      width: 100%;
+      height: 100%;
+      // background-color: darkturquoise;
+      overflow: scroll;
+      background-color: #fff;
+    }
+
+    &_grid-container {
+      width: 100%;
+      height: 200vh;
+      // background-color: cadetblue;
+
+      display: grid;      
+        
+      grid-template: 
+      [row1-start] "picture-1" 30% [row1-end]
+      [row2-start] "description-1" 30% [row1-end]
+      [row3-start] "picture-2" 30% [row3-end]
+      [row4start] "description-2" 30% [row4-end]
+      [row5-start] "picture-3" 30% [row5-end]
+      [row6-start] "description-3" 30% [row6-end]
+      / 100%;
+        // * The total HEIGHT EXCEEDES the Grid Container Height.
+  
+          
+      place-items: center center;
+    }
+
+    &_grid-item {
+      width: 100%;
+      height: 100%;
+      // background-color: chartreuse;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // overflow: scroll;
+      &_picture {        
+        // width: 200vw;
+        // height: 100vh;
+        background-color: rgb(0, 0, 0);
+        background-size: contain;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        &-1 {
+          grid-area: picture-1;
+          // background-color: rgb(255, 81, 0);
+          @include background-image.background-image('oheya-top');
+        }
+        &-2 {
+          grid-area: picture-2;
+          // background-color: rgb(253, 131, 75);
+          @include background-image.background-image('oryori-top');
+        }
+        &-3 {
+          grid-area: picture-3;
+          // background-color: rgb(255, 203, 179);
+          @include background-image.background-image('onsen-top');
+          
+        }
+      }
+      &_description {
+        // background-color: darkcyan;
+        &-1 {
+          grid-area: description-1;
+          // background-color: rgb(0, 101, 252);
+        }
+        &-2 {
+          grid-area: description-2;
+          // background-color: rgb(78, 149, 255);
+        }
+        &-3 {
+          grid-area: description-3;
+          // background-color: rgb(163, 200, 255);
+        }
+      }
+    }
+    &__description {
+      &-container {        
+        width: 90%;
+        height: 90%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;        
+        overflow: scroll;
+      }
+      &-title {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: #{font-size.$base + 4}px;
+      }
+      &-texts {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        font-size: #{font-size.$small}px;
+      }
+      &-button_container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+      }
+      &-button {
+        border: 1px solid #{base-color.$gray-dark};
+        padding: 14px 0;
+        width: 100px;
+        
+        text-align: center;
+        font-size: #{font-size.$small}px;
+        transition: all .4s ease;
+        &:hover {
+          background-color: #{base-color.$gray-dark-hover};
+        }
+      }
+    }
+
+  }
+
+  @include responsive.respond-to('min', '600') {
+
+    &_grid-item {     
+      &_picture {     
+        // background-size: contain; -> 
+        background-size: cover;
+          // THe image reaches the ORIGINAL size. 
+      }
+    }
+
+  }
+
+  @include responsive.respond-to('min', '1000') {
+    height: 200vh;
+
+    &_scroll-container {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+    }
+    &_scroll-contents {
+      width: 100%;
+      height: 100%;
+      // background-color: #fff; -> 
+      background-color: transparent;
+      overflow: auto;
+    }
+
+    &_grid-container {
+      width: 100%;
+      height: 100%;
+
+      display: grid;      
+        
+      grid-template: 
+      [row1-start] "picture-1 picture-1 picture-1  description-1 description-1" 30% [row1-end]
+      [row2-start] "description-2 description-2 picture-2 picture-2 picture-2" 30% [row2-end]
+      [row3-start] "picture-3 picture-3 picture-3 description-3 description-3" 30% [row3-end]
+      / 20% 20% 20% 20% 20%;
+    
+      
+      place-content: space-evenly center;
+      place-items: center center;
+    }
+
+    &_grid-item {
+      width: 100%;
+      height: 100%;
+      // overflow: scroll;
+      &_picture {      
+        background-color: transparent;
+        background-position: center;
+        // background-attachment: fixed; -> 
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+      }
+    }
+
+  }
+
+
+  @include responsive.respond-to('min', '1000') {
+
+    &_grid-container {
+        
+      grid-template: 
+      [row1-start] "picture-1 picture-1 picture-1  description-1 description-1" 30% [row1-end]
+      [row2-start] "description-2 description-2 picture-2 picture-2 picture-2" 30% [row2-end]
+      [row3-start] "picture-3 picture-3 picture-3 description-3 description-3" 30% [row3-end]
+      / 20% 20% 20% 20% 20%;
+    
+      
+    }
+
+    &__description {
+      &-container {        
+      }
+      &-title {
+        font-size: #{font-size.$medium}px;
+      }
+      &-texts {
+        font-size: #{font-size.$base}px;
+      }
+      &-button {
+        padding: 14px 0;
+        width: 200px;
+        font-size: #{font-size.$base}px;
+        
+      }
+    }
+
+
+  }
+
+  @include responsive.respond-to('min', '2000') {
+
+    &_grid-container {
+
+    
+      
+    }
+
+    &__description {
+      &-container {        
+      }
+      &-title {
+        font-size: #{font-size.$medium * 2}px;
+      }
+      &-texts {
+        font-size: #{font-size.$base * 2}px;
+      }
+      &-button {
+        padding: 28px 0;
+        width: 400px;
+        font-size: #{font-size.$base * 2}px;
+        
+      }
+    }
+
+
+  }
+
+
+}

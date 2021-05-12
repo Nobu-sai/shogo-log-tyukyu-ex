@@ -1,5 +1,7 @@
 
-$yellow: hsla(56, 81%, 33%, 1);
+$yellow: hsl(56, 81%, 33%);
 $yellow-hover: hsl(56, 42%, 47%);
    
-$gray-dark: hsl(0, 0%, 35%);
+$gray-dark: hsl(0, 0%, 44%);
+  // From Design/Features/border
+$gray-dark-hover: hsl(0, 0%, 70%);  
