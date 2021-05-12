@@ -555,7 +555,7 @@
 
 .home-top__main-picture {
   width: 100vw;
-  height: 50vh;
+  height: 35vh;
   background-image: url(./assets/images/mainbg01.jpg);
   background-size: cover;
   background-position: center;
@@ -575,7 +575,7 @@
     justify-content: center;
   }
   .home-top__main-picture_text {
-    padding-top: 100px;
+    padding-top: 50px;
     padding-left: 60px;
     writing-mode: vertical-rl;
     font-size: 22px;
@@ -610,8 +610,111 @@
   }
 }
 @media (min-width: 2000px) {
+  .home-top__main-picture {
+    background-image: url(./assets/images/mainbg01@2x.jpg);
+  }
   .home-top__main-picture_text {
     font-size: 52px;
+  }
+}
+
+.home-top__messages {
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 200px) {
+  .home-top__messages {
+    width: 100vw;
+    height: 65vh;
+    background-image: url(./assets/images/bg.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  .home-top__messages_flex-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .home-top__messages_flex-item:first-of-type {
+    height: 94%;
+    font-size: 16px;
+    letter-spacing: 8px;
+  }
+  .home-top__messages_flex-item:not(:first-of-type):not(:last-of-type) {
+    height: 76%;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+  .home-top__messages_flex-item:last-of-type {
+    height: 94%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+  }
+  .home-top__messages_contents_padding {
+    padding-top: 48px;
+  }
+  .home-top__messages_number {
+    padding-left: 4px;
+    writing-mode: horizontal-tb;
+  }
+}
+@media (min-width: 600px) {
+  .home-top__messages {
+    height: 100vh;
+  }
+  .home-top__messages_flex-container {
+    width: 70%;
+  }
+  .home-top__messages_flex-item:first-of-type {
+    height: 60%;
+  }
+  .home-top__messages_flex-item:not(:first-of-type):not(:last-of-type) {
+    padding-top: 90px;
+    height: 60%;
+  }
+  .home-top__messages_flex-item:last-of-type {
+    height: 80%;
+  }
+}
+@media (min-width: 1000px) {
+  .home-top__messages_flex-item:first-of-type {
+    font-size: 22px;
+  }
+  .home-top__messages_flex-item:not(:first-of-type):not(:last-of-type) {
+    height: 56%;
+    font-size: 14px;
+  }
+  .home-top__messages_flex-item:last-of-type {
+    height: 80%;
+    font-size: 18px;
+  }
+  .home-top__messages_contents_padding {
+    padding-top: 60px;
+  }
+}
+@media (min-width: 2000px) {
+  .home-top__messages {
+    background-image: url(./assets/images/bg@2x.jpg);
+  }
+  .home-top__messages_flex-item:first-of-type {
+    font-size: 44px;
+    letter-spacing: 16px;
+  }
+  .home-top__messages_flex-item:not(:first-of-type):not(:last-of-type) {
+    height: 48%;
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+  .home-top__messages_flex-item:last-of-type {
+    font-size: 36px;
+  }
+  .home-top__messages_contents_padding {
+    padding-top: 120px;
   }
 }
 

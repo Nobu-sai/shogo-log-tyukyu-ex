@@ -3,10 +3,13 @@
 @use './../../../../utilities/variables/font-size';
 
 
+// home-top__main-picture
+  // = The rest of height is in home-top__main-picture Block.
 
 .home-top__main-picture {
   width: 100vw;
-  height: 50vh;
+  height: 35vh;
+    // The rest of height is in home-top__messages Block.
   @include background-image.background-image('mainbg01');
   background-size: cover;
   background-position: center;
@@ -31,7 +34,7 @@
       
     }
     &_text {       
-      padding-top: 100px;          
+      padding-top: 50px;          
       padding-left: 60px;
       writing-mode: vertical-rl;
       font-size: #{font-size.$medium}px;
@@ -43,7 +46,7 @@
     
     &_flex-item {
       height: 50%;
-      align-items: center;;
+      align-items: center;
     }
 
     &_text {            
@@ -54,12 +57,15 @@
   
   }
 
+
+
   @include responsive.respond-to('min', '800') {
     &_text {             
       padding-left: 0;
     }
   }
-  @include responsive.respond-to('min', '1000') {
+  @include responsive.respond-to('min', '1000') {    
+
     &_text {             
       padding-right: 60px;
     }
@@ -72,6 +78,7 @@
   
   }
   @include responsive.respond-to('min', '2000') {
+    @include background-image.background-image('mainbg01@2x');
     &_text {      
       font-size: #{(font-size.$medium + 4) * 2}px;
 

@@ -1,9 +1,9 @@
 import './main.css';
 // Components for Site Pages
 import Home from './pages/Home/Home.js'
-import SubPageOheya from './pages/SubPageOheya/SubPageOheya';
-import SubPageOryori from './pages/SubPageOryori/SubPageOryori';
-import SubPageOnsen from './pages/SubPageOnsen/SubPageOnsen';
+import SubPageOheya from './pages/SubPage/SubPageOheya/SubPageOheya';
+import SubPageOryori from './pages/SubPage/SubPageOryori/SubPageOryori';
+import SubPageOnsen from './pages/SubPage/SubPageOnsen/SubPageOnsen';
 // Components for communal parts
 import Header from './blocks/Header/Header';
 import Footer from './blocks/Footer/Footer'
