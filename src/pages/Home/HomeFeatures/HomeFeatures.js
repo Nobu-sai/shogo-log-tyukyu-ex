@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import ScrollingSection from '../../../blocks/SrollingSection/ScrollingSection';
 
 import { Link } from 'react-router-dom';
-import Scrollingsection from '../../../blocks/SrollingSection/ScrollingSection';
 
 export default class Homefeatures extends Component {
   constructor(props) {

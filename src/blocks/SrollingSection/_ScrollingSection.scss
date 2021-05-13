@@ -1,4 +1,5 @@
 @use '../../utilities/responsive';
+@use '../../utilities/variables/base-color';
 
 
 .scrolling-section {
@@ -10,15 +11,25 @@
 
   @include responsive.respond-to('min', '200') {
     &__container {
-      padding: 20px 0;
+      border: 20px solid #000;
+      // padding: 20px 0;
       width: 100%;
-      height: 80%;
-      background-color: rgb(0, 0, 0);
+      height: 96%;
+      // background-color: rgb(0, 0, 0);    
+      // background-color: transparent;
+      display: flex;
+      // &_background-color_black {
+      //   background-color: rgb(0, 0, 0);    
+      // } 
+      // &_background-color_transparent {
+      //   background-color: transparent;
+      // }
   }
-    &__contents {
+    &__contents {      
       width: 100%;
       height: 100%;
-      background-color: #fff;
+      // background-color: #fff;
+      background-color: transparent;
       overflow: scroll;
     }
 
@@ -26,7 +37,8 @@
 
   @include responsive.respond-to('min', '1000') {
     &__container {
-      padding: 0;
+      border: none;
+      // padding: 0;
       width: 100%;
       height: 100%;
       background-color: transparent;
@@ -37,6 +49,9 @@
       // background-color: #fff; -> 
       background-color: transparent;
       overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
   }

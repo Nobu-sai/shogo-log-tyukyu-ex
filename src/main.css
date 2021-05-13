@@ -561,21 +561,21 @@
 }
 @media (min-width: 200px) {
   .scrolling-section__container {
-    padding: 20px 0;
+    border: 20px solid #000;
     width: 100%;
-    height: 80%;
-    background-color: black;
+    height: 96%;
+    display: flex;
   }
   .scrolling-section__contents {
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    background-color: transparent;
     overflow: scroll;
   }
 }
 @media (min-width: 1000px) {
   .scrolling-section__container {
-    padding: 0;
+    border: none;
     width: 100%;
     height: 100%;
     background-color: transparent;
@@ -585,6 +585,9 @@
     height: 100%;
     background-color: transparent;
     overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -822,7 +825,7 @@
     font-size: 12px;
   }
   .home-features__description-button {
-    border: 1px solid #707070;
+    border: 1px solid #666666;
     padding: 14px 0;
     width: 100px;
     font-size: 12px;
@@ -830,7 +833,7 @@
     color: #000;
   }
   .home-features__description-button:hover {
-    background-color: #707070;
+    background-color: #666666;
     color: #fff;
   }
 }
@@ -897,6 +900,147 @@
   .home-features__description-button {
     padding: 28px 0;
     width: 400px;
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 200px) {
+  .home-recommended {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(./assets/images/bg02.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .home-recommended__heading {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-recommended__heading-logo {
+    height: 32px;
+    width: 32px;
+    background-image: url(./assets/images/sakura-logo-skelton-black.png);
+    background-size: cover;
+    background-position: center;
+  }
+  .home-recommended__heading-title {
+    margin-top: 14px;
+    font-size: 22px;
+  }
+  .home-recommended__plans-container {
+    width: 100%;
+    height: 70%;
+  }
+  .home-recommended__plans {
+    width: 100%;
+    height: 1800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .home-recommended__plan {
+    width: 50%;
+    min-width: 300px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .home-recommended__plan-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-recommended__plan-picture {
+    width: 100%;
+    height: 50%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .home-recommended__plan-picture_1 {
+    background-image: url(./assets/images/recommended01.jpg);
+  }
+  .home-recommended__plan-picture_2 {
+    background-image: url(./assets/images/recommended02.jpg);
+  }
+  .home-recommended__plan-picture_3 {
+    background-image: url(./assets/images/recommended03.jpg);
+  }
+  .home-recommended__plan-title {
+    width: 100%;
+    font-size: 18px;
+  }
+  .home-recommended__plan-description {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+@media (min-width: 1000px) {
+  .home-recommended {
+    margin-top: 100px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .home-recommended__heading {
+    height: 20%;
+  }
+  .home-recommended__heading-logo {
+    height: 38px;
+    width: 38px;
+  }
+  .home-recommended__heading-title {
+    margin-top: 14px;
+    font-size: 30px;
+  }
+  .home-recommended__plans-container {
+    height: 60%;
+  }
+  .home-recommended__plans {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .home-recommended__plan {
+    width: 20%;
+    min-width: 300px;
+    height: 60%;
+    min-height: 400px;
+  }
+  .home-recommended__plan-contents {
+    align-items: flex-start;
+  }
+}
+@media (min-width: 2000px) {
+  .home-recommended {
+    margin-top: 200px;
+  }
+  .home-recommended__heading-logo {
+    height: 64px;
+    width: 64px;
+  }
+  .home-recommended__heading-title {
+    margin-top: 28px;
+    font-size: 44px;
+  }
+  .home-recommended__plan-title {
+    font-size: 36px;
+  }
+  .home-recommended__plan-description {
     font-size: 28px;
   }
 }
