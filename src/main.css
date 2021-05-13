@@ -338,8 +338,6 @@
 
 @media (min-width: 200px) {
   .footer {
-    position: fixed;
-    bottom: 0;
     width: 100vw;
     height: 300px;
     background-color: burlywood;

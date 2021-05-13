@@ -4,6 +4,7 @@ import HomeTopMainpicture from './HomeTop/__MainPicture/HomeTop__MainPicture';
 import HomeTopMessages from './HomeTop/__Messages/HomeTop__Messages';
 import HomeFeatures from './HomeFeatures/HomeFeatures';
 import HomeRecommended from './HomeRecommended/HomeRecommended';
+import Footer from '../../blocks/Footer/Footer';
 
 export default class Home extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ export default class Home extends Component {
         <HomeTopMessages />
         <HomeFeatures />
         <HomeRecommended />
+        <Footer />
       </div>        
     )
   }
