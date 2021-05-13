@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Scrollingection extends Component {
+export default class ScrollingSection extends Component {
   constructor(props) {
     super(props)
 
@@ -14,8 +14,8 @@ export default class Scrollingection extends Component {
   render() {
     return (
       <div className="scrolling-section">
-        <div className={`scrolling-section__container scrolling-section__container_background-color_${this.props.scrollingSection__Container_BackgroundColor}}`}>
-          <div className="scrolling-section__contents">
+        <div className={`scrolling-section__container scrolling-section__container_background-color_${this.props.scrollingSection__Container_BackgroundColor}} scrolling-section__container_stop-scrolling_${this.props.stopScrolling}`}>
+          <div className={`scrolling-section__contents scrolling-section__contents_stop-scrolling_${this.props.stopScrolling}`}>
             {this.props.children}
             {/* HTML Elements are sent */}
           </div>

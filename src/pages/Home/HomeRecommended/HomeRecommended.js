@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import ScrollingSection from '../../../blocks/SrollingSection/ScrollingSection';
 
 
-export default class Homefeatures extends Component {
+export default class HomeRecommended extends Component {
   constructor(props) {
     super(props)
 
@@ -25,7 +25,10 @@ export default class Homefeatures extends Component {
           </div>
         </div>
         <div className="home-recommended__plans-container">
-          <ScrollingSection scrollingSection__Container_BackgroundColor={'transparent'}>
+          <ScrollingSection 
+            scrollingSection__Container_BackgroundColor={'transparent'}
+            stopScrolling={'1000'}
+          >
               <div className="home-recommended__plans">
                     <div className="home-recommended__plan">
                       <div className="home-recommended__plan-picture home-recommended__plan-picture_1">

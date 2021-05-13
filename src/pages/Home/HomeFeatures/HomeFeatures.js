@@ -17,7 +17,9 @@ export default class Homefeatures extends Component {
   render() {
     return (
       <div className="home-features">
-          <ScrollingSection >
+          <ScrollingSection 
+            stopScrolling={'1000'}
+          >
             <div className="home-features_grid-container">
                 <div className="home-features_grid-item home-features_grid-item_picture home-features_grid-item_picture-1"></div>
                 <div className="home-features_grid-item home-features_grid-item_description-1">
