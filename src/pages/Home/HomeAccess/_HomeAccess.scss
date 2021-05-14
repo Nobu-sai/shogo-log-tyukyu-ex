@@ -23,7 +23,7 @@
       height: 15%;
     }
 
-    &__grid-container {
+    &__contents {
       padding-bottom: 5%;
       width: 90%;
       height:80%;
@@ -32,12 +32,14 @@
       justify-content: space-between;
       align-items: center;
     }
-    &__grid-item {
+    &__content {
       width: 100%;
     }
     &__appearance {
       width: 90vw;
       height: 60vh;
+      max-width: 500px;
+      max-height: 300px;
       @include background-image.background-image('access');
       background-size: cover;
       background-position: center;
@@ -57,7 +59,7 @@
     }
     &__map { 
       width: 90vw;
-      height: 90vh;
+      height: 40%;
       grid-area: map;
       @include background-image.background-image('map');
       background-size: contain;
@@ -75,19 +77,19 @@
     }
 
 
-    &__grid-container {
+    &__contents {
       height:75%;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
     }  
-    &__grid-item {
-    }
 
     &__appearance {
       width: 70%;
-      height: 40%;
+      height: 35%;
       background-size: cover;
+      max-width: 1000px;
+      max-height: 600px;
     }
 
     &__info {
@@ -133,6 +135,11 @@
 
   @include responsive.respond-to('min', '2000') {   
     @include background-image.background-image('bg@2x');
+
+    &__appearance {
+      max-width: 2000px;
+      max-height: 1200px;
+    }
 
     &__info {
       &-content {

@@ -4,7 +4,7 @@
 @use '../../../utilities/variables/base-color';
 
 
-.home__section-heading {
+.home__section-heading {  
   
   @include responsive.respond-to('min', '200') {    
     width: 100%;

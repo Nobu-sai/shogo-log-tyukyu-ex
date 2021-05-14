@@ -1067,6 +1067,7 @@
   }
   .home-news__tabs {
     width: 20%;
+    min-width: 200px;
     height: 10%;
     display: flex;
     align-items: center;
@@ -1111,7 +1112,7 @@
 @media (min-width: 200px) {
   .home-news__item-container {
     width: 100%;
-    height: 200vh;
+    height: 300vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -1120,7 +1121,7 @@
 }
 @media (min-width: 600px) {
   .home-news__item-container {
-    height: 90vh;
+    height: 140vh;
   }
 }
 @media (min-width: 1000px) {
@@ -1249,7 +1250,7 @@
   .home-access__heading-container {
     height: 15%;
   }
-  .home-access__grid-container {
+  .home-access__contents {
     padding-bottom: 5%;
     width: 90%;
     height: 80%;
@@ -1258,12 +1259,14 @@
     justify-content: space-between;
     align-items: center;
   }
-  .home-access__grid-item {
+  .home-access__content {
     width: 100%;
   }
   .home-access__appearance {
     width: 90vw;
     height: 60vh;
+    max-width: 500px;
+    max-height: 300px;
     background-image: url(./assets/images/access.jpg);
     background-size: cover;
     background-position: center;
@@ -1283,7 +1286,7 @@
   }
   .home-access__map {
     width: 90vw;
-    height: 90vh;
+    height: 40%;
     grid-area: map;
     background-image: url(./assets/images/map.png);
     background-size: contain;
@@ -1298,7 +1301,7 @@
   .home-access__heading-container {
     height: 20%;
   }
-  .home-access__grid-container {
+  .home-access__contents {
     height: 75%;
     flex-direction: row;
     flex-wrap: wrap;
@@ -1306,8 +1309,10 @@
   }
   .home-access__appearance {
     width: 70%;
-    height: 40%;
+    height: 35%;
     background-size: cover;
+    max-width: 1000px;
+    max-height: 600px;
   }
   .home-access__info {
     padding-left: 14px;
@@ -1340,6 +1345,10 @@
 @media (min-width: 2000px) {
   .home-access {
     background-image: url(./assets/images/bg@2x.jpg);
+  }
+  .home-access__appearance {
+    max-width: 2000px;
+    max-height: 1200px;
   }
   .home-access__info-content {
     font-size: 28px;

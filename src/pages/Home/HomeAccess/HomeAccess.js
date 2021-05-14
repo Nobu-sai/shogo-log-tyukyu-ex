@@ -19,11 +19,11 @@ export default class HomeAccess extends Component {
         <div className="home-access__heading-container">
           <HomeSectionHeading headingTitle={'アクセス'}/>
         </div>
-        <div className="home-access__grid-container">
-          <div className="home-access__grid-item home-access__appearance">
+        <div className="home-access__contents">
+          <div className="home-access__contents home-access__appearance">
 
           </div>
-          <div className="home-access__grid-item home-access__info">
+          <div className="home-access__content home-access__info">
             <div className="home-access__info-content">
               住所
             </div>
@@ -50,7 +50,7 @@ export default class HomeAccess extends Component {
               ＊4名以上のご予約の場合は、最寄り駅の「鶴岡駅」より送迎が可能ですので、ご連絡ください。
             </div>
           </div>
-          <div className="home-access__grid-item home-access__map">
+          <div className="home-access__content home-access__map">
 
           </div>
         </div>
