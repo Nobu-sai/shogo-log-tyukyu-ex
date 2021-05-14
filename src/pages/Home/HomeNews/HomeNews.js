@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import HomeNewsItems from './__Items/HomeNews__Items';
-import ScrollingSection from '../../../blocks/SrollingSection/ScrollingSection';
+import HomeSectionHeading from '../__SectionHeading/Home__SectionHeading';
 
 
 export default class HomeNews  extends Component {
@@ -17,13 +17,9 @@ export default class HomeNews  extends Component {
   render() {
     return (
       <div className="home-news">
-        <div className="home-news__heading">
-          <div className="home-news__heading-logo">
 
-          </div>
-          <div className="home-news__heading-title">
-            お知らせ
-          </div>
+        <div className="home-news__heading-container">
+          <HomeSectionHeading headingTitle={'お知らせ'}/>
         </div>
 
         <div className="home-news__tabs">

@@ -5,6 +5,7 @@ import HomeTopMessages from './HomeTop/__Messages/HomeTop__Messages';
 import HomeFeatures from './HomeFeatures/HomeFeatures';
 import HomeRecommended from './HomeRecommended/HomeRecommended';
 import HomeNews from './HomeNews/HomeNews';
+import HomeAccess from './HomeAccess/HomeAccess';
 import Footer from '../../blocks/Footer/Footer';
 
 export default class Home extends Component {
@@ -26,6 +27,7 @@ export default class Home extends Component {
         <HomeFeatures />
         <HomeRecommended />
         <HomeNews />
+        <HomeAccess />
         <Footer />
       </div>        
     )

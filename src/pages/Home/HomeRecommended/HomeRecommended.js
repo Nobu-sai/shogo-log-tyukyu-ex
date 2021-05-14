@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import ScrollingSection from '../../../blocks/SrollingSection/ScrollingSection';
+import HomeSectionHeading from '../__SectionHeading/Home__SectionHeading';
 
 
 export default class HomeRecommended extends Component {
@@ -16,13 +17,8 @@ export default class HomeRecommended extends Component {
   render() {
     return (
       <div className="home-recommended">
-        <div className="home-recommended__heading">
-          <div className="home-recommended__heading-logo">
-
-          </div>
-          <div className="home-recommended__heading-title">
-            おすすめご宿泊プラン
-          </div>
+        <div className="home-recommended__heading-container">
+          <HomeSectionHeading headingTitle={'おすすめのご宿泊プラン'}/>
         </div>
         <div className="home-recommended__plans-container">
           <ScrollingSection 

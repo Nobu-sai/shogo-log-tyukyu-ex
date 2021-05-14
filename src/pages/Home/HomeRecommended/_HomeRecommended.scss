@@ -17,26 +17,8 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    &__heading {
-      // box-shadow: 0 0 4px 14px #{base-color.$gray-dark};
-      height: 30%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      &-logo {
-        height: 32px;
-        width: 32px;
-        @include background-image.background-image('sakura-logo-skelton-black');
-        background-size: cover;
-        background-position: center;
-      }
-
-      &-title {
-        margin-top: 14px;
-        font-size: #{font-size.$medium}px;
-      }
+    &__heading-container {
+      height: 30%;      
     }
 
     &__plans-container {
@@ -55,11 +37,6 @@
       align-items: center;
       justify-content: space-evenly;
         
-      
-    }
-    
-
-    &_flex-item {
       
     }
 
@@ -120,17 +97,8 @@
     align-items: center;
     justify-content: center;
 
-    &__heading { 
+    &__heading-container {
       height: 20%;
-      &-logo {
-        height: 38px;
-        width: 38px;       
-      }
-
-      &-title {
-        margin-top: 14px;
-        font-size: #{font-size.$medium + 8}px;
-      }
     }
     
     &__plans-container {
@@ -180,23 +148,6 @@
   @include responsive.respond-to('min', '2000') {
     margin-top: 200px;    
 
-    &__heading {
-      &-logo {
-        height: 64px;
-        width: 64px;
-      }
-
-      &-title {
-        margin-top: 28px;
-        font-size: #{font-size.$medium * 2}px;
-      }
-    }
-
-    &_flex-container {
-
-    
-      
-    }
 
     &__plan {
       // width: 
