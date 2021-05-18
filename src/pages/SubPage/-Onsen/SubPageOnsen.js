@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import SubPage from '../SubPage';
+import SubPageOnsenEffect from './__Effect/SubPageOnsen__Effect';
 
 export default class SubPageOnsen extends Component {
   constructor(props) {
@@ -54,9 +55,12 @@ export default class SubPageOnsen extends Component {
             '柔らかく優しい湯にじっくりと漬かれば、',
             '心身共にリラックスできます。'
           ]}
-          gridContents={gridContents}            
+          gridContents={gridContents}  
+          gridContentNumber={2}
+          customSection={<SubPageOnsenEffect />}          
 
         />    
+      
       </div>
     )
   }

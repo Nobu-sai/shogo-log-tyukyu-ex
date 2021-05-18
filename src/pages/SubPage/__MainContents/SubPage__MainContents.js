@@ -46,7 +46,7 @@ export default class SubPageMainContents extends Component {
             }
           </div>
         </div>
-        <div className="sub-page__main-contents_grid-section sub-page__main-contents_grid-section_onsen">
+        <div className={`sub-page__main-contents_grid-section sub-page__main-contents_grid-section_${this.props.gridContentNumber}-contents`}>
           <ScrollingSection
             stopScrolling={1000}
           >
@@ -90,6 +90,13 @@ export default class SubPageMainContents extends Component {
 
           </ScrollingSection>
         </div>
+
+        {
+          this.props.customSection && 
+            <div className="sub-page__main-contents_custom-section">
+              {this.props.customSection}
+            </div> 
+        }        
       </div>
     )
   }

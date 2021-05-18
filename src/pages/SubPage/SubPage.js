@@ -30,6 +30,10 @@ export default class SubPage extends Component {
           // An Array
         gridContents,
           // An Array
+        gridContentNumber,
+          // Number
+        customSection,
+          // A Component
       }
     } = this;
 
@@ -39,7 +43,6 @@ export default class SubPage extends Component {
           <SubPageTop 
             bgName={bgName}
             pageTitle={pageTitle}
-          
           />
         </div>
         <div className="sub-page__main-contents-container">
@@ -47,7 +50,10 @@ export default class SubPage extends Component {
             pageTitle={pageTitle}
             currentPage={currentPage}
             IntroTextList={IntroTextList}
-            gridContents={gridContents}            
+            gridContents={gridContents}        
+            gridContentNumber={gridContentNumber}    
+            customSection={customSection}
+
 
           />
         </div>       

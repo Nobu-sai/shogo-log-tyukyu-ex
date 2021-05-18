@@ -1,0 +1,13 @@
+@use '../../../utilities/responsive';
+@use '../../../utilities/mixins/background-image';
+@use '../../../utilities/variables/base-color';
+@use '../../../utilities/variables/font-size';
+
+// Based on sub-page and sub-page__main-contents. 
+// Inserted into sub-page__main-contents Tag. 
+
+.sub-page-onsen {
+  @include responsive.respond-to('min', '200') {
+  }
+  
+}
