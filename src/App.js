@@ -1,12 +1,11 @@
 import './main.css';
 // Components for Site Pages
 import Home from './pages/Home/Home.js'
-import SubPageOheya from './pages/SubPage/SubPageOheya/SubPageOheya';
-import SubPageOryori from './pages/SubPage/SubPageOryori/SubPageOryori';
-import SubPageOnsen from './pages/SubPage/SubPageOnsen/SubPageOnsen';
+import SubPageOheya from './pages/SubPage/-Oheya/SubPageOheya';
+import SubPageOryori from './pages/SubPage/-Oryori/SubPageOryori';
+import SubPageOnsen from './pages/SubPage/-Onsen/SubPageOnsen';
 // Components for communal parts
 import Header from './blocks/Header/Header';
-import Footer from './blocks/Footer/Footer'
 // Libraries
 import {
   BrowserRouter as Router,

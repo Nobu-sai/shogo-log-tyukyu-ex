@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-import SubPageTop from '../__Top/SubPage__Top';
-import SubPageMainContents from '../__MainContents/SubPage__MainContents';
-import Footer from '../../../blocks/Footer/Footer';
+import SubPage from '../SubPage';
 
 export default class SubPageOheya extends Component {
   constructor(props) {
@@ -51,32 +49,22 @@ export default class SubPageOheya extends Component {
       
     
     return (
-      <div className="sub-page sub-page-oheya">
-        <div className="sub-page__top-container">
-          <SubPageTop 
-            bgName={'oheya-header'}
-            pageTitle={'お部屋'}
-          
-          />
-        </div>
-        <div className="sub-page__main-contents-container">
-          <SubPageMainContents 
-            currentPage={{
-              'link': '/oheya',
-              'name': 'お部屋'
-            }}
-            IntroTextList={[
-              '創業より受け継がれてきた石井花壇の和の造り', 
-              '温海の雄大な絶景を堪能していただけるように設計された客室',
-              'ゆるやかに流れ行く時間に身を委ねて'
-            ]}
-            gridContents={gridContents}            
+      <div className="sub-page-oheya">        
+        <SubPage 
+          bgName={'oheya-header'}
+          pageTitle={'お部屋'}
+          currentPage={{
+            'link': '/oheya',
+            'name': 'お部屋'
+          }}
+          IntroTextList={[
+            '創業より受け継がれてきた石井花壇の和の造り', 
+            '温海の雄大な絶景を堪能していただけるように設計された客室',
+            'ゆるやかに流れ行く時間に身を委ねて'
+          ]}
+          gridContents={gridContents}            
 
-          />
-        </div>
-        {/* <div className="sub-page__footer-container"> */}
-          <Footer />
-        {/* </div> */}
+        />    
       </div>
     )
   }
