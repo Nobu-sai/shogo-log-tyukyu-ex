@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import SubPage from '../SubPage';
 import SubPageOnsenEffect from './__Effect/SubPageOnsen__Effect';
 
+
 export default class SubPageOnsen extends Component {
   constructor(props) {
     super(props)
