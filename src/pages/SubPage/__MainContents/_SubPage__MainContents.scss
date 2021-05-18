@@ -36,25 +36,62 @@
 
     &_intro-text-section {
       width: 100%;
-      height: 500px;
+      height: 300px;
 
       // background-color:rgb(211, 126, 14);
 
       display: flex;
       align-items: center;
-      writing-mode: vertical-rl;
+      // writing-mode: vertical-rl;
     }
     &_intro-text {
-      width: 70%;
+      // width: 70%;
+      width: 100%;
       height: 100%;
       display: flex;
       font-size: #{font-size.$base}px;
       flex-direction: column;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: center;
       &_line {
-        height: 80%;
-        text-align: start;
+        // height: 80%;
+        text-align: center;
+
+        &_oheya_0 {
+          width: 170px;
+        }
+        &_oheya_1 {
+          padding: 14px 0;          
+          width: 300px;
+          // width: 190px;
+          // font-size: #{font-size.$base + 4}px;
+        }
+        &_oheya_2 {
+          width: 240px;
+        }
+
+        &_oryori_0 {
+          width: 240px;
+        }
+        &_oryori_1 {
+          padding: 14px 0;          
+          // font-size: #{font-size.$base + 4}px;
+        }
+        &_oryori_2 {
+          width: 260px;
+        }
+
+        &_onsen_0 {
+          width: 240px;
+        }
+        &_onsen_1 {
+          // padding: 14px 0;   
+          // width: 220px;       
+          // font-size: #{font-size.$base + 4}px;
+        }
+        &_onsen_2 {
+          width: 2000px;
+        }
       }
     }
 
@@ -287,11 +324,16 @@
       // flex-direction: column;
       // justify-content: space-evenly;
       background: transparent;
+
+      &_onsen {
+        height: 140vh;
+      }
     }
 
 
     &_grid-container_scroll { 
       height: 100%;
+      // justify-content: space-between;
     }
 
     &_grid-container {     
@@ -327,11 +369,11 @@
       }
     &_grid-container_1 {
       grid-template: 
-      [row1-start] "content-2-pic content-2-pic . . ." 20% [row1-end]
-      [row2-start] "content-2-pic content-2-pic bg-area-2 content-2-desc bg-area-3" 50% [row2-end]
-      [row3-start] ". bg-area-1 bg-area-2 content-2-desc bg-area-3" 30% [row3-end]        
+      [row1-start] ". . . content-2-pic content-2-pic" 20% [row1-end]
+      [row2-start] "bg-area-3 content-2-desc bg-area-2 content-2-pic content-2-pic" 50% [row2-end]
+      [row3-start] "bg-area-3 content-2-desc bg-area-2 bg-area-1 ." 30% [row3-end]        
       
-      / 25% 20% 5% 45% 5%; 
+      / 5% 45% 5% 20% 25%; 
         
 
 
@@ -408,6 +450,11 @@
       // display: flex;
       // flex-direction: column;
       // justify-content: space-evenly;
+     
+      &_onsen {
+        height: 150vh;
+      }
+ 
     }
   }
 

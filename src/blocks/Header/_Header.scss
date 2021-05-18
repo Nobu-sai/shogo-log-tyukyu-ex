@@ -1,6 +1,7 @@
 @use '../../utilities/responsive';
 
 .header {
+  max-width: 100%;
   position: relative;
   @include responsive.respond-to('min', '600') {
     overflow: hidden;

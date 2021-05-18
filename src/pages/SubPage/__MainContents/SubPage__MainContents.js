@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 
-import SubpageMainContentsAnnotation from './-Annotation/SubPageMainContentsAnnotation';
+import SubpageMainContentsAnnotation from './_Annotation/SubPageMainContentsAnnotation';
 
 import ScrollingSection from '../../../blocks/SrollingSection/ScrollingSection';
 
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import SubpageMainContentsExplanation from './-Explanation/SubPage__MainContents_Explanation';
 
 export default class SubPageMainContents extends Component {
   constructor(props) {
@@ -29,14 +30,14 @@ export default class SubPageMainContents extends Component {
         <div className="sub-page__main-contents_page-location-section">
           <Link className="link link_color_black sub-page__main-contents_page-location-text" to="/">トップ</Link>
           <div className="sub-page__main-contents_page-location-text sub-page__main-contents_page-location-grater-than"> &#62; </div>
-          <Link className="link link_color_black sub-page__main-contents_page-location-text" to={`${this.props.currentPage.link}`}>{this.props.currentPage.name}</Link>
+          <Link className="link link_color_black sub-page__main-contents_page-location-text" to={`${this.props.currentPage.link}`}>{this.props.pageTitle}</Link>
         </div>
         <div className="sub-page__main-contents_intro-text-section">
           <div className="sub-page__main-contents_intro-text">
             {
               this.props.IntroTextList.map((textLine, index)=>(
                 <div 
-                  className={`sub-page__main-contents_intro-text_line`}
+                  className={`sub-page__main-contents_intro-text_line sub-page__main-contents_intro-text_line_${this.props.currentPage.name}_${index}`}
                   key={ uuidv4() }
                 >
                   {textLine}
@@ -45,7 +46,7 @@ export default class SubPageMainContents extends Component {
             }
           </div>
         </div>
-        <div className="sub-page__main-contents_grid-section">
+        <div className="sub-page__main-contents_grid-section sub-page__main-contents_grid-section_onsen">
           <ScrollingSection
             stopScrolling={1000}
           >
@@ -65,8 +66,8 @@ export default class SubPageMainContents extends Component {
                         <div className={`sub-page__main-contents_desc-item sub-page__main-contents_title sub-page__main-contents_${index}-title`}>
                           {content.title}
                         </div>
-                        <div className={`sub-page__main-contents_desc-item sub-page__main-contents_explanation sub-page__main-contents_${index}-explanation`}>
-                          {content.explanation}
+                        <div className={`sub-page__main-contents_desc-item sub-page__main-contents_explanation-container`}>
+                          <SubpageMainContentsExplanation index={index} explanationList={content.explanationList}/>
                         </div>
 
                         <div className="sub-page__main-contents_desc-item  sub-page__main-contents_annotation-container">

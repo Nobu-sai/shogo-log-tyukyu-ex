@@ -17,7 +17,11 @@ export default class SubPageOheya extends Component {
       {
         'pic': 'oheya01',
         'title': '温泉付き客室',
-        'explanation': '温海の源泉かけ流し露天風呂付き客室になります。あなただけの上質な安らぎのひとときを。',
+        'explanationList': 
+          [
+            '温海の源泉かけ流し露天風呂付き客室になります。',
+            'あなただけの上質な安らぎのひとときを。',
+          ],
         'annotationList': 
           [
             '＊部屋数に限りがございます。',
@@ -27,7 +31,11 @@ export default class SubPageOheya extends Component {
       {
         'pic': 'oheya02',
         'title': '庭園付き客室',
-        'explanation': '庭園付きの客室になります。お庭を見ながら、ほっとするひとときをお過ごしください。',
+        'explanationList': 
+          [
+            '庭園付きの客室になります。',
+            'お庭を見ながら、ほっとするひとときをお過ごしください。',
+          ],
         'annotationList': 
           [
             '＊お庭は複数のお客様と囲む形になります。',
@@ -38,7 +46,12 @@ export default class SubPageOheya extends Component {
       {
         'pic': 'oheya03',
         'title': '一般客室',
-        'explanation': '最もベーシックな客室になります。伝統の中にモダンさを取り入れた内装となっており、とても過ごしやすくしていただけます。',
+        'explanationList': 
+          [
+            '最もベーシックな客室になります。',
+            '伝統の中にモダンさを取り入れた内装となっており、',
+            'とても過ごしやすくしていただけます。',
+          ],
         'annotationList': 
           [
             '＊全室お部屋より日本海を望むことができます。',            
@@ -55,7 +68,7 @@ export default class SubPageOheya extends Component {
           pageTitle={'お部屋'}
           currentPage={{
             'link': '/oheya',
-            'name': 'お部屋'
+            'name': 'oheya'
           }}
           IntroTextList={[
             '創業より受け継がれてきた石井花壇の和の造り', 

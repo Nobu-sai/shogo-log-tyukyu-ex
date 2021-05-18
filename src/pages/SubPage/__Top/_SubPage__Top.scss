@@ -22,6 +22,14 @@
       &_oheya-header {        
         @include background-image.background-image('oheya-header-500-500');
       }
+      &_oryori-header {        
+        @include background-image.background-image('oryori-header-500-500');
+      }
+
+      &_onsen-header {        
+        @include background-image.background-image('onsen-header-500-500');
+      }
+
 
     }
     
@@ -47,6 +55,12 @@
       &_oheya-header {
         @include background-image.background-image('oheya-header-1100-500');
       }
+      &_oryori-header {
+        @include background-image.background-image('oryori-header-1100-500');
+      }
+      &_onsen-header {
+        @include background-image.background-image('onsen-header-1100-500');
+      }
 
     }
   
@@ -57,6 +71,12 @@
       &_oheya-header {
         @include background-image.background-image('oheya-header-1920-500');
       }
+      &_oryori-header {
+        @include background-image.background-image('oryori-header-1920-500');
+      }
+      &_onsen-header {
+        @include background-image.background-image('onsen-header-1920-500');
+      }
 
     }
   }
@@ -66,6 +86,12 @@
     &_bg {     
       &_oheya-header {
         @include background-image.background-image('oheya-header-3840-1000');
+      }
+      &_oryori-header {
+        @include background-image.background-image('oryori-header-3840-1000');
+      }
+      &_onsen-header {
+        @include background-image.background-image('onsen-header-3840-1000');
       }
 
     }

@@ -44,6 +44,7 @@ export default class SubPage extends Component {
         </div>
         <div className="sub-page__main-contents-container">
           <SubPageMainContents 
+            pageTitle={pageTitle}
             currentPage={currentPage}
             IntroTextList={IntroTextList}
             gridContents={gridContents}            
