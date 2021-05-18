@@ -41,6 +41,7 @@ class Header extends Component {
     if(this.props.location.pathname === "/") {     
       // When the path is the home. 
       headerColor = 'black';
+        // When it is 'black', the color of CONTENTS is 'white' set in setContentsColor().
     } else {
       headerColor = 'white';
     }

@@ -1,0 +1,13 @@
+@use '../../../utilities/responsive';
+@use '../../../utilities/mixins/background-image';
+@use '../../../utilities/variables/base-color';
+@use '../../../utilities/variables/font-size';
+
+
+.sub-page-oheya {
+  @include responsive.respond-to('min', '200') {
+   
+  
+  }
+
+}

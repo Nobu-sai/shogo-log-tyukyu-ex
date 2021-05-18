@@ -1,2 +1,10 @@
-@import './SubPageContents/SubPageContents';
-@import './SubPageTop/SubPageTop';
+
+/// sub-page Blocks Communal
+@import './__MainContents/SubPage__MainContents';
+@import './__Top/SubPage__Top';
+@import './SubPage';
+
+/// each sub-page Block
+@import './SubPageOheya/SubPageOheya';
+@import './SubPageOryori/SubPageOryori';
+@import './SubPageOnsen/SubPageOnsen';

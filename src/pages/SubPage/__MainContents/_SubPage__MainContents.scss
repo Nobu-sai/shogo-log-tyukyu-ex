@@ -1,0 +1,418 @@
+
+@use '../../../utilities/responsive';
+@use '../../../utilities/mixins/background-image';
+@use '../../../utilities/variables/base-color';
+@use '../../../utilities/variables/font-size';
+
+
+.sub-page__main-contents {
+  @include responsive.respond-to('min', '200') {
+    height: 100%;
+    width: 100%;
+    // background-color: lawngreen; 
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+
+    &_page-location-section {
+      width: 90%;
+      height: 50px;
+
+      // background-color: coral;
+      display: flex;
+      align-items: center;
+
+
+    }
+
+    &_page-location-text {
+      font-size: #{font-size.$base}px;
+    }
+
+    &_page-location-grater-than {
+      padding: 0 14px;
+    }
+
+    &_intro-text-section {
+      width: 100%;
+      height: 500px;
+
+      // background-color:rgb(211, 126, 14);
+
+      display: flex;
+      align-items: center;
+      writing-mode: vertical-rl;
+    }
+    &_intro-text {
+      width: 70%;
+      height: 100%;
+      display: flex;
+      font-size: #{font-size.$base}px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      &_line {
+        height: 80%;
+        text-align: start;
+      }
+    }
+
+    &_grid-section {
+      padding: 70px 0;
+      width: 100%;
+      height: 80vh;
+      // background-color: chartreuse;
+    }
+
+    
+
+    &_grid-container {
+      width: 100%;
+      height: 70vh;
+
+      display: grid;      
+      place-content:  center center;
+      place-items: center center;
+
+      @include background-image.background-image('bg');
+      background-size: cover;
+      background-position: center;
+
+    }
+
+    &_grid-container_0 {
+      grid-template: 
+      [row1-start] "content-1-pic" 40% [row1-end]
+      [row2-start] "content-1-desc" auto [row2-end]      
+      / 90%; 
+
+      // background-color: cadetblue;
+
+    }
+    &_grid-container_1 {
+      grid-template: 
+      [row1-start] "content-2-pic" 40% [row1-end]
+      [row2-start] "content-2-desc" auto [row2-end]      
+      / 90%; 
+      
+      // background-color: rgb(95, 116, 160);
+
+
+    }
+    &_grid-container_2 {
+      grid-template: 
+      [row1-start] "content-3-pic" 40% [row1-end]
+      [row2-start] "content-3-desc" auto [row2-end]      
+      / 90%; 
+
+      // background-color: rgb(134, 95, 160);
+
+    }
+    
+      
+
+    &_grid-item {
+      width: 100%; 
+      max-width: 500px;
+      height: 100%; 
+      // background-color: blueviolet;      
+    }
+
+    &_0 {
+      // background-color: burlywood;
+    }
+    &_1 {
+      // background-color: rgb(216, 150, 64);
+    }
+    
+    &_2 {
+      // background-color: rgb(211, 126, 14);
+    }
+    
+    &_0-pic {
+      grid-area: content-1-pic;      
+    }
+    &_0-desc {
+      grid-area: content-1-desc;
+    }
+    &_1-pic {
+      grid-area: content-2-pic;
+    }
+    &_1-desc {
+      grid-area: content-2-desc;
+    }
+    &_2-pic {
+      grid-area: content-3-pic;
+    }
+    &_2-desc {
+      grid-area: content-3-desc;
+    }
+    &_grid-bg-area {
+      width: 100%;
+      height: 100%;
+      // background-color: darkseagreen;
+      &-1 {
+        grid-area: bg-area-1;
+        // background-color: rgb(0, 255, 0);
+      }
+      &-2 {
+        grid-area: bg-area-2;
+        // background-color: rgb(0, 128, 0);
+      }
+      &-3 {
+        grid-area: bg-area-3;
+        // background-color: rgb(0, 0, 0);
+      }
+    }
+
+    &_pic {      
+      background-size: cover;      
+      background-position: center;
+      // background-color: rgb(37, 64, 65);
+
+      &_oheya01 {
+        @include background-image.background-image('oheya01');
+      }
+      &_oheya02 {
+        @include background-image.background-image('oheya02');
+      }
+      &_oheya03 {
+        @include background-image.background-image('oheya03');
+      }
+      &_oryori01 {
+        @include background-image.background-image('oryori01');
+      }
+      &_oryori02 {
+        @include background-image.background-image('oryori02');
+      }
+      &_oryori03 {
+        @include background-image.background-image('oryori03');
+      }
+      &_onsen01 {
+        @include background-image.background-image('onsen01');
+      }
+      &_onsen02 {
+        @include background-image.background-image('onsen02');
+      }
+      
+    }
+
+
+    &_desc {
+      // padding: 14px;
+      width: 100%;
+      height: 100%;
+      // background-color: crimson;
+      &-item {
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+      }
+    }
+
+    &_title {       
+      font-size: #{font-size.$medium}px;
+    }
+
+    &_explanation { 
+      max-width: 100%;
+      // background-color: darkorange;
+      font-size: #{font-size.$base}px;
+    }
+
+    &_annotation-container {
+      max-width: 100%;
+      // background-color: rgb(233, 216, 122);
+      font-size: #{font-size.$base}px;
+      justify-content: flex-start;
+    }
+    &_annotation {
+      // background-color: rgb(212, 185, 27);
+    }
+
+  }
+
+
+  @include responsive.respond-to('min', '1000') {
+    // justify-content: space-evenly;
+
+    &_page-location-section {      
+      height: 100px; 
+    }
+
+    &_intro-text-section {
+      width: 800px;
+      height: 250px;
+      justify-content: center;
+      writing-mode: horizontal-tb;
+    }
+    &_intro-text {
+      width: 70%;
+      height: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      &_line {
+        height: auto;
+        text-align: center;
+      }
+    }
+
+    &_grid-section {      
+      width: 90%;
+      height: 250vh; 
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: space-evenly;
+    }
+
+    
+
+    &_grid-container {     
+      margin-top: 70px; 
+      height: 30%;
+
+      display: grid;      
+      place-content:  center center;
+      place-items: center center;
+
+      background: transparent;
+
+      &:nth-of-type(1) {
+        margin: 0;
+      }
+    }
+
+
+    &_grid-container_0 {
+      grid-template: 
+      [row1-start] "content-1-pic content-1-pic . . ." 20% [row1-end]
+      [row2-start] "content-1-pic content-1-pic bg-area-2 content-1-desc bg-area-3" 50% [row2-end]
+      [row3-start] ". bg-area-1 bg-area-2 content-1-desc bg-area-3" 30% [row3-end]        
+      
+      / 25% 20% 5% 45% 5%; 
+      
+
+      }
+    &_grid-container_1 {
+      grid-template: 
+      [row1-start] "content-2-pic content-2-pic . . ." 20% [row1-end]
+      [row2-start] "content-2-pic content-2-pic bg-area-2 content-2-desc bg-area-3" 50% [row2-end]
+      [row3-start] ". bg-area-1 bg-area-2 content-2-desc bg-area-3" 30% [row3-end]        
+      
+      / 25% 20% 5% 45% 5%; 
+        
+
+
+    }
+    &_grid-container_2 {
+      grid-template: 
+      [row1-start] "content-3-pic content-3-pic . . ." 20% [row1-end]
+      [row2-start] "content-3-pic content-3-pic bg-area-2 content-3-desc bg-area-3" 50% [row2-end]
+      [row3-start] ". bg-area-1 bg-area-2 content-3-desc bg-area-3" 30% [row3-end]        
+      
+      / 25% 20% 5% 45% 5%; 
+
+    }
+
+
+
+    &_grid-item {      
+      max-width: 2000px;
+    }
+
+    &_pic {      
+        
+
+    }
+
+
+    &_grid-bg {
+      @include background-image.background-image('bg');
+      background-size: cover;
+      background-position: center;
+    }
+
+
+    &_desc {  
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      &-item {
+        padding: 0;
+        width: 100%;
+        height: 30%;
+        align-items: flex-start;
+        justify-content: center;
+      }
+    }
+
+    &_title {
+      
+    }
+
+    &_explanation {
+     
+      
+    }
+
+    &_annotation-container {
+      
+    }
+    &_annotation {
+ 
+    }
+
+  }
+
+
+  @include responsive.respond-to('min', '1400') {    
+    &_grid-section {      
+      width: 80%;
+      height: 200vh; 
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: space-evenly;
+    }
+  }
+
+
+  @include responsive.respond-to('min', '2000') {
+    &_intro-text-section {
+      width: 1600px;
+      height: 500px;  
+    }
+    &_page-location-text {
+      font-size: #{font-size.$base * 2}px;
+    }
+    &_intro-text {      
+      font-size: #{font-size.$base * 2}px;
+    }
+
+    &_grid-section {       
+      padding: 140px 0;
+    }    
+
+    &_grid-container {     
+      margin-top: 140px; 
+    }
+
+
+    &_title { 
+      font-size: #{font-size.$medium * 2}px;
+    }
+
+    &_explanation { 
+      font-size: #{font-size.$base * 2}px;
+    }
+
+    &_annotation-container {     
+      font-size: #{font-size.$base * 2}px;      
+    }
+  }
+}

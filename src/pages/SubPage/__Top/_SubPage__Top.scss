@@ -1,0 +1,78 @@
+@use '../../../utilities/responsive';
+@use '../../../utilities/mixins/background-image';
+@use '../../../utilities/variables/base-color';
+@use '../../../utilities/variables/font-size';
+
+
+.sub-page__top {
+  @include responsive.respond-to('min', '200') {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    &_bg {    
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;   
+
+      &_oheya-header {        
+        @include background-image.background-image('oheya-header-500-500');
+      }
+
+    }
+    
+    &_title {
+      color: #fff;
+      font-size: #{font-size.$medium}px;
+    }
+  
+  }
+
+
+  @include responsive.respond-to('min', '600') {
+    &_title {
+      font-size: #{font-size.$large}px;
+    }
+  
+  }
+
+  @include responsive.respond-to('min', '800') {
+    height: 100%;
+    width: 100%;
+    &_bg {     
+      &_oheya-header {
+        @include background-image.background-image('oheya-header-1100-500');
+      }
+
+    }
+  
+  }
+  @include responsive.respond-to('min', '1600') {
+   
+    &_bg {     
+      &_oheya-header {
+        @include background-image.background-image('oheya-header-1920-500');
+      }
+
+    }
+  }
+
+  @include responsive.respond-to('min', '2000') {
+   
+    &_bg {     
+      &_oheya-header {
+        @include background-image.background-image('oheya-header-3840-1000');
+      }
+
+    }
+
+    &_title {
+      font-size: #{font-size.$large * 2}px;
+    }
+  
+  }
+}
