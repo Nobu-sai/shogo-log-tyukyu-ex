@@ -20,7 +20,7 @@ export default class ScrollingSection extends Component {
         // = Desines the height of SCROLLED contnents 
         // = Set Flexbox to this which defines the layout of SCROLLING-iTEMS. 
       <div className="scrolling-section">
-        <div className={`scrolling-section__container scrolling-section__container_background-color_${this.props.scrollingSection__Container_BackgroundColor}} scrolling-section__container_stop-scrolling_${this.props.stopScrolling}`}>
+        <div className={`scrolling-section__container scrolling-section__container_stop-scrolling_${this.props.stopScrolling}`}>
           <div className={`scrolling-section__contents`}>
             {this.props.children}
             {/* HTML Elements are sent */}

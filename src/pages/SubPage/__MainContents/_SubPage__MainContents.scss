@@ -36,8 +36,9 @@
     }
 
     &_intro-text-section {
+      padding-top: 70px;
       width: 100%;
-      height: 300px;
+      // height: 300px;
 
       // background-color:rgb(211, 126, 14);
 
@@ -55,17 +56,13 @@
       align-items: center;
       justify-content: center;
       &_line {
-        // height: 80%;
         text-align: center;
 
         &_oheya_0 {
           width: 170px;
         }
         &_oheya_1 {
-          padding: 14px 0;          
           width: 300px;
-          // width: 190px;
-          // font-size: #{font-size.$base + 4}px;
         }
         &_oheya_2 {
           width: 240px;
@@ -75,8 +72,6 @@
           width: 240px;
         }
         &_oryori_1 {
-          padding: 14px 0;          
-          // font-size: #{font-size.$base + 4}px;
         }
         &_oryori_2 {
           width: 260px;
@@ -86,9 +81,6 @@
           width: 240px;
         }
         &_onsen_1 {
-          // padding: 14px 0;   
-          // width: 220px;       
-          // font-size: #{font-size.$base + 4}px;
         }
         &_onsen_2 {
           width: 2000px;
@@ -102,9 +94,6 @@
       height: 80vh;
       // background-color: chartreuse;
 
-      @include background-image.background-image('bg');
-      background-size: cover;
-      background-position: center;
     }
 
     &_grid-container_scroll {
@@ -119,7 +108,7 @@
     &_grid-container {
       margin-top: 70px;
       width: 90%;
-      max-width: 600px;
+      max-width: 500px;
       height: 50vh;
 
 
@@ -140,7 +129,7 @@
       grid-template: 
       [row1-start] "content-1-pic" 40% [row1-end]
       [row2-start] "content-1-desc" auto [row2-end]      
-      / 90%; 
+      / 100%; 
 
       // background-color: cadetblue;
 
@@ -149,7 +138,7 @@
       grid-template: 
       [row1-start] "content-2-pic" 40% [row1-end]
       [row2-start] "content-2-desc" auto [row2-end]      
-      / 90%; 
+      / 100%; 
       
       // background-color: rgb(95, 116, 160);
 
@@ -159,7 +148,7 @@
       grid-template: 
       [row1-start] "content-3-pic" 40% [row1-end]
       [row2-start] "content-3-desc" auto [row2-end]      
-      / 90%; 
+      / 100%; 
 
       // background-color: rgb(134, 95, 160);
 
@@ -259,6 +248,9 @@
       width: 100%;
       height: 100%;
       // background-color: crimson;
+      @include background-image.background-image('bg');
+      background-size: cover;
+      background-position: center;
       &-item {
         padding: 14px;
         display: flex;
@@ -309,7 +301,7 @@
     &_intro-text-section {
       // width: 800px;
       width: 100%;
-      height: 250px;
+      // height: 250px;
       justify-content: center;
       writing-mode: horizontal-tb;
     }
@@ -320,6 +312,8 @@
       align-items: center;
       justify-content: space-evenly;
       &_line {
+        padding: 0;
+        width: 100%;
         height: auto;
         text-align: center;
       }
@@ -454,23 +448,7 @@
 
 
   @include responsive.respond-to('min', '1400') {    
-    width: 80%;
-
-    &_grid-section {      
-      width: 100%;
-      height: 200vh; 
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: space-evenly;
-      &_2-contents {
-        // height: 100vh;
-      }
-     
-      &_onsen {
-        height: 150vh;
-      }
- 
-    }
+    width: 80%;    
   }
 
 

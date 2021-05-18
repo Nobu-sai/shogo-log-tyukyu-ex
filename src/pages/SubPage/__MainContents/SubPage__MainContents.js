@@ -48,7 +48,7 @@ export default class SubPageMainContents extends Component {
         </div>
         <div className={`sub-page__main-contents_grid-section sub-page__main-contents_grid-section_${this.props.gridContentNumber}-contents`}>
           <ScrollingSection
-            stopScrolling={1000}
+            stopScrolling={1000}            
           >
             <div className="sub-page__main-contents_grid-container_scroll">
               { 
@@ -70,11 +70,18 @@ export default class SubPageMainContents extends Component {
                           <SubpageMainContentsExplanation index={index} explanationList={content.explanationList}/>
                         </div>
 
-                        <div className="sub-page__main-contents_desc-item  sub-page__main-contents_annotation-container">
-                          {
-                            content.annotationList && <SubpageMainContentsAnnotation annotationList={content.annotationList} index={index}/>               
-                          }
-                        </div>
+                        { content.annotationList ? (
+                          <div className="sub-page__main-contents_desc-item  sub-page__main-contents_annotation-container">
+                              <SubpageMainContentsAnnotation 
+                                annotationList={content.annotationList} 
+                                index={index}
+                              />               
+                          </div>
+
+                        ) : (
+                          <></>
+                        )
+                        }
                         
                       </div>
                       <div className="sub-page__main-contents_grid-bg sub-page__main-contents_grid-bg-area sub-page__main-contents_grid-bg-area-1"></div>
