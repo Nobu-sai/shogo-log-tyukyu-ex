@@ -8,18 +8,20 @@ import HomeNews from './HomeNews/HomeNews';
 import HomeAccess from './HomeAccess/HomeAccess';
 import Footer from '../../blocks/Footer/Footer';
 
+
 export default class Home extends Component {
   constructor(props) {
-    super(props)
+      super(props)
 
-    this.state = {
-         
+      this.state = {
+          
+      }
+      
     }
 
-  
-  }
-
   render() {
+
+
     return (
       <div className="home">
         <HomeTopMainpicture />
