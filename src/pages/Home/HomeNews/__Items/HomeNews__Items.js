@@ -4,8 +4,9 @@ import React, { Component } from 'react'
 import ScrollingSection from '../../../../blocks/SrollingSection/ScrollingSection';
 
 import { v4 as uuidv4 } from 'uuid';
+import $ from 'jquery';
 
-export default class HomeNewsItems extends Component {
+export default class HomeNewItems extends Component {
   constructor(props) {
     super(props)
 
@@ -15,22 +16,37 @@ export default class HomeNewsItems extends Component {
     
   }
 
+
+  componentDidMount() {
+    this.$HomeNewsItems = $('.home-news__items');
+    // this.slideUpContents() 
+    // this.slideDownContents()
+  }
   
+  slideUpContents() {
+    this.$HomeNewsItems.slideUp(1000);
+  }
+
+  slideDownContents() {
+    this.$HomeNewsItems.slideDown(1000);
+
+  }
+
 
   render() {
 
-    // this.props.items.map((item)=> {
-    //   console.log(item)
-    // })
+    // console.log(this.props.items)
+    
     
     return (
         <div className="home-news__items">
+        
           <ScrollingSection
             stopScrolling={'1000'}
           >
             <div className="home-news__item-container">
               {
-                this.props.items.map((item)=> (
+                this.props.items.contents.map((item)=> (
                 <div 
                   className="home-news__item" 
                   key={uuidv4()}
