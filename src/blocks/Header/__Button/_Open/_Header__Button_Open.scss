@@ -23,6 +23,8 @@
       //   color: #000;
       // }
 
+      z-index: 101;
+
       &:hover {
         @include responsive.respond-to('min', '200') { 
           cursor: pointer;

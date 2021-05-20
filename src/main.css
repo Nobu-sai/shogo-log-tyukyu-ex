@@ -1,7 +1,13 @@
 @charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .app {
   width: 100vw;
   line-height: 2;
+  overflow: hidden;
 }
 
 .App {
@@ -301,6 +307,7 @@
     outline: none;
     transition: all 0.2s cubic-bezier(0, 1.26, 0.8, 1.28);
     color: #fff;
+    z-index: 101;
   }
 }
 @media (min-width: 200px) and (min-width: 200px) {
@@ -638,11 +645,14 @@
     height: 35vh;
     color: #fff;
     position: relative;
+    overflow: hidden;
   }
   .home-top__main-picture-bg {
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     height: 100%;
   }
@@ -666,7 +676,7 @@
   }
 }
 @media (min-width: 600px) {
-  .home-top__main-picture {
+  .home-top__main-picture-container {
     height: 100vh;
   }
   .home-top__main-picture_flex-item {

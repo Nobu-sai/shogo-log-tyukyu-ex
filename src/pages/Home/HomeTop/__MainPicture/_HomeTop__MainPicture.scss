@@ -11,32 +11,15 @@
     &-container {
 
       width: 100vw;
+      // height: 100vh;
       height: 35vh;
         // The rest of height is in home-top__messages Block.
-      // @include background-image.background-image('mainbg01');
-      // background-size: cover;
-      // background-size: 100%;
-      // background-position: center;
-      // background-position: "50% 100%";
-      // background-repeat: no-repeat;
-      // background: chartreuse;
 
       color: #fff;
-      // transition: all 1s ease;
-      // transition: background-size 5s ease;
 
       position: relative;
 
-      // &_zoom-in {
-      //   background-size: 200%;
-      // }
-
-    // &:hover {
-    //   // background-position: "0% 0%";
-    //   background-size: 200%;
-    // }
-
-    
+      overflow: hidden;
   
     }
 
@@ -44,22 +27,14 @@
       position: absolute;
       top: 0;
       left: 0;
+      right: 0;
+      bottom: 0;
 
       width: 100%;
       height: 100%;
-      // @include background-image.background-image('mainbg01');
-      // background-size: 100%;
-      // background-position: center;
-      // transition: all 1s ease;
-      // &_pic-num_1 {
-      //   @include background-image.background-image('mainbg01');
-      // }
-      // &_pic-num_2 {
-      //   @include background-image.background-image('mainbg02');
-      // }
-      // &_pic-num_3 {
-      //   @include background-image.background-image('mainbg03');
-      // }
+      // width: 100vw;
+      // height: 100vh;
+      // background-size: cover;
     }
   
     &_flex-container {
@@ -85,7 +60,13 @@
     }
   }
   @include responsive.respond-to('min', '600') {
-    height: 100vh;
+    &-container {    
+      height: 100vh;
+    }
+
+    &-bg {
+      // height: 100vh;
+    }
     
     &_flex-item {
       height: 50%;
@@ -115,6 +96,9 @@
   
   }
   @include responsive.respond-to('min', '1400') {
+    &-container {    
+      // height: 100vh;
+    }
     &_text {             
       padding-right: 120px;
     }

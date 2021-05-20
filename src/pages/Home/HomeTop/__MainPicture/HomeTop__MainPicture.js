@@ -1,3 +1,6 @@
+// Instruction: https://www.evernote.com/shard/s350/nl/180370944/3621b729-4cc9-7f1a-7e64-0796db4a1a6f?title=(Shogo)%20%E4%B8%AD%E7%B4%9AEx/%22Goal%22%20=%20HomeTop%20image%20animation
+
+
 import React, { Component } from 'react'
 
 import $ from 'jquery';
@@ -8,47 +11,52 @@ import mainBG02 from '../../../../assets/images/mainbg02.jpg';
 import mainBG03 from '../../../../assets/images/mainbg03.jpg';
 
 
+let images = [mainBG01, mainBG02, mainBG03];  
+
 export default class HomeTopMainpicture extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       picNum: 0,
-      // zoomIn: null,
+      windowWidth: window.innerWidth,
+
     }
-    // this.changeBGImage = this.changeBGImage.bind(this);
+
+    this.handleResize = this.handleResize.bind(this);
     
   }
 
   componentDidMount() {
+    window.addEventListener("resize", this.handleResize);
     this.homeTop__MainPictureBG = $('.home-top__main-picture-bg');
     this.homeTop__MainPictureContainer = $('.home-top__main-picture-container');
     this.changeContainerBG();
-    this.changeBG();
-    this.zoomIn();
-    // this.fadeOut();
+    this.changeBG(true);
     setInterval(()=>{
-      // this.fadeOut()
-      // this.zoomIn();
       this.updatePicNum()
     }, 5000);
       // All the animation needs to be WITHIN the INTERVAL to prevent wierd motion. 
   }
 
-  updatePicNum = () => {
-    // this.homeTop__MainPictureBG.css({          
-    //   'background-size': '100%'    
-    // }); 
+  componentWillUnmount() {
+    window.addEventListener("resize", this.handleResize);
+  }
+
+  handleResize(e) {    
+    this.setState({ windowWidth: window.innerWidth });
+    // console.log(this.state.windowWidth);
+  }
+
+  updatePicNum() {
 
     if(this.state.picNum < 2) {
 
       this.setState({
         picNum: this.state.picNum + 1,
       }, () => {
-        console.log(this.state.picNum);
+        // console.log(this.state.picNum);
         this.changeContainerBG();
-        this.zoomIn()
-        // this.changeContainerBG();
         this.fadeOut();
       });
 
@@ -57,10 +65,8 @@ export default class HomeTopMainpicture extends Component {
       this.setState({
         picNum: 0,
       }, () =>{
-        console.log(this.state.picNum);
+        // console.log(this.state.picNum);
         this.changeContainerBG();
-        this.zoomIn()
-        // this.changeContainerBG();
         this.fadeOut();
       })
 
@@ -68,20 +74,21 @@ export default class HomeTopMainpicture extends Component {
   }
 
   changeContainerBG() {
-    let images = [mainBG01, mainBG02, mainBG03];  
     this.homeTop__MainPictureContainer.css({ 
+      // 'width': '100vw',
+      // 'height': '100vh',
       "background-image": `url(${images[this.state.picNum]})`,      
-      'background-size': '100%',
-      'background-position': 'center',
+      'background-size': '120%',
+      // 'background-size': 'cover',
+      // 'background-size': '150% 150%',
+      'background-position': 'center center',
       'background-repeat': 'no-repeat',
 
     }); 
   }
 
   fadeOut() {
-    // this.changeContainerBG();
-    // console.log(this.state.picNum);
-    this.homeTop__MainPictureBG.fadeOut(1000, ()=>
+    this.homeTop__MainPictureBG.fadeOut(2000, ()=>
     { 
       this.changeBG();
     });        
@@ -89,46 +96,43 @@ export default class HomeTopMainpicture extends Component {
   
 
 
-  changeBG() {
-
-    let images = [mainBG01, mainBG02, mainBG03];  
+  changeBG(isInitial) {
     // console.log(images[this.state.picNum]);
       // source = /static/media/mainbg02.b2b03d11.jpg, etc... 
     this.homeTop__MainPictureBG.css({
       'display': 'block',
         // Offset the Value set by jQuery fadeOut() Method.
+      'width': '100%',
+      'height': '100%',
       "background-image": `url(${images[this.state.picNum]})`,
-      'background-size': '100%',
-      'background-position': 'center',
+      'background-size': '120%',
+        // When animating zoom-in with background-size with, %, I need to use %. 
+        // Otherwise, the animation starts with 0%.
+      'background-position': 'center center',
       'background-repeat': 'no-repeat',
 
-    }); 
-    // this.fadeIn()
+    });     
+    this.zoomIn(isInitial)    
     
   }
 
-  zoomIn() {
-    this.homeTop__MainPictureBG.animate({
-      'background-size': '105%',
-      // Will be turned into '100%' EVERY time the image is changed. 
-      // => No worry for the break in timing of zoom and fade out. 
-    }, 3000);
-    // The same as the speed of setInterval() to call updatePicNum which Calls fadeOut().
-    // P
-    // : No lag in timing. 
+  zoomIn(isInitial) {
+    // Setting both of height and width to background-size does NOT work. 
+    // => Use width and height. 
+
+    if(isInitial) {
+      this.homeTop__MainPictureBG.animate({
+        'background-size': '130%',
+      }, 5000);
+
+    } else {
+      this.homeTop__MainPictureBG.animate({
+        'background-size': '125%',
+      }, 3000);
+
+    }
     
-  }
-
-  // zoomOut() {
-  //     this.homeTop__MainPictureBG.css({
-  //       'background-size': '100%',
-  //     }); 
-  // }
-
-  fadeIn() {
-    this.homeTop__MainPictureBG.fadeIn(100, this.fadeOut());        
-      // Offset the Value set by jQuery fadeOut() Method.
-
+    
   }
 
 
