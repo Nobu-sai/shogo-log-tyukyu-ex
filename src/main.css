@@ -1093,7 +1093,7 @@ body {
   }
   .home-news__tab-container {
     width: 100%;
-    width: 100px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -1103,6 +1103,9 @@ body {
     height: 100%;
     text-align: center;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .home-news__tab_active {
     text-decoration: underline;

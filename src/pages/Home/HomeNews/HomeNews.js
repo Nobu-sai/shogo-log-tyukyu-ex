@@ -93,32 +93,32 @@ export default class HomeNews  extends Component {
               {
                 'pic': 'news01',
                 'date': 'DATE',
-                'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sint natus voluptatem dolore earum! Debitis magnam sed maxime tenetur vitae nisi facere, voluptates harum? Vel saepe fugiat tempore cum? Distinctio! ia'      
+                'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sint natus voluptatem dolore earum!'      
               }, 
               {
                 'pic': 'news02',
                 'date': 'DATE',
-                'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sint natus voluptatem dolore earum! Debitis magnam sed maxime tenetur vitae nisi facere, voluptates harum? Vel saepe fugiat tempore cum? Distinctio! ia'      
+                'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sint natus voluptatem dolore earum! '      
               }, 
               {
                 'pic': 'news02',
                 'date': '2020.12.24',
-                'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sint natus voluptatem dolore earum! Debitis magnam sed maxime tenetur vitae nisi facere, voluptates harum? Vel saepe fugiat tempore cum? Distinctio! ia',              
+                'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sint natus voluptatem dolore earum!',              
               }, 
               {
                 'pic': 'news01',
                 'date': '2020.12.24',
-                'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sint natus voluptatem dolore earum! Debitis magnam sed maxime tenetur vitae nisi facere, voluptates harum? Vel saepe fugiat tempore cum? Distinctio! ia',              
+                'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sint natus voluptatem dolore earum!',              
               }, 
               {
                 'pic': 'news01',
                 'date': '2020.12.24',
-                'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sint natus voluptatem dolore earum! Debitis magnam sed maxime tenetur vitae nisi facere, voluptates harum? Vel saepe fugiat tempore cum? Distinctio! ia',              
+                'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sint natus voluptatem dolore earum!',              
               }, 
               {
                 'pic': 'news02',
                 'date': '2020.12.24',
-                'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sint natus voluptatem dolore earum! Debitis magnam sed maxime tenetur vitae nisi facere, voluptates harum? Vel saepe fugiat tempore cum? Distinctio! ia',              
+                'text': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae sint natus voluptatem dolore earum!',              
               }, 
             ]
         }      
