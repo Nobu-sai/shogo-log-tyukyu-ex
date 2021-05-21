@@ -1288,12 +1288,11 @@ body {
     height: 15%;
   }
   .home-access__contents {
-    padding-bottom: 5%;
     width: 90%;
     height: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
   .home-access__content {
@@ -1301,7 +1300,7 @@ body {
   }
   .home-access__appearance {
     width: 90vw;
-    height: 60vh;
+    height: 30%;
     max-width: 500px;
     max-height: 300px;
     background-image: url(./assets/images/access.jpg);
@@ -1311,7 +1310,7 @@ body {
   .home-access__info {
     padding: 14px 0;
     max-width: 400px;
-    height: 20%;
+    height: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1323,12 +1322,17 @@ body {
   }
   .home-access__map {
     width: 90vw;
-    height: 40%;
+    height: 30%;
     grid-area: map;
     background-image: url(./assets/images/map.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+  }
+}
+@media (min-width: 400px) {
+  .home-access__map {
+    height: 60vh;
   }
 }
 @media (min-width: 800px) {

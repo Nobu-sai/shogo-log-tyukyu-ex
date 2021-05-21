@@ -24,12 +24,13 @@
     }
 
     &__contents {
-      padding-bottom: 5%;
+      // padding-bottom: 5%;
       width: 90%;
       height:80%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      // justify-content: space-between;
+      justify-content: center;
       align-items: center;
     }
     &__content {
@@ -37,7 +38,8 @@
     }
     &__appearance {
       width: 90vw;
-      height: 60vh;
+      // height: 50vh;
+      height: 30%;
       max-width: 500px;
       max-height: 300px;
       @include background-image.background-image('access');
@@ -47,7 +49,7 @@
     &__info {
       padding: 14px 0;
       max-width: 400px;
-      height: 20%;
+      height: 30%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -59,7 +61,7 @@
     }
     &__map { 
       width: 90vw;
-      height: 40%;
+      height: 30%;
       grid-area: map;
       @include background-image.background-image('map');
       background-size: contain;
@@ -68,6 +70,12 @@
     }
   } 
 
+  @include responsive.respond-to('min', '400') {
+    &__map {      
+      height: 60vh;
+    }
+
+  }    
 
   @include responsive.respond-to('min', '800') {   
     height: 100vh;
