@@ -248,7 +248,7 @@
       width: 100%;
       height: 100%;
       // background-color: crimson;
-      @include background-image.background-image('bg');
+      @include background-image.background-image('bg-1920-1381');
       background-size: cover;
       background-position: center;
       &-item {
@@ -407,7 +407,7 @@
 
 
     &_grid-bg {
-      @include background-image.background-image('bg');
+      @include background-image.background-image('bg-1920-1381');
       background-size: cover;
       background-position: center;
     }
@@ -489,5 +489,8 @@
       padding-bottom: 140px;
     }
 
+    &_grid-bg {
+      @include background-image.background-image('bg-3840-2762');
+    }
   }
 }

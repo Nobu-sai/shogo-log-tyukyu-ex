@@ -54,14 +54,40 @@
     &_text {       
       padding-top: 50px;          
       padding-left: 60px;
+      height: 300px;
       writing-mode: vertical-rl;
-      font-size: #{font-size.$medium}px;
+      font-size: #{font-size.$base + 4}px;
 
     }
   }
+
+  @include responsive.respond-to('min', '400') {
+    // &-container {    
+    //   height: 50vh;
+    // }
+    &_text {       
+      padding-top: 100px;    
+      font-size: #{font-size.$medium}px;
+    
+    }
+
+  }
+
   @include responsive.respond-to('min', '600') {
+    // &-container {    
+    //   height: 50vh;
+    // }
+    &_text {       
+      padding-top: 120px;    
+      // font-size: #{font-size.$medium}px;
+    
+    }
+
+  }
+
+  @include responsive.respond-to('min', '800') {
     &-container {    
-      height: 100vh;
+      height: 40vh;
     }
 
     &-bg {
@@ -69,28 +95,35 @@
     }
     
     &_flex-item {
-      height: 50%;
+      height: 100%;
       align-items: center;
     }
 
     &_text {            
-      padding-top: 0;
+      padding-top: 160px;
       font-size: #{font-size.$medium + 4}px;
-
-    }
-  
-  }
-
-
-
-  @include responsive.respond-to('min', '800') {
-    &_text {             
-      padding-left: 0;
+              
+      // padding-left: 0;
     }
   }
-  @include responsive.respond-to('min', '1000') {    
+
+  @include responsive.respond-to('min', '1000') {
+    &-container {
+      height: 50vh;
+    }
+    &_text {            
+      font-size: #{font-size.$medium + 8}px;
+    }
+    
+  }
+
+  @include responsive.respond-to('min', '1400') {    
+    &-container {
+      height: 100vh;
+    }
 
     &_text {             
+      padding-top: 50px;
       padding-right: 60px;
     }
   
@@ -104,8 +137,7 @@
     }
   
   }
-  @include responsive.respond-to('min', '2000') {
-    @include background-image.background-image('mainbg01@2x');
+  @include responsive.respond-to('min', '2000') { 
     &_text {      
       font-size: #{(font-size.$medium + 4) * 2}px;
 

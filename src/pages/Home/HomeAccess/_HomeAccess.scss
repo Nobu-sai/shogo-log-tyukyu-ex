@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center;
     // background-color: yellowgreen;
-    @include background-image.background-image('bg');
+    @include background-image.background-image('bg-1920-1381');
     background-size: cover;
     background-position: center;
 
@@ -142,7 +142,7 @@
   } 
 
   @include responsive.respond-to('min', '2000') {   
-    @include background-image.background-image('bg@2x');
+    @include background-image.background-image('bg-3840-2762');
 
     &__appearance {
       max-width: 2000px;
