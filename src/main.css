@@ -724,6 +724,7 @@ body {
 }
 @media (min-width: 2000px) {
   .home-top__main-picture_text {
+    height: 600px;
     font-size: 52px;
   }
 }

@@ -139,6 +139,7 @@
   }
   @include responsive.respond-to('min', '2000') { 
     &_text {      
+      height: 600px;
       font-size: #{(font-size.$medium + 4) * 2}px;
 
     }
