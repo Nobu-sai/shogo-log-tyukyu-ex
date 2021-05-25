@@ -18,7 +18,7 @@ body {
   position: relative;
   max-width: 100%;
 }
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   .header {
     overflow: hidden;
   }
@@ -51,7 +51,7 @@ body {
     transform: translate3d(-100vw, 0, 0);
   }
 }
-@media (min-width: 200px) and (min-width: 200px) and (min-width: 600px) {
+@media (min-width: 200px) and (min-width: 200px) and (min-width: 1000px) {
   .header__contents_hide {
     transform: translate3d(0vw, 0, 0);
     overflow: hidden;
@@ -93,18 +93,11 @@ body {
     height: 100%;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   .header__contents {
     width: 100vw;
     height: 70px;
-    z-index: 10000;
-    background-color: black;
   }
-  .header__contents_grid-container {
-    grid-template: [row1-start] "main menu reservation" 100% [row1-end]/30% 50% 20%;
-  }
-}
-@media (min-width: 1000px) {
   .header__contents_grid-container {
     grid-template: [row1-start] "main menu reservation" 100% [row1-end]/20% 60% 20%;
   }
@@ -156,7 +149,7 @@ body {
 .header__main_title_color_white {
   color: #fff;
 }
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   .header__main_flex-container {
     padding: 0 14px;
     flex-direction: row;
@@ -171,10 +164,6 @@ body {
     margin: 0;
     margin-left: 14px;
     font-size: 22px;
-  }
-}
-@media (min-width: 800px) {
-  .header__main_title {
     justify-self: start;
   }
 }
@@ -212,19 +201,14 @@ body {
     font-size: 22px;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   .header__menu_grid-container {
-    grid-template: [row1-start] "oheya oryori onsen" 100% [row1-end]/20% 20% 20%;
+    grid-template: [row1-start] "oheya oryori onsen" 100% [row1-end]/15% 15% 15%;
     justify-content: start;
     justify-items: start;
   }
   .header__menu_grid-item {
     font-size: 14px;
-  }
-}
-@media (min-width: 800px) {
-  .header__menu_grid-container {
-    grid-template: [row1-start] "oheya oryori onsen" 100% [row1-end]/15% 15% 15%;
   }
 }
 @media (min-width: 2000px) {
@@ -264,7 +248,7 @@ body {
     font-size: 22px;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   .header__reservation {
     padding: 0 14px;
     display: flex;
@@ -324,7 +308,7 @@ body {
     color: black;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   .header__button_open {
     right: -100px;
   }
@@ -341,7 +325,7 @@ body {
 .header__button_close_color-black {
   color: #000;
 }
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   .header__button_close {
     right: -100px;
   }

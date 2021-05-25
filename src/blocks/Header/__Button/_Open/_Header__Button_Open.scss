@@ -37,7 +37,7 @@
         }  
       }
     }
-    @include responsive.respond-to('min', '600') {
+    @include responsive.respond-to('min', '1000') {
       right: -100px;
     } 
   }

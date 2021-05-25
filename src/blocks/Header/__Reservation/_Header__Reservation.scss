@@ -51,7 +51,7 @@
     }
   } 
 
-  @include responsive.respond-to('min', '600') {
+  @include responsive.respond-to('min', '1000') {
     padding: 0 #{font-size.$base}px;
     display: flex;
     justify-content: flex-end;

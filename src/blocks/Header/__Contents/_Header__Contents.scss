@@ -34,7 +34,7 @@
           transform: translate3d(-100vw, 0, 0);
 
 
-        @include responsive.respond-to('min', '600') {
+        @include responsive.respond-to('min', '1000') {
           transform: translate3d(0vw, 0, 0);
           overflow: hidden;
           // Hide the Header__Button_Open which is placed right: -100 when the screen is larger than 600px
@@ -83,27 +83,10 @@
       
   }
 
-  @include responsive.respond-to('min', '600') {    
-    width: 100vw;
-    height: 70px;
-
-    z-index: 10000;
-    background-color: black;
-          // transform: translate3d(0vw, 0, 0);
-          // overflow: hidden;
-    &_grid-container {
-
-      grid-template:
-      [row1-start] "main menu reservation" 100% [row1-end]
-      / 30% 50% 20%; 
-
-      
-    } 
-   
-  } 
-
 
   @include responsive.respond-to('min', '1000') {
+    width: 100vw;
+    height: 70px;
   
 
     &_grid-container {

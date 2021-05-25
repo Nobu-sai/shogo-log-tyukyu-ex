@@ -54,7 +54,8 @@
       }
   }
 
-  @include responsive.respond-to('min', '600') {
+
+  @include responsive.respond-to('min', '1000') {
 
     &_flex-container {
       padding: 0 14px;
@@ -73,11 +74,6 @@
       margin: 0;
       margin-left: 14px;
       font-size: #{font-size.$medium}px;
-    }
-  }
-
-  @include responsive.respond-to('min', '800') {
-    &_title {
       justify-self: start;  
     }
 

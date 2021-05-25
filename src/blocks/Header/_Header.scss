@@ -5,7 +5,7 @@
   max-width: 100%;
 
 
-  @include responsive.respond-to('min', '600') {
+  @include responsive.respond-to('min', '1000') {
     overflow: hidden;
       // Hide the Header__Button_Open which is placed right: -100 when the screen is larger than 600px
   } 
