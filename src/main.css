@@ -15,8 +15,8 @@ body {
 }
 
 .header {
-  max-width: 100%;
   position: relative;
+  max-width: 100%;
 }
 @media (min-width: 600px) {
   .header {
@@ -95,7 +95,10 @@ body {
 }
 @media (min-width: 600px) {
   .header__contents {
+    width: 100vw;
     height: 70px;
+    z-index: 10000;
+    background-color: black;
   }
   .header__contents_grid-container {
     grid-template: [row1-start] "main menu reservation" 100% [row1-end]/30% 50% 20%;
@@ -678,13 +681,12 @@ body {
 }
 @media (min-width: 400px) {
   .home-top__main-picture_text {
-    padding-top: 100px;
-    font-size: 22px;
+    padding-top: 80px;
   }
 }
 @media (min-width: 600px) {
   .home-top__main-picture_text {
-    padding-top: 120px;
+    padding-top: 100px;
   }
 }
 @media (min-width: 800px) {
@@ -736,6 +738,7 @@ body {
 }
 @media (min-width: 200px) {
   .home-top__messages {
+    margin-bottom: 8px;
     width: 100vw;
     height: 65vh;
     background-image: url(./assets/images/bg-1920-1381.jpg);
@@ -774,6 +777,11 @@ body {
     writing-mode: horizontal-tb;
   }
 }
+@media (min-width: 600px) {
+  .home-top__messages_flex-item:not(:first-of-type):not(:last-of-type) {
+    height: 80%;
+  }
+}
 @media (min-width: 800px) {
   .home-top__messages {
     height: 60vh;
@@ -782,9 +790,6 @@ body {
 @media (min-width: 1000px) {
   .home-top__messages {
     height: 50vh;
-  }
-  .home-top__messages_flex-item:not(:first-of-type):not(:last-of-type) {
-    height: 80%;
   }
 }
 @media (min-width: 1400px) {

@@ -5,6 +5,8 @@ import React, { Component } from 'react'
 
 import $ from 'jquery';
 
+import { Fade, Slide } from "react-awesome-reveal";
+
 // images
 import mainBG01_400x600 from '../../../../assets/images/mainbg01-400-600.jpg';
 import mainBG02_400x600 from '../../../../assets/images/mainbg02-400-600.jpg';
@@ -237,8 +239,15 @@ export default class HomeTopMainpicture extends Component {
     // console.log(this.state.picNum)
 
     return (
-      <div className={`home-top__main-picture-container home-top__main-picture_flex-container`}>
-        <div className="home-top__main-picture-bg">
+      <Fade duration={3000} triggerOnce>
+
+      <div 
+        className={`home-top__main-picture-container home-top__main-picture_flex-container`}
+      
+      >
+        <div 
+          className="home-top__main-picture-bg"
+        >
 
         </div>
 
@@ -246,14 +255,19 @@ export default class HomeTopMainpicture extends Component {
 
         </div>
         <div className="home-top__main-picture_flex-item">
-          <div className="home-top__main-picture_text">
+          <Slide direction="down" triggerOnce>
+          <div 
+            className="home-top__main-picture_text"
+            >
             頑張る人の
             <br/>           
             頑張らない時間            
           </div> 
+          </Slide>
         </div>
 
       </div>
+      </Fade>
     )
   }
 }

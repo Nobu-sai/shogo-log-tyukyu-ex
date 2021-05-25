@@ -84,8 +84,13 @@
   }
 
   @include responsive.respond-to('min', '600') {    
+    width: 100vw;
     height: 70px;
 
+    z-index: 10000;
+    background-color: black;
+          // transform: translate3d(0vw, 0, 0);
+          // overflow: hidden;
     &_grid-container {
 
       grid-template:

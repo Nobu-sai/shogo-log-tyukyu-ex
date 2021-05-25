@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { withRouter } from "react-router";
 
 import HeaderContents from './__Contents/Header__Contents';
 import HeaderButtonOpen from './__Button/_Open/Header__Button_Open';
 
+import { withRouter } from "react-router";
 
 class Header extends Component {
   constructor(props) {
@@ -71,6 +71,7 @@ class Header extends Component {
     // console.log(this.setHeaderColor())
 
     return (
+
       <div className="header">
      
         <HeaderContents 

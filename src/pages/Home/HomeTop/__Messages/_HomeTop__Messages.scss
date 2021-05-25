@@ -12,6 +12,7 @@
   align-items: center;
 
   @include responsive.respond-to('min', '200') {
+    margin-bottom: 8px;    
     width: 100vw;
     height: 65vh;
 
@@ -68,6 +69,13 @@
 
   @include responsive.respond-to('min', '600') { 
     // height: 50vh;
+    &_flex-item {
+      &:not(:first-of-type):not(:last-of-type) {                
+        height: 80%;
+ 
+      }
+
+    }
     
   }
 
@@ -84,7 +92,7 @@
 
       }
       &:not(:first-of-type):not(:last-of-type) {                
-        height: 80%;     
+        // height: 80%;     
       }
       &:last-of-type {      
       }
