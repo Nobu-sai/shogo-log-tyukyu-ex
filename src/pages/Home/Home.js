@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 // import Header from '../../blocks/Header/Header';
+import Header from '../../blocks/Header/Header';
 import HomeTopMainpicture from './HomeTop/__MainPicture/HomeTop__MainPicture';
 import HomeTopMessages from './HomeTop/__Messages/HomeTop__Messages';
 import HomeFeatures from './HomeFeatures/HomeFeatures';
@@ -26,6 +27,7 @@ export default class Home extends Component {
     return (
       <div className="home">
         {/* <Header /> */}
+        <Header />        
         <HomeTopMainpicture />
         <HomeTopMessages />
         <HomeFeatures />

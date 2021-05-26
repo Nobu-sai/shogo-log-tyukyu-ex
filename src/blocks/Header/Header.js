@@ -4,7 +4,10 @@ import HeaderContents from './__Contents/Header__Contents';
 import HeaderButtonOpen from './__Button/_Open/Header__Button_Open';
 
 import { withRouter } from "react-router";
+import $ from 'jquery';
 
+// Instructions
+// : ALL about the menu or header VISIBILITY is controlled ONLY by this.state.menuVisibility. 
 class Header extends Component {
   constructor(props) {
     super(props)
@@ -14,27 +17,20 @@ class Header extends Component {
         // Control the visibility of Header__Menu as its className (with -100vw);
       headerColor: null,
       location: "/",
-      pageChanged: false,
+      pageChanged: false, 
     }
 
-    this.handleOnClick= this.handleOnClick.bind(this)    
+    this.handleOnClick = this.handleOnClick.bind(this); 
+ 
   }
 
-  componentDidMount() {
-  }
 
   handleOnClick(e) {
-    this.toggleMenuVisibility();
+    // this.toggleMenuVisibility();
+    this.setMenuVisibilityByButton();
     e.stopPropagation();
   }
  
-  toggleMenuVisibility() {
-    this.setState(
-      {
-        menuVisibility: !this.state.menuVisibility
-      }
-    );
-  }
 
   setHeaderColor() {
     let headerColor = 'black';
@@ -59,6 +55,15 @@ class Header extends Component {
     return contentsColor;
   }
 
+  setMenuVisibilityByButton() {
+    this.setState(
+      {
+        menuVisibility: !this.state.menuVisibility
+      }
+    );
+  }
+
+
   render() {
     
     // const {
@@ -73,13 +78,17 @@ class Header extends Component {
     return (
 
       <div className="header">
-     
-        <HeaderContents 
-          handleOnClick={this.handleOnClick}
-          menuVisibility={this.state.menuVisibility}
-          headerColor={this.setHeaderColor()}
-          contentsColor={this.setContentsColor()}
-        />
+        <div >
+          <HeaderContents 
+            handleOnClick={this.handleOnClick}
+            menuVisibility={this.state.menuVisibility}
+            headerColor={this.setHeaderColor()}
+            contentsColor={this.setContentsColor()}
+            hideHeaderFromPage={this.hideHeaderFromPage}
+            // setHideHeaderFromPage={this.setHideHeaderFromPage}
+          />
+          
+        </div>
           {/* All the LAYOUT like Grid go here */}
         <HeaderButtonOpen 
           handleOnClick={this.handleOnClick}

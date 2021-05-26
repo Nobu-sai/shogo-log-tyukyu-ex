@@ -34,12 +34,6 @@
           transform: translate3d(-100vw, 0, 0);
 
 
-        @include responsive.respond-to('min', '1000') {
-          transform: translate3d(0vw, 0, 0);
-          overflow: hidden;
-          // Hide the Header__Button_Open which is placed right: -100 when the screen is larger than 600px
-          } 
-
         }  
       }
       &_show {

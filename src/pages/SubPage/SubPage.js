@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 
+import Header from '../../blocks/Header/Header';
 import SubPageTop from './__Top/SubPage__Top';
 import SubPageMainContents from './__MainContents/SubPage__MainContents';
 import Footer from '../../blocks/Footer/Footer';
@@ -44,6 +45,7 @@ export default class SubPage extends Component {
         <Helmet>
           <title>{pageTitle} - 石井花壇 | 温海温泉旅館【公式サイト】</title>
         </Helmet>
+        <Header />        
         <div className="sub-page__top-container">
           <SubPageTop 
             bgName={bgName}

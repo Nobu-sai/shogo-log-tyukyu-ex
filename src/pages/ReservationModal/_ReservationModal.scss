@@ -1,0 +1,16 @@
+@use '../../utilities/responsive';
+@use '../../utilities/mixins/background-image';
+@use '../../utilities/variables/font-size';
+@use '../../utilities/variables/base-color';
+
+.reservation-modal {
+
+  @include responsive.respond-to('min', '200') {
+    width: 100vw;
+    height: 100vh;
+    background-color: blueviolet;
+
+    z-index: 10000;
+  }
+
+}

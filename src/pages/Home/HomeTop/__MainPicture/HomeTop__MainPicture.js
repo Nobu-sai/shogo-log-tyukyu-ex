@@ -66,7 +66,7 @@ export default class HomeTopMainpicture extends Component {
 
   handleResize(e) {    
     this.setState({ windowWidth: window.innerWidth });
-    console.log(this.state.windowWidth);
+    // console.log(this.state.windowWidth);
 
     // this.setImageList()
   }

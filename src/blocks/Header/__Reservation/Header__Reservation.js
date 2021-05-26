@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { Link } from 'react-router-dom';
+
 export default class HeaderReservation extends Component {
   constructor(props) {
     super(props)
@@ -19,7 +21,12 @@ export default class HeaderReservation extends Component {
         <div className="header__reservation_button">
           <div className={`header__reservation_calendar-icon header__reservation_calendar-icon_color-${this.props.contentsColor}`}></div>
           <div className={`header__reservation_title header__reservation_title_color-${this.props.contentsColor}`}>
-            宿泊予約
+            <Link
+              className={`link `}
+              to="/yoyaku"                    
+            >
+              宿泊予約
+            </Link>
           </div>
         </div>
       </div>

@@ -1,27 +1,29 @@
+// import { useState, useEffect } from 'react';
+
 import './main.css';
 // Components for Site Pages
 import Home from './pages/Home/Home.js'
 import SubPageOheya from './pages/SubPage/-Oheya/SubPageOheya';
 import SubPageOryori from './pages/SubPage/-Oryori/SubPageOryori';
 import SubPageOnsen from './pages/SubPage/-Onsen/SubPageOnsen';
+import ReservationModal from './pages/ReservationModal/ReservationModal';
 // Components for communal parts
-import Header from './blocks/Header/Header';
 // Libraries
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  Route,  
 } from "react-router-dom";
 
-function App() {
 
+function App() {
   return (
     <Router>
       <div className='app'>
         
-        <Header />        
 
         <Switch> 
+
 
           <Route path='/oheya'>
             <SubPageOheya />
@@ -35,9 +37,14 @@ function App() {
             <SubPageOnsen />
           </Route>
 
+          <Route path='/yoyaku'>
+            <ReservationModal />
+          </Route>
+
           <Route path='/'>
             <Home />
           </Route> 
+          
 
         </Switch>
 

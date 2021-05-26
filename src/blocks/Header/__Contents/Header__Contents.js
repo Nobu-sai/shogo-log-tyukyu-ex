@@ -9,6 +9,7 @@ import HeaderMain from '../__Main/Header__Main';
 import HeaderMenu from '../__Menu/Header__Menu';
 import HeaderReservation from '../__Reservation/Header__Reservation';
 import HeaderButtonClose from '../__Button/_Close/Header__Button_Close';
+import { FilterTiltShiftSharp } from '@material-ui/icons';
 
 class HeaderContents extends Component {
   constructor(props) {
@@ -16,12 +17,15 @@ class HeaderContents extends Component {
 
     this.state = {      
       slide: 'up',
+      windowWidth: window.innerWidth,      
     }
 
   }
 
+  
   componentDidMount() {
-    this.$headerContents = $('.header__contents');
+    window.addEventListener("resize", this.handleResize);    
+    this.$headerContents = $(this.headerContents);
     this.$headerContents.fadeOut(0);
     // this.setState({
     //   slide: 'down',
@@ -30,17 +34,17 @@ class HeaderContents extends Component {
       this.$headerContents.fadeIn(1000)
     }, 200)
   }
+  
+   componentWillUnmount() {
+    window.addEventListener("resize", this.handleResize);
+   } 
 
-  // slideHeaderContents() {
-  //   console.log(this.state.slide);
-  //   if(this.state.slide === 'up') {
-  //     this.$headerContents.slideUp(0);
-  //   } else {
-  //     this.$headerContents.slideDown(2000);
-  //   }
-  // }
+  handleResize = (e) => {
+    this.setState({ windowWidth: window.innerWidth });
+   };
+  
 
-
+  
   render() {
 
 
@@ -51,11 +55,9 @@ class HeaderContents extends Component {
     // } = this;
 
     let menuVisibility = "hide";
- 
-    if (this.props.menuVisibility) {
+    if (this.props.menuVisibility || this.state.windowWidth >= 1000) {
       menuVisibility = "show";
-    }
-
+    } 
     // console.log("headerColor", this.props.headerColor);
     // console.log("contentsColor", this.props.contentsColor);
 
@@ -74,6 +76,7 @@ class HeaderContents extends Component {
             header__contents_content-color-${this.props.contentsColor}
             `
           }        
+          ref={headerContents => this.headerContents = headerContents}
 
       >
       
@@ -94,7 +97,10 @@ class HeaderContents extends Component {
 
         <div 
           className="header__contents_grid-item header__contents_reservation">
-            <HeaderReservation contentsColor={this.props.contentsColor}/>
+            <HeaderReservation 
+              contentsColor={this.props.contentsColor}
+              hideHeaderFromPage={this.props.hideHeaderFromPage}
+            />
         </div>
 
         <div>

@@ -51,12 +51,6 @@ body {
     transform: translate3d(-100vw, 0, 0);
   }
 }
-@media (min-width: 200px) and (min-width: 200px) and (min-width: 1000px) {
-  .header__contents_hide {
-    transform: translate3d(0vw, 0, 0);
-    overflow: hidden;
-  }
-}
 @media (min-width: 200px) and (min-width: 200px) {
   .header__contents_show {
     width: 100vw;
@@ -1909,6 +1903,15 @@ body {
   }
   .sub-page-onsen__effect_table-cell_content {
     font-size: 28px;
+  }
+}
+
+@media (min-width: 200px) {
+  .reservation-modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: blueviolet;
+    z-index: 10000;
   }
 }
 
