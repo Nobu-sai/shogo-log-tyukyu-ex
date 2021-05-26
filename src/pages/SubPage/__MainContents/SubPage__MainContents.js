@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-
-import SubpageMainContentsAnnotation from './_Annotation/SubPageMainContentsAnnotation';
-
-import ScrollingSection from '../../../blocks/SrollingSection/ScrollingSection';
-
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { Fade, Slide, AttentionSeeker } from "react-awesome-reveal";
+
+import SubpageMainContentsAnnotation from './_Annotation/SubPageMainContentsAnnotation';
+import ScrollingSection from '../../../blocks/SrollingSection/ScrollingSection';
 import SubpageMainContentsExplanation from './-Explanation/SubPage__MainContents_Explanation';
 
 export default class SubPageMainContents extends Component {
@@ -27,12 +26,36 @@ export default class SubPageMainContents extends Component {
 
     return (
       <div className="sub-page__main-contents">
+        <Slide               
+          direction="up" 
+          triggerOnce
+          style={
+            {
+              'width': '100%', 
+              'height': '100%'
+            }
+          }
+        >
         <div className="sub-page__main-contents_page-location-section">
           <Link className="link link_color_black sub-page__main-contents_page-location-text" to="/">トップ</Link>
           <div className="sub-page__main-contents_page-location-text sub-page__main-contents_page-location-grater-than"> &#62; </div>
           <Link className="link link_color_black sub-page__main-contents_page-location-text" to={`${this.props.currentPage.link}`}>{this.props.pageTitle}</Link>
         </div>
-        <div className="sub-page__main-contents_intro-text-section">
+        </Slide>
+
+
+        <Slide               
+          direction="up" 
+          triggerOnce
+          style={
+            {
+              'width': '100%', 
+              'height': '100%'
+            }
+          }
+          className="sub-page__main-contents_intro-text-section"
+        >
+        {/* <div className="sub-page__main-contents_intro-text-section"> */}
           <div className="sub-page__main-contents_intro-text">
             {
               this.props.IntroTextList.map((textLine, index)=>(
@@ -45,8 +68,21 @@ export default class SubPageMainContents extends Component {
               ))
             }
           </div>
-        </div>
-        <div className={`sub-page__main-contents_grid-section sub-page__main-contents_grid-section_${this.props.gridContentNumber}-contents`}>
+        {/* </div> */}
+        </Slide>
+
+        <Slide               
+          direction="up" 
+          triggerOnce
+          style={
+            {
+              // 'width': '100%', 
+              // 'height': '100%'
+            }
+          }
+          className={`sub-page__main-contents_grid-section sub-page__main-contents_grid-section_${this.props.gridContentNumber}-contents`} 
+        >
+        {/* <div className={`sub-page__main-contents_grid-section sub-page__main-contents_grid-section_${this.props.gridContentNumber}-contents`}> */}
           <ScrollingSection
             stopScrolling={1000}            
           >
@@ -59,24 +95,73 @@ export default class SubPageMainContents extends Component {
                     key={ uuidv4() }
                   > 
                   
-                      <div className={`sub-page__main-contents_grid-item sub-page__main-contents_${index}-pic sub-page__main-contents_pic sub-page__main-contents_pic_${content.pic}`}>
-                      </div>
+                      <Slide               
+                        direction="up" 
+                        triggerOnce
+                        style={
+                          {
+                            // 'width': '100%', 
+                            // 'height': '100%'
+                          }
+                        }
+                        className={`sub-page__main-contents_grid-item sub-page__main-contents_${index}-pic`}
+                      >
+                        <div className={`sub-page__main-contents_pic sub-page__main-contents_pic_${content.pic}`}>
+                        </div>
+                      </Slide>
 
                       <div className={`sub-page__main-contents_grid-item sub-page__main-contents_grid-bg sub-page__main-contents_desc sub-page__main-contents_${index}-desc`}>
-                        <div className={`sub-page__main-contents_desc-item sub-page__main-contents_title sub-page__main-contents_${index}-title`}>
+                        <Slide               
+                          direction="up" 
+                          triggerOnce
+                          style={
+                            {
+                              // 'width': '100%', 
+                              // 'height': '100%'
+                            }
+                          }                          
+                          className="sub-page__main-contents_desc-item"
+                        >
+                        <div className={`sub-page__main-contents_title sub-page__main-contents_${index}-title`}>
                           {content.title}
                         </div>
-                        <div className={`sub-page__main-contents_desc-item sub-page__main-contents_explanation-container`}>
-                          <SubpageMainContentsExplanation index={index} explanationList={content.explanationList}/>
-                        </div>
+
+                        </Slide>
+                        <Slide               
+                          direction="up" 
+                          triggerOnce
+                          style={
+                            {
+                              // 'width': '100%', 
+                              // 'height': '100%'
+                            }
+                          }            
+                          className="sub-page__main-contents_desc-item"              
+                        >
+                          <div                   
+                            className={`sub-page__main-contents_explanation-container`}
+                          >
+                            <SubpageMainContentsExplanation index={index} explanationList={content.explanationList}/>
+                          </div>
+                        </Slide>
 
                         { content.annotationList ? (
-                          <div className="sub-page__main-contents_desc-item  sub-page__main-contents_annotation-container">
+                          <Slide               
+                            direction="up" 
+                            triggerOnce
+                            style={
+                              {
+                                // 'width': '100%', 
+                                // 'height': '100%'
+                              }
+                            }
+                            className="sub-page__main-contents_desc-item sub-page__main-contents_annotation-container"
+                          >                          
                               <SubpageMainContentsAnnotation 
                                 annotationList={content.annotationList} 
                                 index={index}
-                              />               
-                          </div>
+                              />                
+                          </Slide>
 
                         ) : (
                           <></>
@@ -96,13 +181,27 @@ export default class SubPageMainContents extends Component {
             </div>
 
           </ScrollingSection>
-        </div>
+        {/* </div> */}
 
+
+        </Slide>
         {
           this.props.customSection && 
+            <Slide               
+              direction="up" 
+              triggerOnce
+              style={
+                {
+                  'width': '100%', 
+                  'height': '100%'
+                }
+              }
+            >
+
             <div className="sub-page__main-contents_custom-section">
               {this.props.customSection}
             </div> 
+            </Slide>
         }        
       </div>
     )

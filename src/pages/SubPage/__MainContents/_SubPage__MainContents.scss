@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: center; 
+    
 
     &_page-location-section {
       width: 100%;
@@ -90,32 +91,37 @@
 
     &_grid-section {
       padding: 70px 0;
-      width: 100%;
+      width: 100vw;
       height: 80vh;
       // background-color: chartreuse;
 
     }
 
     &_grid-container_scroll {
-      padding: 10% 0;
+      // padding: 10% 0;
       width: 100%;
+      height: 200vh;
+      // height: 200%;
 
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: space-evenly;
     } 
 
     &_grid-container {
       margin-top: 70px;
-      width: 90%;
+      width: 80%;
       max-width: 500px;
       height: 50vh;
+      
 
 
       display: grid;      
       place-content:  center center;
       place-items: center center;
 
+      // overflow: hidden;
 
 
       transition: all .6s ease;
@@ -211,6 +217,8 @@
     }
 
     &_pic {      
+      width: 100%;
+      height: 100%;
       background-size: cover;      
       background-position: center;
       // background-color: rgb(37, 64, 65);
@@ -244,33 +252,45 @@
 
 
     &_desc {
-      // padding: 14px;
+      padding:24px;
       width: 100%;
+      max-width: 500px;
       height: 100%;
       // background-color: crimson;
       @include background-image.background-image('bg-1920-1381');
       background-size: cover;
       background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+
       &-item {
-        padding: 14px;
+        width: 100%;
+        // padding-top: 14px;        
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        // overflow: scroll;
 
       }
     }
 
     &_title {       
+      // height: 20%;
       font-size: #{font-size.$medium}px;
     }
 
     &_explanation { 
       max-width: 100%;
       // background-color: darkorange;
+      // width: 200px;
       font-size: #{font-size.$base}px;
     }
 
     &_annotation-container {
+      margin-top: 14px;
       max-width: 100%;
       // background-color: rgb(233, 216, 122);
       font-size: #{font-size.$base}px;
@@ -414,7 +434,7 @@
 
 
     &_desc {  
-
+      padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -438,7 +458,7 @@
     }
 
     &_annotation-container {
-      
+      margin-top: 0;
     }
     &_annotation {
  

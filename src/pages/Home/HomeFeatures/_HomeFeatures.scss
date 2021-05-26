@@ -41,28 +41,19 @@
       align-items: center;
       justify-content: center;
       // overflow: scroll;
-      &_picture {        
-        // width: 200vw;
-        // height: 70%;
-        // background-color: rgb(0, 0, 0);
-        background-size: contain;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
+
+      &_picture-container {        
         &-1 {
           grid-area: picture-1;
           // background-color: rgb(255, 81, 0);
-          @include background-image.background-image('oheya-top');
         }
         &-2 {
           grid-area: picture-2;
           // background-color: rgb(253, 131, 75);
-          @include background-image.background-image('oryori-top');
         }
         &-3 {
           grid-area: picture-3;
           // background-color: rgb(255, 203, 179);
-          @include background-image.background-image('onsen-top');
           
         }
       }
@@ -82,6 +73,7 @@
         }
       }
     }
+
     &__description {
       &-container {        
         width: 90%;
@@ -124,15 +116,24 @@
       }
     }
 
-  }
+    &_picture {        
+      width: 100%;
+      height: 100%;
+      
+      background-size: contain;
+      background-position: center;
+      // background-attachment: fixed;
+      background-repeat: no-repeat;        
 
-  @include responsive.respond-to('min', '600') {
-
-    &_grid-item {     
-      &_picture {     
-        // background-size: contain; -> 
-        background-size: cover;
-          // THe image reaches the ORIGINAL size. 
+      &-1 {
+        @include background-image.background-image('oheya-top');
+      }
+      &-2 {
+        @include background-image.background-image('oryori-top');
+      }
+      &-3 {
+        @include background-image.background-image('onsen-top');
+        
       }
     }
 
@@ -164,13 +165,13 @@
         justify-content: flex-end;        
       }        
    
-      &_picture {      
-        background-color: transparent;
-        background-position: center;
-        // background-attachment: fixed; -> 
-        background-attachment: scroll;
-        background-repeat: no-repeat;
-      }           
+      // &_picture {      
+      //   background-color: transparent;
+      //   background-position: center;
+      //   // background-attachment: fixed; -> 
+      //   background-attachment: scroll;
+      //   background-repeat: no-repeat;
+      // }           
     }
 
     &__description {
@@ -205,6 +206,14 @@
         
       }
     }
+    &_picture {      
+      background-color: transparent;
+      background-size: cover;
+      background-position: center;
+      // background-attachment: fixed; -> 
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+    }           
 
 
   }

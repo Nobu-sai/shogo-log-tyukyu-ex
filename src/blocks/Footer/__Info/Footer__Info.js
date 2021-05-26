@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Fade, Slide, AttentionSeeker } from "react-awesome-reveal";
 
 export default class FooterInfo extends Component {
   constructor(props) {
@@ -13,6 +14,16 @@ export default class FooterInfo extends Component {
   render() {
     return (
       <div className="footer__info">
+        <Slide               
+          direction="up" 
+          triggerOnce
+          style={
+            {
+              'width': '100%', 
+              'height': '100%'
+            }
+          }
+        >
         <div className="footer__info_grid-container">
           <div className="footer__info_grid-item footer__info_grid-item_post">
             <div 
@@ -33,6 +44,7 @@ export default class FooterInfo extends Component {
             FAX.00-0000-0000
           </div>
         </div>         
+        </Slide>
       </div>
     )
   }

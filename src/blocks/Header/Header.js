@@ -4,7 +4,6 @@ import HeaderContents from './__Contents/Header__Contents';
 import HeaderButtonOpen from './__Button/_Open/Header__Button_Open';
 
 import { withRouter } from "react-router";
-import $ from 'jquery';
 
 // Instructions
 // : ALL about the menu or header VISIBILITY is controlled ONLY by this.state.menuVisibility. 

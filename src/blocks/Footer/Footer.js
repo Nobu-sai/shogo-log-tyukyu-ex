@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Fade } from 'react-awesome-reveal';
 
 import FooterMenu from './__Menu/Footer__Menu';
 import FooterMain from './__Main/Footer__Main';
@@ -19,6 +20,9 @@ export default class Footer extends Component {
 
   render() {
     return (
+      <Fade 
+        direction={3000}
+      >    
       <div className="footer footer_grid-container">
         <div className="footer_grid-item footer_grid-item_menu">
           <FooterMenu />
@@ -33,6 +37,7 @@ export default class Footer extends Component {
           <FooterCopyRight />
         </div>
       </div>
+      </Fade>
     )
   }
 }

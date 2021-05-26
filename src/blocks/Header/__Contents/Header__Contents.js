@@ -2,14 +2,12 @@
 import React, { Component } from 'react'
 import { withRouter } from "react-router";
 import $ from 'jquery';
-// import { Fade, Bounce, Slide } from "react-awesome-reveal";
 
 // Components
 import HeaderMain from '../__Main/Header__Main';
 import HeaderMenu from '../__Menu/Header__Menu';
 import HeaderReservation from '../__Reservation/Header__Reservation';
 import HeaderButtonClose from '../__Button/_Close/Header__Button_Close';
-import { FilterTiltShiftSharp } from '@material-ui/icons';
 
 class HeaderContents extends Component {
   constructor(props) {
@@ -63,7 +61,6 @@ class HeaderContents extends Component {
 
 
     return (
-      // <Slide direction="down">
 
       <div 
         className=
@@ -112,7 +109,6 @@ class HeaderContents extends Component {
         </div>
 
       </div>
-      // </Slide> 
     )
   }
 }

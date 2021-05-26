@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import $ from 'jquery';
+import { Fade, Slide, AttentionSeeker } from "react-awesome-reveal";
 
 import HomeNewsTabs from './__Tabs/HomeNews__Tabs';
 import HomeNewsItems from './__Items/HomeNews__Items';
 import HomeSectionHeading from '../__SectionHeading/Home__SectionHeading';
 
-import $ from 'jquery';
 
 export default class HomeNews  extends Component {
   constructor(props) {
@@ -128,6 +129,11 @@ export default class HomeNews  extends Component {
       // if ()
 
     return (
+      <Fade 
+        duration={3000}
+        triggerOnce
+      >
+
       <div className="home-news">
 
         <div className="home-news__heading-container">
@@ -135,6 +141,17 @@ export default class HomeNews  extends Component {
         </div>
 
         <div className="home-news__tabs-container">
+          <Slide 
+            direction="up" 
+            triggerOnce
+            style={
+              {
+                'width': '100%', 
+                'height': '100%'
+              }
+            }
+          >
+
           <HomeNewsTabs
             activeTab={this.state.activeTab}
             handleOnClick={this.handleOnClick}
@@ -146,6 +163,7 @@ export default class HomeNews  extends Component {
               その他
             </div>
           </HomeNewsTabs>
+          </Slide>
         </div>
 
         <div className="home-news__items-container">
@@ -161,6 +179,7 @@ export default class HomeNews  extends Component {
 
         </div>
       </div>
+      </Fade>
     )
   }
 }

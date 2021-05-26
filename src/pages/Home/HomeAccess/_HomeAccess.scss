@@ -36,42 +36,56 @@
     &__content {
       width: 100%;
     }
-    &__appearance {
+    &__appearance-container {
       width: 90vw;
       // height: 50vh;
       height: 30%;
-      max-width: 500px;
-      max-height: 300px;
+      // max-width: 500px;
+      // max-height: 300px;
+    }
+    &__appearance {
+      width: 100%;
+      height: 100%;
       @include background-image.background-image('access');
       background-size: cover;
       background-position: center;
+
     }
-    &__info {
-      padding: 14px 0;
-      max-width: 400px;
+    &__info-container {
+      // padding: 14px 0;
+      // mwidth: 400px;
       height: 30%;
+    }
+    &-info {
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      // justify-content: center;
       &-content {
         width: 90%;
         font-size: #{font-size.$small}px;
       }
+
     }
-    &__map { 
+    &__map-container { 
       width: 90vw;
       height: 30%;
-      grid-area: map;
+    }
+    &__map { 
+      width: 100%;
+      height: 100%;
       @include background-image.background-image('map');
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
+
     }
   } 
 
   @include responsive.respond-to('min', '400') {
-    &__map {      
+    &__map-container {      
       height: 60vh;
     }
 
@@ -86,30 +100,37 @@
 
 
     &__contents {
+      max-width: 1400px;
       height:75%;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
+      justify-content: space-evenly;
     }  
 
-    &__appearance {
-      width: 70%;
+    &__appearance-container {
+      width: 60%;
+      // min-width: 500px;
       height: 35%;
+      // max-height: 600px;
+    }
+    &__appearance {
       background-size: cover;
-      max-width: 1000px;
-      max-height: 600px;
+
     }
 
-    &__info {
+    &__info-container {
       padding-left: 14px;
-      width: 25%;
-      height: 35%;
+      width: 30%;
+      // height: 35%;
+      }
+ 
+    &__info {
       &-content {
         font-size: #{font-size.$base}px;
       }
     }
-
-    &__map {
+    &__map-container {
       width: 100%;
       height: 50%;
     }
@@ -118,8 +139,9 @@
 
   @include responsive.respond-to('min', '1000') {   
 
-    &__appearance {
-      width: 60%;
+    &__appearance-container {
+      max-width: 500px;
+      max-height: 400px;
     }
 
 
@@ -127,31 +149,42 @@
 
   @include responsive.respond-to('min', '1200') {   
 
-    &__appearance {
-      width: 50%;
+    &__appearance-container {
+      // width: 50%;
     }
 
   } 
 
   @include responsive.respond-to('min', '1400') {   
 
-    &__appearance {
-      width: 40%;
+    &__appearance-container {
+      // width: 60%;
+      // width: 40%;
+      // max-width: 100px;
     }
 
+    &__info-container { 
+      width: 40%;      
+      }
   } 
 
   @include responsive.respond-to('min', '2000') {   
     @include background-image.background-image('bg-3840-2762');
 
-    &__appearance {
-      max-width: 2000px;
-      max-height: 1200px;
+    &__contents {
+      max-width: 2000px;      
+    }
+    &__appearance-container{
+      max-width: 800px;
+      max-height: 700px;
     }
 
+    &__info-container {
+      width: 50%;
+      }
     &__info {
       &-content {
-        font-size: #{font-size.$base * 2}px;
+        font-size: #{font-size.$base * 1.5}px;
       }
 
     }  

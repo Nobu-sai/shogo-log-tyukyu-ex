@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Fade, Slide, AttentionSeeker } from "react-awesome-reveal";
 
 import ScrollingSection from '../../../blocks/SrollingSection/ScrollingSection';
 import HomeSectionHeading from '../__SectionHeading/Home__SectionHeading';
@@ -16,6 +17,10 @@ export default class HomeRecommended extends Component {
 
   render() {
     return (
+      <Fade 
+        duration={3000}
+        triggerOnce
+      >
       <div className="home-recommended">
         <div className="home-recommended__heading-container">
           <HomeSectionHeading headingTitle={'おすすめのご宿泊プラン'}/>
@@ -25,11 +30,23 @@ export default class HomeRecommended extends Component {
             scrollingSection__Container_BackgroundColor={'transparent'}
             stopScrolling={'1000'}
           >
+
+              <Slide 
+                direction="up" 
+                triggerOnce
+                style={
+                  {
+                    'width': '100%', 
+                    'height': '100%'
+                  }
+                }
+              >
+
               <div className="home-recommended__plans">
                     <div className="home-recommended__plan">
                       <div className="home-recommended__plan-picture home-recommended__plan-picture_1">
-
                       </div>                    
+
                       <div className="home-recommended__plan-contents home-recommended__plan-title">
                         朝食付きプラン、日本近海で取れた<br/>のどぐろを朝食として…
                       </div>
@@ -49,7 +66,6 @@ export default class HomeRecommended extends Component {
                         温海で水揚げされた蟹は「温海蟹」<br/>として知られ、<br/>嗜好品として愛されてきました。<br/>この宿泊プランでは存分に
                       </div>
                     </div>
-
                     <div className="home-recommended__plan">
                       <div className="home-recommended__plan-picture home-recommended__plan-picture_3">
 
@@ -63,10 +79,12 @@ export default class HomeRecommended extends Component {
                     </div>
 
               </div>
+              </Slide>
 
           </ ScrollingSection>
         </div>
       </div>
+      </Fade>
     )
   }
 }

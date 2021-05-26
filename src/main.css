@@ -280,7 +280,7 @@ body {
 
 @media (min-width: 200px) {
   .header__button_open {
-    position: absolute;
+    position: fixed;
     top: 14px;
     right: 14px;
     width: 14px;
@@ -412,9 +412,15 @@ body {
     width: 100%;
     height: 100%;
   }
-  .footer__main_flex-container {
-    width: 100%;
+  .footer__main_contents {
     height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__main_content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -835,23 +841,14 @@ body {
     align-items: center;
     justify-content: center;
   }
-  .home-features_grid-item_picture {
-    background-size: contain;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-  }
-  .home-features_grid-item_picture-1 {
+  .home-features_grid-item_picture-container-1 {
     grid-area: picture-1;
-    background-image: url(./assets/images/oheya-top.jpg);
   }
-  .home-features_grid-item_picture-2 {
+  .home-features_grid-item_picture-container-2 {
     grid-area: picture-2;
-    background-image: url(./assets/images/oryori-top.jpg);
   }
-  .home-features_grid-item_picture-3 {
+  .home-features_grid-item_picture-container-3 {
     grid-area: picture-3;
-    background-image: url(./assets/images/onsen-top.jpg);
   }
   .home-features_grid-item_description-1 {
     grid-area: description-1;
@@ -895,10 +892,21 @@ body {
     background-color: #666666;
     color: #fff;
   }
-}
-@media (min-width: 600px) {
-  .home-features_grid-item_picture {
-    background-size: cover;
+  .home-features_picture {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .home-features_picture-1 {
+    background-image: url(./assets/images/oheya-top.jpg);
+  }
+  .home-features_picture-2 {
+    background-image: url(./assets/images/oryori-top.jpg);
+  }
+  .home-features_picture-3 {
+    background-image: url(./assets/images/onsen-top.jpg);
   }
 }
 @media (min-width: 1000px) {
@@ -915,12 +923,6 @@ body {
   }
   .home-features_grid-item_align-items_flex-end {
     justify-content: flex-end;
-  }
-  .home-features_grid-item_picture {
-    background-color: transparent;
-    background-position: center;
-    background-attachment: scroll;
-    background-repeat: no-repeat;
   }
   .home-features__description-container {
     align-items: flex-start;
@@ -945,6 +947,13 @@ body {
     width: 200px;
     font-size: 14px;
   }
+  .home-features_picture {
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+  }
 }
 @media (min-width: 2000px) {
   .home-features__description-container_align-items_flex-end {
@@ -965,6 +974,7 @@ body {
 
 @media (min-width: 200px) {
   .home-recommended {
+    margin-top: 8px;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -991,13 +1001,13 @@ body {
     justify-content: space-evenly;
   }
   .home-recommended__plan {
-    width: 50%;
-    min-width: 300px;
+    width: 300px;
     height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    justify-content: center;
   }
   .home-recommended__plan-contents {
     display: flex;
@@ -1007,8 +1017,8 @@ body {
   }
   .home-recommended__plan-picture {
     width: 100%;
-    height: 50%;
-    background-size: contain;
+    height: 150px;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -1023,10 +1033,12 @@ body {
   }
   .home-recommended__plan-title {
     width: 100%;
+    height: 20%;
     font-size: 18px;
   }
   .home-recommended__plan-description {
     width: 100%;
+    height: 20%;
     font-size: 14px;
   }
 }
@@ -1051,19 +1063,35 @@ body {
     align-items: center;
     justify-content: space-evenly;
   }
-  .home-recommended__plan {
-    width: 20%;
-    min-width: 300px;
-    height: 60%;
-    min-height: 400px;
+  .home-recommended__plan-picture_1 {
+    background-image: url(./assets/images/recommended01-800-450.jpg);
   }
-  .home-recommended__plan-contents {
-    align-items: flex-start;
+  .home-recommended__plan-picture_2 {
+    background-image: url(./assets/images/recommended02-800-450.jpg);
+  }
+  .home-recommended__plan-picture_3 {
+    background-image: url(./assets/images/recommended03-800-450.jpg);
+  }
+}
+@media (min-width: 1400px) {
+  .home-recommended__plan {
+    width: 400px;
+    height: 600px;
+  }
+  .home-recommended__plan-picture {
+    height: 200px;
   }
 }
 @media (min-width: 2000px) {
   .home-recommended {
     margin-top: 200px;
+  }
+  .home-recommended__plan {
+    width: 600px;
+    height: 800px;
+  }
+  .home-recommended__plan-picture {
+    height: 300px;
   }
   .home-recommended__plan-title {
     font-size: 36px;
@@ -1301,32 +1329,38 @@ body {
   .home-access__content {
     width: 100%;
   }
-  .home-access__appearance {
+  .home-access__appearance-container {
     width: 90vw;
     height: 30%;
-    max-width: 500px;
-    max-height: 300px;
+  }
+  .home-access__appearance {
+    width: 100%;
+    height: 100%;
     background-image: url(./assets/images/access.jpg);
     background-size: cover;
     background-position: center;
   }
-  .home-access__info {
-    padding: 14px 0;
-    max-width: 400px;
+  .home-access__info-container {
     height: 30%;
+  }
+  .home-access-info {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
   }
-  .home-access__info-content {
+  .home-access-info-content {
     width: 90%;
     font-size: 12px;
   }
-  .home-access__map {
+  .home-access__map-container {
     width: 90vw;
     height: 30%;
-    grid-area: map;
+  }
+  .home-access__map {
+    width: 100%;
+    height: 100%;
     background-image: url(./assets/images/map.png);
     background-size: contain;
     background-position: center;
@@ -1334,7 +1368,7 @@ body {
   }
 }
 @media (min-width: 400px) {
-  .home-access__map {
+  .home-access__map-container {
     height: 60vh;
   }
 }
@@ -1346,43 +1380,40 @@ body {
     height: 20%;
   }
   .home-access__contents {
+    max-width: 1400px;
     height: 75%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    justify-content: space-evenly;
+  }
+  .home-access__appearance-container {
+    width: 60%;
+    height: 35%;
   }
   .home-access__appearance {
-    width: 70%;
-    height: 35%;
     background-size: cover;
-    max-width: 1000px;
-    max-height: 600px;
   }
-  .home-access__info {
+  .home-access__info-container {
     padding-left: 14px;
-    width: 25%;
-    height: 35%;
+    width: 30%;
   }
   .home-access__info-content {
     font-size: 14px;
   }
-  .home-access__map {
+  .home-access__map-container {
     width: 100%;
     height: 50%;
   }
 }
 @media (min-width: 1000px) {
-  .home-access__appearance {
-    width: 60%;
-  }
-}
-@media (min-width: 1200px) {
-  .home-access__appearance {
-    width: 50%;
+  .home-access__appearance-container {
+    max-width: 500px;
+    max-height: 400px;
   }
 }
 @media (min-width: 1400px) {
-  .home-access__appearance {
+  .home-access__info-container {
     width: 40%;
   }
 }
@@ -1390,12 +1421,18 @@ body {
   .home-access {
     background-image: url(./assets/images/bg-3840-2762.jpg);
   }
-  .home-access__appearance {
+  .home-access__contents {
     max-width: 2000px;
-    max-height: 1200px;
+  }
+  .home-access__appearance-container {
+    max-width: 800px;
+    max-height: 700px;
+  }
+  .home-access__info-container {
+    width: 50%;
   }
   .home-access__info-content {
-    font-size: 28px;
+    font-size: 21px;
   }
   .home-access__map {
     background-image: url(./assets/images/map@2x.png);
@@ -1463,19 +1500,20 @@ body {
   }
   .sub-page__main-contents_grid-section {
     padding: 70px 0;
-    width: 100%;
+    width: 100vw;
     height: 80vh;
   }
   .sub-page__main-contents_grid-container_scroll {
-    padding: 10% 0;
     width: 100%;
+    height: 200vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
   }
   .sub-page__main-contents_grid-container {
     margin-top: 70px;
-    width: 90%;
+    width: 80%;
     max-width: 500px;
     height: 50vh;
     display: grid;
@@ -1532,6 +1570,8 @@ body {
     grid-area: bg-area-3;
   }
   .sub-page__main-contents_pic {
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
   }
@@ -1560,17 +1600,24 @@ body {
     background-image: url(./assets/images/onsen02.jpg);
   }
   .sub-page__main-contents_desc {
+    padding: 24px;
     width: 100%;
+    max-width: 500px;
     height: 100%;
     background-image: url(./assets/images/bg-1920-1381.jpg);
     background-size: cover;
     background-position: center;
-  }
-  .sub-page__main-contents_desc-item {
-    padding: 14px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+  }
+  .sub-page__main-contents_desc-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .sub-page__main-contents_title {
     font-size: 22px;
@@ -1580,6 +1627,7 @@ body {
     font-size: 14px;
   }
   .sub-page__main-contents_annotation-container {
+    margin-top: 14px;
     max-width: 100%;
     font-size: 14px;
     justify-content: flex-start;
@@ -1665,6 +1713,7 @@ body {
     background-position: center;
   }
   .sub-page__main-contents_desc {
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1675,6 +1724,9 @@ body {
     height: 30%;
     align-items: flex-start;
     justify-content: center;
+  }
+  .sub-page__main-contents_annotation-container {
+    margin-top: 0;
   }
 }
 @media (min-width: 1400px) {
@@ -1720,6 +1772,8 @@ body {
   .sub-page__top {
     height: 100%;
     width: 100%;
+  }
+  .sub-page__top_flex-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1808,8 +1862,12 @@ body {
     flex-direction: column;
     align-items: center;
   }
+  .sub-page__footer-container {
+    width: 100%;
+    height: 100%;
+  }
 }
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   .sub-page__top-container {
     margin-top: 70px;
     height: 400px;

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import { v4 as uuidv4 } from 'uuid';
+import $ from 'jquery';
+import { Fade, Slide, AttentionSeeker } from "react-awesome-reveal";
 
 
 import ScrollingSection from '../../../../blocks/SrollingSection/ScrollingSection';
 
-import { v4 as uuidv4 } from 'uuid';
-import $ from 'jquery';
 
 export default class HomeNewItems extends Component {
   constructor(props) {
@@ -44,6 +45,17 @@ export default class HomeNewItems extends Component {
           <ScrollingSection
             stopScrolling={'1000'}
           >
+              <Slide 
+                direction="up" 
+                triggerOnce
+                style={
+                  {
+                    'width': '100%', 
+                    'height': '100%'
+                  }
+                }
+              >
+
             <div className="home-news__item-container">
               {
                 this.props.items.contents.map((item)=> (
@@ -68,6 +80,7 @@ export default class HomeNewItems extends Component {
               }
               
             </div>
+              </Slide>
           </ScrollingSection>
         </div>
     )

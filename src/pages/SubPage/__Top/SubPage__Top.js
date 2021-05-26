@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Fade, Slide, AttentionSeeker } from "react-awesome-reveal";
 
 export default class SubPageTop extends Component {
   constructor(props) {
@@ -15,9 +16,22 @@ export default class SubPageTop extends Component {
   render() {
     return (
       <div className={`sub-page__top sub-page__top_bg sub-page__top_bg_${this.props.bgName}`}>
-         <div className="sub-page__top_title">
-           {this.props.pageTitle}
-         </div>
+        <Slide               
+          className="sub-page__top_flex-container"
+          direction="down" 
+          triggerOnce
+          style={
+            {
+              'width': '100%', 
+              'height': '100%'
+            }
+          }
+        >
+        <div className="sub-page__top_title">
+          {this.props.pageTitle}
+        </div>
+
+        </Slide>
       </div>
     )
   }
