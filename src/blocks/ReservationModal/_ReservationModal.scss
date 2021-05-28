@@ -144,7 +144,15 @@
           &_option_placeholder {
             padding: 0;
           }
-        } 
+        }
+        
+        &_flatpickr {
+
+          & > .flatpickr-months .flatpickr-month {
+            background: #fff;
+          }
+
+        }
 
         &_submit-button {        
         
@@ -182,6 +190,7 @@
         }
       }
     }
+
   }
 
   @include responsive.respond-to('min', '2000') {  

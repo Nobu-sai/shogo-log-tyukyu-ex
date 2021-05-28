@@ -7,12 +7,15 @@
 // Import 
 import React, { Component } from 'react'
 import $ from 'jquery';
+import Flatpickr from "react-flatpickr";
+import "flatpickr/dist/themes/material_blue.css";
 
 export default class ReservationModal extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
+      date: new Date()
     }
 
     this.openModal = this.openModal.bind(this); 
@@ -89,10 +92,10 @@ export default class ReservationModal extends Component {
                 </div>
 
                 <div className="reservation-modal__form-content reservation-modal__form-content_user-input-container">
-                  <div className="reservation-modal__form-content_user-input-title reservation-modal__form-content_input-title_plan">
+                  <div className="reservation-modal__form-content_user-input-title reservation-modal__form-content_user-input-title_plan">
                     
                       ご希望プラン 
-                    <span className="reservation-modal__form-content_input-title_annotation"> 
+                    <span className="reservation-modal__form-content_user-input-title_annotation"> 
                      （空いているプランのみ表示されます）
                     </span>
                   </div>
@@ -108,11 +111,22 @@ export default class ReservationModal extends Component {
                   </select>
                 </div>
 
-                <div className="reservation-modal__form-content reservation-modal__form-content_user-input-container">
+                <div className="reservation-modal__form-content reservation-modal__form-content_user-input-container reservation-modal__form-content_flatpickr-container">
                   <div className="reservation-modal__form-content_user-input-title">
                     日時選択
                   </div>
-                  <input className="reservation-modal__form-content_user-input" type="text" placeholder="日時を選択してください" />
+                  <Flatpickr 
+                    className="reservation-modal__form-content_user-input reservation-modal__form-content_flatpickr"                    
+                    options={{ 
+                      minDate: this.state.date,
+                      mode: "range",                       
+                    }}
+                    defaultValue="日時を選択してください"
+                    onChange={date => {
+                      this.setState({ date });
+                    }}
+                    
+                  /> 
                 </div>
 
                 <div className="reservation-modal__form-content reservation-modal__form-content_submit-button-container">
