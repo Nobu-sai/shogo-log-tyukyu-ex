@@ -7,19 +7,29 @@ import Header from '../../blocks/Header/Header';
 import SubPageTop from './__Top/SubPage__Top';
 import SubPageMainContents from './__MainContents/SubPage__MainContents';
 import Footer from '../../blocks/Footer/Footer';
+import ReservationModal from '../../blocks/ReservationModal/ReservationModal';
+
 
 export default class SubPage extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-         
-    }
 
+      this.state = {
+        reservationModalIsOpen: false,
+          
+      }
+      this.toggleReservationModal = this.toggleReservationModal.bind(this);
     
   }
 
   
+  toggleReservationModal() {
+    this.setState({
+      reservationModalIsOpen: !this.state.reservationModalIsOpen, 
+    })
+  }
+
 
   render() {
 
@@ -45,7 +55,9 @@ export default class SubPage extends Component {
         <Helmet>
           <title>{pageTitle} - 石井花壇 | 温海温泉旅館【公式サイト】</title>
         </Helmet>
-        <Header />        
+        <Header 
+          toggleReservationModal={this.toggleReservationModal}
+        />        
         <Fade
           duration={3000}
           style={
@@ -89,6 +101,11 @@ export default class SubPage extends Component {
         <div className="sub-page__footer-container">
           <Footer />        
         </div>
+
+        {
+          this.state.reservationModalIsOpen && <ReservationModal reservationModalIsOpen={this.state.reservationModalIsOpen} toggleReservationModal={this.toggleReservationModal}/>
+        }
+
       </div>
     )
   }

@@ -1,0 +1,283 @@
+@use '../../utilities/responsive';
+@use '../../utilities/mixins/background-image';
+@use '../../utilities/variables/font-size';
+@use '../../utilities/variables/base-color';
+
+.reservation-modal {
+
+  @include responsive.respond-to('min', '200') {  
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 10000;
+    
+    &__contents {
+      width: 100%;
+      height: 100%;
+      // background-color: rgba(160, 19, 19, 0.4);  
+      background-color: rgba(255, 255, 255, 0.4);  
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+    &__close-icon {
+      position: absolute;
+        //  To reservation-modal__form Element
+      top: 18px;
+      right: 18px;
+
+      width: 18px;
+      height: 18px;
+      @include background-image.background-image('close');
+      background-size: cover;
+      background-position: center;
+
+      transition: all .4s ease;
+
+      &:hover {
+        // width: 20px;
+        // height: 20px;
+        // font-weight:900;
+        // box-shadow: 0 0 4px 4px #E7E7E7;
+        cursor: pointer;
+      }
+
+    }
+    &__form {
+      border: 1px solid #707070;
+      width: 90%;
+      min-width: 300px;
+      max-width: 500px;
+      // height: 40%;
+      min-height: 500px;
+      max-height: 700px;
+      // background-color: rgb(51, 214, 1); 
+      background-color: #fff;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+      position: relative;
+
+      &-contents {
+        width: 80%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        // justify-content: s;
+        align-items: center;
+
+        // background-color: rgb(43, 226, 195);
+      }
+
+      &-content {
+        width: 100%;
+        // background-color: brown;
+        display: flex;
+ 
+
+        &_title {
+          border-bottom: 1px solid #E7E7E7;
+          padding: 14px 0;
+          justify-content: center;
+          font-size: 24px;
+
+          &_plan {            
+          }
+        }
+
+        &_user-input {
+          border: 1px solid #E7E7E7;
+          padding: 4px 0 4px 8px;
+          width: 98%;
+          max-width: 400px;
+          font-size: 14px;
+          color: #797878;
+
+          transition: all .4s ease;
+
+          &:focus {
+            border: 1px solid #707070;
+            // box-shadow: 0 0 4px 4px #E7E7E7;
+            outline: none;
+          }
+  
+          &-container { 
+            flex-direction: column;
+            align-items: flex-start;
+
+            // background-color: cadetblue;
+
+            font-size: #{font-size.$base + 2}px;
+
+            &_num_1 {
+              margin-top: 14px; 
+            }
+          }
+
+          &-title {
+            padding: 4px 0;
+            font-size: 19px;
+            display: inline-block;
+            // display: flex;
+          
+            &_annotation {
+              font-size: 14px;
+            }
+          }
+
+         } 
+
+        &_select-box {
+          box-sizing: content-box;
+          padding-left: 4px;
+          padding-right: 4px;          
+
+          &_option_placeholder {
+            padding: 0;
+          }
+        } 
+
+        &_submit-button {        
+        
+          &-container {
+            padding: 48px 0;
+            padding-bottom: 62px;
+            justify-content: center;
+            // background-color: cornflowerblue;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          border: 1px solid #707070;
+          padding: 8px 0;
+          width: 200px;
+
+          // background-color: crimson;
+          
+          text-align: center;
+
+          font-size: 16px;
+
+          transition: all .4s ease;
+
+
+
+          &:hover {
+            background-color: #707070;
+            // box-shadow: 0 0 4px 4px #707070;
+            color: #fff;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive.respond-to('min', '2000') {  
+    &__close-icon {
+      position: absolute;
+        //  To reservation-modal__form Element
+      top: 36px;
+      right: 36px;
+
+      width: 36px;
+      height: 36px;
+
+    }
+    &__form {      
+      min-width: 600px;
+      max-width: 1000px;      
+      min-height: 1000px;
+      max-height: 1400px;
+      
+
+      &-contents {
+        
+      }
+
+      &-content {
+      
+
+        &_title {
+          
+          padding: 28px 0; 
+          font-size: #{font-size.$large * 2}px;
+
+          &_plan {            
+          }
+        }
+
+        &_user-input {
+          
+          padding: 8px 0 8px 16px;
+          
+          max-width: 800px; 
+
+          font-size: 28px;
+  
+          &-container { 
+          
+
+            font-size: #{(font-size.$base + 2) * 2}px;
+
+            &_num_1 {
+              margin-top: 28px; 
+            }
+          }
+
+          &-title {
+            padding: 8px 0;
+            font-size: 38px;
+            &_annotation {
+              font-size: 28px;
+            }
+          
+          }
+
+         } 
+
+        &_select-box {          
+          border-radius: none;
+          padding-left: 8px;
+          padding-right: 8px;          
+
+
+          &_option_placeholder {
+
+          }
+        } 
+        &_select-box > o
+        &_submit-button {        
+        
+          &-container {
+            padding: 96px 0;
+            padding-bottom: 124px;            
+          }
+          
+          padding: 16px 0;
+          width: 400px;
+          font-size: 32px;
+
+          &:hover {
+            
+            
+          }
+        }
+      }
+    }
+
+  }
+
+
+}

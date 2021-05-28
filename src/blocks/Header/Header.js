@@ -84,7 +84,7 @@ class Header extends Component {
             headerColor={this.setHeaderColor()}
             contentsColor={this.setContentsColor()}
             hideHeaderFromPage={this.hideHeaderFromPage}
-            // setHideHeaderFromPage={this.setHideHeaderFromPage}
+            toggleReservationModal={this.props.toggleReservationModal}
           />
           
         </div>

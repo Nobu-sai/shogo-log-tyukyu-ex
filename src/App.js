@@ -6,7 +6,6 @@ import Home from './pages/Home/Home.js'
 import SubPageOheya from './pages/SubPage/-Oheya/SubPageOheya';
 import SubPageOryori from './pages/SubPage/-Oryori/SubPageOryori';
 import SubPageOnsen from './pages/SubPage/-Onsen/SubPageOnsen';
-import ReservationModal from './pages/ReservationModal/ReservationModal';
 // Components for communal parts
 // Libraries
 import {
@@ -35,10 +34,6 @@ function App() {
 
           <Route path='/onsen'>
             <SubPageOnsen />
-          </Route>
-
-          <Route path='/yoyaku'>
-            <ReservationModal />
           </Route>
 
           <Route path='/'>

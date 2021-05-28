@@ -97,6 +97,7 @@ class HeaderContents extends Component {
             <HeaderReservation 
               contentsColor={this.props.contentsColor}
               hideHeaderFromPage={this.props.hideHeaderFromPage}
+              toggleReservationModal={this.props.toggleReservationModal}
             />
         </div>
 

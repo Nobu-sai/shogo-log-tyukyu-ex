@@ -9,6 +9,7 @@ import HomeRecommended from './HomeRecommended/HomeRecommended';
 import HomeNews from './HomeNews/HomeNews';
 import HomeAccess from './HomeAccess/HomeAccess';
 import Footer from '../../blocks/Footer/Footer';
+import ReservationModal from '../../blocks/ReservationModal/ReservationModal';
 
 
 export default class Home extends Component {
@@ -16,18 +17,28 @@ export default class Home extends Component {
       super(props)
 
       this.state = {
+        reservationModalIsOpen: false,
           
       }
-      
+      this.toggleReservationModal = this.toggleReservationModal.bind(this);
     }
+
+  toggleReservationModal() {
+    this.setState({
+      reservationModalIsOpen: !this.state.reservationModalIsOpen, 
+    })
+  }
+
 
   render() {
 
 
     return (
-      <div className="home">
+      <div className="home" ref={home => this.home = home}>
         {/* <Header /> */}
-        <Header />        
+        <Header 
+          toggleReservationModal={this.toggleReservationModal}
+        />        
         <HomeTopMainpicture />
         <HomeTopMessages />
         <HomeFeatures />
@@ -35,6 +46,9 @@ export default class Home extends Component {
         <HomeNews />
         <HomeAccess />
         <Footer />
+        {
+          this.state.reservationModalIsOpen && <ReservationModal reservationModalIsOpen={this.state.reservationModalIsOpen} toggleReservationModal={this.toggleReservationModal}/>
+        }
       </div>        
     )
   }
