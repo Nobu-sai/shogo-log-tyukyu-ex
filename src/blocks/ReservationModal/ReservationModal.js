@@ -49,31 +49,74 @@ export default class ReservationModal extends Component {
     });
   }
 
-  submitForm(values) {    
-    console.log(values)
+  async submitForm(values) {    
+    // console.log(values)
 
     // let formData = this.$reservationModalForm.serialize();
     // let formData = new FormData(this.$reservationModalForm.current);
     // console.log(formData)
-    // fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLSd36DeQOrzgKrkSuYeJd1VZhjU8eZtvtO3Zzj7EeTZaLqPRKA/formRespons", 
-    // {
-    //   method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    //   mode: 'no-cors', // no-cors, *cors, same-origin
-    //   // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    //   // credentials: 'same-origin', // include, *same-origin, omit
-    //   headers: {
-    //     // 'Content-Type': 'application/json'
-    //     // 'Content-Type': 'application/x-www-form-urlencoded',
-    //   },
-    //   // body: formData,
-    // }
-    // )
-    // .then(data => {
-    //   console.log(data); // JSON data parsed by `data.json()` call
-    // });
-    
+    // console.log(values.date)
 
-    this.closeModal()
+    let formData = new FormData();
+      formData.append('entry.2093958900', values.name)
+      formData.append('entry.245577634', values.email)
+      formData.append('entry.1624774377', values.plan)
+   
+      let dateSelection;
+      let date;
+      let localeDateString;
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      if(Array.isArray(values.date)) {
+        values.date.map((dateItem, index)=> {
+          if(index === 0) {
+
+            date = new Date(dateItem);            
+            localeDateString = date.toLocaleDateString('ja', options)
+
+            dateSelection = `${localeDateString}　から　`
+
+          } else if (index === values.date.length -1) {         
+
+            date = new Date(dateItem);            
+            localeDateString = date.toLocaleDateString('ja', options)
+            dateSelection += `${localeDateString}　まで`
+
+          }
+        })
+
+      } else {
+
+        dateSelection = `${values.date}`
+
+      }
+
+      // console.log(dateSelection);    
+      formData.append('entry.736792581', dateSelection)
+
+      // console.log("formData", formData)
+      let url 
+      = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSd36DeQOrzgKrkSuYeJd1VZhjU8eZtvtO3Zzj7EeTZaLqPRKA/formResponse'
+      // = 'https://docs.google.com/forms/hogehoge'
+
+
+      let response = await fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {          
+        },
+       
+        body: formData,
+        // body: JSON.stringify(formData),
+      });
+
+      // console.log(response)
+      if(await response.status === 0) {
+        console.log("success")
+      } else if (await response.status === 200) {
+        console.log("failure")
+      }
+
+    // this.closeModal()
 
   }
 
@@ -105,12 +148,16 @@ export default class ReservationModal extends Component {
               <Formik
                 initialValues={
                   {                                         
-                    name: "",
-                    email: "",
-                    plan: "placeholder",
-                    date: "日時を選択してください", 
-                    // date: `${this.state.date}`, 
+                    // name: "",
+                    // email: "",
+                    // plan: "placeholder",
+                    // date: "日時を選択してください", 
+                    name: "fds",
+                    email: "fdfs@gmail.com",
+                    plan: "①【期間限定】海辺の四季旬彩、贅沢美味懐石プラン",
+                    date: ["Thu Jun 03 2021 00:00:00 GMT+0900 (Japan Standard Time)", "Thu Jun 04 2021 00:00:00 GMT+0900 (Japan Standard Time)"], 
                   }
+                  
                 }
                 validationSchema={
                   Yup.object().shape({
@@ -164,7 +211,9 @@ export default class ReservationModal extends Component {
                       setTimeout(() => {                  
                         setSubmitting(false);
                         // this.submitForm(JSON.stringify(values, null, 2));
-                        alert(JSON.stringify(values, null, 2));
+                        // alert(JSON.stringify(values, null, 1));
+                        // console.log(JSON.stringify(values, null, 2))
+                        // this.submitForm(JSON.stringify(values, null, 2));
                         this.submitForm(values);
                       }, 400);
                     }
@@ -186,11 +235,11 @@ export default class ReservationModal extends Component {
                 <Form>
 
                   {
-                    console.log(values)
+                    // console.log(values)
                   }
 
                   {
-                    console.log("touched Object from Form JSX", touched)
+                    // console.log("touched Object from Form JSX", touched)
                   }
 
 
