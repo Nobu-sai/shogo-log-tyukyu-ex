@@ -593,7 +593,7 @@ body {
     height: 100vh;
     z-index: 10000;
   }
-  .reservation-modal__contents {
+  .reservation-modal__bg {
     width: 100%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.4);
@@ -602,9 +602,31 @@ body {
     justify-content: center;
     position: relative;
   }
+  .reservation-modal__contents_bg {
+    border: 1px solid #707070;
+    width: 90%;
+    min-width: 300px;
+    max-width: 500px;
+    min-height: 500px;
+    max-height: 700px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .reservation-modal__contents_bg__contents {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .reservation-modal__title {
     border-bottom: 1px solid #E7E7E7;
     padding: 14px 0;
+    width: 100%;
+    display: flex;
     justify-content: center;
     font-size: 24px;
   }
@@ -622,26 +644,6 @@ body {
   .reservation-modal__close-icon:hover {
     cursor: pointer;
   }
-  .reservation-modal__form {
-    border: 1px solid #707070;
-    width: 90%;
-    min-width: 300px;
-    max-width: 500px;
-    min-height: 500px;
-    max-height: 700px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  .reservation-modal__form-contents {
-    width: 80%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .reservation-modal__form-content {
     width: 100%;
     display: flex;
@@ -655,16 +657,12 @@ body {
     color: #797878;
     transition: all 0.4s ease;
   }
-  .reservation-modal__form-content_user-input:focus {
-    border: 1px solid #707070;
-    outline: none;
-  }
   .reservation-modal__form-content_user-input-container {
     flex-direction: column;
     align-items: flex-start;
     font-size: 16px;
   }
-  .reservation-modal__form-content_user-input-container_num_1 {
+  .reservation-modal__form-content_user-input-container:nth-of-type(1) {
     margin-top: 14px;
   }
   .reservation-modal__form-content_user-input-title {
@@ -675,6 +673,16 @@ body {
   .reservation-modal__form-content_user-input-title_annotation {
     font-size: 14px;
   }
+  .reservation-modal__form-content_user-input:focus {
+    border: 1px solid #707070;
+    outline: none;
+  }
+  .reservation-modal__form-content_user-input_date-field {
+    width: 100%;
+  }
+  .reservation-modal__form-content_user-input_date-field-flatpickr {
+    width: 100%;
+  }
   .reservation-modal__form-content_select-box {
     box-sizing: content-box;
     padding-left: 4px;
@@ -683,6 +691,10 @@ body {
   .reservation-modal__form-content_select-box_option_placeholder {
     padding: 0;
   }
+  .reservation-modal__form-content_flatpickr {
+    width: 100%;
+    height: 100%;
+  }
   .reservation-modal__form-content_flatpickr > .flatpickr-months .flatpickr-month {
     background: #fff;
   }
@@ -690,8 +702,9 @@ body {
     border: 1px solid #707070;
     padding: 8px 0;
     width: 200px;
+    background-color: #fff;
     text-align: center;
-    font-size: 16px;
+    font: lighter 16px inherit;
     transition: all 0.4s ease;
   }
   .reservation-modal__form-content_submit-button-container {
@@ -709,22 +722,30 @@ body {
   }
 }
 @media (min-width: 2000px) {
-  .reservation-modal__close-icon {
-    position: absolute;
-    top: 36px;
-    right: 36px;
-    width: 36px;
-    height: 36px;
+  .reservation-modal__bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
   }
-  .reservation-modal__form {
+  .reservation-modal__contents_bg {
     min-width: 600px;
     max-width: 1000px;
     min-height: 1000px;
     max-height: 1400px;
   }
-  .reservation-modal__form-content_title {
+  .reservation-modal__title {
     padding: 28px 0;
     font-size: 64px;
+  }
+  .reservation-modal__close-icon {
+    top: 36px;
+    right: 36px;
+    width: 36px;
+    height: 36px;
   }
   .reservation-modal__form-content_user-input {
     padding: 8px 0 8px 16px;
