@@ -601,23 +601,20 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: scroll;
   }
   .reservation-modal__contents-container {
     border: 1px solid #707070;
     width: 90%;
     min-width: 300px;
     max-width: 500px;
-    min-height: 500px;
-    max-height: 700px;
+    height: 600px;
     background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-  }
-  .reservation-modal__contents-container_success-message-container {
-    background-color: lightcoral;
-    max-height: 1200px;
+    transition: height 1s ease;
   }
   .reservation-modal__contents {
     width: 80%;
@@ -627,7 +624,12 @@ body {
     align-items: center;
     position: relative;
   }
+  .reservation-modal__main-content, .reservation-modal__success-message {
+    width: 100%;
+    height: 100%;
+  }
   .reservation-modal__title {
+    box-sizing: border-box;
     border-bottom: 1px solid #E7E7E7;
     padding: 14px 0;
     width: 100%;
@@ -795,23 +797,22 @@ body {
 }
 
 @media (min-width: 200px) {
-  .reservation-modal__success-message_content_details {
-    width: 100%;
-    height: 100%;
+  .reservation-modal__success-message {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .reservation-modal__success-message_content_details_title {
-    padding: 8px 0;
-    font-size: 18px;
-  }
-  .reservation-modal__success-message_content_details_content {
+  .reservation-modal__success-message_contents {
     width: 100%;
-    font-size: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
   }
-  .reservation-modal__success-message_content_details_announcement {
-    margin-top: 20px;
+  .reservation-modal__success-message_title {
+    padding: 0;
+    min-height: 100px;
   }
 }
 @media (min-width: 200px) {

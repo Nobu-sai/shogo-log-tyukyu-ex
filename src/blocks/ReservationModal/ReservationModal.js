@@ -11,7 +11,6 @@ import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/themes/material_blue.css";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { date } from 'yup/lib/locale';
 
 import ReservationModalSuccessMessage from './__SuccessMessage/ReservationModal__SuccessMessage';
 
@@ -34,25 +33,28 @@ export default class ReservationModal extends Component {
     this.openModal = this.openModal.bind(this); 
     this.closeModal = this.closeModal.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.hideContentsContainer = this.hideContentsContainer.bind(this);
+    this.showContentsContainer = this.showContentsContainer.bind(this);
 
   }
 
 
   componentDidMount() {
-    this.$reservationModal = $(this.reservationModal);    
+    this.$reservationModalBG = $(this.reservationModalBG);    
+    this.$reservationModalContentsContainer = $(this.reservationModalContentsContainer);    
     this.$reservationModalSuccessMessage = $(this.reservationModalSuccessMessage);    
-    this.$reservationModal.fadeOut(0);
+    this.$reservationModalBG.fadeOut(0);
     setTimeout(this.openModal, 100)
     
   }
 
   openModal() { 
-    this.$reservationModal.fadeIn(500);
+    this.$reservationModalBG.fadeIn(500);
   }
 
   closeModal() {
     // console.log("modal clicked")
-    this.$reservationModal.fadeOut(500, ()=>{
+    this.$reservationModalBG.fadeOut(500, ()=>{
     
       setTimeout(this.props.toggleReservationModal(), 500);
 
@@ -124,9 +126,7 @@ export default class ReservationModal extends Component {
  
       if(await response.status === 0) {
         // console.log("success")
-        this.setState({
-          submissionSuccess: true,
-        }, this.displaySuccessMessage())
+        this.displaySuccessMessage()
       } else if (await response.status === 200) {
         // console.log("failure")
       }
@@ -135,11 +135,38 @@ export default class ReservationModal extends Component {
 
   }
 
-  displaySuccessMessage() {    
-    this.$reservationModal.fadeOut(200,
-      setTimeout(this.$reservationModalSuccessMessage.fadeIn(200), 200)
-    );
+  hideContentsContainer() {
+    this.$reservationModalContentsContainer.fadeOut(500, ()=>{
+
+      setTimeout(()=> {
+        this.showContentsContainer()
+      }, 500)
+    });
+
+  }
+
+  showContentsContainer() {
+    this.$reservationModalContentsContainer.fadeIn(500);
+
+  }
+
+  displaySuccessMessage() {   
+    this.hideContentsContainer(
+      
+          // ()=> {
+          setTimeout(()=> {        
+            this.setState(
+              {
+                  submissionSuccess: true,          
+              },
+              // this.$reservationModalContentsContainer.fadeIn(2000)
+            )
+          }, 500)
+          // }
+        
     
+      
+    )
   }
   
   
@@ -151,15 +178,17 @@ export default class ReservationModal extends Component {
         
           <div 
             className="reservation-modal__bg"
-            ref={reservationModal=> this.reservationModal = reservationModal} 
+            ref={reservationModalBG => this.reservationModalBG = reservationModalBG} 
           >
 
             {
               this.state.submissionSuccess && this.state.submissionContents ? (
                 <div 
                   className="reservation-modal__contents-container reservation-modal__contents-container_success-message-container"
-                  ref={reservationModalSuccessMessage=> this.reservationModalSuccessMessage = reservationModalSuccessMessage} 
+                  // className="reservation-modal__contents_success-message" 
+                  // ref={reservationModalSuccessMessage=> this.reservationModalSuccessMessage = reservationModalSuccessMessage} 
                 >
+                <div className="reservation-modal__contents">
 
                   <ReservationModalSuccessMessage 
                     closeModal={this.closeModal}
@@ -168,12 +197,29 @@ export default class ReservationModal extends Component {
 
                 </div>
 
+                </div>
+
               ) : (
-                <div className="reservation-modal__contents-container reservation-modal__contents-container_main">
+                <div 
+                  className="reservation-modal__contents-container reservation-modal__contents-container_main-content"
+                  // className="reservation-modal__contents_main-content" 
+                >
                 
-                  <div className="reservation-modal__contents">
+                <div 
+                  className="reservation-modal__contents"
+                
+
+                  ref={reservationModalContentsContainer => this.reservationModalContentsContainer = reservationModalContentsContainer } 
+                >
+
+                  {/* Into ReservationModalForm Component from here */}
+                  <div 
+                    className="reservation-modal__main-content"
+                  >
                   
-                    <div className="reservation-modal__title">
+                    <div 
+                      className="reservation-modal__title"
+                    >
                       宿泊予約
                     </div>
                           
@@ -425,6 +471,7 @@ export default class ReservationModal extends Component {
                       </Formik>
                     </div>
                   </div>
+                </div>
                 
               )
             }
