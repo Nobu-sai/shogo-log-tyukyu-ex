@@ -4,8 +4,6 @@
 @use '../../../utilities/variables/font-size';
 @use '../../../utilities/variables/base-color';
 
-// All contents EXCEPT to the .reservation-modal__success-message_farewell FILL UP all the height of the .reservation-modal__success-message
-// => // . reservation-modal__success-message_farewell is EXCLUDED of the Box, and placed OUTSIDE. 
 
 .reservation-modal__success-message {
 
@@ -21,99 +19,164 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
       align-items: center;
+
+      overflow: scroll;
     }
 
     
     &_title {
-      padding: 0;
+      // padding: 0;
       min-height: 100px;
     }
     
-    // &_details {
-    //   width: 100%;
-    //   // height: 100%;
-    //   display: flex;
-    //   flex-direction: column;
-    //   align-items: center;
-    //   // justify-content: space-evenly;
+    &_details {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // justify-content: space-evenly;
 
-    //   // background-color: blue;
+      // background-color: blue;
 
-    //   &_title {
-    //     // padding: 8px 0;
-    //     width: 100%;
-    //     min-height: 100px;
-    //     font-size: 16px;
-    //     display: flex;
-    //     flex-direction: column;
-    //     justify-content: center;
-    //     align-items: center;
-    //   }
-    //   &-contents {
-    //     width: 100%;
-    //     min-height: 300px;
-    //   }
-    //   &_content {
-    //     // padding: 8px 0;
-    //     width: 100%;        
-    //     font-size: 14px;
-    //   }
+      &_title {
+        padding: 8px 0;
+        width: 100%;
+        // min-height: 100px;
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
-    //   &_announcement {
-    //     // margin-top: 20px;
-    //     height: 100px;
-    //     font-size: 14px;
+      &_content {
+        // padding: 8px 0;
+        width: 100%;        
+        font-size: 14px;
+      }
 
-    //     display: flex;
-    //     flex-direction: column;
-    //     justify-content: center;
-    //   }
+      &_horizontal-line {
+        margin: 14px 0;
+        width: 60%;
+        height: 1px;
+        background-color: #E7E7E7;;
+
+      }
+      &_announcement {        
+        width: 90%;
+        // height: 100px;
+        font-size: 14px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
       
-    // }
+    }
 
-    // &_farewell {
-    //   // margin: 0 auto;
-    //   padding: 60px 0;
-    //   // width: 100%;
-    //   width: 100vw;
-    //   height: 400px;
+    &_farewell-message {
+      margin-top: 24px;
+    }
+  }
 
-    //   display: flex;
-    //   flex-direction: column;
-    //   align-items: center;
+  
+  @include responsive.respond-to('min', '600') {  
+    &_details {
+     
+      &_title {       
+        font-size: 20px;       
+      }
+      &_contents { 
+      }
+      &_content {     
+        font-size: 16px;
+      }
 
-    //   // writing-mode: vertical-rl;  
+      &_announcement {      
+        font-size: 16px;
+      }
+      
+    }
 
-    //   &-message {
-    //     width: 100%;
-    //     font-size: 24px;
+    // &_farewell {   
+    //   // min-width: 500px;
 
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
+    //   &-message {        
+    //     font-size: 32px;
+      
 
     //     &_annotation {
-    //       font-size: 16px;
+    //       font-size: 20px;
+    //     }
+    //   }
+    // }
+    
+  }
+  
+  @include responsive.respond-to('min', '1000'){  
+    // &_farewell {   
+    //   // min-width: 500px;
+
+    //   &-message {        
+    //     font-size: 40px;
+      
+
+    //     &_annotation {
+    //       font-size: 28px;
     //     }
     //   }
     // }
   }
 
-  
-  @include responsive.respond-to('min', '600') {  
-    
-    
-  }
-  
-  @include responsive.respond-to('min', '1000'){  
-   
-  }
-
   @include responsive.respond-to('min', '2000') {  
     
-   
+    
+
+    &_title {      
+      min-height: 150px;
+    }
+  
+    
+    &_details {
+     
+
+      &_title {        
+        min-height: 150px;
+        font-size: 32px;        
+      }
+      &-contents { 
+        // min-height: 400px;
+      }
+      &_content {           
+        font-size: 28px;
+      }
+
+      &_announcement { 
+        min-height: 200px;       
+        font-size: 28px;
+      }
+      
+    }
+
+    // &_farewell {   
+    
+ 
+    //   padding: 60px 0;
+    //   // width: 100%;
+    //   width: 100vw;
+ 
+
+    //   &-message {        
+    //     font-size: 64px;
+      
+
+    //     &_annotation {
+    //       font-size: 36px;
+    //     }
+    //   }
+    // }
   }
 
 }

@@ -136,7 +136,7 @@ export default class ReservationModal extends Component {
   }
 
   hideContentsContainer() {
-    this.$reservationModalContentsContainer.fadeOut(500, ()=>{
+    this.$reservationModalContentsContainer.fadeOut(300, ()=>{
 
       setTimeout(()=> {
         this.showContentsContainer()
@@ -203,13 +203,13 @@ export default class ReservationModal extends Component {
                 <div 
                   className="reservation-modal__contents-container reservation-modal__contents-container_main-content"
                   // className="reservation-modal__contents_main-content" 
+                  ref={reservationModalContentsContainer => this.reservationModalContentsContainer = reservationModalContentsContainer } 
                 >
                 
                 <div 
                   className="reservation-modal__contents"
                 
 
-                  ref={reservationModalContentsContainer => this.reservationModalContentsContainer = reservationModalContentsContainer } 
                 >
 
                   {/* Into ReservationModalForm Component from here */}
