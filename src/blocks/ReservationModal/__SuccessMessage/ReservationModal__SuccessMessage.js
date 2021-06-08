@@ -54,7 +54,7 @@ export default class ReservationModalSuccessMessage extends Component {
             </div> 
             
                 <div className="reservation-modal__success-message_details_content">
-                  お名前<br/>: {this.props.submissionContents.name}　様
+                  お名前<br/>: {this.props.submissionContents.name} 様
                 </div>
                 <div className="reservation-modal__success-message_details_content">
                   メールアドレス<br/>: {this.props.submissionContents.email}
