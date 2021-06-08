@@ -70,11 +70,10 @@
   justify-content: center;
 }
 .flatpickr-months .flatpickr-month > .flatpickr-current-month > .flatpickr-monthDropdown-months {
-  width: 40%;
+  width: 70%;
   background-color: #fff;
   font: lighter 13.3333px inherit;
   font-weight: lighter;
-  color: 0;
 }
 .flatpickr-months .flatpickr-month > .flatpickr-current-month > .numInputWrapper {
   width: 30%;
@@ -92,7 +91,7 @@
 .flatpickr-months > .flatpickr-prev-month, .flatpickr-months > .flatpickr-next-month {
   position: static;
   padding: 0;
-  width: 5%;
+  width: 10%;
   height: 14px;
   background-image: url(./assets/images/arrow-icon-black.png);
   background-size: contain;

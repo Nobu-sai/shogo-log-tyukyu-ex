@@ -101,12 +101,12 @@
       justify-content: center;
 
       & > .flatpickr-monthDropdown-months {
-        width: 40%;
+        width: 70%;
         // height: 100%;
         background-color: #fff;
         font: lighter 13.3333px inherit;
         font-weight: lighter;
-        color: 000;
+        // color: #000;
       }
       & > .numInputWrapper {
         width:30%;
@@ -133,7 +133,7 @@
   & > .flatpickr-next-month {
     position: static;
     padding: 0;
-    width: 5%;
+    width: 10%;
     height: 14px;
     // background-color: #fff;  
 
