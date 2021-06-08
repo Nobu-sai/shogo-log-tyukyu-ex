@@ -262,7 +262,7 @@ export default class ReservationModalMainContent extends Component {
                 >
                   日時選択
                   <span className="reservation-modal__form-content_user-input-title_annotation">
-                    （一泊の場合は、前後の日時をご選択ください。）
+                    （間の夜間の宿泊になります。一泊の場合は、前後の日時をご選択ください。）
                   </span>
                 </label>
                 <Field
