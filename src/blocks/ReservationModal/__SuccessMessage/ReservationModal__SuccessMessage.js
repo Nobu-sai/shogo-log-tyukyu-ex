@@ -54,16 +54,16 @@ export default class ReservationModalSuccessMessage extends Component {
             </div> 
             
                 <div className="reservation-modal__success-message_details_content">
-                  お名前<br/>: {this.props.submissionContents.name} 様
+                  お名前<br/>　{this.props.submissionContents.name} 様
                 </div>
                 <div className="reservation-modal__success-message_details_content">
-                  メールアドレス<br/>: {this.props.submissionContents.email}
+                  メールアドレス<br/>　{this.props.submissionContents.email}
                 </div>
                 <div className="reservation-modal__success-message_details_content">
-                  宿泊プラン<br/>: {this.props.submissionContents.plan}
+                  宿泊プラン<br/>　{this.props.submissionContents.plan}
                 </div>
                 <div className="reservation-modal__success-message_details_content">
-                  日時<br/>: {this.props.submissionContents.date}
+                  日時<br/>　{this.props.submissionContents.date}
                 </div>
                 <div className="reservation-modal__success-message_details_horizontal-line"></div>
                 <div className="reservation-modal__success-message_details_announcement">
