@@ -77,7 +77,7 @@ export default class ReservationModalSuccessMessage extends Component {
               <div className="reservation-modal__title reservation-modal__success-message_farewell-message">
                 {this.props.submissionContents.name}様、
                 <span>お越しをお待ち致しております。</span>
-                <span className="reservation-modal__title_annotation reservation-modal__success-message_farewell-message_annotation">ー　石井花壇スタッフ一同　ー</span>
+                <span className="reservation-modal__title_annotation reservation-modal__success-message_farewell-message_annotation">ー　石井花壇一同　ー</span>
               </div>
 
               <div className="reservation-modal__button-container">
