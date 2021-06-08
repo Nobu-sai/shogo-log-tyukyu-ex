@@ -1,0 +1,163 @@
+@use '../../utilities/responsive';
+@use '../../utilities/mixins/background-image';
+@use '../../utilities/variables/font-size';
+@use '../../utilities/variables/base-color';
+
+// Stylesheet layout
+// In the order of DOM Tree.
+// Style rules
+// : The calendar width is controlled by div.flatpickr-wrapper (the OUTERMOST container)
+// => Children set its width with % based on the layout.
+// : The size TWO TIMES larger from 2000px.
+
+div.flatpickr-wrapper {
+  width: 100%;
+  height: 100%;
+  // overflow: scroll;
+
+  @include responsive.respond-to("min", "2000") {
+    // width: 615.75px;
+    // height: 1280px;
+  }
+}
+
+div.flatpickr-calendar {
+  //     font-size: 14px;
+  width: 307.875px;
+
+  // color: #000;
+  font: inherit;
+
+  &.arrowBottom:after {
+    border-top-color: #fff;
+  }
+  
+  @include responsive.respond-to("min", "2000") {
+    // margin-bottom: 100px;
+    padding-bottom: 100px;
+    width: 615.75px;
+    // height: 595px;
+  }
+
+  @include responsive.respond-to("min", "2000") {
+    font-size: 28px;
+  }
+}
+
+div.flatpickr-calendar.open,
+div.flatpickr-calendar.inline {
+  // Default
+  //     max-height: 640px;
+  @include responsive.respond-to("min", "2000") {
+    // max-height: 1280px;
+  }
+}
+
+
+// flatpickr-calendar > 
+div.flatpickr-months {
+  @include responsive.respond-to("min", "2000") {
+    height: 64px;
+
+    & .flatpickr-month {
+      height: 64px;
+      background-color: #fff;
+      color: #000;
+
+      & > .flatpickr-current-month {
+
+        & > .flatpickr-monthDropdown-months {
+          background-color: #fff;
+          font: lighter 13.3333px inherit;
+          font-weight: lighter;
+        }
+      }
+
+
+    }
+  }
+  & > div.flatpickr-next-month::before {
+    content: ">";
+    color: #000;
+    font-size: 24px;
+  }
+
+}
+
+
+
+
+// flatpickr-calendar > 
+div.flatpickr-innerContainer {
+  height: 100%;
+}
+div.flatpickr-rContainer {
+  width: 100%;
+  height: 100%;
+}
+
+
+// flatpickr-calendar > flatpickr-rContainer 
+div.flatpickr-weekdays {
+  //     height: 28px;
+  height: 56px;  
+}
+
+div.flatpickr-weekdaycontainer {
+  justify-content: space-evenly;
+
+  & > span.flatpickr-weekday {
+    width: 14.2857143%;
+    max-width: 39px;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+
+    @include responsive.respond-to("min", "2000") {
+      max-width: 78px;
+      height: 78px;
+      
+    }
+  }
+}
+
+// flatpickr-calendar > flatpickr-rContainer 
+div.flatpickr-days {
+  // Default
+  //     width: 307.875px;
+  width: 100%;
+  // width: 600px;
+  height: 100%;
+}
+
+div.dayContainer {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
+span.flatpickr-day {
+  // Default
+  // width: 14.2857143%;
+  // max-width: 39px;
+  //     height: 39px;
+  // width: 39px; 
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all .6s ease;
+
+  &:hover {
+    // background-color: rgba(72,72,72,0.3);
+  }
+  @include responsive.respond-to("min", "2000") {
+    max-width: 78px;
+    height: 78px;
+  }
+}

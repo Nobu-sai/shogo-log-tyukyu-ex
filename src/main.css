@@ -1,4 +1,105 @@
 @charset "UTF-8";
+@import "flatpickr/dist/themes/material_blue.css";
+div.flatpickr-wrapper {
+  width: 100%;
+  height: 100%;
+}
+div.flatpickr-calendar {
+  width: 307.875px;
+  font: inherit;
+}
+div.flatpickr-calendar.arrowBottom:after {
+  border-top-color: #fff;
+}
+@media (min-width: 2000px) {
+  div.flatpickr-calendar {
+    padding-bottom: 100px;
+    width: 615.75px;
+  }
+}
+@media (min-width: 2000px) {
+  div.flatpickr-calendar {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 2000px) {
+  div.flatpickr-months {
+    height: 64px;
+  }
+  div.flatpickr-months .flatpickr-month {
+    height: 64px;
+    background-color: #fff;
+    color: #000;
+  }
+  div.flatpickr-months .flatpickr-month > .flatpickr-current-month > .flatpickr-monthDropdown-months {
+    background-color: #fff;
+    font: lighter 13.3333px inherit;
+    font-weight: lighter;
+  }
+}
+div.flatpickr-months > div.flatpickr-next-month::before {
+  content: ">";
+  color: #000;
+  font-size: 24px;
+}
+
+div.flatpickr-innerContainer {
+  height: 100%;
+}
+
+div.flatpickr-rContainer {
+  width: 100%;
+  height: 100%;
+}
+
+div.flatpickr-weekdays {
+  height: 56px;
+}
+
+div.flatpickr-weekdaycontainer {
+  justify-content: space-evenly;
+}
+div.flatpickr-weekdaycontainer > span.flatpickr-weekday {
+  width: 14.2857143%;
+  max-width: 39px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+@media (min-width: 2000px) {
+  div.flatpickr-weekdaycontainer > span.flatpickr-weekday {
+    max-width: 78px;
+    height: 78px;
+  }
+}
+
+div.flatpickr-days {
+  width: 100%;
+  height: 100%;
+}
+
+div.dayContainer {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
+span.flatpickr-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.6s ease;
+}
+@media (min-width: 2000px) {
+  span.flatpickr-day {
+    max-width: 78px;
+    height: 78px;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -624,13 +725,9 @@ body {
     align-items: center;
     position: relative;
   }
-  .reservation-modal__main-content, .reservation-modal__success-message {
-    width: 100%;
-    height: 100%;
-  }
   .reservation-modal__title {
     box-sizing: border-box;
-    border-bottom: 1px solid #E7E7E7;
+    border-bottom: 1px solid #e7e7e7;
     padding: 14px 0;
     width: 100%;
     display: flex;
@@ -661,7 +758,6 @@ body {
     display: flex;
   }
   .reservation-modal__form-content_user-input {
-    border: 1px solid #E7E7E7;
     padding: 4px 0 4px 8px;
     width: 98%;
     max-width: 400px;

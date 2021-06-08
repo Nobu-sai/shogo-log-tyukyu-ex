@@ -3,9 +3,10 @@
 @use '../../utilities/variables/font-size';
 @use '../../utilities/variables/base-color';
 
-.reservation-modal {
 
-  @include responsive.respond-to('min', '200') {  
+
+.reservation-modal {
+  @include responsive.respond-to("min", "200") {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,13 +14,14 @@
     height: 100vh;
 
     z-index: 10000;
-    
+        
+
     &__bg {
       width: 100%;
       height: 100%;
-      // background-color: rgba(160, 19, 19, 0.4);  
-      background-color: rgba(255, 255, 255, 0.4);  
-      
+      // background-color: rgba(160, 19, 19, 0.4);
+      background-color: rgba(255, 255, 255, 0.4);
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -27,11 +29,7 @@
       position: relative;
 
       overflow: scroll;
-
     }
-
-
-    
 
     &__contents-container {
       // &__contents {
@@ -45,56 +43,46 @@
       // height: 600px;
       min-height: 600px;
       // max-height: 700px;
-      // background-color: rgb(51, 214, 1); 
+      // background-color: rgb(51, 214, 1);
       background-color: #fff;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-
       position: relative;
 
       transition: height 1s ease;
 
-    // &__contents_success-message {
+      // &__contents_success-message {
       &_success-message-container {
         // background-color: lightcoral;
         // height: 550px;
         // max-height: 1200px;
       }
-
     }
 
     &__contents {
-
       // &__main-content,
       // &__success-message {
-        // The outer container Element in EACH Component
-        // = The DIRECT Children from .reservation-modal__contents_XXXX
-        width: 80%;
-        height: 100%;
-
-        display: flex;
-        flex-direction: column;
-        // justify-content: space-evenly;
-        align-items: center;
-
-        // background-color: rgb(43, 226, 195);
-        position: relative;
-      }
-
-  
-    &__main-content,
-    &__success-message {
-      width: 100%;
+      // The outer container Element in EACH Component
+      // = The DIRECT Children from .reservation-modal__contents_XXXX
+      width: 80%;
       height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      // justify-content: space-evenly;
+      align-items: center;
+
+      // background-color: rgb(43, 226, 195);
+      position: relative;
     }
 
 
     &__title {
       box-sizing: border-box;
-      border-bottom: 1px solid #E7E7E7;
+      border-bottom: 1px solid #e7e7e7;
       padding: 14px 0;
       width: 100%;
 
@@ -104,9 +92,8 @@
       align-items: center;
 
       font-size: 24px;
-      
+
       &_success-message {
-        
       }
 
       &_annotation {
@@ -114,19 +101,20 @@
         font-size: 14px;
       }
     }
+
     &__close-icon {
       position: absolute;
-        //  To reservation-modal__contents Element
+      //  To reservation-modal__contents Element
       top: 18px;
       right: -8%;
 
       width: 18px;
       height: 18px;
-      @include background-image.background-image('close');
+      @include background-image.background-image("close");
       background-size: cover;
       background-position: center;
 
-      transition: all .4s ease;
+      transition: all 0.4s ease;
 
       &:hover {
         // width: 20px;
@@ -135,93 +123,95 @@
         // box-shadow: 0 0 4px 4px #E7E7E7;
         cursor: pointer;
       }
-
     }
-    &__form {
 
+    &__form {
       &-content {
         width: 100%;
         // background-color: brown;
         display: flex;
- 
 
         &_user-input {
-  
-          &-container { 
+          &-container {
             flex-direction: column;
             align-items: flex-start;
 
             // background-color: cadetblue;
 
             font-size: #{font-size.$base + 2}px;
- 
+
             &:nth-of-type(1) {
-              margin-top: 14px; 
+              margin-top: 14px;
             }
           }
 
-          &-title {
-            padding: 4px 0;
-            font-size: 19px;
-            display: inline-block;
-            // display: flex;
-          
-            &_annotation {
-              font-size: 14px;
+            &-title {
+              padding: 4px 0;
+              font-size: 19px;
+              display: inline-block;
+              // display: flex;
+
+              &_annotation {
+                font-size: 14px;
+              }
+            }        
+
+            // border: 1px solid #e7e7e7;
+            padding: 4px 0 4px 8px;
+            width: 98%;
+            max-width: 400px;
+            font-size: 14px;
+            color: #797878;
+            // color: red;
+
+            transition: all 0.4s ease;
+
+            // ::placeholder {
+            //   // color: #797878;
+            //   // color: red;
+
+            // }
+
+            &:focus {
+              border: 1px solid #707070;
+              // box-shadow: 0 0 4px 4px #E7E7E7;
+              outline: none;
+            }
+
+            &_date-field {
+              width: 100%;
+              // height: 100%;
+            }
+
+            &_date-field-flatpickr {
+              width: 100%;
+              // height: 100%;
             }
           }
 
-          border: 1px solid #E7E7E7;
-          padding: 4px 0 4px 8px;
-          width: 98%;
-          max-width: 400px;
-          font-size: 14px;
-          color: #797878;
+          &_select-box {
+            box-sizing: content-box;
+            padding-left: 4px;
+            padding-right: 4px;
 
-          transition: all .4s ease;
-
-          &:focus {
-            border: 1px solid #707070;
-            // box-shadow: 0 0 4px 4px #E7E7E7;
-            outline: none;
+            &_option_placeholder {
+              padding: 0;
+            }
           }
 
-          &_date-field {
+          &_flatpickr {
             width: 100%;
-            // height: 100%;
+            height: 100%;
+
+            & > .flatpickr-months .flatpickr-month {
+              background: #fff;
+            }
           }
-
-          &_date-field-flatpickr {
-            width: 100%;
-            // height: 100%;
-          }
-         } 
-
-        &_select-box {
-          box-sizing: content-box;
-          padding-left: 4px;
-          padding-right: 4px;          
-
-          &_option_placeholder {
-            padding: 0;
-          }
-        }
-        
-        &_flatpickr {
-          width: 100%;
-          height: 100%;
-
-          & > .flatpickr-months .flatpickr-month {
-            background: #fff;
-          }
-
         }
       }
-    }
-  
+      
 
-    &__button {        
-    
+    &__button {
       &-container {
         padding: 48px 0;
         width: 100%;
@@ -242,14 +232,12 @@
 
       // background-color: crimson;
       background-color: #fff;
-      
+
       text-align: center;
 
       font: lighter 16px inherit;
 
-      transition: all .4s ease;
-
-
+      transition: all 0.4s ease;
 
       &:hover {
         background-color: #707070;
@@ -257,44 +245,41 @@
         color: #fff;
         cursor: pointer;
       }
+    
     }
+    
   }
 
-
-
-  @include responsive.respond-to('min', '2000') {  
-  
+  @include responsive.respond-to("min", "2000") {
     &__bg {
       width: 100%;
       height: 100%;
-      // background-color: rgba(160, 19, 19, 0.4);  
-      background-color: rgba(255, 255, 255, 0.4);  
-      
+      // background-color: rgba(160, 19, 19, 0.4);
+      background-color: rgba(255, 255, 255, 0.4);
+
       display: flex;
       align-items: center;
       justify-content: center;
 
       position: relative;
-
     }
 
     &__contents-container {
       min-width: 600px;
-      max-width: 1000px;      
+      max-width: 1000px;
       min-height: 1000px;
       // max-height: 1400px;
 
       &_success-message-container {
-        max-width: 1200px;      
+        max-width: 1200px;
       }
-
     }
 
     &__contents {
     }
 
     &__title {
-      padding: 28px 0; 
+      padding: 28px 0;
       font-size: #{font-size.$large * 2}px;
 
       &_annotation {
@@ -305,10 +290,9 @@
       //   displ
       // }
     }
-    
+
     &__close-icon {
       top: 14px;
- 
 
       width: 36px;
       height: 36px;
@@ -316,27 +300,22 @@
       &_success-message {
         top: 36px;
       }
-
     }
     &__form {
-
-      &-content {
-
+      &-content 
+      {
         &_user-input {
-          
           padding: 8px 0 8px 16px;
-          
-          max-width: 800px; 
+
+          max-width: 800px;
 
           font-size: 28px;
-  
-          &-container { 
-          
 
+          &-container {
             font-size: #{(font-size.$base + 2) * 2}px;
 
             &_num_1 {
-              margin-top: 28px; 
+              margin-top: 28px;
             }
           }
 
@@ -346,41 +325,30 @@
             &_annotation {
               font-size: 28px;
             }
-          
           }
+        }
 
-         } 
-
-        &_select-box {          
+        &_select-box {
           border-radius: none;
           padding-left: 8px;
-          padding-right: 8px;          
-
+          padding-right: 8px;
 
           &_option_placeholder {
-
           }
-        } 
-        // &_select-box > 
-        &__button {        
-        
+        }
+        // &_select-box >
+        &__button {
           &-container {
             padding: 96px 0;
-            padding-bottom: 124px;            
+            padding-bottom: 124px;
           }
-          
+
           padding: 16px 0;
           width: 400px;
           font-size: 32px;
-
-            
-            
         }
       }
     }
-
-
   }
-
-
 }
+
