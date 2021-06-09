@@ -94,14 +94,16 @@ export default class SubPageMainContents extends Component {
                     className={`sub-page__main-contents_grid-container sub-page__main-contents_grid-container_${index}`}
                     key={ uuidv4() }
                   > 
-                  
+                      <div
+                      className={`sub-page__main-contents_grid-item sub-page__main-contents_${index}-pic`}
+                      >
                       <Slide               
                         direction="up" 
                         triggerOnce
                         style={
                           {
-                            // 'width': '100%', 
-                            // 'height': '100%'
+                            'width': '100%', 
+                            'height': '100%'
                           }
                         }
                         className={`sub-page__main-contents_grid-item sub-page__main-contents_${index}-pic`}
@@ -109,6 +111,8 @@ export default class SubPageMainContents extends Component {
                         <div className={`sub-page__main-contents_pic sub-page__main-contents_pic_${content.pic}`}>
                         </div>
                       </Slide>
+
+                      </div>
 
                       <div className={`sub-page__main-contents_grid-item sub-page__main-contents_grid-bg sub-page__main-contents_desc sub-page__main-contents_${index}-desc`}>
                         <Slide               

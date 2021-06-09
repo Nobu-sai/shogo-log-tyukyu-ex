@@ -1,11 +1,10 @@
 // Instruction
-  // In Parent Component, 
-  // 1. Add a State for Conditional Rendering.
-  // 2. Add a Method to toggle the State. 
-  // 3. Send the Method to the Header Component through to Reservation Button. 
+// : https://www.evernote.com/shard/s350/nl/180370944/de60789d-5cef-7a69-279d-37130b23624a?title=(Shogo)%20%E4%B8%AD%E7%B4%9AEx/%22Goal%22%20=%20Reservation%20Modal.%20Form%20with%20React,%20Google%20Form.
 
 // Import 
 import React, { Component } from 'react'
+// import ReactDOM from 'react-dom';
+
 import $ from 'jquery';
 
 import ReservationModalSuccessMessage from './__SuccessMessage/ReservationModal__SuccessMessage';
@@ -16,6 +15,7 @@ export default class ReservationModal extends Component {
     super(props)
 
     this.state = {
+      scrollY: null,
       submissionSuccess: false,
       submissionContents: 
         // null,
@@ -26,7 +26,7 @@ export default class ReservationModal extends Component {
           plan: "② 平日に優雅に楽しむ、特別宿泊プラン",
         },
     }
-
+    
     this.openModal = this.openModal.bind(this); 
     this.closeModal = this.closeModal.bind(this);
     this.hideContentsContainer = this.hideContentsContainer.bind(this);
@@ -42,19 +42,55 @@ export default class ReservationModal extends Component {
     this.$reservationModalContentsContainer = $(this.reservationModalContentsContainer);    
     this.$reservationModalSuccessMessage = $(this.reservationModalSuccessMessage);    
     this.$reservationModalBG.fadeOut(0);
-    setTimeout(this.openModal, 100)
-    
+    setTimeout(()=> {
+      this.openModal()
+
+    }
+    , 100)
+      
+
+
   }
+  
 
   openModal() { 
     this.$reservationModalBG.fadeIn(500);
+    
+    // // this.controlYScrolling(true)
+    // console.log(window.scrollY)
+    // console.log(this.state.scrollY)
+    this.setState({
+      scrollY: window.scrollY,
+    })
+    // // document.body.style.top = `-${window.scrollY}px`;
+    document.body.style.top = `${window.scrollY}px`;
+    // document.body.style.position = 'fixed';
+    
+    // if(this.props.reseris){
+      document.body.style.overflow = 'hidden';
+    // }    
   }
 
   closeModal() {
     // console.log("modal clicked")
+
+    // const scrollY = document.body.style.top;
+    // document.body.style.position = '';
+    // document.body.style.top = '';
+    // // window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    // window.scrollTo(0, parseInt(this.setState.scrollY || '0') * -1);
+    
+    document.body.style.overflow = 'unset';
+    
     this.$reservationModalBG.fadeOut(500, ()=>{
     
-      setTimeout(this.props.toggleReservationModal(), 500);
+      setTimeout(()=> {
+        
+        this.props.toggleReservationModal();
+
+      
+      }, 500);
+
 
     });
   }

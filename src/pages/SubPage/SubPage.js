@@ -103,7 +103,11 @@ export default class SubPage extends Component {
         </div>
 
         {
-          this.state.reservationModalIsOpen && <ReservationModal reservationModalIsOpen={this.state.reservationModalIsOpen} toggleReservationModal={this.toggleReservationModal}/>
+          this.state.reservationModalIsOpen && 
+            <ReservationModal 
+              reservationModalIsOpen={this.state.reservationModalIsOpen} 
+              toggleReservationModal={this.toggleReservationModal}
+            />
         }
 
       </div>

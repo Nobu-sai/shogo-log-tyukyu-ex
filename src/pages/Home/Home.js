@@ -20,10 +20,11 @@ export default class Home extends Component {
         reservationModalIsOpen: false,
           
       }
-      this.toggleReservationModal = this.toggleReservationModal.bind(this);
+      this.toggleReservationModal = this.toggleReservationModal.bind(this);      
     }
 
   toggleReservationModal() {
+    console.log()
     this.setState({
       reservationModalIsOpen: !this.state.reservationModalIsOpen, 
     })
@@ -32,6 +33,7 @@ export default class Home extends Component {
 
   render() {
 
+    
 
     return (
       <div className="home" ref={home => this.home = home}>
@@ -47,7 +49,11 @@ export default class Home extends Component {
         <HomeAccess />
         <Footer />
         {
-          this.state.reservationModalIsOpen && <ReservationModal reservationModalIsOpen={this.state.reservationModalIsOpen} toggleReservationModal={this.toggleReservationModal}/>
+          this.state.reservationModalIsOpen && 
+            <ReservationModal 
+              reservationModalIsOpen={this.state.reservationModalIsOpen} 
+              toggleReservationModal={this.toggleReservationModal}
+            />
         }
       </div>        
     )
