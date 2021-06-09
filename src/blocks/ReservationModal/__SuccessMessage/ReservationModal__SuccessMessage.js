@@ -38,10 +38,6 @@ export default class ReservationModalSuccessMessage extends Component {
           ref={reservationModalSuccessMessageContents => this.reservationModalSuccessMessageContents = reservationModalSuccessMessageContents} 
         >
             
-          <div 
-            className="reservation-modal__close-icon reservation-modal__close-icon_success-message"
-            onClick={this.props.closeModal}
-          ></div>
 
           <div className="reservation-modal__title reservation-modal__title_success-message reservation-modal__success-message_title">
             ご予約完了です。

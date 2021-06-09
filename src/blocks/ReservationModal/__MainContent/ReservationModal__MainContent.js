@@ -115,10 +115,6 @@ export default class ReservationModalMainContent extends Component {
       >
         <div className="reservation-modal__title">宿泊予約</div>
 
-        <div
-          className="reservation-modal__close-icon"
-          onClick={this.props.closeModal}
-        ></div>
 
         <Formik
           initialValues={{

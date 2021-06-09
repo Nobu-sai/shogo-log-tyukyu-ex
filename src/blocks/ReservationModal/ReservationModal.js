@@ -16,15 +16,15 @@ export default class ReservationModal extends Component {
 
     this.state = {
       scrollY: null,
-      submissionSuccess: false,
+      submissionSuccess: true,
       submissionContents: 
-        // null,
-        {
-          date: "2021年6月3日木曜日　から　2021年6月10日木曜日",
-          email: "fdsf@gmail.com",
-          name: "fdsf",
-          plan: "② 平日に優雅に楽しむ、特別宿泊プラン",
-        },
+        null,
+        // {
+        //   date: "2021年6月3日木曜日　から　2021年6月10日木曜日",
+        //   email: "fdsf@gmail.com",
+        //   name: "fdsf",
+        //   plan: "② 平日に優雅に楽しむ、特別宿泊プラン",
+        // },
     }
     
     this.openModal = this.openModal.bind(this); 
@@ -160,11 +160,14 @@ export default class ReservationModal extends Component {
                 <div className="reservation-modal__contents">
 
                   <ReservationModalSuccessMessage 
-                    closeModal={this.closeModal}
                     submissionContents={this.state.submissionContents}
                   />
 
                 </div>
+                <div
+                  className="reservation-modal__close-icon"
+                  onClick={this.closeModal}
+                ></div>
 
                 </div>
 
@@ -177,11 +180,14 @@ export default class ReservationModal extends Component {
                   <div 
                    className="reservation-modal__contents"                   >                  
                     <ReservationModalMainContent 
-                      closeModal={this.closeModal}
                       setSubmissionContents={this.setSubmissionContents}
                       displaySuccessMessage={this.displaySuccessMessage}
                     /> 
                   </div>
+                  <div
+                    className="reservation-modal__close-icon"
+                    onClick={this.closeModal}
+                  ></div>
                 </div>
                 
               )

@@ -58,7 +58,30 @@
       &_success-message-container {
         // background-color: lightcoral;
         // height: 550px;
-        // max-height: 1200px;
+        // max-height: 100vh;
+      }
+    }
+    
+    &__close-icon {
+      position: absolute;
+      //  To reservation-modal__contents-container Element
+      top: 18px;      
+      right: 18px;
+
+      width: 18px;
+      height: 18px;
+      @include background-image.background-image("close");
+      background-size: cover;
+      background-position: center;
+
+      transition: all 0.4s ease;
+
+      &:hover {
+        // width: 20px;
+        // height: 20px;
+        // font-weight:900;
+        // box-shadow: 0 0 4px 4px #E7E7E7;
+        cursor: pointer;
       }
     }
 
@@ -102,28 +125,6 @@
       }
     }
 
-    &__close-icon {
-      position: absolute;
-      //  To reservation-modal__contents Element
-      top: 18px;
-      right: -8%;
-
-      width: 18px;
-      height: 18px;
-      @include background-image.background-image("close");
-      background-size: cover;
-      background-position: center;
-
-      transition: all 0.4s ease;
-
-      &:hover {
-        // width: 20px;
-        // height: 20px;
-        // font-weight:900;
-        // box-shadow: 0 0 4px 4px #E7E7E7;
-        cursor: pointer;
-      }
-    }
 
     &__form {
       &-content {
@@ -213,11 +214,10 @@
 
     &__button {
       &-container {
-        padding: 48px 0;
+        padding: 38px 0 42px 0;
         width: 100%;
         // min-height: 200px;
-
-        padding-bottom: 62px;
+        
         justify-content: center;
         // background-color: cornflowerblue;
 
@@ -274,6 +274,18 @@
         max-width: 1200px;
       }
     }
+    
+    &__close-icon {
+      top: 36px;
+      right: 36px;
+
+      width: 36px;
+      height: 36px;
+
+      &_success-message {
+        top: 36px;
+      }
+    }
 
     &__contents {
     }
@@ -291,16 +303,6 @@
       // }
     }
 
-    &__close-icon {
-      top: 14px;
-
-      width: 36px;
-      height: 36px;
-
-      &_success-message {
-        top: 36px;
-      }
-    }
     &__form {
       &-content 
       {
