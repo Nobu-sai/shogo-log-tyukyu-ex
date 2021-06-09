@@ -13,52 +13,31 @@ class HeaderContents extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {      
-      slide: 'up',
-      windowWidth: window.innerWidth,      
+    this.state = {                 
     }
 
   }
 
   
-  componentDidMount() {
-    window.addEventListener("resize", this.handleResize);    
+  componentDidMount() {    
     this.$headerContents = $(this.headerContents);
     this.$headerContents.fadeOut(0);
-    // this.setState({
-    //   slide: 'down',
-    // }, this.slideHeaderContents())    
+  
     setTimeout(()=>{
       this.$headerContents.fadeIn(1000)
     }, 200)
+    
+
   }
-  
-   componentWillUnmount() {
-    window.addEventListener("resize", this.handleResize);
-   } 
-
-  handleResize = (e) => {
-    this.setState({ windowWidth: window.innerWidth });
-   };
-  
-
   
   render() {
 
 
-    // const {
-    //   props: {
-    //   }
-    
-    // } = this;
-
     let menuVisibility = "hide";
-    if (this.props.menuVisibility || this.state.windowWidth >= 1000) {
-      menuVisibility = "show";
+    if (this.props.menuVisibility || window.innerWidth >= 1000) {      
+      menuVisibility = "show";      
     } 
-    // console.log("headerColor", this.props.headerColor);
-    // console.log("contentsColor", this.props.contentsColor);
-
+    
 
     return (
 

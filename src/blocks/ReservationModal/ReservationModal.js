@@ -15,7 +15,6 @@ export default class ReservationModal extends Component {
     super(props)
 
     this.state = {
-      scrollY: null,
       submissionSuccess: true,
       submissionContents: 
         null,
@@ -56,29 +55,12 @@ export default class ReservationModal extends Component {
   openModal() { 
     this.$reservationModalBG.fadeIn(500);
     
-    // // this.controlYScrolling(true)
-    // console.log(window.scrollY)
-    // console.log(this.state.scrollY)
-    this.setState({
-      scrollY: window.scrollY,
-    })
-    // // document.body.style.top = `-${window.scrollY}px`;
-    document.body.style.top = `${window.scrollY}px`;
-    // document.body.style.position = 'fixed';
-    
-    // if(this.props.reseris){
       document.body.style.overflow = 'hidden';
-    // }    
   }
 
   closeModal() {
     // console.log("modal clicked")
 
-    // const scrollY = document.body.style.top;
-    // document.body.style.position = '';
-    // document.body.style.top = '';
-    // // window.scrollTo(0, parseInt(scrollY || '0') * -1);
-    // window.scrollTo(0, parseInt(this.setState.scrollY || '0') * -1);
     
     document.body.style.overflow = 'unset';
     

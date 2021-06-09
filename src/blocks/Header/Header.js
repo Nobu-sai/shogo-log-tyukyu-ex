@@ -7,6 +7,10 @@ import { withRouter } from "react-router";
 
 // Instructions
 // : ALL about the menu or header VISIBILITY is controlled ONLY by this.state.menuVisibility. 
+// : In 1000px - screen width, the Header is set opened in Header__Contents.js. 
+  // : If the user 1(open the header in small screen), 2(enlarge the screen)
+  // -> The screen can NOT be scrolled.
+    // => I need to set 'unset' for overflow Proeprty when the Header is shown by DEFAULT. 
 class Header extends Component {
   constructor(props) {
     super(props)
@@ -19,14 +23,25 @@ class Header extends Component {
       pageChanged: false, 
     }
 
+    this.handleResize = this.handleResize.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this); 
+    // this.setMenuVisibility = this.setMenuVisibilitz/z/y.bind(this);
  
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.handleResize);    
+  }
+
+  handleResize(e) {
+    e.preventDefault();
+    this.controllScrollingUnderneath();
   }
 
 
   handleOnClick(e) {
     // this.toggleMenuVisibility();
-    this.setMenuVisibilityByButton();
+    this.setMenuMotionIntoViewpoint();
     e.stopPropagation();
   }
  
@@ -54,25 +69,45 @@ class Header extends Component {
     return contentsColor;
   }
 
-  setMenuVisibilityByButton() {
+  setMenuMotionIntoViewpoint() {
+
     this.setState(
-      {
-        menuVisibility: !this.state.menuVisibility
-      }
-    );
+    {
+      menuVisibility: !this.state.menuVisibility
+    }
+  , () => {
+      this.controllScrollingUnderneath();
+    }
+  
+    )
+
+  
+  }
+
+  controllScrollingUnderneath() {
+        
+    if(window.innerWidth >= 1000) {
+
+      document.body.style.overflow = 'unset';   
+
+    } else {
+
+      if(this.state.menuVisibility) {
+
+          document.body.style.overflow = 'hidden';
+
+      } else {
+
+          document.body.style.overflow = 'unset';   
+
+      } 
+
+    }
+
   }
 
 
-  render() {
-    
-    // const {
-    //   props: {
-    //   }
-    
-    // } = this;
-
-
-    // console.log(this.setHeaderColor())
+  render() {    
 
     return (
 
@@ -80,6 +115,7 @@ class Header extends Component {
         <div >
           <HeaderContents 
             handleOnClick={this.handleOnClick}
+            setMenuVisibility={this.setMenuVisibility}
             menuVisibility={this.state.menuVisibility}
             headerColor={this.setHeaderColor()}
             contentsColor={this.setContentsColor()}
