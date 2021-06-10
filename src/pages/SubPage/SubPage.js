@@ -66,7 +66,7 @@ export default class SubPage extends Component {
           name: `${pageTitle}`
         }
       ]
-      console.log(breadcrumbListItems);
+      // console.log(breadcrumbListItems);
 
     return (
       <div className="sub-page">
