@@ -3,6 +3,15 @@ import {Helmet} from "react-helmet";
 
 
 export default class StructuredDataBreadcrumbList extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+         
+    }
+    this.createBreadrcumbList = this.createBreadrcumbList.bind(this);
+    
+  }
   
   createBreadrcumbList() {
 
@@ -19,12 +28,20 @@ export default class StructuredDataBreadcrumbList extends Component {
     })
 
     // console.log(itemList)
+    // console.log({
+    //   "@context": "https://schema.org",
+    //   "@type": "BreadcrumbList",
+    //   "itemListElement": itemList
+    // })
 
-    return {
+
+    return {  
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
-              "itemListElement": `${itemList}`
-            }
+              "itemListElement": itemList,
+            }              
+             
+           
   }
 
   render() {
@@ -33,13 +50,14 @@ export default class StructuredDataBreadcrumbList extends Component {
     return (
 
       <Helmet>
-
+      
         <script type="application/ld+json">
-          {
-            `${this.createBreadrcumbList()}`          
-          }
+          
+          {JSON.stringify(this.createBreadrcumbList())}
+          
       
         </script>
+           
 
       </Helmet>
     )

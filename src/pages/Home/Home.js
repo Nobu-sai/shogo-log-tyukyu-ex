@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Helmet} from "react-helmet";
+import { ReactDOM } from 'react-dom';
 
 // import Header from '../../blocks/Header/Header';
 import StructuredDataBreadcrumbList from '../../blocks/StructuredData/StructuredData/__BreadcrumbList/StructuredData__BreadcrumbList';
@@ -13,6 +14,7 @@ import HomeAccess from './HomeAccess/HomeAccess';
 import Footer from '../../blocks/Footer/Footer';
 import ReservationModal from '../../blocks/ReservationModal/ReservationModal';
 
+let breadcrumbListItems;
 
 export default class Home extends Component {
   constructor(props) {
@@ -35,7 +37,7 @@ export default class Home extends Component {
 
   render() { 
 
-    const breadcrumbListItems = 
+    breadcrumbListItems = 
       [
         {
             url:`${window.location}`, 
@@ -74,3 +76,9 @@ export default class Home extends Component {
     )
   }
 }
+
+// ReactDOM.render(    
+//   <StructuredDataBreadcrumbList 
+//     breadcrumbListItems={breadcrumbListItems}
+//   />
+//   , document.etElementsByTagName('body'));

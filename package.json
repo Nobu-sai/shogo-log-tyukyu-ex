@@ -28,7 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sass": "sass --watch src/main.scss src/main.css"
+    "sass": "sass --watch src/main.scss src/main.css",
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": [
