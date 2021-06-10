@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import {Helmet} from "react-helmet";
 
 // import Header from '../../blocks/Header/Header';
+import StructuredDataBreadcrumbList from '../../blocks/StructuredData/StructuredData/__BreadcrumbList/StructuredData__BreadcrumbList';
 import Header from '../../blocks/Header/Header';
 import HomeTopMainpicture from './HomeTop/__MainPicture/HomeTop__MainPicture';
 import HomeTopMessages from './HomeTop/__Messages/HomeTop__Messages';
@@ -31,13 +33,26 @@ export default class Home extends Component {
   }
 
 
-  render() {
+  render() { 
 
-    
+    const breadcrumbListItems = 
+      [
+        {
+            url:`${window.location}`, 
+            name:"Top",
+        },
+      ]
 
     return (
       <div className="home" ref={home => this.home = home}>
-        {/* <Header /> */}
+
+        <Helmet>          
+          <title>石井花壇 | 温海温泉旅館【公式サイト】 </title>
+        </Helmet>
+        <StructuredDataBreadcrumbList 
+          breadcrumbListItems={breadcrumbListItems}
+        />
+        
         <Header 
           toggleReservationModal={this.toggleReservationModal}
         />        

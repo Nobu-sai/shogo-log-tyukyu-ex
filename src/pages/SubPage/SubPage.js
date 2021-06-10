@@ -3,6 +3,7 @@ import {Helmet} from "react-helmet";
 import { Fade, Slide, AttentionSeeker } from "react-awesome-reveal";
 
 
+import StructuredDataBreadcrumbList from '../../blocks/StructuredData/StructuredData/__BreadcrumbList/StructuredData__BreadcrumbList';
 import Header from '../../blocks/Header/Header';
 import SubPageTop from './__Top/SubPage__Top';
 import SubPageMainContents from './__MainContents/SubPage__MainContents';
@@ -16,7 +17,7 @@ export default class SubPage extends Component {
 
 
       this.state = {
-        reservationModalIsOpen: false,
+        reservationModalIsOpen: false,        
           
       }
       this.toggleReservationModal = this.toggleReservationModal.bind(this);
@@ -36,6 +37,7 @@ export default class SubPage extends Component {
     const {
       props: {        
         pageTitle,
+          // Page title in Japanese
         bgName,
         currentPage,
           // An Object
@@ -50,11 +52,32 @@ export default class SubPage extends Component {
       }
     } = this;
 
+    // console.log(window.location)
+    // console.log(`${window.location.origin}${window.location.pathname}`)
+
+    const breadcrumbListItems = 
+      [
+        {
+          url:`${window.location.origin}`, 
+          name:"Top",
+        },
+        {
+          url:`${window.location.origin}${window.location.pathname}`, 
+          name: `${pageTitle}`
+        }
+      ]
+      console.log(breadcrumbListItems);
+
     return (
       <div className="sub-page">
+
         <Helmet>
           <title>{pageTitle} - 石井花壇 | 温海温泉旅館【公式サイト】</title>
         </Helmet>
+        <StructuredDataBreadcrumbList 
+          breadcrumbListItems={breadcrumbListItems}
+        />
+
         <Header 
           toggleReservationModal={this.toggleReservationModal}
         />        
