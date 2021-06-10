@@ -18,7 +18,7 @@ export default class StructuredDataBreadcrumbList extends Component {
         })
     })
 
-    console.log(itemList)
+    // console.log(itemList)
 
     return {
               "@context": "https://schema.org",
@@ -28,7 +28,7 @@ export default class StructuredDataBreadcrumbList extends Component {
   }
 
   render() {
-    console.log(this.props.breadcrumbListItems)
+    // console.log(this.props.breadcrumbListItems)
     
     return (
 
