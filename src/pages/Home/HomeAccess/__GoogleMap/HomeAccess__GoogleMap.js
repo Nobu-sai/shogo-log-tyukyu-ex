@@ -8,6 +8,9 @@ import { visible } from 'jest-matcher-utils/node_modules/chalk';
 
 
 const containerStyle = {
+  border: '1px solid #707070',
+  borderTop: 'none',
+  // boxShadow: '0 2px 7px 1px rgb(0 0 0 / 30%)',	
   width: '100%',
   height: '100%',
   overflow: 'visible'
