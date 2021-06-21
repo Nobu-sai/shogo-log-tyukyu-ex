@@ -2,7 +2,7 @@
 
 @mixin background-image($img-name) {
 
-  $png-images: 'sakura-logo-black' 'sakura-logo-white' 'sakura-logo-skelton-black' 'calendar-icon' 'calendar-icon-black' 'map' 'map@2x' 'close' 'arrow-icon-black';
+  $png-images: 'sakura-logo-black' 'sakura-logo-white' 'sakura-logo-skelton-black' 'calendar-icon' 'calendar-icon-black' 'map' 'map@2x' 'close' 'arrow-icon-black' 'route-icon';
  
   @if list.index($png-images, $img-name) {
 

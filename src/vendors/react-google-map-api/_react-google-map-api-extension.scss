@@ -1,0 +1,147 @@
+@use '../../utilities/responsive';
+@use '../../utilities/mixins/background-image';
+@use '../../utilities/variables/font-size';
+@use '../../utilities/variables/base-color';
+
+// All Defaults are Copied.
+// -> Overwritten.
+
+
+.info-window {
+	
+	position: absolute;
+	left: 120px;
+	// left: 40%;
+	bottom: -104px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	padding: 12px;
+	box-shadow: 0 2px 7px 1px rgb(0 0 0 / 30%);	
+	width: 230px;
+
+	background-color: white;
+	overflow: hidden;
+	transform: translate(-50%, -100%);
+
+	display: flex;
+	flex-direction: column;
+	
+	
+	@include responsive.respond-to("min", "600") {
+		left: 124px;
+		bottom: -56px;
+		padding: 12px;
+		// width: 200px;
+		flex-direction: row;
+	}
+
+	@include responsive.respond-to("min", "2000") {
+		// left: 260px;
+		// bottom: -126px;
+		// padding: 24px;
+		// width: 600px;
+	}	
+
+	&__description {
+		width: 100%;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+
+
+		@include responsive.respond-to("min", "600") {
+			width: 40%;	
+			display: block;		
+			// flex-direction: column;
+			// align-items: flex-start;
+		}
+
+
+	}
+
+	&__title_main {
+		font-size: 18px;
+
+		// @include responsive.respond-to("min", "600") {
+		// 	font-size: 24px;			
+		// }	
+
+	}
+
+	&__title_sub {
+		font-size: 12px;
+		color: rgb(94, 94, 94);
+
+		// @include responsive.respond-to("min", "600") {
+		// 	font-size: 18px;
+			
+		// }	
+
+	}
+
+	&__route {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+
+		text-decoration: none;		
+		color: #000;
+		text-align: center;
+
+		overflow: visible;
+
+		@include responsive.respond-to("min", "600") {
+			width: 60%;			
+			
+		}
+
+
+	}
+
+	&__route-icon {
+		width: 20px;
+		height: 20px;
+		@include background-image.background-image('route-icon');
+		background-size: cover;
+		background-position: center;
+
+		transition: all .4s ease;
+		&:hover {			
+			font-weight: bold;
+		}
+		
+			
+		// @include responsive.respond-to("min", "600") {
+		// 	width: 32px;
+		// 	height: 32px;
+						
+		// }
+	}
+
+	&__route-text {
+		font-size: 14px;
+		color: rgb(56, 163, 250);		
+
+		transition: all .4s ease;
+		&:hover {
+			font-weight: bold;
+		}
+		
+		// @include responsive.respond-to("min", "600") {
+		// 	font-size: 18px;
+			
+		// }
+	}
+
+	&__route-annotation {	
+		// width: 300px;
+		font-size: 10px;
+		@include responsive.respond-to("min", "600") {
+			// font-size: 14px;
+			
+		}
+	}
+}

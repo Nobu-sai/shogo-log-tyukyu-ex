@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Fade, Slide, AttentionSeeker } from "react-awesome-reveal";
+
 import HomeSectionHeading from '../__SectionHeading/Home__SectionHeading'
+import HomeAccessGoogleMap from './__GoogleMap/HomeAccess__GoogleMap';
 
 export default class HomeAccess extends Component {
   constructor(props) {
@@ -100,13 +102,12 @@ export default class HomeAccess extends Component {
                 }
               }
             >
-
-            <div className="home-access__map">
-
-            </div>
+                <HomeAccessGoogleMap />
             </Slide>
 
           </div>
+
+          
         </div>
 
       </div>

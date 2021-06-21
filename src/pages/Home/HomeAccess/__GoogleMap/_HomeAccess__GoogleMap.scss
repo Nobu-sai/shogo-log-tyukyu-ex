@@ -1,0 +1,36 @@
+
+@use '../../../../utilities/responsive';
+@use '../../../../utilities/mixins/background-image';
+@use '../../../../utilities/variables/font-size';
+@use '../../../../utilities/variables/base-color';
+
+// ALL Map Styles are inside /vendors/react-google-map-api
+
+.map {
+	display: flex;
+	position: relative;
+}
+.map-settings {
+	width: 40%;
+	// position: absolute;
+	z-index: 100;	
+}
+.map-container {
+	width: 60%;
+	z-index: 10000;
+}
+
+.home-access__google-map {
+	width: 100%;
+	height: 100%;
+	// display: flex;
+	// justify-content: center;
+	// &-open {
+	// 	width:200px;
+	// 	height: 200px;
+	// }	
+	@include responsive.respond-to('min', '200') {    	
+		
+	}
+
+}
