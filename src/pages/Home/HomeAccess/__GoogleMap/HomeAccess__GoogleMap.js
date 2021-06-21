@@ -54,7 +54,7 @@ export default class HomeAccessGoogleMap extends Component {
                 <a className="info-window__route" href="https://www.google.com/maps/dir/?api=1&destination=38.636752,139.602052" target="_blank">
                   <div className="info-window__route-icon"></div>
                   <div className="info-window__route-text">ルート</div>
-                  <div className="info-window__route-annotation">(Google Map公式サイトへ)</div>
+                  <div className="info-window__route-annotation">* Google Map公式サイトへ</div>
                 </a>
             </div>                                  
             <Marker          

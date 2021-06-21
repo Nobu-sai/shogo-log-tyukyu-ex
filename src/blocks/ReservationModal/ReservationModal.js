@@ -15,15 +15,15 @@ export default class ReservationModal extends Component {
     super(props)
 
     this.state = {
-      submissionSuccess: true,
+      submissionSuccess: false,
       submissionContents: 
-        // null,
-        {
-          date: "2021年6月3日木曜日　から　2021年6月10日木曜日",
-          email: "fdsf@gmail.com",
-          name: "fdsf",
-          plan: "② 平日に優雅に楽しむ、特別宿泊プラン",
-        },
+        null,
+        // {
+        //   date: "2021年6月3日木曜日　から　2021年6月10日木曜日",
+        //   email: "fdsf@gmail.com",
+        //   name: "fdsf",
+        //   plan: "② 平日に優雅に楽しむ、特別宿泊プラン",
+        // },
     }
     
     this.openModal = this.openModal.bind(this); 
