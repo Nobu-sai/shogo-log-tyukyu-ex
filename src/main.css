@@ -1109,6 +1109,51 @@ body {
   .reservation-modal__success-message_farewell-message {
     margin-top: 24px;
   }
+  .reservation-modal__success-message_button-container {
+    padding: 4px 0;
+    justify-content: space-evenly;
+  }
+  .reservation-modal__success-message_button {
+    width: 45%;
+    max-width: 180px;
+  }
+  .reservation-modal__success-message_center-line {
+    background-color: #E7E7E7;
+    width: 1px;
+    height: 120px;
+  }
+  .reservation-modal__success-message_route {
+    padding: 14px 0;
+    width: 45%;
+    max-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+  }
+  .reservation-modal__success-message_route-icon {
+    height: 20px;
+    width: 20px;
+    background-image: url(./assets/images/route-icon.png);
+    background-size: cover;
+    background-position: center;
+    transition: all 0.4s ease;
+  }
+  .reservation-modal__success-message_route-icon:hover {
+    font-weight: bold;
+  }
+  .reservation-modal__success-message_route-text {
+    font-size: 14px;
+    color: #38a3fa;
+    transition: all 0.4s ease;
+  }
+  .reservation-modal__success-message_route-text:hover {
+    font-weight: bold;
+  }
+  .reservation-modal__success-message_route-annotation {
+    font-size: 12px;
+  }
 }
 @media (min-width: 600px) {
   .reservation-modal__success-message_details_title {
@@ -1119,6 +1164,14 @@ body {
   }
   .reservation-modal__success-message_details_announcement {
     font-size: 16px;
+  }
+  .reservation-modal__success-message_button-container {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .reservation-modal__success-message_center-line {
+    width: 1px;
+    height: 120px;
   }
 }
 @media (min-width: 2000px) {
@@ -1135,6 +1188,12 @@ body {
   .reservation-modal__success-message_details_announcement {
     min-height: 200px;
     font-size: 28px;
+  }
+  .reservation-modal__success-message_route {
+    max-width: 240px;
+  }
+  .reservation-modal__success-message_button {
+    max-width: 240px;
   }
 }
 

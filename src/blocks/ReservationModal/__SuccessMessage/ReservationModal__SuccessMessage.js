@@ -76,9 +76,29 @@ export default class ReservationModalSuccessMessage extends Component {
                 <span className="reservation-modal__title_annotation reservation-modal__success-message_farewell-message_annotation">ー　石井花壇一同　ー</span>
               </div>
 
-              <div className="reservation-modal__button-container">
+
+              <div className="reservation-modal__button-container reservation-modal__success-message_button-container">
+                <a 
+                  className="reservation-modal__success-message_route" 
+                  href="https://www.google.com/maps/dir/?api=1&destination=38.636752,139.602052" 
+                  target="_blank"                  
+                >
+                  <div className="reservation-modal__success-message_route-icon"></div> 
+                  <div className="reservation-modal__success-message_route-text">
+                    ルート
+                  </div>
+                  <div className="reservation-modal__success-message_route-annotation">
+                    * Google Mapの公式サイトへ
+
+                  </div>
+                  
+                </a>
+
+                <div className="reservation-modal__success-message_center-line">
+                </div>
+
                 <div 
-                  className="reservation-modal__button reservation-modal__button_success-message"
+                  className="reservation-modal__button reservation-modal__button_success-message reservation-modal__success-message_button"
                   onClick={this.props.closeModal}
                 >
                   閉じる

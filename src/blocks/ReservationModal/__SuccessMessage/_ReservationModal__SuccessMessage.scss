@@ -80,6 +80,68 @@
     &_farewell-message {
       margin-top: 24px;
     }
+
+    
+    &_button-container {
+      // height: 300px;
+      padding: 4px 0;
+      // flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    &_button {
+      width: 45%;
+      max-width: 180px;
+    }
+
+    &_center-line {
+      background-color: #E7E7E7;      
+      width: 1px;
+      // height: 4px;
+      height: 120px;  
+    }
+
+    &_route {
+      padding: 14px 0;
+      width: 45%;
+      max-width: 180px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      text-decoration: none;
+      color: #000;
+
+    }
+
+    &_route-icon {
+      height: 20px;
+      width: 20px;
+      @include background-image.background-image('route-icon');
+      background-size: cover;
+      background-position: center;
+      transition: all .4s ease;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+    &_route-text {
+      font-size: 14px;
+      color: rgb(56, 163, 250);		
+
+      transition: all .4s ease;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+
+    &_route-annotation {
+      font-size: 12px;
+    }
+
   }
 
   
@@ -99,6 +161,17 @@
         font-size: 16px;
       }
       
+    }
+    
+
+    &_button-container {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    &_center-line {
+      width: 1px;
+      height: 120px;  
     }
 
     // &_farewell {   
@@ -159,6 +232,14 @@
         font-size: 28px;
       }
       
+    }
+
+    &_route {
+      max-width: 240px;
+    }
+
+    &_button { 
+      max-width: 240px;      
     }
 
     // &_farewell {   
