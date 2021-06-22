@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/functions/main-site/build
+/build
 
 # misc
 .DS_Store
