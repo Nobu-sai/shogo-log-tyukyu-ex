@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dummy-public",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -12,5 +12,8 @@
         "function": "app"
       }
     ]
+  },
+  "functions": {
+    "source": "functions"
   }
 }
