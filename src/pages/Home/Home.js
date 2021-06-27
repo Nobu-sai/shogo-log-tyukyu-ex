@@ -49,7 +49,7 @@ export default class Home extends Component {
       <div className="home" ref={home => this.home = home}>
 
         <Helmet>          
-          <title>石井花壇 | 温海温泉旅館【公式サイト】 </title>
+          {/* <title>石井花壇 | 温海温泉旅館【公式サイト】 </title> */}
         </Helmet>
         <StructuredDataBreadcrumbList 
           breadcrumbListItems={breadcrumbListItems}
