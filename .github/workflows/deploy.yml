@@ -23,10 +23,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install packages
-        run: npm install
-      - name: build
-        run: npm run build
+      # - name: install packages
+      #   run: npm install
+      # - name: build
+      #   run: npm run build
       - name: install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
       - name: deploy with lftp
