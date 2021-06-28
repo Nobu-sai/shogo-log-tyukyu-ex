@@ -23,11 +23,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install packages
-        run: npm install
-        env: 
-          working-directory: ./src
-        working-directory: ${{env.working-directory}}
+      - name: install packages into
+        run: npm install        
       - name: build
         run: npm run build
       - name: install lftp
