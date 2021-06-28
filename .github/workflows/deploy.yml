@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
       - name: prepare .ssh dir
@@ -16,7 +19,10 @@ jobs:
         run: echo "$SSH_KEY" > .ssh/id_rsa && chmod 600 .ssh/id_rsa
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
-     
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: install packages
         run: npm install
       - name: build
@@ -24,9 +30,10 @@ jobs:
       - name: install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
       - name: deploy with lftp
-        run: lftp -e "set net:max-retries 1; set sftp:connect-program \"ssh -a -x -p $SSH_PORT -i .ssh/id_rsa -o StrictHostKeyChecking=no\"; connect sftp://$SSH_USER:@$SSH_HOST; mirror -eR -x .git -x .ssh build/ DIR; quit"
-        env:           
-          DIR: ~/public_html/qportfolio-static.conohawing.com
+        run: lftp -e "set net:max-retries 1; set sftp:connect-program \"ssh -a -x -p $SSH_PORT -i .ssh/id_rsa -o StrictHostKeyChecking=no\"; connect sftp://$SSH_USER:@$SSH_HOST; mirror -eR -x .git -x .ssh $BUILD_DIR $HOST_DIR; quit"
+        env:       
+          BUILD_DIR: /build    
+          HOST_DIR: ~/public_html/qportfolio-static.conohawing.com
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PORT: ${{ secrets.SSH_PORT }}
