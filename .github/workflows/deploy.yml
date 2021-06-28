@@ -23,7 +23,7 @@ jobs:
       #   run: npm run build
 
       - name: deploy with rsync
-        run: lftp -e "set net:max-retries 1; set sftp:connect-program \"ssh -a -x -p $SSH_PORT -i .ssh/id_rsa -o StrictHostKeyChecking=no\"; connect sftp://$SSH_USER:@$SSH_HOST; mirror -eR -x .git -x .ssh ./ $SSH_DIR; quit"
+        run: lftp -e "set net:max-retries 1; set sftp:connect-program \"ssh -a -x -p $SSH_PORT -i .ssh/id_rsa -o StrictHostKeyChecking=no\"; connect sftp://$SSH_USER:@$SSH_HOST; mirror -eR -x .git -x .ssh ./build/ $SSH_DIR; quit"
         env:           
           SSH_DIR: ~/public_html/portfolio-static.conohawing.com
           SSH_HOST: ${{ secrets.SSH_HOST }}
