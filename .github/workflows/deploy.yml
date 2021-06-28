@@ -19,9 +19,9 @@ jobs:
      
       # - name: install packages
       #   run: npm install
-      # - name: build
-      #   run: npm run build
-      - name: install lfrp
+      - name: build
+        run: npm run build
+      - name: install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
       - name: deploy with lftp
         run: lftp -e "set net:max-retries 1; set sftp:connect-program \"ssh -a -x -p $SSH_PORT -i .ssh/id_rsa -o StrictHostKeyChecking=no\"; connect sftp://$SSH_USER:@$SSH_HOST; mirror -eR -x .git -x .ssh build/ DIR; quit"
