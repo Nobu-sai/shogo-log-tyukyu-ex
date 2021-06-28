@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "./static/css/main.c60c16df.chunk.css",
+    "main.js": "./static/js/main.d7b9b912.chunk.js",
+    "main.js.map": "./static/js/main.d7b9b912.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.d41b5b59.js",
+    "runtime-main.js.map": "./static/js/runtime-main.d41b5b59.js.map",
+    "static/css/2.a9ea316a.chunk.css": "./static/css/2.a9ea316a.chunk.css",
+    "static/js/2.9936c32a.chunk.js": "./static/js/2.9936c32a.chunk.js",
+    "static/js/2.9936c32a.chunk.js.map": "./static/js/2.9936c32a.chunk.js.map",
+    "static/js/3.3491a3cd.chunk.js": "./static/js/3.3491a3cd.chunk.js",
+    "static/js/3.3491a3cd.chunk.js.map": "./static/js/3.3491a3cd.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.a9ea316a.chunk.css.map": "./static/css/2.a9ea316a.chunk.css.map",
+    "static/css/main.c60c16df.chunk.css.map": "./static/css/main.c60c16df.chunk.css.map",
+    "static/js/2.9936c32a.chunk.js.LICENSE.txt": "./static/js/2.9936c32a.chunk.js.LICENSE.txt",
+    "static/media/main.css": "./static/media/recommended03.e75236ee.jpg",
+    "static/media/mainbg01-1200-800.2d38215d.jpg": "./static/media/mainbg01-1200-800.2d38215d.jpg",
+    "static/media/mainbg01-2200-1600.dd2b61a9.jpg": "./static/media/mainbg01-2200-1600.dd2b61a9.jpg",
+    "static/media/mainbg01-400-600.88cfadeb.jpg": "./static/media/mainbg01-400-600.88cfadeb.jpg",
+    "static/media/mainbg01-4400-3200.fb58747b.jpg": "./static/media/mainbg01-4400-3200.fb58747b.jpg",
+    "static/media/mainbg02-1200-800.e22b4d7a.jpg": "./static/media/mainbg02-1200-800.e22b4d7a.jpg",
+    "static/media/mainbg02-2200-1600.04dec259.jpg": "./static/media/mainbg02-2200-1600.04dec259.jpg",
+    "static/media/mainbg02-400-600.e5224d7f.jpg": "./static/media/mainbg02-400-600.e5224d7f.jpg",
+    "static/media/mainbg02-4400-3200.d0a7e4af.jpg": "./static/media/mainbg02-4400-3200.d0a7e4af.jpg",
+    "static/media/mainbg03-1200-800.f66ab789.jpg": "./static/media/mainbg03-1200-800.f66ab789.jpg",
+    "static/media/mainbg03-2200-1600.a07ce5d1.jpg": "./static/media/mainbg03-2200-1600.a07ce5d1.jpg",
+    "static/media/mainbg03-400-600.aa07f4a7.jpg": "./static/media/mainbg03-400-600.aa07f4a7.jpg",
+    "static/media/mainbg03-4400-3200.27c2b18e.jpg": "./static/media/mainbg03-4400-3200.27c2b18e.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d41b5b59.js",
+    "static/css/2.a9ea316a.chunk.css",
+    "static/js/2.9936c32a.chunk.js",
+    "static/css/main.c60c16df.chunk.css",
+    "static/js/main.d7b9b912.chunk.js"
+  ]
+}
