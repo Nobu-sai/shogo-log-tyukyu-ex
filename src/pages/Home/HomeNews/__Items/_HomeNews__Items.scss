@@ -26,6 +26,10 @@
   }
 }
 
+// .home-news__contents-container {
+//   height: 50%;
+// }
+
 .home-news__item-container {
   @include responsive.respond-to('min', '200') {    
    width: 100%;

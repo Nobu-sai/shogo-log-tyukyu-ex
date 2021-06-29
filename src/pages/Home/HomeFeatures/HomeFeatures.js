@@ -24,11 +24,12 @@ export default class Homefeatures extends Component {
         // effect="flash"
         duration={3000}
         triggerOnce
+        
       >
       <div 
         className="home-features"        
       >
-        
+        <div className="home-features__contents-container">
           <ScrollingSection 
             stopScrolling={'1000'}            
           >
@@ -173,6 +174,9 @@ export default class Homefeatures extends Component {
               </div>
             </div>
           </ ScrollingSection>
+
+        </div>
+
       </div>
       </Fade>
     )
