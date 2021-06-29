@@ -41,47 +41,51 @@ export default class HomeNewItems extends Component {
     
     return (
         <div className="home-news__items">
-        
-          <ScrollingSection
-            stopScrolling={'1000'}
-          >
-              <Slide 
-                direction="up" 
-                triggerOnce
-                style={
-                  {
-                    'width': '100%', 
-                    'height': '100%'
+
+          {/* <div className="home-news__contents-container"> */}
+            <ScrollingSection
+              stopScrolling={'1000'}
+            >
+                <Slide 
+                  direction="up" 
+                  triggerOnce
+                  style={
+                    {
+                      'width': '100%', 
+                      'height': '100%'
+                    }
                   }
-                }
-              >
-
-            <div className="home-news__item-container">
-              {
-                this.props.items.contents.map((item)=> (
-                <div 
-                  className="home-news__item" 
-                  key={uuidv4()}
                 >
-                  <div className={`home-news__item-pic home-news__item-pic_${item.pic}`}>
 
-                  </div>
-                  <div className="home-news__item-contents">
-                    <div className="home-news__item-date">
-                      {item.date}
-                    </div>
-                    <div className="home-news__item-text">
-                      {item.text}
-                    </div>
-                  </div>
-                </div>
+                  <div className="home-news__item-container">
+                    {
+                      this.props.items.contents.map((item)=> (
+                      <div 
+                        className="home-news__item" 
+                        key={uuidv4()}
+                      >
+                        <div className={`home-news__item-pic home-news__item-pic_${item.pic}`}>
 
-                ))
-              }
-              
-            </div>
-              </Slide>
-          </ScrollingSection>
+                        </div>
+                        <div className="home-news__item-contents">
+                          <div className="home-news__item-date">
+                            {item.date}
+                          </div>
+                          <div className="home-news__item-text">
+                            {item.text}
+                          </div>
+                        </div>
+                      </div>
+
+                      ))
+                    }
+                    
+                  </div>
+                </Slide>
+            </ScrollingSection>
+
+          {/* </div> */}
+        
         </div>
     )
   }
