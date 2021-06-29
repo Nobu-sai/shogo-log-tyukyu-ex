@@ -23,12 +23,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: update npm 
-        run: npm update
+      # - name: update npm 
+      #   run: npm update
       - name: install packages
-        run: npm install             
+        run:  |
+          npm install   
+          npm install @material-ui/core 
       - name: build
-        run: npm run build
+        run: CI='' npm run build
       - name: install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
       - name: deploy with lftp
