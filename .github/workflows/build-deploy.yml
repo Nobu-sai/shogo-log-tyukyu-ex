@@ -23,12 +23,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      # - name: update npm 
-      #   run: npm update
       - name: install packages
         run:  |
           npm install   
           npm install @material-ui/core 
+        # npm install @material-ui/core 
+          #  Otherwise, an Error in build Step (Cannot find module: '@material-ui/core/utils'. Make sure this package is installed.)
       - name: build
         run: CI='' npm run build
       - name: install lftp
