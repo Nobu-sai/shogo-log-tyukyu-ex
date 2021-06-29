@@ -23,8 +23,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install packages into
+      - name: install packages
         run: npm install        
+      - name: install @material-ui/icons
+        run: npm install @material-ui/icons
       - name: build
         run: npm run build
       - name: install lftp
