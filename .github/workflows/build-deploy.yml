@@ -37,7 +37,7 @@ jobs:
         run: lftp -e "set net:max-retries 1; set sftp:connect-program \"ssh -a -x -p $SSH_PORT -i .ssh/id_rsa -o StrictHostKeyChecking=no\"; connect sftp://$SSH_USER:@$SSH_HOST; mirror -eR -x .git -x .ssh $BUILD_DIR $HOST_DIR; quit"
         env:       
           BUILD_DIR: build/    
-          HOST_DIR: ~/public_html/qportfolio-static.conohawing.com
+          HOST_DIR: ~/public_html/portfolio-static.conohawing.com
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PORT: ${{ secrets.SSH_PORT }}
