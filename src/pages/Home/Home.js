@@ -14,8 +14,6 @@ import HomeAccess from './HomeAccess/HomeAccess';
 import Footer from '../../blocks/Footer/Footer';
 import ReservationModal from '../../blocks/ReservationModal/ReservationModal';
 
-let breadcrumbListItems;
-
 export default class Home extends Component {
   constructor(props) {
       super(props)
@@ -36,8 +34,8 @@ export default class Home extends Component {
 
 
   render() { 
+    let breadcrumbListItems =
 
-    breadcrumbListItems = 
       [
         {
             url:`${window.location}`, 
@@ -45,11 +43,26 @@ export default class Home extends Component {
         },
       ]
 
+    let pathToImagesFolder = "../../assets/images"
+
     return (
       <div className="home" ref={home => this.home = home}>
 
         <Helmet>          
           <title>石井花壇 | 温海温泉旅館【公式サイト】 </title>
+          {/* <!-- Open Graph / Facebook, LinkedIn... --> */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://portfolio-static.conohawing.com/ishikadan/" />
+          <meta property="og:title" content="石井花壇 | 温海温泉旅館【公式サイト】" />
+          <meta property="og:description" content="日本古来の素材と現代的表現を併せ持つ温泉旅館、石井花壇。 伝統的「和」の息づく空間で、至極のひとときをお過ごしください。" />
+          <meta property="og:image" content="../../assets/images/og-image-1200x630.jpg" />
+
+          {/* <!-- Twitter -->  */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://portfolio-static.conohawing.com/ishikadan/" />
+          <meta property="twitter:title" content="石井花壇 | 温海温泉旅館【公式サイト】" />
+          <meta property="twitter:description" content="日本古来の素材と現代的表現を併せ持つ温泉旅館、石井花壇。 伝統的「和」の息づく空間で、至極のひとときをお過ごしください。"  />
+          <meta property="twitter:image" content="../../assets/images/og-image-1200x630.jpg" />
         </Helmet>
 
         <StructuredDataBreadcrumbList 
