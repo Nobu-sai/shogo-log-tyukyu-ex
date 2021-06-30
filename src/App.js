@@ -18,8 +18,8 @@ import {
 function App() {
   return (
     <Router 
-      basename="/ishikadan"
-    >
+      basename="/ishikadan" 
+  >
       <div className='app'>
         
 
