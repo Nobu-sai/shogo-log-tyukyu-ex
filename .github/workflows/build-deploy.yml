@@ -34,7 +34,7 @@ jobs:
       - name: install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
       - name: deploy with lftp
-        run: lftp -e "set net:max-retries 1; set sftp:connect-program \"ssh -a -x -p $SSH_PORT -i .ssh/id_rsa -o StrictHostKeyChecking=no\"; connect sftp://$SSH_USER:@$SSH_HOST; mirror -eR -x .git -x .ssh $BUILD_DIR $HOST_DIR; quit"
+        run: lftp -e "set net:max-retries 1; set sftp:connect-program \"ssh -a -x -p $SSH_PORT -i .ssh/id_rsa -o StrictHostKeyChecking=no\"; connect sftp://$SSH_USER:@$SSH_HOST; mirror -eR -x .git -x .ssh -x node_modules -x public -x src -x .env -x .gitignore -x package-lock.json -x package.json -x README.md $BUILD_DIR $HOST_DIR; quit"
         env:       
           # BUILD_DIR: build/    
           BUILD_DIR: ./    
