@@ -6,7 +6,7 @@ const fs = require('fs')
 
 console.log(process.env.PORT)
 
-app.get('/ishikadan', function(request, response) {
+app.get('/ishikadan/', function(request, response) {
 // app.get('/', function(request, response) {
 // app.get('*', function(request, response) {
   console.log('Home page visited!');
