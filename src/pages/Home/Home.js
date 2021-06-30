@@ -51,6 +51,7 @@ export default class Home extends Component {
         <Helmet>          
           <title>石井花壇 | 温海温泉旅館【公式サイト】 </title>
         </Helmet>
+
         <StructuredDataBreadcrumbList 
           breadcrumbListItems={breadcrumbListItems}
         />
