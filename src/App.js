@@ -1,4 +1,4 @@
-// import { useState, useEffect } from 'react';
+import React from 'react';
 
 import './main.css';
 // Components for Site Pages
@@ -9,22 +9,31 @@ import SubPageOnsen from './pages/SubPage/-Onsen/SubPageOnsen';
 // Components for communal parts
 // Libraries
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
+  Redirect,
   Switch,
   Route,  
+  // useLocation,
 } from "react-router-dom";
 
 
 function App() {
+
+  // const { pathname } = useLocation();
+
+
   return (
-    <Router 
-      basename="/ishikadan" 
+    <BrowserRouter 
+      // basename="/ishikadan"  
+      // basename="/ishikadan/" 
+      // Otherwise, meta Tag cannot be added.
   >
       <div className='app'>
         
 
         <Switch> 
 
+          {/* <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} /> */}
 
           <Route path='/oheya'>
             <SubPageOheya />
@@ -38,7 +47,7 @@ function App() {
             <SubPageOnsen />
           </Route>
 
-          <Route path='/'>
+          <Route exact path='/'>
             <Home />
           </Route> 
           
@@ -47,7 +56,7 @@ function App() {
 
 
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

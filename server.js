@@ -6,8 +6,11 @@ const fs = require('fs')
 
 console.log(process.env.PORT)
 
-app.get('/ishikadan/', function(request, response) {
-// app.get('/', function(request, response) {
+
+// app.get('/ishikadan', function(request, response) {
+// app.get('/ishikadan/', function(request, response) {
+// app.get(['/ishikadan', '/ishikadan/'], function(request, response) {
+app.get('/', function(request, response) {
 // app.get('*', function(request, response) {
   console.log('Home page visited!!');
   const filePath = path.resolve(__dirname, './build', 'index.html');
@@ -66,6 +69,7 @@ app.get('/ishikadan/', function(request, response) {
 
 // Set Static Site (after OG meta Tags are replaced)
 app.use(express.static(path.resolve(__dirname, './build')));
+// app.use(express.static((__dirname, './build')));
 
 app.get('*', function(request, response) {
   const filePath = path.resolve(__dirname, './build', 'index.html');
