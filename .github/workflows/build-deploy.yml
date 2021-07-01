@@ -38,7 +38,7 @@ jobs:
         env:       
           # BUILD_DIR: build/    
           BUILD_DIR: ./    
-          HOST_DIR: ~/public_html/portfolio-static.conohawing.com/
+          HOST_DIR: ~/public_html/portfolio-static.conohawing.com
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PORT: ${{ secrets.SSH_PORT }}
