@@ -9,7 +9,7 @@ console.log(process.env.PORT)
 app.get('/ishikadan/', function(request, response) {
 // app.get('/', function(request, response) {
 // app.get('*', function(request, response) {
-  console.log('Home page visited!');
+  console.log('Home page visited!!');
   const filePath = path.resolve(__dirname, './build', 'index.html');
 
   // Open Graph meta Tags 
