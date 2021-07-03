@@ -68,11 +68,32 @@ export default class SubPage extends Component {
       ]
       // console.log(breadcrumbListItems);
 
+      let OGDescription = "";
+      
+      IntroTextList.map((text)=> {
+        OGDescription += `${text}`;
+      })
+      
+      console.log(OGDescription)
+
     return (
       <div className="sub-page">
 
         <Helmet>
           <title>{pageTitle} - 石井花壇 | 温海温泉旅館【公式サイト】</title>
+          {/* <!-- Open Graph / Facebook, LinkedIn... --> */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://portfolio-static.conohawing.com" />
+          <meta property="og:title" content={`${pageTitle} - 石井花壇 | 温海温泉旅館【公式サイト】`} />
+          <meta property="og:description" content={OGDescription} />
+          <meta property="og:image" content="%PUBLIC_URL%/og-image-1200x630.jpg" />
+
+          {/* <!-- Twitter -->  */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://portfolio-static.conohawing.com" />
+          <meta property="twitter:title" content={`${pageTitle} - 石井花壇 | 温海温泉旅館【公式サイト】`} />
+          <meta property="twitter:description" content={OGDescription} />
+          <meta property="twitter:image" content="%PUBLIC_URL%/og-image-1200x630.jpg" />
         </Helmet>
         <StructuredDataBreadcrumbList 
           breadcrumbListItems={breadcrumbListItems}
