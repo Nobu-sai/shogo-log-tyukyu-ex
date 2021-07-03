@@ -10,30 +10,22 @@ import SubPageOnsen from './pages/SubPage/-Onsen/SubPageOnsen';
 // Libraries
 import {
   BrowserRouter,
-  Redirect,
   Switch,
   Route,  
-  // useLocation,
 } from "react-router-dom";
 
 
 function App() {
 
-  // const { pathname } = useLocation();
-
 
   return (
     <BrowserRouter 
-      // basename="/ishikadan"  
-      // basename="/ishikadan/" 
-      // Otherwise, meta Tag cannot be added.
   >
       <div className='app'>
         
 
         <Switch> 
 
-          {/* <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} /> */}
 
           <Route path='/oheya'>
             <SubPageOheya />
