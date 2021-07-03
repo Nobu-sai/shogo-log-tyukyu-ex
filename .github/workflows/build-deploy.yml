@@ -33,10 +33,11 @@ jobs:
         run:  |
           npm install   
           npm install @material-ui/core 
-        # npm install @material-ui/core 
           #  Otherwise, an Error in build Step (Cannot find module: '@material-ui/core/utils'. Make sure this package is installed.)
       - name: build
         run: CI='' npm run build
+        # CI = ''
+          #  : For prevenging Warnings are seen as Errors as CI purpose. 
       - name: install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
       - name: deploy with lftp
