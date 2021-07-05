@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName  "Restricted Page"
+Require valid-user
+AuthUserFile "./.htpasswd"
