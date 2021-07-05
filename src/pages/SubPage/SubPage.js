@@ -74,10 +74,7 @@ export default class SubPage extends Component {
 
         <Helmet>
           <title>{pageTitle} - 石井花壇 | 温海温泉旅館【公式サイト】</title>
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content="お部屋 - 石井花壇 | 温海温泉旅館【公式サイト】" />
-      
-    
+          <meta property="og:type" content="website" />    
         </Helmet>
         <StructuredDataBreadcrumbList 
           breadcrumbListItems={breadcrumbListItems}
