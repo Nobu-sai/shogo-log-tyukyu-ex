@@ -1,7 +1,3 @@
-AuthType Basic
-AuthName  "Restricted Page"
-Require valid-user
-AuthUserFile  /home/c7607307/.htpasswds/portfolio-static.conohawing.com/.htpasswd
 
 RewriteEngine On
 RewriteBase /

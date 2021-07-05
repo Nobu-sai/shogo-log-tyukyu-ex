@@ -20,6 +20,7 @@ function App() {
 
   return (
     <BrowserRouter 
+      basename="ishikadan"
   >
       <div className='app'>
         
