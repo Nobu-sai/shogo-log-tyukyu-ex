@@ -45,7 +45,7 @@ export default class SubPage extends Component {
           // An Array
         gridContents,
           // An Array
-        gridContentNumber,
+        gridContentsAmount,
           // Number
         customSection,
           // A Component
@@ -114,7 +114,7 @@ export default class SubPage extends Component {
             currentPage={currentPage}
             IntroTextList={IntroTextList}
             gridContents={gridContents}        
-            gridContentNumber={gridContentNumber}    
+            gridContentsAmount={gridContentsAmount}    
             customSection={customSection}
 
 

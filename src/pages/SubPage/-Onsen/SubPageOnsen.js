@@ -57,7 +57,7 @@ export default class SubPageOnsen extends Component {
             '心身共にリラックスできます。'
           ]}
           gridContents={gridContents}  
-          gridContentNumber={2}
+          gridContentsAmount={2}
           customSection={<SubPageOnsenEffect />}          
 
         />    

@@ -63,6 +63,7 @@ export default class SubPageOryori extends Component {
             '四季ごと、日ごとに変化する味わいを、どうぞご堪能ください。'
           ]}
           gridContents={gridContents}            
+          gridContentsAmount={3}
 
         />    
       </div>

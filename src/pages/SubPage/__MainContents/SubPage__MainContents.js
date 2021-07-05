@@ -80,13 +80,13 @@ export default class SubPageMainContents extends Component {
               // 'height': '100%'
             }
           }
-          className={`sub-page__main-contents_grid-section sub-page__main-contents_grid-section_${this.props.gridContentNumber}-contents`} 
+          className={`sub-page__main-contents_grid-section sub-page__main-contents_grid-section_${this.props.gridContentsAmount}-contents`} 
         >
         {/* <div className={`sub-page__main-contents_grid-section sub-page__main-contents_grid-section_${this.props.gridContentNumber}-contents`}> */}
           <ScrollingSection
             stopScrolling={1000}            
           >
-            <div className="sub-page__main-contents_grid-container_scroll">
+            <div className={`sub-page__main-contents_grid-container_scroll sub-page__main-contents_grid-container_scroll_${this.props.gridContentsAmount}-contents`}>
               { 
                 this.props.gridContents.map((content, index)=>(
                   index >= 0 &&
@@ -106,7 +106,7 @@ export default class SubPageMainContents extends Component {
                             'height': '100%'
                           }
                         }
-                        className={`sub-page__main-contents_grid-item sub-page__main-contents_${index}-pic`}
+                        className={`sub-page__main-contents_pic-container`}
                       >
                         <div className={`sub-page__main-contents_pic sub-page__main-contents_pic_${content.pic}`}>
                         </div>

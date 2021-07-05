@@ -92,28 +92,40 @@
     &_grid-section {
       padding: 70px 0;
       width: 100vw;
-      height: 80vh;
+      height: 50vh;
       // background-color: chartreuse;
 
     }
 
     &_grid-container_scroll {
-      // padding: 10% 0;
+      padding-bottom: 40px;
       width: 100%;
-      height: 200vh;
+      // height: 200vh;
       // height: 200%;
 
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
+      // justify-content: space-around;
+
+      // Height = .sub-page__main-contents_grid-container * AMOUNT + 200 * AMOUNT
+      &_2-contents {
+        height: 1200px;
+      }
+      &_3-contents {
+        height: 1800px;
+      }
+
     } 
 
     &_grid-container {
       margin-top: 70px;
       width: 80%;
       max-width: 500px;
-      height: 50vh;
+      
+      height: 400px;
+      // height: 40%;
       
 
 
@@ -217,11 +229,22 @@
     }
 
     &_pic {      
-      width: 100%;
+      // width: 100%;
+      // max-width: 250px;
+      width: 250px;
       height: 100%;
+      // height: 150px;
       background-size: cover;      
       background-position: center;
       // background-color: rgb(37, 64, 65);
+      align-items: center;
+
+      &-container {
+        display: flex;
+        align-items: center;
+        justify-content: center
+
+      }
 
       &_oheya01 {
         @include background-image.background-image('oheya01');
@@ -309,6 +332,41 @@
   }
 
 
+  @include responsive.respond-to('min', '600') {
+    
+
+    &_grid-container_0 {
+      grid-template: 
+      [row1-start] "content-1-pic" 70% [row1-end]
+      [row2-start] "content-1-desc" auto [row2-end]      
+      / 100%; 
+ 
+
+    }
+    &_grid-container_1 {
+      grid-template: 
+      [row1-start] "content-2-pic" 60% [row1-end]
+      [row2-start] "content-2-desc" auto [row2-end]      
+      / 100%; 
+            
+
+
+    }
+    &_grid-container_2 {
+      grid-template: 
+      [row1-start] "content-3-pic" 60% [row1-end]
+      [row2-start] "content-3-desc" auto [row2-end]      
+      / 100%; 
+
+    }
+    
+    &_pic {      
+      
+      width: 400px;
+    
+    }
+  }
+
   @include responsive.respond-to('min', '1000') {
     // justify-content: space-evenly;
     width: 90%;
@@ -364,6 +422,7 @@
       max-width: none;
       width: 100%;
       // height: 50vh;
+      height: 40%;
 
       display: grid;      
       place-content:  center center;
@@ -421,7 +480,7 @@
     }
 
     &_pic {      
-        
+        width: 100%;
 
     }
 

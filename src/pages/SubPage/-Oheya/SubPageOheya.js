@@ -76,6 +76,7 @@ export default class SubPageOheya extends Component {
             'ゆるやかに流れ行く時間に身を委ねて'
           ]}
           gridContents={gridContents}            
+          gridContentsAmount={3}
 
         />    
       </div>

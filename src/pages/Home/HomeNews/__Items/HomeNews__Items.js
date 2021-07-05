@@ -57,7 +57,7 @@ export default class HomeNewItems extends Component {
                   }
                 >
 
-                  <div className="home-news__item-container">
+                  <div className="home-news__items-container">
                     {
                       this.props.items.contents.map((item)=> (
                       <div 

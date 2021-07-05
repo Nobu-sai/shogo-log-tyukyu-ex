@@ -30,7 +30,7 @@
 //   height: 50%;
 // }
 
-.home-news__item-container {
+.home-news__items-container {
   @include responsive.respond-to('min', '200') {    
    width: 100%;
    height: 300vh;

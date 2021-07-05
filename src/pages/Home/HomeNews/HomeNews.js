@@ -166,8 +166,8 @@ export default class HomeNews  extends Component {
           </Slide>
         </div>
 
-        <div className="home-news__items-container">
-          <div className="home-news__items-component">
+        <div className="home-news__contents-container">
+          {/* <div className="home-news__items-component"> */}
             {
               this.state.activeTab &&
                 <HomeNewsItems                         
@@ -175,7 +175,7 @@ export default class HomeNews  extends Component {
                 />
             }
 
-          </div>
+          {/* </div> */}
 
         </div>
       </div>
