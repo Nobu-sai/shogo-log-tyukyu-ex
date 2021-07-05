@@ -19,8 +19,7 @@ function App() {
 
 
   return (
-    <BrowserRouter 
-      basename="ishikadan"
+    <BrowserRouter       
   >
       <div className='app'>
         
