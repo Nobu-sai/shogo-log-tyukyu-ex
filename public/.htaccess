@@ -4,8 +4,3 @@ RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
-
-AuthType Basic
-AuthName "Site Access"
-AuthUserFile "./htpasswd"
-require valid-user
