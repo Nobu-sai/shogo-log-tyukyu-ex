@@ -301,8 +301,7 @@ body {
     z-index: 1000;
   }
   .header__contents_black {
-    background-color: #000;
-    opacity: 0.9;
+    background-color: rgba(0, 0, 0, 0.9);
     color: #fff;
   }
   .header__contents_white {
@@ -489,7 +488,6 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #988f10;
-    opacity: 1;
     transition: all 0.4s ease;
   }
   .header__reservation_button:hover {

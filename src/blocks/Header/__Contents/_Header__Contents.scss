@@ -18,8 +18,7 @@
       z-index: 1000;
 
       &_black {
-        background-color: #000;
-        opacity: 0.9;
+        background-color: hsla(0, 0%, 0%, 0.9);        
         color: #fff;
       }
       &_white {
