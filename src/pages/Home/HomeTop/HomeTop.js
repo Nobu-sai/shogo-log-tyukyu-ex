@@ -29,10 +29,11 @@ export default class Hometop extends Component {
 
   render() {
     return (
-      <>
+      <div className="home-top">
         {/* Picture */}
         {/* Vertial letters */}
-      </>
+
+      </div>
     )
   }
 }
