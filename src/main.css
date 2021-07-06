@@ -543,29 +543,16 @@ body {
   }
 }
 
-@media (min-width: 200px) {
-  .header__button_open {
-    position: fixed;
-    top: 14px;
-    right: 14px;
-    width: 14px;
-    height: 14px;
-    outline: none;
-    transition: all 0.2s cubic-bezier(0, 1.26, 0.8, 1.28);
-    color: #fff;
-    z-index: 101;
-  }
+.header__button_open {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  background-color: rgba(66, 66, 66, 0.4);
+  color: #fff;
+  z-index: 101;
 }
-@media (min-width: 200px) and (min-width: 200px) {
-  .header__button_open:hover {
-    cursor: pointer;
-    transform: scale(1.2, 1.2);
-  }
-}
-@media (min-width: 200px) and (min-width: 200px) {
-  .header__button_open:active {
-    color: black;
-  }
+.header__button_open:hover {
+  cursor: pointer;
 }
 @media (min-width: 1000px) {
   .header__button_open {
