@@ -852,6 +852,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
+    min-height: 100vh;
     z-index: 10000;
   }
   .reservation-modal__bg {
@@ -869,13 +870,14 @@ body {
     width: 90%;
     min-width: 300px;
     max-width: 500px;
-    min-height: 600px;
+    height: 70vh;
     background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     transition: height 1s ease;
+    overflow: scroll;
   }
   .reservation-modal__close-icon {
     position: absolute;

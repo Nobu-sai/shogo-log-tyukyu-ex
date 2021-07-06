@@ -15,7 +15,10 @@ export default class ReservationModal extends Component {
     super(props)
 
     this.state = {
-      submissionSuccess: false,
+      submissionSuccess: 
+        false,
+        // true,
+        // When this is true, the reservation-modal__success-message is Rendred. 
       submissionContents: 
         null,
         // {
@@ -55,14 +58,14 @@ export default class ReservationModal extends Component {
   openModal() { 
     this.$reservationModalBG.fadeIn(500);
     
-      document.body.style.overflow = 'hidden';
+      // document.body.style.overflow = 'hidden';
   }
 
   closeModal() {
     // console.log("modal clicked")
 
     
-    document.body.style.overflow = 'unset';
+    // document.body.style.overflow = 'unset';
     
     this.$reservationModalBG.fadeOut(500, ()=>{
     

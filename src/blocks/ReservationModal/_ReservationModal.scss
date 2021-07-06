@@ -12,8 +12,11 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    min-height: 100vh;
 
     z-index: 10000;
+
+    // overflow: scroll;
         
 
     &__bg {
@@ -35,13 +38,13 @@
       // &__contents {
       // &__contents_main-content,
       // &__contents_success-message {
-      border: 1px solid #707070;
+      border: 1px solid #707070;      
       width: 90%;
       min-width: 300px;
       max-width: 500px;
-      // height: 40%;
-      // height: 600px;
-      min-height: 600px;
+      height: 70vh;
+      // height: 640px;
+      // min-height: 600px;
       // max-height: 700px;
       // background-color: rgb(51, 214, 1);
       background-color: #fff;
@@ -54,10 +57,13 @@
 
       transition: height 1s ease;
 
+      overflow: scroll;
+
       // &__contents_success-message {
       &_success-message-container {
         // background-color: lightcoral;
-        // height: 550px;
+        // height: 1000px;
+        // height: 800px;
         // max-height: 100vh;
       }
     }
