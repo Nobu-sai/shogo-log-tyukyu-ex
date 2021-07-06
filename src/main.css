@@ -1242,13 +1242,54 @@ body {
   }
 }
 
-@media (min-width: 200px) {
+.home-top {
+  height: 200vh;
+  max-height: 200vh;
+}
+@media (min-width: 1400px) {
+  .home-top {
+    height: 200vh;
+    max-height: 200vh;
+  }
+}
+
+.home-top__main-picture-container {
+  height: 50%;
+}
+@media (min-width: 1000px) {
   .home-top__main-picture-container {
-    width: 100vw;
-    height: 35vh;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
+    height: 50%;
+  }
+}
+
+.home-top__messages-container {
+  height: 50%;
+}
+@media (min-width: 1000px) {
+  .home-top__messages-container {
+    height: 50%;
+  }
+}
+
+.home-top__main-picture {
+  width: 100vw;
+  height: 100%;
+  background-image: url(./assets/images/bg-1920-1381.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 200px) {
+  .home-top__main-picture {
+    background-image: url(./assets/images/bg-3840-2762.jpg);
+  }
+}
+@media (min-width: 200px) {
+  .home-top__main-picture-behind {
+    width: 100%;
+    height: 100%;
   }
   .home-top__main-picture-bg {
     position: absolute;
@@ -1267,16 +1308,14 @@ body {
     width: 50%;
     height: 100%;
     display: flex;
-    align-items: start;
+    align-items: center;
     justify-content: center;
     z-index: 100;
   }
   .home-top__main-picture_text {
-    padding-top: 50px;
-    padding-left: 60px;
     height: 300px;
     writing-mode: vertical-rl;
-    font-size: 18px;
+    font-size: 24px;
   }
 }
 @media (min-width: 400px) {
@@ -1290,9 +1329,6 @@ body {
   }
 }
 @media (min-width: 800px) {
-  .home-top__main-picture-container {
-    height: 40vh;
-  }
   .home-top__main-picture_flex-item {
     height: 100%;
     align-items: center;
@@ -1303,17 +1339,11 @@ body {
   }
 }
 @media (min-width: 1000px) {
-  .home-top__main-picture-container {
-    height: 50vh;
-  }
   .home-top__main-picture_text {
     font-size: 30px;
   }
 }
 @media (min-width: 1400px) {
-  .home-top__main-picture-container {
-    height: 100vh;
-  }
   .home-top__main-picture_text {
     padding-top: 50px;
     padding-right: 60px;
@@ -1340,7 +1370,7 @@ body {
   .home-top__messages {
     margin-bottom: 8px;
     width: 100vw;
-    height: 65vh;
+    height: 100%;
     background-image: url(./assets/images/bg-1920-1381.jpg);
     background-size: cover;
     background-position: center;
@@ -1382,20 +1412,7 @@ body {
     height: 80%;
   }
 }
-@media (min-width: 800px) {
-  .home-top__messages {
-    height: 60vh;
-  }
-}
-@media (min-width: 1000px) {
-  .home-top__messages {
-    height: 50vh;
-  }
-}
 @media (min-width: 1400px) {
-  .home-top__messages {
-    height: 100vh;
-  }
   .home-top__messages_flex-container {
     width: 70%;
   }

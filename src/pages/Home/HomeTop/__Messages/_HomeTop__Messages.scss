@@ -14,7 +14,7 @@
   @include responsive.respond-to('min', '200') {
     margin-bottom: 8px;    
     width: 100vw;
-    height: 65vh;
+    height: 100%;
 
     @include background-image.background-image('bg-1920-1381');
     background-size: cover;
@@ -80,11 +80,11 @@
   }
 
   @include responsive.respond-to('min', '800') { 
-    height: 60vh;
+    // height: 60vh;
     
   }
   @include responsive.respond-to('min', '1000') { 
-    height: 50vh;
+    
 
     &_flex-item {
       
@@ -101,8 +101,7 @@
     
   }
   
-  @include responsive.respond-to('min', '1400') {
-    height: 100vh;
+  @include responsive.respond-to('min', '1400') {    
   
   
     &_flex-container {

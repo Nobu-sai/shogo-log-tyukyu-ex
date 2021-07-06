@@ -5,8 +5,7 @@ import { ReactDOM } from 'react-dom';
 // import Header from '../../blocks/Header/Header';
 import StructuredDataBreadcrumbList from '../../blocks/StructuredData/StructuredData/__BreadcrumbList/StructuredData__BreadcrumbList';
 import Header from '../../blocks/Header/Header';
-import HomeTopMainpicture from './HomeTop/__MainPicture/HomeTop__MainPicture';
-import HomeTopMessages from './HomeTop/__Messages/HomeTop__Messages';
+import HomeTop from './HomeTop/HomeTop';
 import HomeFeatures from './HomeFeatures/HomeFeatures';
 import HomeRecommended from './HomeRecommended/HomeRecommended';
 import HomeNews from './HomeNews/HomeNews';
@@ -60,8 +59,7 @@ export default class Home extends Component {
         <Header 
           toggleReservationModal={this.toggleReservationModal}
         />        
-        <HomeTopMainpicture />
-        <HomeTopMessages />
+        <HomeTop />        
         <HomeFeatures />
         <HomeRecommended />
         <HomeNews />

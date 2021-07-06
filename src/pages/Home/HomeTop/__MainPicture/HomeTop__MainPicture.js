@@ -8,26 +8,40 @@ import $ from 'jquery';
 import { Fade, Slide } from "react-awesome-reveal";
 
 // images
-import mainBG01_400x600 from '../../../../assets/images/mainbg01-400-600.jpg';
-import mainBG02_400x600 from '../../../../assets/images/mainbg02-400-600.jpg';
-import mainBG03_400x600 from '../../../../assets/images/mainbg03-400-600.jpg';
+import mainBG01_800x1000 from '../../../../assets/images/home-top__main-picture/mainbg01-800-1000.jpg';
+import mainBG02_800x1000 from '../../../../assets/images/home-top__main-picture/mainbg02-800-1000.jpg';
+import mainBG03_800x1000 from '../../../../assets/images/home-top__main-picture/mainbg03-800-1000.jpg';
 
-import mainBG01_1200x800 from '../../../../assets/images/mainbg01-1200-800.jpg';
-import mainBG02_1200x800 from '../../../../assets/images/mainbg02-1200-800.jpg';
-import mainBG03_1200x800 from '../../../../assets/images/mainbg03-1200-800.jpg';
+import mainBG01_1000x1200 from '../../../../assets/images/home-top__main-picture/mainbg01-1000-1200.jpg';
+import mainBG02_1000x1200 from '../../../../assets/images/home-top__main-picture/mainbg02-1000-1200.jpg';
+import mainBG03_1000x1200 from '../../../../assets/images/home-top__main-picture/mainbg03-1000-1200.jpg';
 
-import mainBG01_2200x1600 from '../../../../assets/images/mainbg01-2200-1600.jpg';
-import mainBG02_2200x1600 from '../../../../assets/images/mainbg02-2200-1600.jpg';
-import mainBG03_2200x1600 from '../../../../assets/images/mainbg03-2200-1600.jpg';
+import mainBG01_1200x1400 from '../../../../assets/images/home-top__main-picture/mainbg01-1200-1400.jpg';
+import mainBG02_1200x1400 from '../../../../assets/images/home-top__main-picture/mainbg02-1200-1400.jpg';
+import mainBG03_1200x1400 from '../../../../assets/images/home-top__main-picture/mainbg03-1200-1400.jpg';
 
-import mainBG01_4400x3200 from '../../../../assets/images/mainbg01-4400-3200.jpg'
-import mainBG02_4400x3200 from '../../../../assets/images/mainbg02-4400-3200.jpg'
-import mainBG03_4400x3200 from '../../../../assets/images/mainbg03-4400-3200.jpg'
+import mainBG01_1400x1600 from '../../../../assets/images/home-top__main-picture/mainbg01-1400-1600.jpg';
+import mainBG02_1400x1600 from '../../../../assets/images/home-top__main-picture/mainbg02-1400-1600.jpg';
+import mainBG03_1400x1600 from '../../../../assets/images/home-top__main-picture/mainbg03-1400-1600.jpg';
 
-let mainBGList_400x600 = [mainBG01_400x600, mainBG02_400x600, mainBG03_400x600];    
-let mainBGList_1200x800 = [mainBG01_1200x800, mainBG02_1200x800, mainBG03_1200x800];    
+import mainBG01_2200x1600 from '../../../../assets/images/home-top__main-picture/mainbg01-2200-1600.jpg';
+import mainBG02_2200x1600 from '../../../../assets/images/home-top__main-picture/mainbg02-2200-1600.jpg';
+import mainBG03_2200x1600 from '../../../../assets/images/home-top__main-picture/mainbg03-2200-1600.jpg';
+
+import mainBG01_4400x3200 from '../../../../assets/images/home-top__main-picture/mainbg01-4400-3200.jpg';
+import mainBG02_4400x3200 from '../../../../assets/images/home-top__main-picture/mainbg02-4400-3200.jpg';
+import mainBG03_4400x3200 from '../../../../assets/images/home-top__main-picture/mainbg03-4400-3200.jpg';
+
+
+ 
+let mainBGList_800x1000 = [mainBG01_800x1000, mainBG02_800x1000, mainBG03_800x1000];    
+let mainBGList_1000x1200 = [mainBG01_1000x1200, mainBG02_1000x1200, mainBG03_1000x1200];    
+let mainBGList_1200x1400 = [mainBG01_1200x1400, mainBG02_1200x1400, mainBG03_1200x1400];    
+let mainBGList_1400x1600 = [mainBG01_1400x1600, mainBG02_1400x1600, mainBG03_1400x1600];    
 let mainBGList_2200x1600 = [mainBG01_2200x1600, mainBG02_2200x1600, mainBG03_2200x1600];  
 let mainBGList_4400x3200 = [mainBG01_4400x3200, mainBG02_4400x3200, mainBG03_4400x3200];  
+
+
 
 export default class HomeTopMainpicture extends Component {
   constructor(props) {
@@ -45,12 +59,12 @@ export default class HomeTopMainpicture extends Component {
 
   componentDidMount() {
     this.homeTop__MainPictureBG = $('.home-top__main-picture-bg');
-    this.homeTop__MainPictureContainer = $('.home-top__main-picture-container');
+    this.homeTop__MainPictureBehind = $('.home-top__main-picture-behind');
     
     window.addEventListener("resize", this.handleResize);
     // this.setImageList();
     // console.log("windowWidth State from componentDidMount()", this.state.windowWidth);
-    this.changeContainerBG();
+    this.changeBehindBG();
     this.changeBG(true);
     // this.zoomIn(true)
     setInterval(()=>{
@@ -123,7 +137,7 @@ export default class HomeTopMainpicture extends Component {
         picNum: this.state.picNum + 1,
       }, () => {
         // console.log(this.state.picNum);
-        this.changeContainerBG();
+        this.changeBehindBG();
         this.fadeOut();
       });
 
@@ -133,39 +147,83 @@ export default class HomeTopMainpicture extends Component {
         picNum: 0,
       }, () =>{
         // console.log(this.state.picNum);
-        this.changeContainerBG();
+        this.changeBehindBG();
         this.fadeOut();
       })
 
     }
   }
 
-  changeContainerBG() {
+  changeBehindBG() {
     
-      this.homeTop__MainPictureContainer.css({ 
-        'background-position': 'center center',
-        'background-repeat': 'no-repeat',
-        'background-size': '100%',
-      }); 
+    let backgroundImage;
+    // jQuery/css() Method/background-size somehow can NOT be Interpolated with a Variable. 
+    // => The css() itself should be insisde the if...else.
 
-    if(this.state.windowWidth < 400)  {
-      this.homeTop__MainPictureContainer.css({ 
-        "background-image": `url(${mainBGList_400x600[this.state.picNum]})`,      
-      }); 
-    } else if(this.state.windowWidth >= 400 && this.state.windowWidth < 1400) {
-      this.homeTop__MainPictureContainer.css({ 
-        "background-image": `url(${mainBGList_1200x800[this.state.picNum]})`,      
-      }) 
+    if(this.state.windowWidth < 600)  {
+                                  
+        backgroundImage = `url(${mainBGList_800x1000[this.state.picNum]})`     
+              
+        this.homeTop__MainPictureBehind.css({ 
+          'background-image': `${backgroundImage}`,          
+          'background-size': '175%',
+        }); 
+      
+    } else if(this.state.windowWidth >= 600 && this.state.windowWidth < 800) {
+      
+        backgroundImage = `url(${mainBGList_800x1000[this.state.picNum]})`     
+        this.homeTop__MainPictureBehind.css({ 
+          'background-image': `${backgroundImage}`,          
+          'background-size': '120%',
+        }); 
+
+    } else if(this.state.windowWidth >= 800 && this.state.windowWidth < 1000) {
+      
+        backgroundImage = `url(${mainBGList_1000x1200[this.state.picNum]})`     
+        this.homeTop__MainPictureBehind.css({ 
+          'background-image': `${backgroundImage}`,          
+          'background-size': '120%',
+        }); 
+
+    } else if(this.state.windowWidth >= 1000 && this.state.windowWidth < 1200) {
+      
+        backgroundImage = `url(${mainBGList_1200x1400[this.state.picNum]})`     
+        this.homeTop__MainPictureBehind.css({ 
+          'background-image': `${backgroundImage}`,          
+          'background-size': '120%',
+        }); 
+
+    } else if(this.state.windowWidth >= 1200 && this.state.windowWidth < 1400) {
+      
+        backgroundImage = `url(${mainBGList_1400x1600[this.state.picNum]})`     
+        this.homeTop__MainPictureBehind.css({ 
+          'background-image': `${backgroundImage}`,          
+          'background-size': '120%',
+        }); 
+
     } else if(this.state.windowWidth >= 1400 && this.state.windowWidth < 2000) {
-      this.homeTop__MainPictureContainer.css({ 
-        "background-image": `url(${mainBGList_2200x1600[this.state.picNum]})`,      
-      }); 
+      
+        backgroundImage = `url(${mainBGList_2200x1600[this.state.picNum]})`
+        this.homeTop__MainPictureBehind.css({ 
+          'background-image': `${backgroundImage}`,          
+          'background-size': '120%',
+        }); 
+      
     // } else {
     } else if(this.state.windowWidth >= 2000) {
-      this.homeTop__MainPictureContainer.css({ 
-        "background-image": `url(${mainBGList_4400x3200[this.state.picNum]})`,       
-      }); 
+      
+        backgroundImage = `url(${mainBGList_4400x3200[this.state.picNum]})`  
+        this.homeTop__MainPictureBehind.css({ 
+          'background-image': `${backgroundImage}`,          
+          'background-size': '120%',
+        }); 
+      
     }
+    
+    this.homeTop__MainPictureBehind.css({ 
+      'background-position': 'center center',
+      'background-repeat': 'no-repeat',      
+    }); 
   }
 
   fadeOut() {
@@ -179,18 +237,71 @@ export default class HomeTopMainpicture extends Component {
 
 
   changeBG(isInitial) {    
-    let backgroundImage; 
 
-    if(this.state.windowWidth < 400)  {
-      backgroundImage = `url(${mainBGList_400x600[this.state.picNum]})`; 
-    } else if(this.state.windowWidth >= 400 && this.state.windowWidth < 1400) {
-      backgroundImage = `url(${mainBGList_1200x800[this.state.picNum]})`; 
-    } else if(this.state.windowWidth >= 1400 && this.state.windowWidth < 2000) {
-      backgroundImage = `url(${mainBGList_2200x1600[this.state.picNum]})`; 
-    } else if(this.state.windowWidth >= 2000) {
-      backgroundImage = `url(${mainBGList_4400x3200[this.state.picNum]})`; 
-    }
-      
+    let backgroundImage; 
+    
+
+
+    if(this.state.windowWidth < 600)  {
+                                  
+      backgroundImage = `url(${mainBGList_800x1000[this.state.picNum]})`     
+            
+      this.homeTop__MainPictureBG.css({ 
+        'background-image': `${backgroundImage}`,          
+        'background-size': '175%',
+      }); 
+    
+  } else if(this.state.windowWidth >= 600 && this.state.windowWidth < 800) {
+    
+      backgroundImage = `url(${mainBGList_800x1000[this.state.picNum]})`     
+      this.homeTop__MainPictureBG.css({ 
+        'background-image': `${backgroundImage}`,          
+        'background-size': '120%',
+      }); 
+
+  } else if(this.state.windowWidth >= 800 && this.state.windowWidth < 1000) {
+    
+      backgroundImage = `url(${mainBGList_1000x1200[this.state.picNum]})`     
+      this.homeTop__MainPictureBG.css({ 
+        'background-image': `${backgroundImage}`,          
+        'background-size': '120%',
+      }); 
+
+  } else if(this.state.windowWidth >= 1000 && this.state.windowWidth < 1200) {
+    
+      backgroundImage = `url(${mainBGList_1200x1400[this.state.picNum]})`     
+      this.homeTop__MainPictureBG.css({ 
+        'background-image': `${backgroundImage}`,          
+        'background-size': '120%',
+      }); 
+
+  } else if(this.state.windowWidth >= 1200 && this.state.windowWidth < 1400) {
+    
+      backgroundImage = `url(${mainBGList_1400x1600[this.state.picNum]})`     
+      this.homeTop__MainPictureBG.css({ 
+        'background-image': `${backgroundImage}`,          
+        'background-size': '120%',
+      }); 
+
+  } else if(this.state.windowWidth >= 1400 && this.state.windowWidth < 2000) {
+    
+      backgroundImage = `url(${mainBGList_2200x1600[this.state.picNum]})`
+      this.homeTop__MainPictureBG.css({ 
+        'background-image': `${backgroundImage}`,          
+        'background-size': '120%',
+      }); 
+    
+  // } else {
+  } else if(this.state.windowWidth >= 2000) {
+    
+      backgroundImage = `url(${mainBGList_4400x3200[this.state.picNum]})`  
+      this.homeTop__MainPictureBG.css({ 
+        'background-image': `${backgroundImage}`,          
+        'background-size': '120%',
+      }); 
+    
+  }
+
     this.homeTop__MainPictureBG.css({
       'display': 'block',
         // Offset the Value set by jQuery fadeOut() Method.
@@ -201,9 +312,6 @@ export default class HomeTopMainpicture extends Component {
         // Otherwise, the animation starts with 0%.
       'background-position': 'center center',
       'background-repeat': 'no-repeat',
-    
-      "background-image": `${backgroundImage}`,      
-      'background-size': '100%',
 
     });     
 
@@ -219,13 +327,26 @@ export default class HomeTopMainpicture extends Component {
     // console.log(this.homeTop__MainPictureBG);
 
     if(isInitial) {
+      if(this.state.windowWidth < 600)  {
         this.homeTop__MainPictureBG.animate({
-          'background-size':  '110%',
+          'background-size':  '185%',
         }, 5000);
-    } else {
+      } else {
         this.homeTop__MainPictureBG.animate({
-          'background-size': '105%',
+          'background-size':  '130%',
+        }, 5000);
+      }
+
+    } else {
+      if(this.state.windowWidth < 600)  {
+        this.homeTop__MainPictureBG.animate({
+          'background-size':  '180%',
         }, 3000);
+      } else {
+        this.homeTop__MainPictureBG.animate({
+          'background-size':  '125%',
+        }, 3000);
+      }
     }
 
         
@@ -239,10 +360,15 @@ export default class HomeTopMainpicture extends Component {
     // console.log(this.state.picNum)
 
     return (
-      <Fade duration={3000} triggerOnce>
+      <Fade 
+        duration={3000} 
+        triggerOnce
+        
+        className="home-top__main-picture"
+      >
 
       <div 
-        className={`home-top__main-picture-container home-top__main-picture_flex-container`}
+        className={`home-top__main-picture-behind home-top__main-picture_flex-container`}
       
       >
         <div 

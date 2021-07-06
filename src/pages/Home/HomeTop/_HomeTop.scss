@@ -1,0 +1,37 @@
+@use '../../../utilities/responsive';
+@use '../../../utilities/mixins/background-image';
+@use '../../../utilities/variables/font-size';
+
+.home-top {
+	// height: 100vh;
+	// max-height: 100vh;
+	height: 200vh;	
+	max-height: 200vh;
+	// overflow: scroll;
+
+	@include responsive.respond-to('min', '1400') {		
+		height: 200vh;	
+		max-height: 200vh;	
+	}
+}
+
+.home-top__main-picture-container {
+	// height: 30%;
+	height: 50%;
+
+
+	@include responsive.respond-to('min', '1000') {		
+		height: 50%;		
+	}
+}
+
+.home-top__messages-container {
+	// height: 65%;
+	height: 50%;
+
+	@include responsive.respond-to('min', '1000') {		
+		height: 50%;		
+	}
+	
+
+}
