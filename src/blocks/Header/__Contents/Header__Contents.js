@@ -14,14 +14,21 @@ class HeaderContents extends Component {
     super(props)
 
     this.state = {                 
+      windowWidth: window.innerWidth, 
     }
 
+    this.trackWindowWidth = this.trackWindowWidth.bind(this);
   }
 
   
   componentDidMount() {    
     this.$headerContents = $(this.headerContents);
     this.$headerContents.fadeOut(0);
+
+    
+
+    window.addEventListener('resize', this.trackWindowWidth);    
+    
   
     setTimeout(()=>{
       this.$headerContents.fadeIn(1000)
@@ -29,12 +36,20 @@ class HeaderContents extends Component {
     
 
   }
+
+  trackWindowWidth(e) {
+
+    this.setState({
+      windowWidth: window.innerWidth,
+    })
+  }
   
   render() {
 
 
     let menuVisibility = "hide";
-    if (this.props.menuVisibility || window.innerWidth >= 1000) {      
+    if (this.props.menuVisibility || this.state.windowWidth >= 1000) {         
+      // Since, the change in the State Invokes the render(), I need to assingn the window.innerWidth to the windowWidth State FIRST (trackWindowWidth()). 
       menuVisibility = "show";      
     } 
     
