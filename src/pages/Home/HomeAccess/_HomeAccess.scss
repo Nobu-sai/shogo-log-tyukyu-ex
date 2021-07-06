@@ -19,6 +19,7 @@
     background-size: cover;
     background-position: center;
 
+
     &__heading-container {
       height: 15%;
     }
@@ -29,8 +30,8 @@
       height: 80%;
       display: flex;
       flex-direction: column;
-      // justify-content: space-between;
-      justify-content: center;
+      justify-content: space-between;
+      // justify-content: center;
       align-items: center;
     }
     &__content {

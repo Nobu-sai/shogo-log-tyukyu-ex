@@ -22,7 +22,7 @@ export default class HomeAccess extends Component {
         duration={3000}
         triggerOnce
       >
-      <div className="home-access">
+      <div className="page-section home-access">
         <div className="home-access__heading-container">
           <HomeSectionHeading headingTitle={'アクセス'}/>
         </div>
