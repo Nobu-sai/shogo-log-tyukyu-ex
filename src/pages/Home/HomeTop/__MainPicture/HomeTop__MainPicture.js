@@ -174,7 +174,7 @@ export default class HomeTopMainpicture extends Component {
         backgroundImage = `url(${mainBGList_800x1000[this.state.picNum]})`     
         this.homeTop__MainPictureBehind.css({ 
           'background-image': `${backgroundImage}`,          
-          'background-size': '120%',
+          'background-size': '100%',
         }); 
 
     } else if(this.state.windowWidth >= 800 && this.state.windowWidth < 1000) {
@@ -182,7 +182,7 @@ export default class HomeTopMainpicture extends Component {
         backgroundImage = `url(${mainBGList_1000x1200[this.state.picNum]})`     
         this.homeTop__MainPictureBehind.css({ 
           'background-image': `${backgroundImage}`,          
-          'background-size': '120%',
+          'background-size': '100%',
         }); 
 
     } else if(this.state.windowWidth >= 1000 && this.state.windowWidth < 1200) {
@@ -190,7 +190,7 @@ export default class HomeTopMainpicture extends Component {
         backgroundImage = `url(${mainBGList_1200x1400[this.state.picNum]})`     
         this.homeTop__MainPictureBehind.css({ 
           'background-image': `${backgroundImage}`,          
-          'background-size': '120%',
+          'background-size': '100%',
         }); 
 
     } else if(this.state.windowWidth >= 1200 && this.state.windowWidth < 1400) {
@@ -198,7 +198,7 @@ export default class HomeTopMainpicture extends Component {
         backgroundImage = `url(${mainBGList_1400x1600[this.state.picNum]})`     
         this.homeTop__MainPictureBehind.css({ 
           'background-image': `${backgroundImage}`,          
-          'background-size': '120%',
+          'background-size': '100%',
         }); 
 
     } else if(this.state.windowWidth >= 1400 && this.state.windowWidth < 2000) {
@@ -206,7 +206,8 @@ export default class HomeTopMainpicture extends Component {
         backgroundImage = `url(${mainBGList_2200x1600[this.state.picNum]})`
         this.homeTop__MainPictureBehind.css({ 
           'background-image': `${backgroundImage}`,          
-          'background-size': '120%',
+          'background-size': '100%',
+
         }); 
       
     // } else {
@@ -256,7 +257,7 @@ export default class HomeTopMainpicture extends Component {
       backgroundImage = `url(${mainBGList_800x1000[this.state.picNum]})`     
       this.homeTop__MainPictureBG.css({ 
         'background-image': `${backgroundImage}`,          
-        'background-size': '120%',
+        'background-size': '100%',
       }); 
 
   } else if(this.state.windowWidth >= 800 && this.state.windowWidth < 1000) {
@@ -264,7 +265,7 @@ export default class HomeTopMainpicture extends Component {
       backgroundImage = `url(${mainBGList_1000x1200[this.state.picNum]})`     
       this.homeTop__MainPictureBG.css({ 
         'background-image': `${backgroundImage}`,          
-        'background-size': '120%',
+        'background-size': '100%',
       }); 
 
   } else if(this.state.windowWidth >= 1000 && this.state.windowWidth < 1200) {
@@ -272,7 +273,7 @@ export default class HomeTopMainpicture extends Component {
       backgroundImage = `url(${mainBGList_1200x1400[this.state.picNum]})`     
       this.homeTop__MainPictureBG.css({ 
         'background-image': `${backgroundImage}`,          
-        'background-size': '120%',
+        'background-size': '100%',
       }); 
 
   } else if(this.state.windowWidth >= 1200 && this.state.windowWidth < 1400) {
@@ -280,7 +281,7 @@ export default class HomeTopMainpicture extends Component {
       backgroundImage = `url(${mainBGList_1400x1600[this.state.picNum]})`     
       this.homeTop__MainPictureBG.css({ 
         'background-image': `${backgroundImage}`,          
-        'background-size': '120%',
+        'background-size': '100%',
       }); 
 
   } else if(this.state.windowWidth >= 1400 && this.state.windowWidth < 2000) {
@@ -288,7 +289,7 @@ export default class HomeTopMainpicture extends Component {
       backgroundImage = `url(${mainBGList_2200x1600[this.state.picNum]})`
       this.homeTop__MainPictureBG.css({ 
         'background-image': `${backgroundImage}`,          
-        'background-size': '120%',
+        'background-size': '100%',
       }); 
     
   // } else {
@@ -297,7 +298,7 @@ export default class HomeTopMainpicture extends Component {
       backgroundImage = `url(${mainBGList_4400x3200[this.state.picNum]})`  
       this.homeTop__MainPictureBG.css({ 
         'background-image': `${backgroundImage}`,          
-        'background-size': '120%',
+        'background-size': '100%',
       }); 
     
   }
@@ -333,7 +334,7 @@ export default class HomeTopMainpicture extends Component {
         }, 5000);
       } else {
         this.homeTop__MainPictureBG.animate({
-          'background-size':  '130%',
+          'background-size':  '110%',
         }, 5000);
       }
 
@@ -344,7 +345,7 @@ export default class HomeTopMainpicture extends Component {
         }, 3000);
       } else {
         this.homeTop__MainPictureBG.animate({
-          'background-size':  '125%',
+          'background-size':  '105%',
         }, 3000);
       }
     }
