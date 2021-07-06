@@ -10,28 +10,42 @@
 .info-window {
 	
 	position: absolute;
-	left: 120px;
+	// left: 80px;
+	left: 4px;
 	// left: 40%;
-	bottom: -104px;
+	// bottom: -30px;
+	bottom: 24px;
 	box-sizing: border-box;
 	border-radius: 4px;
 	padding: 12px;
 	box-shadow: 0 2px 7px 1px rgb(0 0 0 / 30%);	
-	width: 230px;
+	width: 150px;
+	// height: 60px;
 
 	background-color: white;
-	overflow: hidden;
-	transform: translate(-50%, -100%);
+	opacity: 0.3;
+
+	overflow: scroll;
+	
+	transition: all 0.4s ease;
 
 	display: flex;
 	flex-direction: column;
+
+	&:hover {
+		opacity: 1;
+	}
 	
 	
 	@include responsive.respond-to("min", "600") {
-		left: 124px;
-		bottom: -56px;
+		// left: 124px;
+		// bottom: -56px;
 		padding: 12px;
-		// width: 200px;
+		width: 230px;
+		height: 100px;
+
+		opacity: 1;
+
 		flex-direction: row;
 	}
 
@@ -39,7 +53,7 @@
 		// left: 260px;
 		// bottom: -126px;
 		// padding: 24px;
-		// width: 600px;
+		// width: 600px;	
 	}	
 
 	&__description {
