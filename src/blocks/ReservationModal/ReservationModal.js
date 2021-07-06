@@ -16,17 +16,17 @@ export default class ReservationModal extends Component {
 
     this.state = {
       submissionSuccess: 
-        false,
-        // true,
+        // false,
+        true,
         // When this is true, the reservation-modal__success-message is Rendred. 
       submissionContents: 
-        null,
-        // {
-        //   date: "2021年6月3日木曜日　から　2021年6月10日木曜日",
-        //   email: "fdsf@gmail.com",
-        //   name: "fdsf",
-        //   plan: "② 平日に優雅に楽しむ、特別宿泊プラン",
-        // },
+        // null,
+        {
+          date: "2021年6月3日木曜日　から　2021年6月10日木曜日",
+          email: "fdsf@gmail.com",
+          name: "fdsf",
+          plan: "② 平日に優雅に楽しむ、特別宿泊プラン",
+        },
     }
     
     this.openModal = this.openModal.bind(this); 
@@ -58,14 +58,14 @@ export default class ReservationModal extends Component {
   openModal() { 
     this.$reservationModalBG.fadeIn(500);
     
-      // document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
   }
 
   closeModal() {
     // console.log("modal clicked")
 
     
-    // document.body.style.overflow = 'unset';
+    document.body.style.overflow = 'unset';
     
     this.$reservationModalBG.fadeOut(500, ()=>{
     

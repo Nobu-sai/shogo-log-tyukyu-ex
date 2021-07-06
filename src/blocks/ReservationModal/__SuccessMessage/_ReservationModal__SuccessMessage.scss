@@ -78,7 +78,14 @@
     }
 
     &_farewell-message {
-      margin-top: 24px;
+        margin-top: 24px;
+
+      &-name {
+        // font-size: 20px;
+      }
+      &-waiting {
+        font-size: 16px;
+      }
     }
 
     
@@ -242,23 +249,18 @@
       max-width: 240px;      
     }
 
-    // &_farewell {   
-    
- 
-    //   padding: 60px 0;
-    //   // width: 100%;
-    //   width: 100vw;
- 
 
-    //   &-message {        
-    //     font-size: 64px;
+    &_farewell-message {  
+
+    &-name {
       
+    }
+    &-waiting {
+      font-size: 32px;
+    }
+  }
 
-    //     &_annotation {
-    //       font-size: 36px;
-    //     }
-    //   }
-    // }
+
   }
 
 }
