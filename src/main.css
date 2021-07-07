@@ -1287,11 +1287,11 @@ body {
   }
 }
 @media (min-width: 200px) {
-  .home-top__main-picture-behind {
+  .home-top__main-picture-behind-bg {
     width: 100%;
     height: 100%;
   }
-  .home-top__main-picture-bg {
+  .home-top__main-picture-above-bg {
     position: absolute;
     top: 0;
     left: 0;
