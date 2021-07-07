@@ -2,8 +2,6 @@
 // Order of execution
   // : componentDidMount() for setting initial bg images 
   // -> Zoom -> Fade out -> CHANGE image -> Zoom -> ...  
-// jQuery/css() Method/background-size somehow can NOT be Interpolated with a Variable. 
-  // => The css() itself should be insisde the if...else.
 
 import React, { Component } from 'react'
 
@@ -87,30 +85,6 @@ export default class HomeTopMainpicture extends Component {
   }
 
 
-  // setBGSize() { 
-
-
-  //   let BGSize;
-  //   let BGResize;
-  //   let BGResize_Initial;
-  //   if(this.state.windowWidth < 500) {
-  //     BGSize = '200%';
-  //     BGResize = '205%'
-  //     BGResize_Initial = '210%';
-  //     // console.log({BGSize: BGSize, BGResize :BGResize, BGResize_Initial: BGResize_Initial})
-  //     return {BGSize: BGSize, BGResize :BGResize, BGResize_Initial: BGResize_Initial};
-
-  //   } else {
-  //     BGSize = '100%';
-  //     BGResize = '155%'
-  //     BGResize_Initial = '160%';
-  //     // console.log({BGSize: BGSize, BGResize :BGResize, BGResize_Initial: BGResize_Initial})
-  //     return {BGSize: BGSize, BGResize :BGResize, BGResize_Initial: BGResize_Initial};
-
-  //   }
-
-  // }
-
   updatePicNum() {
 
     if(this.state.picNum < 2) {
@@ -173,34 +147,44 @@ export default class HomeTopMainpicture extends Component {
 
   }
 
-  changeBehindBG() {      
+  setBGSize() { 
 
-    if(this.state.windowWidth < 600)  {
+
+    let BGSize;
+    let BGResize;
+    let BGResize_Initial;
+    if(this.state.windowWidth < 600) {
+      BGSize = '175%';
+      BGResize = '180%'
+      BGResize_Initial = '185%';
+      
+      return {BGSize: BGSize, BGResize :BGResize, BGResize_Initial: BGResize_Initial};
+
+    } else {
+      BGSize = '100%';
+      BGResize = '105%'
+      BGResize_Initial = '110%';
+      
+      return {BGSize: BGSize, BGResize :BGResize, BGResize_Initial: BGResize_Initial};
+
+    }
+
+  }
+
+
+  changeBehindBG() {          
             
       this.homeTop__MainPictureBehindBG.css({ 
         "background-image": `${this.setBGImage()}`,
         'background-position': 'center center',
         'background-repeat': 'no-repeat',  
-        'background-size': '175%',
+        // 'background-size': '175%',
+        'background-size': `${this.setBGSize().BGSize}`, 
       }); 
-    } else {
-
-      this.homeTop__MainPictureBehindBG.css({ 
-        "background-image": `${this.setBGImage()}`,
-        'background-position': 'center center',
-        'background-repeat': 'no-repeat',  
-        'background-size': '100%',
-      }); 
-
-    }
-
 
   }
 
   changeAboveBG(isInitial) {    
-
-
-  if(this.state.windowWidth < 600)  {
 
     this.homeTop__MainPictureAboveBG.css({
       'display': 'block',
@@ -208,29 +192,15 @@ export default class HomeTopMainpicture extends Component {
       'width': '100%',
       'height': '100%',
       "background-image": `${this.setBGImage()}`,
-        // When animating zoom-in with background-size with, %, I need to use %. 
-        // Otherwise, the animation starts with 0%.
+        // Set the background-size Property with % Unit.
+        // P
+          // : When animating zoom-in with background-size with, %, I need to use %. 
+            // Otherwise, the animation starts with 0%.
       'background-position': 'center center',
       'background-repeat': 'no-repeat',
-      'background-size': '175%',
+      'background-size': `${this.setBGSize().BGSize}`, 
       
-
-    });     
-
-  } else {
-
-    this.homeTop__MainPictureAboveBG.css({
-      'display': 'block',        
-      'width': '100%',
-      'height': '100%',
-      "background-image": `${this.setBGImage()}`,
-      'background-position': 'center center',
-      'background-repeat': 'no-repeat',
-      'background-size': '100%',
-
     });    
-
-  }
 
     this.zoomIn(isInitial);
     
@@ -245,38 +215,23 @@ export default class HomeTopMainpicture extends Component {
 
   }
 
-
-
-
   zoomIn(isInitial) {
     // Setting both of height and width to background-size does NOT work. 
     // => Use width and height.     
 
     if(isInitial) {
 
-      if(this.state.windowWidth < 600)  {
-        this.homeTop__MainPictureAboveeBG.animate({
-          'background-size':  '185%',
-        }, 5000);
-      } else {
-        this.homeTop__MainPictureAboveBG.animate({
-          'background-size':  '110%',
-        }, 5000);
-      }
+      this.homeTop__MainPictureAboveBG.animate({
+        'background-size': `${this.setBGSize().BGResize_Initial}`
+      }, 5000);
 
       this.fadeOut()
 
     } else {
 
-      if(this.state.windowWidth < 600)  {
-        this.homeTop__MainPictureAboveBG.animate({
-          'background-size':  '180%',
-        }, 3000);
-      } else {
-        this.homeTop__MainPictureAboveBG.animate({
-          'background-size':  '105%',
-        }, 3000);
-      }
+      this.homeTop__MainPictureAboveBG.animate({
+        'background-size': `${this.setBGSize().BGResize}`
+      }, 3000);
 
       this.fadeOut()
 
