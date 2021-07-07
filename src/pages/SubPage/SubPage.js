@@ -24,6 +24,10 @@ export default class SubPage extends Component {
     
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+
+  } 
   
   toggleReservationModal() {
     this.setState({
