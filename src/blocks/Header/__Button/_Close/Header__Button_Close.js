@@ -16,12 +16,16 @@ import CloseIcon from '@material-ui/icons/Close';
 
   render() {
     return (
-      <>
-        <CloseIcon 
+
+      <div
           className={`header__button_close header__button_close_color-${this.props.contentsColor} `}
+      >
+
+        <CloseIcon 
           onClick={this.props.handleOnClick}         
         />
-      </>
+
+      </div>
     )
   }
 }

@@ -17,18 +17,21 @@
       color: #000;
     }
 
-    &_flex-container {      
+    &_flex-container {
+      padding: 0 14px;
       height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      
-    }
 
-    &_logo {
-      width: 80px;
-      height: 80px;
+      display: flex;
+      flex-direction: row; 
+      align-items: center;
+      justify-content: start;
+      
+      
+    } 
+
+    &_logo {      
+      width: 32px;
+      height: 32px;
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -44,40 +47,29 @@
 
     
     &_title {
-      margin-top: 24px;
-      font-size: #{font-size.$large}px;
+      margin: 0;
+      margin-left: 14px;
+      font-size: #{font-size.$medium -2}px;
+      justify-self: start;  
       &_color_black {
         color: #000;        
       }
       &_color_white {
         color: #fff;        
       }
-  }
-
+    } 
 
   @include responsive.respond-to('min', '1000') {
-
-    &_flex-container {
-      padding: 0 14px;
-
-      flex-direction: row; 
-      align-items: center;
-      justify-content: start;
-      
-      
-    } 
-    &_logo {
+    &_logo {      
       width: 40px;
       height: 40px;
     }
+
     &_title {
-      margin: 0;
-      margin-left: 14px;
       font-size: #{font-size.$medium}px;
-      justify-self: start;  
     }
 
-  } 
+  }
 
   @include responsive.respond-to('min', '2000') {
     &_flex-container {      

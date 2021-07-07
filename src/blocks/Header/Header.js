@@ -1,79 +1,109 @@
+// Liberaries
 import React, { Component } from 'react'
-
-import HeaderContents from './__Contents/Header__Contents';
-import HeaderButtonOpen from './__Button/_Open/Header__Button_Open';
-
 import { withRouter } from "react-router";
+import $ from 'jquery';
 
-// Instructions
-// : ALL about the menu or header VISIBILITY is controlled ONLY by this.state.menuVisibility. 
-// : In 1000px - screen width, the Header is set opened in Header__Contents.js. 
-  // : If the user 1(open the header in small screen), 2(enlarge the screen)
-  // -> The screen can NOT be scrolled.
-    // => I need to set 'unset' for overflow Proeprty when the Header is shown by DEFAULT. 
+// Components
+import HeaderMain from './__Main/Header__Main';
+import HeaderSiteMenu from './__SiteMenu/Header__SiteMenu';
+import HeaderReservation from './__Reservation/Header__Reservation';
+import HeaderButtonOpen from './__Button/_Open/Header__Button_Open';
+import HeaderButtonClose from './__Button/_Close/Header__Button_Close';
+
 class Header extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      menuVisibility: false,   
+    this.state = {                 
+      windowWidth: window.innerWidth, 
+      siteMenuVisibility: false,   
         // Control the visibility of Header__Menu as its className (with -100vw);
-      headerColor: null,
+      headerColor: "black",
+      contnetsColor: "black",
       location: "/",
       pageChanged: false, 
     }
 
-    this.handleResize = this.handleResize.bind(this);
+    this.trackWindowWidth = this.trackWindowWidth.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this); 
-    // this.setMenuVisibility = this.setMenuVisibilitz/z/y.bind(this);
- 
+    // this.set
   }
 
-  componentDidMount() {
-    window.addEventListener("resize", this.handleResize);    
+  
+  componentDidMount() {    
+    this.$headerContents = $(this.headerContents);
+    this.$headerContents.fadeOut(0);
+
+    window.addEventListener('resize', this.trackWindowWidth);    
+    
+  
+    setTimeout(()=>{
+      this.$headerContents.fadeIn(1000)
+    }, 200)
+    
+    this.setHeaderColor();
+  
   }
 
-  handleResize(e) {
+  trackWindowWidth(e) {
     e.preventDefault();
+
+    this.setState({
+      windowWidth: window.innerWidth,
+    })
     this.controllScrollingUnderneath();
+
   }
 
 
   handleOnClick(e) {
     // this.toggleMenuVisibility();
-    this.setMenuMotionIntoViewpoint();
+    this.setSiteMenuMotionIntoViewpoint();
     e.stopPropagation();
   }
- 
 
   setHeaderColor() {
     let headerColor = 'black';
     if(this.props.location.pathname === "/") {     
       // When the path is the home. 
-      headerColor = 'black';
+
+      this.setState({
+        headerColor: 'black',
+      }, ()=> this.setContentsColor())
         // When it is 'black', the color of CONTENTS is 'white' set in setContentsColor().
-    } else {
-      headerColor = 'white';
+
+    } else { 
+
+      this.setState({
+        headerColor: 'white',
+      }, ()=> this.setContentsColor())
+
     }
-    return headerColor;
+    
   }
 
   setContentsColor() {
-    let headerColor = this.setHeaderColor();
-    let contentsColor;
+  
+    let headerColor = this.state.headerColor;
+    
     if(headerColor === 'black') {
-      contentsColor = 'white';
+      this.setState({
+        contentsColor: 'white'
+      })
+      
     } else {
-      contentsColor = 'black';
+      this.setState({
+        contentsColor: 'black'
+      })      
     }
-    return contentsColor;
+    
   }
 
-  setMenuMotionIntoViewpoint() {
+  setSiteMenuMotionIntoViewpoint() {
 
     this.setState(
     {
-      menuVisibility: !this.state.menuVisibility
+      siteMenuVisibility: !this.state.siteMenuVisibility
     }
   , () => {
       this.controllScrollingUnderneath();
@@ -106,34 +136,82 @@ class Header extends Component {
 
   }
 
+  render() {
 
-  render() {    
+
+    let siteMenuVisibility = 'hide';
+    if (this.state.siteMenuVisibility || this.state.windowWidth >= 1000) {         
+      // Since, the change in the State Invokes the render(), I need to assingn the window.innerWidth to the windowWidth State FIRST (trackWindowWidth()). 
+      siteMenuVisibility = 'show';      
+    } 
+    
+    console.log(siteMenuVisibility);
 
     return (
 
-      <div className="header">
-        <div >
-          <HeaderContents 
-            handleOnClick={this.handleOnClick}
-            setMenuVisibility={this.setMenuVisibility}
-            menuVisibility={this.state.menuVisibility}
-            headerColor={this.setHeaderColor()}
-            contentsColor={this.setContentsColor()}
-            hideHeaderFromPage={this.hideHeaderFromPage}
-            toggleReservationModal={this.props.toggleReservationModal}
+      <div 
+        className=
+          {
+            `
+            header__contents 
+            header__contents_grid-container 
+            header__contents_${this.state.headerColor}
+            header__contents_content-color-${this.state.contentsColor}
+            `
+          }        
+          ref={headerContents => this.headerContents = headerContents}
+
+      >
+      
+        <div
+          className="header__contents_grid-item header-contents__grid-item header__contents_main"
+          onClick={this.handleOnClick}
+        >
+          <HeaderMain 
+            contentsColor={this.state.contentsColor}
           />
-          
         </div>
-          {/* All the LAYOUT like Grid go here */}
-        <HeaderButtonOpen 
-          handleOnClick={this.handleOnClick}
-          contentsColor={this.setContentsColor()}
-        />
-        {/* Absolte to Header Block */}
-        
+
+        <div 
+          className="header__contents_grid-item header__contents_site-menu">          
+          <HeaderSiteMenu 
+            handleOnClick={this.handleOnClick}
+            contentsColor={this.state.contentsColor}
+            siteMenuVisibility={'show'} 
+            headerColor={this.state.headerColor}
+      
+          />
+        </div>
+
+        <div 
+          className="header__contents_grid-item header__contents_reservation">
+            <HeaderReservation 
+              contentsColor={this.state.contentsColor}
+              toggleReservationModal={this.props.toggleReservationModal}
+            />
+        </div>
+
+
+        <div 
+          className="header__contents_grid-item header__contents_site-menu-button">
+            { 
+              siteMenuVisibility === 'hide' ? ( 
+                <HeaderButtonOpen 
+                  handleOnClick={this.handleOnClick}
+                  contentsColor={this.state.contentsColor}
+                />
+              ) : (
+                <HeaderButtonClose 
+                  handleOnClick={this.handleOnClick}
+                  contentsColor={this.state.contentsColor}
+                />
+              )
+            }
+        </div>
+
       </div>
     )
   }
 }
-export default withRouter(Header)
 
+export default withRouter(Header)

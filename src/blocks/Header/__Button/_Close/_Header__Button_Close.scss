@@ -1,18 +1,21 @@
 @use '../../../../utilities/responsive';
 
 .header__button_close {
-  position: absolute;
-  // Absolte to Header__Contents Block
-  top: 14px;
-  right: 14px;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
   &_color-white {
     color: #fff;
   }
   &_color-black {
     color: #000;
   }
-  
-  @include responsive.respond-to('min', '1000') {
-    right: -100px;
-  } 
+
+  @include responsive.respond-to("min", "1000") {
+    // right: -100px;
+  }
 }

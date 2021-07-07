@@ -279,25 +279,13 @@ body {
   font-family: "Times New Roman", "游明朝", "Yu Mincho", "游明朝体", "YuMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif, "Noto Serif JP";
 }
 
-.header {
-  position: relative;
-  max-width: 100%;
-}
-@media (min-width: 1000px) {
-  .header {
-    overflow: hidden;
-  }
-}
-
 @media (min-width: 200px) {
   .header__contents {
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
-    transition: transform 0.3s;
-    overflow: scroll;
+    height: 15vh;
     z-index: 1000;
   }
   .header__contents_black {
@@ -308,44 +296,28 @@ body {
     background-color: #fff;
     color: #000;
   }
-}
-@media (min-width: 200px) and (min-width: 200px) {
-  .header__contents_hide {
-    width: 100vw;
-    transform: translate3d(-100vw, 0, 0);
-  }
-}
-@media (min-width: 200px) and (min-width: 200px) {
-  .header__contents_show {
-    width: 100vw;
-    transform: translate3d(0vw, 0, 0);
-    overflow: hidden;
-  }
-}
-@media (min-width: 200px) {
   .header__contents_grid-container {
     display: grid;
-    grid-template: [row1-start] "main" 30% [row1-end] [row2-start] "menu" 30% [row2-end] [row3-start] "reservation" 30% [row3-end]/auto;
+    grid-template: [row1-start] "main reservation site-menu-button" 100% [row1-end]/50% 30% 20%;
     place-content: center center;
     place-items: center center;
   }
-}
-@media (min-width: 200px) {
   .header__contents_main {
     grid-area: main;
+    background-color: blue;
   }
-}
-@media (min-width: 200px) {
-  .header__contents_menu {
-    grid-area: menu;
+  .header__contents_site-menu {
+    grid-area: site-menu;
+    background-color: brown;
   }
-}
-@media (min-width: 200px) {
   .header__contents_reservation {
     grid-area: reservation;
+    background-color: cadetblue;
   }
-}
-@media (min-width: 200px) {
+  .header__contents_site-menu-button {
+    grid-area: site-menu-button;
+    background-color: chartreuse;
+  }
   .header__contents_grid-item {
     width: 100%;
     height: 100%;
@@ -353,19 +325,13 @@ body {
 }
 @media (min-width: 1000px) {
   .header__contents {
-    width: 100vw;
-    height: 70px;
+    top: 0;
+    left: 0;
   }
   .header__contents_grid-container {
-    grid-template: [row1-start] "main menu reservation" 100% [row1-end]/20% 60% 20%;
+    grid-template: [row1-start] "main site-menu reservation" 100% [row1-end]/20% 60% 20%;
   }
 }
-@media (min-width: 2000px) {
-  .header__contents {
-    height: 140px;
-  }
-}
-
 @media (min-width: 200px) {
   .header__main {
     height: 100%;
@@ -377,15 +343,16 @@ body {
     color: #000;
   }
   .header__main_flex-container {
+    padding: 0 14px;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
   }
   .header__main_logo {
-    width: 80px;
-    height: 80px;
+    width: 32px;
+    height: 32px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -398,8 +365,10 @@ body {
   }
 }
 .header__main_title {
-  margin-top: 24px;
-  font-size: 32px;
+  margin: 0;
+  margin-left: 14px;
+  font-size: 22 -2px;
+  justify-self: start;
 }
 .header__main_title_color_black {
   color: #000;
@@ -408,21 +377,12 @@ body {
   color: #fff;
 }
 @media (min-width: 1000px) {
-  .header__main_flex-container {
-    padding: 0 14px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-  }
   .header__main_logo {
     width: 40px;
     height: 40px;
   }
   .header__main_title {
-    margin: 0;
-    margin-left: 14px;
     font-size: 22px;
-    justify-self: start;
   }
 }
 @media (min-width: 2000px) {
@@ -439,38 +399,82 @@ body {
 }
 
 @media (min-width: 200px) {
-  .header__menu_grid-container {
+  .header__site-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70vw;
+    height: 85vh;
+    transition: transform 0.3s;
+    overflow: scroll;
+    z-index: 1000;
+  }
+  .header__site-menu_black {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+  }
+  .header__site-menu_white {
+    background-color: #fff;
+    color: #000;
+  }
+}
+@media (min-width: 200px) and (min-width: 200px) {
+  .header__site-menu_hide {
+    transform: translate3d(-100vw, 0, 0);
+  }
+}
+@media (min-width: 200px) and (min-width: 200px) {
+  .header__site-menu_show {
+    transform: translate3d(0vw, 0, 0);
+    overflow: hidden;
+  }
+}
+@media (min-width: 200px) {
+  .header__site-menu_grid-container {
+    width: 100%;
     height: 100%;
     display: grid;
     grid-template: [row1-start] "oheya" 30% [row1-end] [row2-start] "oryori" 30% [row2-end] [row3-start] "onsen" 30% [row3-end]/100%;
     place-content: center center;
     place-items: center center;
   }
-  .header__menu_oheya {
+}
+@media (min-width: 200px) {
+  .header__site-menu_oheya {
     grid-area: oheya;
   }
-  .header__menu_oryori {
+}
+@media (min-width: 200px) {
+  .header__site-menu_oryori {
     grid-area: oryori;
   }
-  .header__menu_onsen {
+}
+@media (min-width: 200px) {
+  .header__site-menu_onsen {
     grid-area: onsen;
   }
-  .header__menu_grid-item {
+}
+@media (min-width: 200px) {
+  .header__site-menu_grid-item {
     font-size: 22px;
   }
 }
 @media (min-width: 1000px) {
-  .header__menu_grid-container {
+  .header__site-menu {
+    width: 100%;
+    height: 100%;
+  }
+  .header__site-menu_grid-container {
     grid-template: [row1-start] "oheya oryori onsen" 100% [row1-end]/15% 15% 15%;
     justify-content: start;
     justify-items: start;
   }
-  .header__menu_grid-item {
+  .header__site-menu_grid-item {
     font-size: 14px;
   }
 }
 @media (min-width: 2000px) {
-  .header__menu_grid-item {
+  .header__site-menu_grid-item {
     font-size: 28px;
   }
 }
@@ -542,26 +546,22 @@ body {
 }
 
 .header__button_open {
-  position: fixed;
-  top: 14px;
-  right: 14px;
-  background-color: rgba(66, 66, 66, 0.4);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
-  z-index: 101;
 }
 .header__button_open:hover {
   cursor: pointer;
 }
-@media (min-width: 1000px) {
-  .header__button_open {
-    right: -100px;
-  }
-}
-
 .header__button_close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .header__button_close_color-white {
   color: #fff;
@@ -569,12 +569,6 @@ body {
 .header__button_close_color-black {
   color: #000;
 }
-@media (min-width: 1000px) {
-  .header__button_close {
-    right: -100px;
-  }
-}
-
 @media (min-width: 200px) {
   .footer {
     width: 100vw;
