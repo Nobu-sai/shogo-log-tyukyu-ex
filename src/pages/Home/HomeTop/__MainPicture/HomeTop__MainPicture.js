@@ -1,7 +1,4 @@
 // Instruction: https://www.evernote.com/shard/s350/nl/180370944/3621b729-4cc9-7f1a-7e64-0796db4a1a6f?title=(Shogo)%20%E4%B8%AD%E7%B4%9AEx/%22Goal%22%20=%20HomeTop%20image%20animation
-// Order of execution
-  // : componentDidMount() for setting initial bg images 
-  // -> Zoom -> Fade out -> CHANGE image -> Zoom -> ...  
 
 import React, { Component } from 'react'
 
@@ -177,8 +174,7 @@ export default class HomeTopMainpicture extends Component {
       this.homeTop__MainPictureBehindBG.css({ 
         "background-image": `${this.setBGImage()}`,
         'background-position': 'center center',
-        'background-repeat': 'no-repeat',  
-        // 'background-size': '175%',
+        'background-repeat': 'no-repeat',   
         'background-size': `${this.setBGSize().BGSize}`, 
       }); 
 
@@ -188,9 +184,7 @@ export default class HomeTopMainpicture extends Component {
 
     this.homeTop__MainPictureAboveBG.css({
       'display': 'block',
-        // Offset the Value set by jQuery fadeOut() Method.
-      'width': '100%',
-      'height': '100%',
+        // Offset the Value set by jQuery fadeOut() Method.      
       "background-image": `${this.setBGImage()}`,
         // Set the background-size Property with % Unit.
         // P
