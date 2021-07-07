@@ -19,7 +19,7 @@ export default class HomeNews  extends Component {
   }
 
   componentDidMount() {
-    this.$HomeNewsItemsComponent = $('.home-news__items-component');  
+    this.$HomeNewsContentsContainer = $('.home-news__contents-container');  
   }
 
   handleOnClick(tab) {
@@ -38,11 +38,11 @@ export default class HomeNews  extends Component {
   
   
   hideContents(tab) {    
-    this.$HomeNewsItemsComponent.fadeOut(500);
+    this.$HomeNewsContentsContainer.fadeOut(500);
   }
 
   showContents() {
-    this.$HomeNewsItemsComponent.fadeIn(500);
+    this.$HomeNewsContentsContainer.fadeIn(500);
 
   }
 
@@ -166,16 +166,14 @@ export default class HomeNews  extends Component {
           </Slide>
         </div>
 
-        <div className="home-news__contents-container">
-          {/* <div className="home-news__items-component"> */}
+        <div className="home-news__contents-container">          
             {
               this.state.activeTab &&
                 <HomeNewsItems                         
                   items={items[this.state.activeTab]}
                 />
             }
-
-          {/* </div> */}
+ 
 
         </div>
       </div>
