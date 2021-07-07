@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import CloseIcon from '@material-ui/icons/Close';
+// import CloseIcon from '@material-ui/icons/Close';
 
  export default class HeaderButtonClose extends Component {
   constructor(props) {
@@ -18,12 +18,13 @@ import CloseIcon from '@material-ui/icons/Close';
     return (
 
       <div
-          className={`header__button_close header__button_close_color-${this.props.contentsColor} `}
+          className={`header__button_close header__button_close_color_${this.props.contentsColor} `}
+          onClick={this.props.handleOnClick}         
       >
 
-        <CloseIcon 
+        {/* <CloseIcon 
           onClick={this.props.handleOnClick}         
-        />
+        /> */}
 
       </div>
     )

@@ -122,7 +122,7 @@ class Header extends Component {
 
     } else {
 
-      if(this.state.menuVisibility) {
+      if(this.state.siteMenuVisibility) {
 
           document.body.style.overflow = 'hidden';
 
@@ -153,10 +153,10 @@ class Header extends Component {
         className=
           {
             `
-            header__contents 
-            header__contents_grid-container 
-            header__contents_${this.state.headerColor}
-            header__contents_content-color-${this.state.contentsColor}
+            header
+            header__grid-container 
+            header_${this.state.headerColor}
+            header__content-color-${this.state.contentsColor}
             `
           }        
           ref={headerContents => this.headerContents = headerContents}
@@ -164,7 +164,7 @@ class Header extends Component {
       >
       
         <div
-          className="header__contents_grid-item header-contents__grid-item header__contents_main"
+          className="header__grid-item header-contents__grid-item header__grid-item_main"
           onClick={this.handleOnClick}
         >
           <HeaderMain 
@@ -173,18 +173,18 @@ class Header extends Component {
         </div>
 
         <div 
-          className="header__contents_grid-item header__contents_site-menu">          
+          className="header__grid-item header__grid-item_site-menu">          
           <HeaderSiteMenu 
             handleOnClick={this.handleOnClick}
             contentsColor={this.state.contentsColor}
-            siteMenuVisibility={'show'} 
+            siteMenuVisibility={siteMenuVisibility} 
             headerColor={this.state.headerColor}
       
           />
         </div>
 
         <div 
-          className="header__contents_grid-item header__contents_reservation">
+          className="header__grid-item header__grid-item_reservation">
             <HeaderReservation 
               contentsColor={this.state.contentsColor}
               toggleReservationModal={this.props.toggleReservationModal}
@@ -193,7 +193,7 @@ class Header extends Component {
 
 
         <div 
-          className="header__contents_grid-item header__contents_site-menu-button">
+          className="header__grid-item header__grid-item_site-menu-button">
             { 
               siteMenuVisibility === 'hide' ? ( 
                 <HeaderButtonOpen 

@@ -1,18 +1,25 @@
 @use '../../../../utilities/responsive';
+@use '../../../../utilities/mixins/background-image';
 
 .header__button_close {
-  width: 100%;
-  height: 100%;
+  width: 18px;
+  height: 18px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  &_color-white {
-    color: #fff;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &_color_black {
+    @include background-image.background-image('close-icon-black');
+
   }
-  &_color-black {
-    color: #000;
+  &_color_white {
+    @include background-image.background-image('close-icon-white');
+
   }
 
   @include responsive.respond-to("min", "1000") {

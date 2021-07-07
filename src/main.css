@@ -280,61 +280,65 @@ body {
 }
 
 @media (min-width: 200px) {
-  .header__contents {
+  .header {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100vw;
     height: 15vh;
-    z-index: 1000;
+    min-height: 85px;
+    z-index: 1002;
+    overflow: visible;
   }
-  .header__contents_black {
+  .header_black {
     background-color: rgba(0, 0, 0, 0.9);
     color: #fff;
   }
-  .header__contents_white {
+  .header_white {
     background-color: #fff;
     color: #000;
   }
-  .header__contents_grid-container {
+  .header__grid-container {
     display: grid;
-    grid-template: [row1-start] "main reservation site-menu-button" 100% [row1-end]/50% 30% 20%;
+    grid-template: [row1-start] "reservation reservation main . site-menu-button" 100% [row1-end]/15% 10% 40% 10% 15%;
     place-content: center center;
     place-items: center center;
   }
-  .header__contents_main {
-    grid-area: main;
-    background-color: blue;
-  }
-  .header__contents_site-menu {
-    grid-area: site-menu;
-    background-color: brown;
-  }
-  .header__contents_reservation {
-    grid-area: reservation;
-    background-color: cadetblue;
-  }
-  .header__contents_site-menu-button {
-    grid-area: site-menu-button;
-    background-color: chartreuse;
-  }
-  .header__contents_grid-item {
+  .header__grid-item {
     width: 100%;
     height: 100%;
   }
+  .header__grid-item_main {
+    grid-area: main;
+    position: relative;
+  }
+  .header__grid-item_site-menu {
+    grid-area: site-menu;
+  }
+  .header__grid-item_reservation {
+    grid-area: reservation;
+  }
+  .header__grid-item_site-menu-button {
+    grid-area: site-menu-button;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 @media (min-width: 1000px) {
-  .header__contents {
+  .header {
     top: 0;
     left: 0;
   }
-  .header__contents_grid-container {
+  .header__grid-container {
     grid-template: [row1-start] "main site-menu reservation" 100% [row1-end]/20% 60% 20%;
   }
 }
 @media (min-width: 200px) {
   .header__main {
+    width: 100%;
     height: 100%;
+    position: absolute;
   }
   .header__main_contents-color_white {
     color: #fff;
@@ -343,19 +347,23 @@ body {
     color: #000;
   }
   .header__main_flex-container {
-    padding: 0 14px;
+    width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: start;
+    justify-content: space-evenly;
   }
   .header__main_logo {
-    width: 32px;
-    height: 32px;
+    position: absolute;
+    top: -25%;
+    left: auto;
+    width: 50%;
+    height: 50%;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    z-index: 1001;
   }
   .header__main_logo_color_white {
     background-image: url(./assets/images/sakura-logo-white.png);
@@ -365,9 +373,8 @@ body {
   }
 }
 .header__main_title {
-  margin: 0;
-  margin-left: 14px;
-  font-size: 22 -2px;
+  margin-top: 14px;
+  font-size: 22px;
   justify-self: start;
 }
 .header__main_title_color_black {
@@ -377,11 +384,17 @@ body {
   color: #fff;
 }
 @media (min-width: 1000px) {
+  .header__main_flex-container {
+    padding: 0 14px;
+    flex-direction: row;
+    justify-content: start;
+  }
   .header__main_logo {
     width: 40px;
     height: 40px;
   }
   .header__main_title {
+    margin-left: 14px;
     font-size: 22px;
   }
 }
@@ -403,7 +416,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 70vw;
+    width: 100vw;
     height: 85vh;
     transition: transform 0.3s;
     overflow: scroll;
@@ -420,12 +433,12 @@ body {
 }
 @media (min-width: 200px) and (min-width: 200px) {
   .header__site-menu_hide {
-    transform: translate3d(-100vw, 0, 0);
+    transform: translate3d(0, -100vh, 0);
   }
 }
 @media (min-width: 200px) and (min-width: 200px) {
   .header__site-menu_show {
-    transform: translate3d(0vw, 0, 0);
+    transform: translate3d(0, 0vh, 0);
     overflow: hidden;
   }
 }
@@ -434,9 +447,14 @@ body {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template: [row1-start] "oheya" 30% [row1-end] [row2-start] "oryori" 30% [row2-end] [row3-start] "onsen" 30% [row3-end]/100%;
+    grid-template: [row1-start] "top" 25% [row1-end] [row2-start] "oheya" 25% [row2-end] [row3-start] "oryori" 25% [row3-end] [row4-start] "onsen" 25% [row4-end]/100%;
     place-content: center center;
     place-items: center center;
+  }
+}
+@media (min-width: 200px) {
+  .header__site-menu_top {
+    grid-area: top;
   }
 }
 @media (min-width: 200px) {
@@ -456,7 +474,7 @@ body {
 }
 @media (min-width: 200px) {
   .header__site-menu_grid-item {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
 @media (min-width: 1000px) {
@@ -482,31 +500,35 @@ body {
 @media (min-width: 200px) {
   .header__reservation {
     height: 100%;
-    color: #fff;
+  }
+  .header__reservation_color_black {
+    color: black;
+  }
+  .header__reservation_color_white {
+    color: white;
   }
   .header__reservation_button {
-    padding: 8px 0;
-    width: 200px;
-    height: 48px;
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: #988f10;
-    transition: all 0.4s ease;
-  }
-  .header__reservation_button:hover {
-    background-color: #aaa346;
+    justify-content: space-evenly;
   }
   .header__reservation_calendar-icon {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     background-position: center;
     background-size: contain;
-    background-image: url(./assets/images/calendar-icon.png);
+  }
+  .header__reservation_calendar-icon_color_black {
+    background-image: url(./assets/images/calendar-icon-black.png);
+  }
+  .header__reservation_calendar-icon_color_white {
+    background-image: url(./assets/images/calendar-icon-white.png);
   }
   .header__reservation_title {
-    margin-left: 14px;
-    font-size: 22px;
+    font-size: 16px;
   }
 }
 @media (min-width: 1000px) {
@@ -515,16 +537,26 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    color: #fff;
   }
   .header__reservation_button {
     padding: 0;
     width: 150px;
+    height: 48px;
+    flex-direction: row;
+    background-color: #988f10;
+    transition: all 0.4s ease;
+  }
+  .header__reservation_button:hover {
+    background-color: #aaa346;
   }
   .header__reservation_calendar-icon {
     width: 14px;
     height: 14px;
+    background-image: url(./assets/images/calendar-icon-white.png);
   }
   .header__reservation_title {
+    margin-left: 14px;
     font-size: 14px;
   }
 }
@@ -546,28 +578,39 @@ body {
 }
 
 .header__button_open {
-  width: 100%;
-  height: 100%;
+  width: 18px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.header__button_open_color_black {
+  background-image: url(./assets/images/menu-icon-black.png);
+}
+.header__button_open_color_white {
+  background-image: url(./assets/images/menu-icon-white.png);
 }
 .header__button_open:hover {
   cursor: pointer;
 }
 .header__button_close {
-  width: 100%;
-  height: 100%;
+  width: 18px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.header__button_close_color-white {
-  color: #fff;
+.header__button_close_color_black {
+  background-image: url(./assets/images/close-icon-black.png);
 }
-.header__button_close_color-black {
-  color: #000;
+.header__button_close_color_white {
+  background-image: url(./assets/images/close-icon-white.png);
 }
 @media (min-width: 200px) {
   .footer {

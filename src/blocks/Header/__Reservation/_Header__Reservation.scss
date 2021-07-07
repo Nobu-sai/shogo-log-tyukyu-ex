@@ -16,37 +16,41 @@
     // width: 100%;
     height: 100%;
 
-    color: #fff;
+    &_color_black {
+      color: black;
+    }
 
+    &_color_white {
+      color: white;
+    }
 
     &_button {
-      padding: 8px 0;
-      width: 200px;
-      height: 48px;
-      
+     
+      width: 100%;
+      height: 100%;
+
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      background-color: #{base-color.$yellow};
-      transition: all .4s ease;
-
-      &:hover {
-        // box-shadow: 0 0 4px 4px #{base-color.$gray-dark};
-        background-color: base-color.$yellow-hover;
-
-    }
+      justify-content: space-evenly;
     }
    
     &_calendar-icon {
-      width: #{font-size.$large}px;
-      height: #{font-size.$large}px;
+      width: 24px;
+      height: 24px;
       background-position: center;
       background-size: contain;
-      @include background-image.background-image('calendar-icon');
+      &_color_black {
+        @include background-image.background-image('calendar-icon-black');
+
+      }
+      &_color_white {
+        @include background-image.background-image('calendar-icon-white');
+
+      }
     }
     &_title {
-      margin-left: 14px;
-      font-size: #{font-size.$medium}px; 
+      font-size: 16px;
     }
   } 
 
@@ -56,16 +60,32 @@
     justify-content: flex-end;
     align-items: center;
 
+    color: #fff;
+
     &_button {
       padding: 0;
       width: 150px;
+      height: 48px;
+
+      flex-direction: row;
+
+      background-color: #{base-color.$yellow};
+      transition: all .4s ease;
+
+      &:hover {
+        // box-shadow: 0 0 4px 4px #{base-color.$gray-dark};
+        background-color: base-color.$yellow-hover;
+
+    }
     }
 
     &_calendar-icon {
       width: #{font-size.$base}px;
       height: #{font-size.$base}px;
+      @include background-image.background-image('calendar-icon-white');
     }
     &_title {
+      margin-left: 14px;
       font-size: #{font-size.$base}px;
     }
   } 

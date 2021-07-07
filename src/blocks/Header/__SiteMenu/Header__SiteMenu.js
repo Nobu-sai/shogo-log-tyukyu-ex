@@ -22,22 +22,30 @@ export default class HeaderMenu extends Component {
       >              
         <div className="header__site-menu_grid-container">
 
+        <Link 
+            className={`link  link_color_${this.props.contentsColor}  header__site-menu_grid-item header__menu_oheya`}
+            onClick={this.props.handleOnClick}
+            to='/'
+          >
+            TOP
+          </Link> 
+
           <Link 
-            className={`link  link_color_${this.props.contentsColor}  header__menu_grid-item header__menu_oheya`}
+            className={`link  link_color_${this.props.contentsColor}  header__site-menu_grid-item header__menu_oheya`}
             onClick={this.props.handleOnClick}
             to='/oheya'
           >
             お部屋
           </Link> 
           <Link 
-            className={`link  link_color_${this.props.contentsColor}  header__menu_grid-item header__menu_oryori`}
+            className={`link  link_color_${this.props.contentsColor}  header__site-menu_grid-item header__menu_oryori`}
             onClick={this.props.handleOnClick}
             to='/oryori'
           >
             お料理
           </Link> 
           <Link 
-            className={`link  link_color_${this.props.contentsColor}  header__menu_grid-item header__menu_onsen`}
+            className={`link  link_color_${this.props.contentsColor}  header__site-menu_grid-item header__menu_onsen`}
             onClick={this.props.handleOnClick}
             to='/onsen'
           >
