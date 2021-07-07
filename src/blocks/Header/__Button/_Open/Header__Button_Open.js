@@ -30,10 +30,10 @@ export default class HeaderButtonOpen extends Component {
       
       <div
         className="header__button_open"
-        ref={openButton => this.openButton = openButton}
         onClick={this.props.handleOnClick}
       >
         <MenuOpenIcon 
+          ref={openButton => this.openButton = openButton}
           className={`header__button_open header__button_open_color_${this.props.contentsColor}`}
         /> 
       </div>
