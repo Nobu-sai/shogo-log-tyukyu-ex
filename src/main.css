@@ -2340,14 +2340,14 @@ body {
   }
   .sub-page__main-contents_grid-section {
     width: 100%;
-    height: 170vh;
+    height: 210vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background: transparent;
   }
   .sub-page__main-contents_grid-section_2-contents {
-    height: 110vh;
+    height: 140vh;
   }
   .sub-page__main-contents_grid-container_scroll {
     padding: 0;
@@ -2371,13 +2371,13 @@ body {
     box-shadow: none;
   }
   .sub-page__main-contents_grid-container_0 {
-    grid-template: [row1-start] "content-1-pic content-1-pic . . ." 20% [row1-end] [row2-start] "content-1-pic content-1-pic bg-area-2 content-1-desc bg-area-3" 50% [row2-end] [row3-start] ". bg-area-1 bg-area-2 content-1-desc bg-area-3" 30% [row3-end]/25% 20% 5% 45% 5%;
+    grid-template: [row1-start] "content-1-pic content-1-pic . . ." 10% [row1-end] [row2-start] "content-1-pic content-1-pic bg-area-2 content-1-desc bg-area-3" 40% [row2-end] [row3-start] ". bg-area-1 bg-area-2 content-1-desc bg-area-3" 30% [row3-end]/25% 20% 5% 45% 5%;
   }
   .sub-page__main-contents_grid-container_1 {
-    grid-template: [row1-start] ". . . content-2-pic content-2-pic" 20% [row1-end] [row2-start] "bg-area-3 content-2-desc bg-area-2 content-2-pic content-2-pic" 50% [row2-end] [row3-start] "bg-area-3 content-2-desc bg-area-2 bg-area-1 ." 30% [row3-end]/5% 45% 5% 20% 25%;
+    grid-template: [row1-start] ". . . content-2-pic content-2-pic" 10% [row1-end] [row2-start] "bg-area-3 content-2-desc bg-area-2 content-2-pic content-2-pic" 40% [row2-end] [row3-start] "bg-area-3 content-2-desc bg-area-2 bg-area-1 ." 30% [row3-end]/5% 45% 5% 20% 25%;
   }
   .sub-page__main-contents_grid-container_2 {
-    grid-template: [row1-start] "content-3-pic content-3-pic . . ." 20% [row1-end] [row2-start] "content-3-pic content-3-pic bg-area-2 content-3-desc bg-area-3" 50% [row2-end] [row3-start] ". bg-area-1 bg-area-2 content-3-desc bg-area-3" 30% [row3-end]/25% 20% 5% 45% 5%;
+    grid-template: [row1-start] "content-3-pic content-3-pic . . ." 10% [row1-end] [row2-start] "content-3-pic content-3-pic bg-area-2 content-3-desc bg-area-3" 40% [row2-end] [row3-start] ". bg-area-1 bg-area-2 content-3-desc bg-area-3" 30% [row3-end]/25% 20% 5% 45% 5%;
   }
   .sub-page__main-contents_grid-item {
     max-width: 2000px;
@@ -2409,7 +2409,7 @@ body {
 }
 @media (min-width: 1400px) {
   .sub-page__main-contents {
-    width: 80%;
+    width: 70%;
   }
 }
 @media (min-width: 2000px) {
