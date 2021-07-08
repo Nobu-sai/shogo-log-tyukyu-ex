@@ -144,7 +144,6 @@ class Header extends Component {
 
   render() {
 
-  console.log(this.state.contentsColor)
 
     let siteMenuVisibility = 'hide';
     if (this.state.siteMenuVisibility || this.state.windowWidth >= 1000) {         

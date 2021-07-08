@@ -289,6 +289,7 @@ body {
     min-height: 85px;
     z-index: 1002;
     overflow: visible;
+    z-index: 1001;
   }
   .header_color_black {
     box-shadow: 4px 4px 14px 4px rgba(0, 0, 0, 0.9);
@@ -316,18 +317,21 @@ body {
   .header__grid-item_main {
     grid-area: main;
     position: relative;
+    z-index: 1001;
   }
   .header__grid-item_site-menu {
     grid-area: site-menu;
   }
   .header__grid-item_reservation {
     grid-area: reservation;
+    z-index: 1001;
   }
   .header__grid-item_site-menu-button {
     grid-area: site-menu-button;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1001;
   }
 }
 @media (min-width: 1000px) {
@@ -455,7 +459,7 @@ body {
 }
 @media (min-width: 200px) and (min-width: 200px) {
   .header__site-menu_hide {
-    transform: translate3d(0, -100vh, 0);
+    transform: translate3d(0, -85vh, 0);
   }
 }
 @media (min-width: 200px) and (min-width: 200px) {

@@ -16,8 +16,7 @@ export default class HeaderMain extends Component {
 
   render() {
 
-    console.log(this.props.contentsColor);
-    
+
     return (
       <div className={`header__main header__main_contents-color_${this.props.contentsColor}`}>
           <Link 
