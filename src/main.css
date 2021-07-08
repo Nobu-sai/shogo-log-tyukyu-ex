@@ -306,8 +306,8 @@ body {
   }
   .header__grid-container {
     display: grid;
-    grid-template: [row1-start] "reservation reservation main . site-menu-button" 100% [row1-end]/15% 10% 40% 10% 15%;
-    place-content: center center;
+    grid-template: [row1-start] "reservation main site-menu-button" 100% [row1-end]/30% 40% 30%;
+    place-content: center space-evenly;
     place-items: center center;
   }
   .header__grid-item {

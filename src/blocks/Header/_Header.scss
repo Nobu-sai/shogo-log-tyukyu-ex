@@ -41,10 +41,10 @@
         display: grid;
 
         grid-template:
-        [row1-start] "reservation reservation main . site-menu-button" 100% [row1-end]
-        / 15% 10% 40% 10% 15%; 
+        [row1-start] "reservation main site-menu-button" 100% [row1-end]
+        / 30% 40% 30%; 
       
-        place-content: center center;
+        place-content: center space-evenly;
         place-items: center center;  
 
       }
