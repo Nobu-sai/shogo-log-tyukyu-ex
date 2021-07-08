@@ -16,19 +16,12 @@ export default class HeaderMenu extends Component {
   render() {
     
 
+
     return (
       <div 
         className={`header__site-menu header__site-menu_${this.props.siteMenuVisibility} header__site-menu_${this.props.headerColor}`}
       >              
         <div className="header__site-menu_grid-container">
-
-        <Link 
-            className={`link  link_color_${this.props.contentsColor}  header__site-menu_grid-item header__menu_oheya`}
-            onClick={this.props.handleOnClick}
-            to='/'
-          >
-            TOP
-          </Link> 
 
           <Link 
             className={`link  link_color_${this.props.contentsColor}  header__site-menu_grid-item header__menu_oheya`}

@@ -20,6 +20,7 @@ export default class HeaderMain extends Component {
           <Link 
             className={`link link_${this.props.contentsColor} header__main_flex-container`}
             to='/'
+            onClick={this.props.handleOnClick}
           >
             <div className={`header__main_logo header__main_logo_color_${this.props.contentsColor}`}></div>
             <div className={`header__main_title header__main_title_color_${this.props.contentsColor}`}>石井花壇</div>

@@ -3,12 +3,13 @@ import React, { Component } from 'react'
 import { withRouter } from "react-router";
 import $ from 'jquery';
 
+
 // Components
 import HeaderMain from './__Main/Header__Main';
 import HeaderSiteMenu from './__SiteMenu/Header__SiteMenu';
 import HeaderReservation from './__Reservation/Header__Reservation';
-import HeaderButtonOpen from './__Button/_Open/Header__Button_Open';
-import HeaderButtonClose from './__Button/_Close/Header__Button_Close';
+import HeaderButton from './__Button/Header__Button';
+
 
 class Header extends Component {
   constructor(props) {
@@ -31,18 +32,23 @@ class Header extends Component {
 
   
   componentDidMount() {    
-    this.$headerContents = $(this.headerContents);
-    this.$headerContents.fadeOut(0);
+    
+    this.$header = $(this.header);
+    this.$header.fadeOut(0);
 
     window.addEventListener('resize', this.trackWindowWidth);    
     
   
     setTimeout(()=>{
-      this.$headerContents.fadeIn(1000)
+      this.$header.fadeIn(1000)
     }, 200)
     
     this.setHeaderColor();
   
+  }
+
+  componentDidUpdate() {
+    this.controllScrollingUnderneath();
   }
 
   trackWindowWidth(e) {
@@ -144,10 +150,14 @@ class Header extends Component {
       // Since, the change in the State Invokes the render(), I need to assingn the window.innerWidth to the windowWidth State FIRST (trackWindowWidth()). 
       siteMenuVisibility = 'show';      
     } 
-    
-    console.log(siteMenuVisibility);
 
+    let headerHasBoxShadow = true
+    if(siteMenuVisibility === 'show') {
+      headerHasBoxShadow = false
+    }
+    
     return (
+
 
       <div 
         className=
@@ -157,18 +167,19 @@ class Header extends Component {
             header__grid-container 
             header_${this.state.headerColor}
             header__content-color-${this.state.contentsColor}
+            header_box-shadow_${headerHasBoxShadow}
             `
           }        
-          ref={headerContents => this.headerContents = headerContents}
+          ref={header => this.header = header }
 
       >
       
         <div
           className="header__grid-item header-contents__grid-item header__grid-item_main"
-          onClick={this.handleOnClick}
         >
           <HeaderMain 
             contentsColor={this.state.contentsColor}
+            handleOnClick={this.handleOnClick}
           />
         </div>
 
@@ -193,23 +204,16 @@ class Header extends Component {
 
 
         <div 
-          className="header__grid-item header__grid-item_site-menu-button">
-            { 
-              siteMenuVisibility === 'hide' ? ( 
-                <HeaderButtonOpen 
-                  handleOnClick={this.handleOnClick}
-                  contentsColor={this.state.contentsColor}
-                />
-              ) : (
-                <HeaderButtonClose 
-                  handleOnClick={this.handleOnClick}
-                  contentsColor={this.state.contentsColor}
-                />
-              )
-            }
+          className="header__grid-item header__grid-item_site-menu-button"
+        >           
+            <HeaderButton
+              handleOnClick={this.handleOnClick}
+              contentsColor={this.state.contentsColor}
+            />             
         </div>
 
       </div>
+    
     )
   }
 }

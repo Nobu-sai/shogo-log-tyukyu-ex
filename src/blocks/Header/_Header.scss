@@ -7,6 +7,7 @@
     position: fixed;
     bottom: 0;
     left: 0; 
+
     width: 100vw;
     height: 15vh;
     min-height: 85px;
@@ -15,13 +16,19 @@
     overflow: visible;
 
     &_black {
-    background-color: hsla(0, 0%, 0%, 0.9);        
-    color: #fff;
+      box-shadow: 4px 4px 14px 4px hsla(0, 0%, 0%, 0.9);        
+      background-color: hsla(0, 0%, 0%, 0.9);        
+      color: #fff;
     }
     &_white {
-    background-color: #fff;
-    color: #000;
+      box-shadow: 4px 4px 14px 4px hsla(0, 0%, 100%, 0.9);        
+      background-color: #fff;
+      color: #000;
   
+    }
+
+    &_box-shadow_false {
+      box-shadow: none;
     }
 
     // header__contents CHILDREN layout

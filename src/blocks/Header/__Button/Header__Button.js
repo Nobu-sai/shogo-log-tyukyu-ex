@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
-import $ from 'jquery';
-
-// import MenuOpenIcon from '@material-ui/icons/MenuOpen';
+import { Spiral as Hamburger } from 'hamburger-react'
 
 export default class HeaderButtonOpen extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-         
     }
-
   }
   
   componentDidMount() {
@@ -26,17 +22,25 @@ export default class HeaderButtonOpen extends Component {
   }
 
   render() {
+
+    let buttonColor;
+    if(this.props.contentsColor === 'black') {
+      buttonColor = 'hsl(0, 0%, 0%)'
+    } else {
+      buttonColor = 'hsl(0, 0%, 100%)'
+    }
+
     return (
       
       <div 
-        className={`header__button_open header__button_open_color_${this.props.contentsColor}`}
+        className='header__button'
         onClick={this.props.handleOnClick}
-        // ref={openButton => this.openButton = openButton}
       >
-        {/* <MenuOpenIcon 
-          ref={openButton => this.openButton = openButton}
-          className={`header__button_open header__button_open_color_${this.props.contentsColor}`}
-        />  */}
+        <Hamburger
+          label="サイトメニュー"     
+          distance="md"   
+          color={buttonColor}   
+        />        
       </div>
     )
   }
