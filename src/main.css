@@ -411,12 +411,15 @@ body {
     flex-direction: row;
     justify-content: start;
   }
-  .header__main_logo {
+  .header__main-logo {
     position: static;
+    box-shadow: none;
+    border-radius: 0;
     width: 40px;
     height: 40px;
+    background-color: transparent;
   }
-  .header__main_title {
+  .header__main-title {
     margin-top: 0;
     margin-left: 14px;
     font-size: 22px;
@@ -426,11 +429,11 @@ body {
   .header__main_flex-container {
     padding: 0 28;
   }
-  .header__main_logo {
+  .header__main-logo {
     width: 80px;
     height: 80px;
   }
-  .header__main_title {
+  .header__main-title {
     font-size: 44px;
   }
 }
@@ -568,6 +571,7 @@ body {
     width: 150px;
     height: 48px;
     flex-direction: row;
+    justify-content: space-evenly;
   }
   .header__reservation_calendar-icon {
     width: 28px;

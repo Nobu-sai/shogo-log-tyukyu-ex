@@ -87,13 +87,18 @@
 
     }
 
-    &_logo {      
+    &-logo {      
       position: static;
+
+      box-shadow: none;
+      border-radius: 0;
       width: 40px;
       height: 40px;
+
+      background-color: transparent;
     }
 
-    &_title {
+    &-title {
       margin-top: 0;
       margin-left: 14px;
       font-size: #{font-size.$medium}px;
@@ -105,12 +110,12 @@
     &_flex-container {      
       padding: 0 #{font-size.$base * 2};
     }  
-    &_logo {
+    &-logo {
       // margin-left: 28px;
       width: 80px;
       height: 80px;
     }
-    &_title {
+    &-title {
       font-size: #{font-size.$medium * 2 }px;
     }
   } 
