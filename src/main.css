@@ -332,6 +332,7 @@ body {
 }
 @media (min-width: 1000px) {
   .header {
+    height: 70px;
     top: 0;
     left: 0;
   }
@@ -339,6 +340,12 @@ body {
     grid-template: [row1-start] "main site-menu reservation" 100% [row1-end]/20% 60% 20%;
   }
 }
+@media (min-width: 2000px) {
+  .header {
+    height: 140px;
+  }
+}
+
 @media (min-width: 200px) {
   .header__main {
     width: 100%;
@@ -364,9 +371,9 @@ body {
     position: absolute;
     top: -25%;
     left: auto;
-    border-radius: 55%;
-    width: 50%;
-    height: 55%;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
     background-position: center;
     background-size: 70%;
     background-repeat: no-repeat;
@@ -401,10 +408,12 @@ body {
     justify-content: start;
   }
   .header__main_logo {
+    position: static;
     width: 40px;
     height: 40px;
   }
   .header__main_title {
+    margin-top: 0;
     margin-left: 14px;
     font-size: 22px;
   }
@@ -515,11 +524,6 @@ body {
 @media (min-width: 200px) {
   .header__reservation {
     height: 100%;
-  }
-  .header__reservation_color_black {
-    color: black;
-  }
-  .header__reservation_color_white {
     color: white;
   }
   .header__reservation_button {
@@ -529,18 +533,19 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    background-color: #988f10;
+    transition: all 0.4s ease;
+  }
+  .header__reservation_button:hover {
+    background-color: #aaa346;
   }
   .header__reservation_calendar-icon {
     width: 24px;
     height: 24px;
     background-position: center;
     background-size: contain;
-  }
-  .header__reservation_calendar-icon_color_black {
-    background-image: url(./assets/images/calendar-icon-black.png);
-  }
-  .header__reservation_calendar-icon_color_white {
-    background-image: url(./assets/images/calendar-icon-white.png);
+    background-repeat: no-repeat;
+    background-image: url(./assets/images/calendar-icon.png);
   }
   .header__reservation_title {
     font-size: 16px;
@@ -559,20 +564,14 @@ body {
     width: 150px;
     height: 48px;
     flex-direction: row;
-    background-color: #988f10;
-    transition: all 0.4s ease;
-  }
-  .header__reservation_button:hover {
-    background-color: #aaa346;
   }
   .header__reservation_calendar-icon {
-    width: 14px;
-    height: 14px;
-    background-image: url(./assets/images/calendar-icon-white.png);
+    width: 28px;
+    height: 28px;
   }
   .header__reservation_title {
     margin-left: 14px;
-    font-size: 14px;
+    font-size: 18px;
   }
 }
 @media (min-width: 2000px) {
@@ -590,6 +589,11 @@ body {
   .header__reservation_title {
     font-size: 28px;
   }
+}
+
+.header__button {
+  border-radius: 50%;
+  background-color: #988f10;
 }
 
 @media (min-width: 200px) {

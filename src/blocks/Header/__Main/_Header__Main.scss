@@ -39,9 +39,9 @@
       top: -25%;
       left: auto;
 
-      border-radius: 55%;
-      width: 50%;
-      height: 55%;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
       background-position: center;
       background-size: 70%;
       background-repeat: no-repeat;
@@ -85,11 +85,13 @@
     }
 
     &_logo {      
+      position: static;
       width: 40px;
       height: 40px;
     }
 
     &_title {
+      margin-top: 0;
       margin-left: 14px;
       font-size: #{font-size.$medium}px;
     }

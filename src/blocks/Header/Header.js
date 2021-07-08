@@ -142,6 +142,8 @@ class Header extends Component {
 
   }
 
+  // setSiteMenuVisibility
+
   render() {
 
 
@@ -203,15 +205,19 @@ class Header extends Component {
         </div>
 
 
-        <div 
-          className="header__grid-item header__grid-item_site-menu-button"
-        >           
-            <HeaderButton
-              handleOnClick={this.handleOnClick}
-              contentsColor={this.state.contentsColor}
-            />             
-        </div>
+        {
+          this.state.windowWidth <= 1000 &&
 
+          <div 
+            className="header__grid-item header__grid-item_site-menu-button"
+          >           
+              <HeaderButton
+                handleOnClick={this.handleOnClick}
+                contentsColor={this.state.contentsColor}
+              />             
+          </div>
+
+        }
       </div>
     
     )

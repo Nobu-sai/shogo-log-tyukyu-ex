@@ -1,39 +1,11 @@
 @use '../../../utilities/responsive';
 @use '../../../utilities/mixins/background-image';
+@use '../../../utilities/variables/base-color';
 
-.header__button_open {
+.header__button {
 
-      // position: fixed;      
-      // top: 14px;
-      // right: 14px;
-      // width: 18px;
-      // height: 18px;
-
-      // display: flex;
-      // align-items: center;
-      // justify-content: center;
+  border-radius: 50%;
+  background-color: #{base-color.$yellow};
       
-      // // background-color: hsla(0, 0%, 26%, 0.4);      
-      // background-size: contain;
-      // background-position: center;
-      // background-repeat: no-repeat;
-
-      &_color_black {
-        // @include background-image.background-image('menu-icon-black');
-    
-      }
-      &_color_white {
-        // @include background-image.background-image('menu-icon-white');
-    
-      }
-
-      &:hover {
-          // cursor: pointer;         
-      }
-      
-    
-    @include responsive.respond-to('min', '1000') {
-      // right: -100px;
-    } 
   
   }

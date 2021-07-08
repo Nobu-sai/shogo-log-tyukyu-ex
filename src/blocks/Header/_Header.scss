@@ -79,6 +79,7 @@
 
 
   @include responsive.respond-to('min', '1000') {
+    height: 70px;
     top: 0;
     left: 0;
   
@@ -94,7 +95,7 @@
   } 
 
   @include responsive.respond-to('min', '2000') {
-    // height: 140px; 
+    height: 140px; 
   } 
 
 }
