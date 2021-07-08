@@ -23,12 +23,12 @@ export default class HeaderButtonOpen extends Component {
 
   render() {
 
-    let buttonColor;
-    if(this.props.contentsColor === 'black') {
-      buttonColor = 'hsl(0, 0%, 0%)'
-    } else {
-      buttonColor = 'hsl(0, 0%, 100%)'
-    }
+    let buttonColor = 'hsl(0, 0%, 100%)';
+    // if(this.props.contentsColor === 'black') {
+    //   buttonColor = 'hsl(0, 0%, 0%)'
+    // } else {
+    //   buttonColor = 'hsl(0, 0%, 100%)'
+    // }
 
     return (
       

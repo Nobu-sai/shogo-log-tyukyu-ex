@@ -19,10 +19,8 @@ class Header extends Component {
       windowWidth: window.innerWidth, 
       siteMenuVisibility: false,   
         // Control the visibility of Header__Menu as its className (with -100vw);
-      headerColor: "black",
-      contnetsColor: "black",
-      location: "/",
-      pageChanged: false, 
+      headerColor: null,
+      contnetsColor: null,   
     }
 
     this.trackWindowWidth = this.trackWindowWidth.bind(this);
@@ -68,8 +66,24 @@ class Header extends Component {
     e.stopPropagation();
   }
 
+  setSiteMenuMotionIntoViewpoint() {
+
+    this.setState(
+    {
+      siteMenuVisibility: !this.state.siteMenuVisibility
+    }
+  , () => {
+      this.controllScrollingUnderneath();
+    }
+  
+    )
+
+  
+  }
+
+
   setHeaderColor() {
-    let headerColor = 'black';
+    
     if(this.props.location.pathname === "/") {     
       // When the path is the home. 
 
@@ -105,21 +119,6 @@ class Header extends Component {
     
   }
 
-  setSiteMenuMotionIntoViewpoint() {
-
-    this.setState(
-    {
-      siteMenuVisibility: !this.state.siteMenuVisibility
-    }
-  , () => {
-      this.controllScrollingUnderneath();
-    }
-  
-    )
-
-  
-  }
-
   controllScrollingUnderneath() {
         
     if(window.innerWidth >= 1000) {
@@ -142,10 +141,10 @@ class Header extends Component {
 
   }
 
-  // setSiteMenuVisibility
 
   render() {
 
+  console.log(this.state.contentsColor)
 
     let siteMenuVisibility = 'hide';
     if (this.state.siteMenuVisibility || this.state.windowWidth >= 1000) {         
@@ -157,6 +156,7 @@ class Header extends Component {
     if(siteMenuVisibility === 'show') {
       headerHasBoxShadow = false
     }
+  
     
     return (
 
@@ -167,14 +167,14 @@ class Header extends Component {
             `
             header
             header__grid-container 
-            header_${this.state.headerColor}
-            header__content-color-${this.state.contentsColor}
+            header_color_${this.state.headerColor}            
             header_box-shadow_${headerHasBoxShadow}
             `
           }        
           ref={header => this.header = header }
 
       >
+      
       
         <div
           className="header__grid-item header-contents__grid-item header__grid-item_main"

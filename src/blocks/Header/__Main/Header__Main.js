@@ -15,15 +15,18 @@ export default class HeaderMain extends Component {
 
 
   render() {
+
+    console.log(this.props.contentsColor);
+    
     return (
       <div className={`header__main header__main_contents-color_${this.props.contentsColor}`}>
           <Link 
-            className={`link link_${this.props.contentsColor} header__main_flex-container`}
+            className={`link link_color_${this.props.contentsColor} header__main_flex-container`}
             to='/'
             onClick={this.props.handleOnClick}
           >
-            <div className={`header__main_logo header__main_logo_color_${this.props.contentsColor}`}></div>
-            <div className={`header__main_title header__main_title_color_${this.props.contentsColor}`}>石井花壇</div>
+            <div className={`header__main-logo header__main-logo_color_${this.props.contentsColor}`}></div>
+            <div className={`header__main-title header__main-title_color_${this.props.contentsColor}`}>石井花壇</div>
           </Link>
       </div>
     )

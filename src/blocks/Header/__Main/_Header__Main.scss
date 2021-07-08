@@ -34,7 +34,7 @@
       
     } 
 
-    &_logo {    
+    &-logo {    
       position: absolute;  
       top: -25%;
       left: auto;
@@ -52,18 +52,21 @@
           box-shadow: 4px 4px 14px 4px hsla(0, 0%, 0%, 0.9);        
           background-color:hsla(0, 0%, 0%, 0.9);                 
           @include background-image.background-image('sakura-logo-white');
+          
+
         }
         &_color_black {
           box-shadow: 4px 4px 14px 4px hsla(0, 0%, 100%, 0.9);                  
           background-color:hsla(0, 0%, 100%, 0.9);         
           @include background-image.background-image('sakura-logo-black');
+          
 
         }
       }
     }
 
     
-    &_title {
+    &-title {
       margin-top: 14px;
       font-size: #{font-size.$medium}px;
       justify-self: start;  

@@ -15,14 +15,14 @@
     z-index: 1002;
     overflow: visible;
 
-    &_black {
+    &_color_black {
       box-shadow: 4px 4px 14px 4px hsla(0, 0%, 0%, 0.9);        
       background-color: hsla(0, 0%, 0%, 0.9);        
       color: #fff;
     }
-    &_white {
+    &_color_white {
       box-shadow: 4px 4px 14px 4px hsla(0, 0%, 100%, 0.9);        
-      background-color: #fff;
+      background-color: hsla(0, 0%, 100%, 0.9);
       color: #000;
   
     }

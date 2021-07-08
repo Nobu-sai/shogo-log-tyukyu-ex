@@ -19,7 +19,7 @@ export default class HeaderMenu extends Component {
 
     return (
       <div 
-        className={`header__site-menu header__site-menu_${this.props.siteMenuVisibility} header__site-menu_${this.props.headerColor}`}
+        className={`header__site-menu header__site-menu_${this.props.siteMenuVisibility} header__site-menu_color_${this.props.headerColor}`}
       >              
         <div className="header__site-menu_grid-container">
 

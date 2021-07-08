@@ -290,14 +290,14 @@ body {
     z-index: 1002;
     overflow: visible;
   }
-  .header_black {
+  .header_color_black {
     box-shadow: 4px 4px 14px 4px rgba(0, 0, 0, 0.9);
     background-color: rgba(0, 0, 0, 0.9);
     color: #fff;
   }
-  .header_white {
+  .header_color_white {
     box-shadow: 4px 4px 14px 4px rgba(255, 255, 255, 0.9);
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
     color: #000;
   }
   .header_box-shadow_false {
@@ -367,7 +367,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
   }
-  .header__main_logo {
+  .header__main-logo {
     position: absolute;
     top: -25%;
     left: auto;
@@ -379,26 +379,26 @@ body {
     background-repeat: no-repeat;
     z-index: 1001;
   }
-  .header__main_logo_color_white {
+  .header__main-logo_color_white {
     box-shadow: 4px 4px 14px 4px rgba(0, 0, 0, 0.9);
     background-color: rgba(0, 0, 0, 0.9);
     background-image: url(./assets/images/sakura-logo-white.png);
   }
-  .header__main_logo_color_black {
+  .header__main-logo_color_black {
     box-shadow: 4px 4px 14px 4px rgba(255, 255, 255, 0.9);
     background-color: rgba(255, 255, 255, 0.9);
     background-image: url(./assets/images/sakura-logo-black.png);
   }
 }
-.header__main_title {
+.header__main-title {
   margin-top: 14px;
   font-size: 22px;
   justify-self: start;
 }
-.header__main_title_color_black {
+.header__main-title_color_black {
   color: #000;
 }
-.header__main_title_color_white {
+.header__main-title_color_white {
   color: #fff;
 }
 @media (min-width: 1000px) {
@@ -442,12 +442,12 @@ body {
     overflow: scroll;
     z-index: 1000;
   }
-  .header__site-menu_black {
+  .header__site-menu_color_black {
     box-shadow: 4px 4px 14px 4px rgba(0, 0, 0, 0.9);
     background-color: rgba(0, 0, 0, 0.9);
     color: #fff;
   }
-  .header__site-menu_white {
+  .header__site-menu_color_white {
     box-shadow: 4px 4px 14px 4px rgba(255, 255, 255, 0.9);
     background-color: rgba(255, 255, 255, 0.9);
     color: #000;
@@ -593,6 +593,11 @@ body {
 
 .header__button {
   border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #988f10;
 }
 
