@@ -24,6 +24,10 @@ export default class Home extends Component {
       this.toggleReservationModal = this.toggleReservationModal.bind(this);      
     }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   toggleReservationModal() {
     console.log()
     this.setState({
