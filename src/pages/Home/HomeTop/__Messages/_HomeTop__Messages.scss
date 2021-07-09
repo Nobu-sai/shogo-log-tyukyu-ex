@@ -7,9 +7,9 @@
   // = The rest of height is in home-top__main-picture Block.
 
 .home-top__messages {
-  writing-mode: vertical-rl;
   display: flex;  
   align-items: center;
+  writing-mode: vertical-rl;
 
   @include responsive.respond-to('min', '200') {
     margin-bottom: 8px;    
@@ -27,41 +27,112 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
+      flex-wrap: wrap;
     }
 
     &_flex-item {
+      width: 100%;
       
-      &:first-of-type {        
-        height: 94%;      
-        font-size: #{font-size.$base + 2}px;
+      &:first-of-type {    
+        // width: 100%;    
+        // height: 94%;      
+        height: 20%;
         letter-spacing: 8px;
+
 
       }
       &:not(:first-of-type):not(:last-of-type) {                
-        height: 78%;
-        font-size: #{font-size.$small}px;
+        width: 30%;
+        height: 70%;
         letter-spacing: 2px;
       }
       &:last-of-type {
-        height: 94%; 
-        display: flex;
-        justify-content: flex-end;
-        font-size: #{font-size.$base}px;
+        // width: 100%;
+        height: 10%; 
       }
-    }
+    }    
 
     &_contents {
-      &_padding {
+    }
+    &_padding {
         padding-top: 48px;
         // 16 * 2 + 8 * 2 = 48px
-      }
     }
 
+    &_reveal-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+        // Otherwise, the display is set as Block.
+      // align-items: center;
+      // justify-content: center;
+
+    }
+    
+
+    &_title-container {  
+      width: 100%;
+      height: 100%;     
+      // display: grid;      
+    
+      // grid-template: 
+      // [row1-start] ". line-1 line-1 . ." 100px [row1-end]
+      // [row2-start] ". . line-2 line-2 ." auto [row2-end]      
+      // /  20% 20% 5% 20% 20%; 
+    
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+    }
+
+    &_title {
+      width: 100%;
+      // height: 100%;
+      font-size: 18px;
+      writing-mode:horizontal-tb
+    }
+    &_title-line-1 {
+      // grid-area: line-1;
+      width: 100%;
+      display: flex;      
+      align-items: center;
+      justify-content: center;
+    }
+
+    &_title-line-2 {
+      // grid-area: line-2;
+      // width: 100%;
+      display: flex;      
+      align-items: center;
+      justify-content: center;
+    }
+
+    &_text {
+      width: 100%;
+      // height: 100%;
+      font-size: 12px;
+        display: flex;
+        align-items: center;        
+
+    }
     &_number {      
       padding-left: 4px;
-      writing-mode: horizontal-tb;
-      // font-size: 17px;
- 
+      // font-size: 17px; 
+      writing-mode:horizontal-tb
+
+    }
+
+    &_end {
+      width: 100%;
+      height: 100%;
+      font-size: #{font-size.$base}px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      writing-mode:horizontal-tb
+
+
     }
 
   }
@@ -76,6 +147,17 @@
       }
 
     }
+
+
+    &_title-container {         
+    
+      // grid-template: 
+      // [row1-start] ". . line-1 . ." 50% [row1-end]
+      // [row2-start] ". . . line-2 ." 50% [row2-end]      
+      // / auto 20% 7px 20% auto; 
+    
+
+    }
     
   }
 
@@ -84,12 +166,14 @@
     
   }
   @include responsive.respond-to('min', '1000') { 
+    writing-mode: vertical-rl;
     
 
     &_flex-item {
       
       &:first-of-type {               
-
+        width: auto;
+        height: 94%;
       }
       &:not(:first-of-type):not(:last-of-type) {                
         // height: 80%;     
@@ -98,6 +182,12 @@
       }
     }
 
+    &_title {
+    }
+
+    &_end {
+      justify-content: flex-end;
+    }
     
   }
   
@@ -112,17 +202,29 @@
       
       &:first-of-type {       
         height: 60%; 
-        font-size: #{font-size.$medium}px;
       }
       &:not(:first-of-type):not(:last-of-type) {                
         padding-top: 90px;
         height: 56%;
-        font-size: #{font-size.$base}px;
       }
       &:last-of-type {
         height: 80%; 
-        font-size: #{font-size.$base + 4}px;
       }
+    }
+
+    
+    &_title {
+        font-size: #{font-size.$medium}px;
+
+    }
+
+    &_text {
+      font-size: #{font-size.$base}px;
+    }
+
+    &_end {
+      font-size: #{font-size.$base + 4}px;
+
     }
 
     &_contents {
@@ -138,20 +240,31 @@
     @include background-image.background-image('bg-3840-2762');
     &_flex-item {
       &:first-of-type {
-        font-size: #{(font-size.$medium) * 2}px;
         letter-spacing: 16px;
       }
       &:not(:first-of-type):not(:last-of-type) {        
         height: 48%;
-        font-size: #{font-size.$small * 2}px;
         letter-spacing: 4px;
       }
       &:last-of-type {
         // padding-bottom: 248px;
         // height: 25%;
-        font-size: #{(font-size.$base + 4) * 2}px;
         
       }
+    }
+    
+    &_title {
+        font-size: #{(font-size.$medium) * 2}px;      
+
+    }
+
+    &_text {
+      font-size: #{font-size.$small * 2}px;
+    }
+
+    &_end {
+      font-size: #{(font-size.$base + 4) * 2}px;
+
     }
 
     &_contents {
