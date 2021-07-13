@@ -84,7 +84,7 @@ export default class Home extends Component {
         opacity: 1,
         transition: {
           duration: 1.5,
-          delay: 2.0,
+          delay: 2.2,
           ease: [0.6, -0.05, 0.01, 0.99],
         },
       },
