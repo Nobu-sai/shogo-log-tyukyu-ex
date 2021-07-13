@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Helmet} from "react-helmet";
 import { Fade, Slide, AttentionSeeker } from "react-awesome-reveal";
+import { motion } from "framer-motion"
 
 
 import StructuredDataBreadcrumbList from '../../blocks/StructuredData/StructuredData/__BreadcrumbList/StructuredData__BreadcrumbList';
@@ -74,12 +75,18 @@ export default class SubPage extends Component {
 
 
     return (
-      <div className="sub-page">
+      <motion.div
+        exit={{ opacity: 0 }}
+        exitBeforeEnter
+        className="sub-page" 
+
+      >
 
         <Helmet>
           <title>{pageTitle} - 石井花壇 | 温海温泉旅館【公式サイト】</title>
           <meta property="og:type" content="website" />    
         </Helmet>
+        
         <StructuredDataBreadcrumbList 
           breadcrumbListItems={breadcrumbListItems}
         />
@@ -139,7 +146,8 @@ export default class SubPage extends Component {
             />
         }
 
-      </div>
+ 
+      </motion.div>
     )
   }
 }

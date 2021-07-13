@@ -324,7 +324,6 @@ body {
   }
   .header__grid-item_reservation {
     grid-area: reservation;
-    z-index: 1001;
   }
   .header__grid-item_site-menu-button {
     grid-area: site-menu-button;

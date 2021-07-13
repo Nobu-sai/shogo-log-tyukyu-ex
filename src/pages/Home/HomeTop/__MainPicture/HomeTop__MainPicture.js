@@ -242,11 +242,13 @@ export default class HomeTopMainpicture extends Component {
     // console.log(this.state.picNum)
 
     return (
-      <Fade 
-        duration={3000} 
-        triggerOnce        
-        className="home-top__main-picture"
-      >
+      <div className="home-top__main-picture">
+      
+      {/* // <Fade 
+        // duration={3000} 
+      //   triggerOnce        
+      //   className="home-top__main-picture"
+      // > */}
 
       <div 
         className={`home-top__main-picture-behind-bg home-top__main-picture_flex-container`}
@@ -274,7 +276,8 @@ export default class HomeTopMainpicture extends Component {
         </div>
 
       </div>
-      </Fade>
+      {/* </Fade> */}
+      </div>
     )
   }
 }

@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import {Helmet} from "react-helmet";
 import { ReactDOM } from 'react-dom';
+import { motion } from "framer-motion"
+
 
 // import Header from '../../blocks/Header/Header';
 import StructuredDataBreadcrumbList from '../../blocks/StructuredData/StructuredData/__BreadcrumbList/StructuredData__BreadcrumbList';
+import InitialAnimation from '../../blocks/InitialAnimation/InitialAnimation';
+
 import Header from '../../blocks/Header/Header';
 import HomeTop from './HomeTop/HomeTop';
 import HomeFeatures from './HomeFeatures/HomeFeatures';
@@ -46,10 +50,59 @@ export default class Home extends Component {
         },
       ]
 
-    let pathToImagesFolder = "../../assets/images"
+    // let pathToImagesFolder = "../../assets/images"
+
+    const page = { 
+      exit: {
+        opacity: 0 
+      }
+    }
+
+    const pageContainer = {
+      initial: {
+        // opacity: 0       
+      },
+      animate: {
+        // opacity: 1,
+        animate: {
+          transition: { 
+            staggerChildren: 5.0, 
+            // delayChildren: 2.8 
+          },
+        },
+      },
+
+    }
+
+    const pageContents = {
+      initial: {
+        opacity: 0,
+        y: '-100vh',
+      },
+      animate: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 1.5,
+          delay: 2.0,
+          ease: [0.6, -0.05, 0.01, 0.99],
+        },
+      },
+
+    }
+    
 
     return (
-      <div className="home" ref={home => this.home = home}>
+
+      <motion.div 
+        exit="exit"
+        exitBeforeEnter
+        className="home" 
+        ref={home => this.home = home}
+        variants={page}
+      >  
+
+        
 
         <Helmet>          
           <title>石井花壇 | 温海温泉旅館【公式サイト】 </title>
@@ -61,28 +114,41 @@ export default class Home extends Component {
         />
         
         <Header 
-          toggleReservationModal={this.toggleReservationModal}
+            toggleReservationModal={this.toggleReservationModal}
         />        
-        <HomeTop />        
-        <HomeFeatures />
-        <HomeRecommended />
-        <HomeNews />
-        <HomeAccess />
-        <Footer />
-        {
-          this.state.reservationModalIsOpen && 
-            <ReservationModal 
-              reservationModalIsOpen={this.state.reservationModalIsOpen} 
-              toggleReservationModal={this.toggleReservationModal}
-            />
-        }
-      </div>        
+         {/* Has Initial Animation */}
+
+
+        <motion.div
+          initial="initial"
+          animate="animate"
+          variants={pageContainer}
+        >
+
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={pageContents}
+          >
+            <HomeTop />        
+            <HomeFeatures />
+            <HomeRecommended />
+            <HomeNews />
+            <HomeAccess />
+            <Footer />
+            {
+              this.state.reservationModalIsOpen && 
+                <ReservationModal 
+                  reservationModalIsOpen={this.state.reservationModalIsOpen} 
+                  toggleReservationModal={this.toggleReservationModal}
+                />
+            }      
+            
+          </motion.div>
+
+        </motion.div>
+          
+      </motion.div>
     )
   }
 }
-
-// ReactDOM.render(    
-//   <StructuredDataBreadcrumbList 
-//     breadcrumbListItems={breadcrumbListItems}
-//   />
-//   , document.etElementsByTagName('body'));

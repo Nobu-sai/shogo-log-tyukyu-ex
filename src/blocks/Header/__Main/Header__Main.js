@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { Link } from 'react-router-dom';
+import InitialAnimation from '../../InitialAnimation/InitialAnimation';
 
 export default class HeaderMain extends Component {
   constructor(props) {
@@ -19,6 +20,9 @@ export default class HeaderMain extends Component {
 
     return (
       <div className={`header__main header__main_contents-color_${this.props.contentsColor}`}>
+          <InitialAnimation 
+            controllScrollingUnderneath={this.props.controllScrollingUnderneath}
+          /> 
           <Link 
             className={`link link_color_${this.props.contentsColor} header__main_flex-container`}
             to='/'

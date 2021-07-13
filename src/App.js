@@ -1,54 +1,55 @@
+// Libraries
 import React from 'react';
-
+import { BrowserRouter, Switch, Route, useLocation, useHistory } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+// Mine
 import './main.css';
-// Components for Site Pages
 import Home from './pages/Home/Home.js'
 import SubPageOheya from './pages/SubPage/-Oheya/SubPageOheya';
 import SubPageOryori from './pages/SubPage/-Oryori/SubPageOryori';
 import SubPageOnsen from './pages/SubPage/-Onsen/SubPageOnsen';
-// Components for communal parts
-// Libraries
-import {
-  BrowserRouter,
-  Switch,
-  Route,  
-} from "react-router-dom";
+// import InitialAnimation from './blocks/InitialAnimation/InitialAnimation';
 
 
-function App() {
+const App = () => {
 
+  // const history = useHistory();
+  const location = useLocation();
+  
 
   return (
-    <BrowserRouter       
-    >
       <div className='app'>
         
+        {/* <InitialAnimation /> */}
 
-        <Switch> 
+        <AnimatePresence>
+            
+            <Switch
+              location={location} 
+              key={location.pathname}
+            >
+                       
+                <Route path='/oheya'>
+                  <SubPageOheya />
+                </Route>
+              
+                <Route path='/oryori'>
+                  <SubPageOryori />
+                </Route>
+              
+                <Route path='/onsen'>
+                  <SubPageOnsen />
+                </Route>                            
 
+                <Route exact path='/'>
+                  <Home />
+                </Route>             
+            
+            </Switch> 
 
-          <Route path='/oheya'>
-            <SubPageOheya />
-          </Route>
-          
-          <Route path='/oryori'>
-            <SubPageOryori />
-          </Route>
-
-          <Route path='/onsen'>
-            <SubPageOnsen />
-          </Route>
-
-          <Route exact path='/'>
-            <Home />
-          </Route> 
-          
-
-        </Switch>
-
+        </AnimatePresence>
 
       </div>
-    </BrowserRouter>
   );
 }
 
