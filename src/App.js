@@ -1,5 +1,5 @@
 // Libraries
-import React from 'react';
+import { React, useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, useLocation, useHistory } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 // Mine
@@ -13,8 +13,16 @@ import SubPageOnsen from './pages/SubPage/-Onsen/SubPageOnsen';
 
 const App = () => {
 
-  // const history = useHistory();
+  const [isSiteFirstMount, setIsSiteFirstMount] = useState(true);
+  const history = useHistory();
   const location = useLocation();
+
+  useEffect(() => {
+    const unlisten = history.listen(() => {
+      isSiteFirstMount && setIsSiteFirstMount(false);
+    });
+    return unlisten;
+  }, [history, isSiteFirstMount]);
   
 
   return (
@@ -42,7 +50,9 @@ const App = () => {
                 </Route>                            
 
                 <Route exact path='/'>
-                  <Home />
+                  <Home 
+                    isSiteFirstMount={isSiteFirstMount}
+                  />
                 </Route>             
             
             </Switch> 

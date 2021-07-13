@@ -203,6 +203,7 @@ class Header extends Component {
             contentsColor={this.state.contentsColor}
             handleOnClick={this.handleOnClick}
             controllScrollingUnderneath={this.controllScrollingUnderneath}
+            isSiteFirstMount={this.props.isSiteFirstMount}
           />
         </div>
 

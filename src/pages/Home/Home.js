@@ -74,7 +74,7 @@ export default class Home extends Component {
 
     }
 
-    const pageContents = {
+    const pageContents = (isSiteFirstMount) => ({
       initial: {
         opacity: 0,
         y: '-100vh',
@@ -84,12 +84,12 @@ export default class Home extends Component {
         opacity: 1,
         transition: {
           duration: 1.5,
-          delay: 2.2,
+          delay: isSiteFirstMount ? 2.2 : 0,
           ease: [0.6, -0.05, 0.01, 0.99],
         },
-      },
+      }
 
-    }
+    })
     
 
     return (
@@ -115,8 +115,9 @@ export default class Home extends Component {
         
         <Header 
             toggleReservationModal={this.toggleReservationModal}
+            isSiteFirstMount={this.props.isSiteFirstMount}
         />        
-         {/* Has Initial Animation */}
+         {/* = Has Initial Animation */}
 
 
         <motion.div
@@ -128,7 +129,7 @@ export default class Home extends Component {
           <motion.div
             initial="initial"
             animate="animate"
-            variants={pageContents}
+            variants={pageContents(this.props.isSiteFirstMount)}
           >
             <HomeTop />        
             <HomeFeatures />
