@@ -1,0 +1,65 @@
+@use '../../../utilities/responsive';
+@use '../../../utilities/mixins/background-image';
+@use '../../../utilities/variables/base-color';
+@use '../../../utilities/variables/font-size';
+
+
+.sub-page {
+  @include responsive.respond-to('min', '200') {
+
+    &__contents {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;    
+      align-items: center;
+    }
+
+    &__contents-container {
+      
+      // width: 100%;
+      // height: 100%;
+      display: flex;
+      flex-direction: column;    
+      align-items: center;
+    }
+    &__top-container {
+      width: 100%;      
+      height: 300px;            
+    }
+
+    &__main-contents-container {
+      width: 100%;
+      height: 100%;
+      // background-color:khaki;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+    }
+
+  
+    &__footer-container {
+      width: 100%;
+      height: 100%;
+    }
+  
+  }
+
+  @include responsive.respond-to('min', '1000') {       
+    &__top-container {
+      margin-top: 70px;       
+      height: 400px;            
+    }
+  
+  }
+  
+  @include responsive.respond-to('min', '2000') {   
+    &__top-container {
+      margin-top: 140px;
+      height: 900px;       
+    }  
+  }
+
+}

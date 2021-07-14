@@ -25,6 +25,7 @@ class Header extends Component {
 
     this.trackWindowWidth = this.trackWindowWidth.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this); 
+    this.controllScrollingUnderneath = this.controllScrollingUnderneath.bind(this);
     // this.set
   }
 
@@ -46,7 +47,8 @@ class Header extends Component {
   }
 
   componentDidUpdate() {
-    this.controllScrollingUnderneath();
+    // this.controllScrollingUnderneath();
+      // Using this fill prevent set overflow: hidden; by this.controllScrollingUnderneath(); being Called from InitialAnimation.     
   }
 
   trackWindowWidth(e) {
@@ -63,7 +65,7 @@ class Header extends Component {
   handleOnClick(e) {
     // this.toggleMenuVisibility();
     this.setSiteMenuMotionIntoViewpoint();
-    e.stopPropagation();
+    e && e.stopPropagation();
   }
 
   setSiteMenuMotionIntoViewpoint() {
@@ -119,25 +121,44 @@ class Header extends Component {
     
   }
 
-  controllScrollingUnderneath() {
+  controllScrollingUnderneath(hide) {
+    // Call Sites
+    // : componendDidMount()
+    // : setSiteMenuMotionIntoViewpoint() 
+      //  Which is Called everytime the this.handleOnClick() is Called or everytime Header visibility changes.
         
-    if(window.innerWidth >= 1000) {
+    // console.log("controllScrollingUnderneath()/above if", hide);
+    // console.log("controllScrollingUnderneath()/above if", document.body);
+
+    if(window.innerWidth >= 1000 && !hide === true) {
+      // console.log("window.innerWidth >= 1000 && !hide === true", document.body);
 
       document.body.style.overflow = 'unset';   
 
+      // console.log("window.innerWidth >= 1000 && !hide === true", document.body);
+
     } else {
 
-      if(this.state.siteMenuVisibility) {
+      if(this.state.siteMenuVisibility || hide === true)  {
+          // console.log("this.state.siteMenuVisibility || hide === true/1", document.body);
 
           document.body.style.overflow = 'hidden';
 
-      } else {
+          // console.log("this.state.siteMenuVisibility || hide === true/2", document.body);;
+
+      } else if (!this.state.siteMenuVisibility || hide === false) {
+          // console.log("!this.state.siteMenuVisibility || hide === false/2", document.body);
 
           document.body.style.overflow = 'unset';   
+          
+          // console.log("!this.state.siteMenuVisibility || hide === false/2", document.body);
+
 
       } 
 
     }
+
+    // console.log("controllScrollingUnderneath()/under if", document.body);
 
   }
 
@@ -181,6 +202,8 @@ class Header extends Component {
           <HeaderMain 
             contentsColor={this.state.contentsColor}
             handleOnClick={this.handleOnClick}
+            controllScrollingUnderneath={this.controllScrollingUnderneath}
+            isSiteFirstMount={this.props.isSiteFirstMount}
           />
         </div>
 

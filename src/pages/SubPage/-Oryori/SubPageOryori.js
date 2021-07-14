@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import SubPage from '../SubPage';
+import SubPageContents from '../__Contents/SubPageContents';
 
 export default class SubPageOryori extends Component {
   constructor(props) {
@@ -50,7 +50,7 @@ export default class SubPageOryori extends Component {
     
     return (
       <div className="sub-page-oryori">        
-        <SubPage 
+        <SubPageContents 
           bgName={'oryori-header'}
           pageTitle={'お料理'}
           currentPage={{
