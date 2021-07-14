@@ -25,6 +25,51 @@ const App = () => {
   }, [history, isSiteFirstMount]);
   
 
+
+    const pageVariants = () => ({ 
+      exit: {
+        opacity: 0 
+      }
+    })
+
+    const pageContainerVariants = () => ({
+      initial: {
+        // opacity: 0       
+        width: '100%',
+        height: '100%'
+      },
+      animate: {
+        // opacity: 1,
+        animate: {
+          transition: { 
+            staggerChildren: 1.0, 
+            // delayChildren: 2.8 
+          },
+        },
+      },
+
+    })
+
+    const pageContentsVariants = (isSiteFirstMount) => ({
+      initial: {
+        opacity: 0,
+        y: '-100vh',
+        width: '100%',
+        height: '100%'
+      },
+      animate: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 1.5,
+          delay: isSiteFirstMount ? 2.2 : 0,
+          ease: [0.6, -0.05, 0.01, 0.99],
+        },
+      }
+
+    })
+    
+
   return (
       <div className='app'>
         
@@ -38,20 +83,38 @@ const App = () => {
             >
                        
                 <Route path='/oheya'>
-                  <SubPageOheya />
+                  <SubPageOheya 
+                    isSiteFirstMount={isSiteFirstMount}  
+                    pageVariants={pageVariants}
+                    pageContainerVariants={pageContainerVariants}
+                    pageContentsVariants={pageContentsVariants}                  
+                  />
                 </Route>
               
                 <Route path='/oryori'>
-                  <SubPageOryori />
+                  <SubPageOryori 
+                    isSiteFirstMount={isSiteFirstMount}
+                    pageVariants={pageVariants}
+                    pageContainerVariants={pageContainerVariants}
+                    pageContentsVariants={pageContentsVariants}
+                  />
                 </Route>
               
                 <Route path='/onsen'>
-                  <SubPageOnsen />
+                  <SubPageOnsen 
+                    isSiteFirstMount={isSiteFirstMount}
+                    pageVariants={pageVariants}
+                    pageContainerVariants={pageContainerVariants}
+                    pageContentsVariants={pageContentsVariants}
+                  />
                 </Route>                            
 
                 <Route exact path='/'>
                   <Home 
                     isSiteFirstMount={isSiteFirstMount}
+                    pageVariants={pageVariants}
+                    pageContainerVariants={pageContainerVariants}
+                    pageContentsVariants={pageContentsVariants}
                   />
                 </Route>             
             

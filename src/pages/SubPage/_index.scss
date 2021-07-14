@@ -1,8 +1,9 @@
-
+@import './SubPage';
 /// sub-page Blocks Communal
+@import './__Layout/SubPage__Layout';
+@import './__Contents/SubPage__Contents';
 @import './__MainContents/SubPage__MainContents';
 @import './__Top/SubPage__Top';
-@import './SubPage';
 
 /// each sub-page Block
 @import './-Oheya/SubPageOheya';

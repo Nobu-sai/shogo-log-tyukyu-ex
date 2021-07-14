@@ -1,6 +1,9 @@
-import React, { Component } from 'react'
+import { React, Component } from 'react'
+import { motion  } from 'framer-motion'
 
-import SubPage from '../SubPage';
+
+import SubPageLayout from '../__Layout/SubPageLayout';
+
 
 export default class SubPageOheya extends Component {
   constructor(props) {
@@ -59,26 +62,32 @@ export default class SubPageOheya extends Component {
           ]      
       }
     ]
-      
     
     return (
-      <div className="sub-page-oheya">        
-        <SubPage 
-          bgName={'oheya-header'}
-          pageTitle={'お部屋'}
-          currentPage={{
-            'link': '/oheya',
-            'name': 'oheya'
-          }}
-          IntroTextList={[
-            '創業より受け継がれてきた石井花壇の和の造り', 
-            '温海の雄大な絶景を堪能していただけるように設計された客室',
-            'ゆるやかに流れ行く時間に身を委ねて'
-          ]}
-          gridContents={gridContents}            
-          gridContentsAmount={3}
+      <div className="sub-page sub-page-oheya">   
 
-        />    
+        <SubPageLayout    
+            currentPage={{
+              'link': '/oheya',
+              'name': 'oheya'
+            }}     
+            pageTitle='お部屋'
+            IntroTextList={[
+              '創業より受け継がれてきた石井花壇の和の造り', 
+              '温海の雄大な絶景を堪能していただけるように設計された客室',
+              'ゆるやかに流れ行く時間に身を委ねて'
+            ]}
+            gridContents={gridContents}
+            gridContentsAmount={3}
+            bgName={'oheya-header'}
+          // Initial Animation related
+            isSiteFirstMount={this.props.isSiteFirstMount}
+            pageVariants={this.props.pageVariants}
+            pageContainerVariants={this.props.pageContainerVariants}
+            pageContentsVariants={this.props.pageContentsVariants}
+            
+        /> 
+        
       </div>
     )
   }

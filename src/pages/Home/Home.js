@@ -52,46 +52,6 @@ export default class Home extends Component {
 
     // let pathToImagesFolder = "../../assets/images"
 
-    const page = { 
-      exit: {
-        opacity: 0 
-      }
-    }
-
-    const pageContainer = {
-      initial: {
-        // opacity: 0       
-      },
-      animate: {
-        // opacity: 1,
-        animate: {
-          transition: { 
-            staggerChildren: 5.0, 
-            // delayChildren: 2.8 
-          },
-        },
-      },
-
-    }
-
-    const pageContents = (isSiteFirstMount) => ({
-      initial: {
-        opacity: 0,
-        y: '-100vh',
-      },
-      animate: {
-        y: 0,
-        opacity: 1,
-        transition: {
-          duration: 1.5,
-          delay: isSiteFirstMount ? 2.2 : 0,
-          ease: [0.6, -0.05, 0.01, 0.99],
-        },
-      }
-
-    })
-    
-
     return (
 
       <motion.div 
@@ -99,7 +59,7 @@ export default class Home extends Component {
         exitBeforeEnter
         className="home" 
         ref={home => this.home = home}
-        variants={page}
+        variants={this.props.pageVariants}
       >  
 
         
@@ -117,19 +77,22 @@ export default class Home extends Component {
             toggleReservationModal={this.toggleReservationModal}
             isSiteFirstMount={this.props.isSiteFirstMount}
         />        
-         {/* = Has Initial Animation */}
+         {/* 
+            = Has Initial Animation 
+            => OUTSIDE of the motion.div with pageContainer variant
+         */}
 
 
         <motion.div
           initial="initial"
           animate="animate"
-          variants={pageContainer}
+          variants={this.props.pageContainerVariants}
         >
 
           <motion.div
             initial="initial"
             animate="animate"
-            variants={pageContents(this.props.isSiteFirstMount)}
+            variants={this.props.pageContentsVariants(this.props.isSiteFirstMount)}
           >
             <HomeTop />        
             <HomeFeatures />

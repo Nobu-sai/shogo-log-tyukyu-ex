@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import SubPage from '../SubPage';
+import SubPageContents from '../__Contents/SubPageContents';
 import SubPageOnsenEffect from './__Effect/SubPageOnsen__Effect';
 
 
@@ -41,7 +41,7 @@ export default class SubPageOnsen extends Component {
     
     return (
       <div className="sub-page-onsen">        
-        <SubPage 
+        <SubPageContents 
           bgName={'onsen-header'}
           pageTitle={'温泉'}
           currentPage={{
