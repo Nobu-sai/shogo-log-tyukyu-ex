@@ -86,6 +86,7 @@ export default class SubPageOheya extends Component {
       pageContentsVariants: this.props.pageContentsVariants,
       
     }
+    console.log(this.props.pageVariants)
     
     return (
       <div className="sub-page sub-page-oheya">   

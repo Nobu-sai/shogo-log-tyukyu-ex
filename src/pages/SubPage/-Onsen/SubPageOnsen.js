@@ -71,6 +71,11 @@ export default class SubPageOnsen extends Component {
           gridContents={gridContents}  
           gridContentsAmount={2}
           customSection={<SubPageOnsenEffect />}          
+          // Initial Animation related
+          isSiteFirstMount={this.props.isSiteFirstMount}
+          pageVariants={this.props.pageVariants}
+          pageContainerVariants={this.props.pageContainerVariants}
+          pageContentsVariants={this.props.pageContentsVariants}
 
         />    
       

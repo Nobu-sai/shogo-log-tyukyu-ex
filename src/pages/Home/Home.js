@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import {Helmet} from "react-helmet";
-import { ReactDOM } from 'react-dom';
 import { motion } from "framer-motion"
 
 
-// import Header from '../../blocks/Header/Header';
 import StructuredDataBreadcrumbList from '../../blocks/StructuredData/StructuredData/__BreadcrumbList/StructuredData__BreadcrumbList';
-import InitialAnimation from '../../blocks/InitialAnimation/InitialAnimation';
 
 import Header from '../../blocks/Header/Header';
 import HomeTop from './HomeTop/HomeTop';
@@ -52,14 +49,16 @@ export default class Home extends Component {
 
     // let pathToImagesFolder = "../../assets/images"
 
+      console.log(this.props.pageVariants)
+
     return (
 
       <motion.div 
+        className="home" 
+        ref={home => this.home = home}        
         exit="exit"
         exitBeforeEnter
-        className="home" 
-        ref={home => this.home = home}
-        variants={this.props.pageVariants}
+        variants={this.props.pageVariants()}
       >  
 
         
@@ -86,7 +85,7 @@ export default class Home extends Component {
         <motion.div
           initial="initial"
           animate="animate"
-          variants={this.props.pageContainerVariants}
+          variants={this.props.pageContainerVariants()}
         >
 
           <motion.div

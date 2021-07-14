@@ -74,6 +74,11 @@ export default class SubPageOryori extends Component {
           ]}
           gridContents={gridContents}            
           gridContentsAmount={3}
+          // Initial Animation related
+          isSiteFirstMount={this.props.isSiteFirstMount}
+          pageVariants={this.props.pageVariants}
+          pageContainerVariants={this.props.pageContainerVariants}
+          pageContentsVariants={this.props.pageContentsVariants}
 
         />    
       </div>

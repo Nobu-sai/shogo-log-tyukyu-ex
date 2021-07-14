@@ -61,23 +61,18 @@ export default class SubPageBody extends Component {
 
 	return (
 		<motion.div
-			className="sub-page__body"
-			initial={{
-				width: '100%',
-				height: '100%',
-				display: 'flex',
-				flexDirection: 'column',
-				alignItems: 'cemnter',
-			}}
-			exit={{ opacity: 0 }}
-			exitBeforeEnter			
+			className="sub-page__body"	
+			exit="exit"
+			exitBeforeEnter
+			variants={this.props.pageVariants()}
+			
 		>
 			
 
-			{/* <Header 
+			<Header 
 			toggleReservationModal={this.toggleReservationModal}
 			isSiteFirstMount={this.props.isSiteFirstMount}
-			/>         */}
+			/>        
 				{/* 
 				= Has Initial Animation 
 				=> OUTSIDE of the motion.div with pageContainer variant         
@@ -86,14 +81,14 @@ export default class SubPageBody extends Component {
 			<motion.div
 				initial="initial"
 				animate="animate"
-				variants={this.props.pageContainerVariants}
+				variants={this.props.pageContainerVariants()}
 				className="sub-page__container"
 			>
 
 				<motion.div
 					initial="initial"
 					animate="animate"
-					// variants={this.props.pageContentsVariants(this.props.isSiteFirstMount)}										
+					variants={this.props.pageContentsVariants(this.props.isSiteFirstMount)}										
 					className="sub-page__contents"
 				>
 				
