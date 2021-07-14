@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import { motion  } from 'framer-motion'
-import {Helmet} from "react-helmet";
 
-import StructuredDataBreadcrumbList from '../../../blocks/StructuredData/StructuredData/__BreadcrumbList/StructuredData__BreadcrumbList';
+
 import Header from '../../../blocks/Header/Header';
-import SubPageContents from '../__MainContents/SubPage__MainContents';
 
 import SubPageTop from '../__Top/SubPage__Top';
 import SubPageMainContents from '../__MainContents/SubPage__MainContents';
 import Footer from '../../../blocks/Footer/Footer';
 import ReservationModal from '../../../blocks/ReservationModal/ReservationModal';
 
-export default class SubPageLayout extends Component {
+export default class SubPageBody extends Component {
 
 
   constructor(props) {
@@ -61,41 +59,20 @@ export default class SubPageLayout extends Component {
 		// console.log(window.location)
 		// console.log(`${window.location.origin}${window.location.pathname}`)
 
-		const breadcrumbListItems = 
-		[
-			{
-			url:`${window.location.origin}`, 
-			name:"Top",
-			},
-			{
-			url:`${window.location.origin}${window.location.pathname}`, 
-			name: `${pageTitle}`
-			}
-		]
-
 	return (
 		<motion.div
-			className="sub-page__layout"
-			  initial={{
-			    width: '100%',
-			    height: '100%',
-			    display: 'flex',
-			    flexDirection: 'column',
-			    alignItems: 'cemnter',
-			  }}
-			  exit={{ opacity: 0 }}
-			  exitBeforeEnter
-			//   className="sub-page__contents" 
+			className="sub-page__body"
+			initial={{
+				width: '100%',
+				height: '100%',
+				display: 'flex',
+				flexDirection: 'column',
+				alignItems: 'cemnter',
+			}}
+			exit={{ opacity: 0 }}
+			exitBeforeEnter			
 		>
 			
-			<Helmet>
-			<title>{pageTitle} - 石井花壇 | 温海温泉旅館【公式サイト】</title>
-			<meta property="og:type" content="website" />    
-			</Helmet>
-			
-			<StructuredDataBreadcrumbList 
-			breadcrumbListItems={breadcrumbListItems}
-			/> 
 
 			{/* <Header 
 			toggleReservationModal={this.toggleReservationModal}
@@ -110,15 +87,16 @@ export default class SubPageLayout extends Component {
 				initial="initial"
 				animate="animate"
 				variants={this.props.pageContainerVariants}
-				>
+				className="sub-page__container"
+			>
 
 				<motion.div
-				initial="initial"
-				animate="animate"
-				// variants={this.props.pageContentsVariants(this.props.isSiteFirstMount)}										
-				className="sub-page__contents-container"
+					initial="initial"
+					animate="animate"
+					// variants={this.props.pageContentsVariants(this.props.isSiteFirstMount)}										
+					className="sub-page__contents"
 				>
-				{/* Solution */}
+				
 					<div
 					className="sub-page__top-container"
 					>
@@ -161,18 +139,7 @@ export default class SubPageLayout extends Component {
 						</div>
 					}
 
-
-				{/* Issue */}
-					{/* <SubPageContents
-					bgName={this.props.bgName}
-					pageTitle={this.props.pageTitle}
-					currentPage={this.props.currentPage}
-					IntroTextList={this.props.IntroTextList}
-					gridContents={this.props.gridContents}            
-					gridContentsAmount={this.props.gridContentsAmount}
-					// className="sub-page__contents"
-
-					/>     */}
+			
 				
 				</motion.div>
 

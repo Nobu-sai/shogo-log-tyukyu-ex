@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 
-import SubPageContents from '../__Contents/SubPageContents';
+
+import SubPageHead from '../__Head/SubPageHead';
+import SubPageStructuredDataBreadcrumbList from '../__StructuredDataBreadcrumbList/SubPageStructuredDataBreadcrumbList';
+import SubPageBody from '../__Body/SubPageBody';
 import SubPageOnsenEffect from './__Effect/SubPageOnsen__Effect';
+
 
 
 export default class SubPageOnsen extends Component {
@@ -41,7 +45,15 @@ export default class SubPageOnsen extends Component {
     
     return (
       <div className="sub-page-onsen">        
-        <SubPageContents 
+        <SubPageHead 
+          pageTitle={'温泉'}
+        />
+
+        <SubPageStructuredDataBreadcrumbList
+          pageTitle={'温泉'}
+        />
+
+        <SubPageBody
           bgName={'onsen-header'}
           pageTitle={'温泉'}
           currentPage={{

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
-import SubPageContents from '../__Contents/SubPageContents';
+import SubPageHead from '../__Head/SubPageHead';
+import SubPageStructuredDataBreadcrumbList from '../__StructuredDataBreadcrumbList/SubPageStructuredDataBreadcrumbList';
+import SubPageBody from '../__Body/SubPageBody';
 
 export default class SubPageOryori extends Component {
   constructor(props) {
@@ -50,7 +52,15 @@ export default class SubPageOryori extends Component {
     
     return (
       <div className="sub-page-oryori">        
-        <SubPageContents 
+        <SubPageHead 
+          pageTitle={'お料理'}
+        />
+
+        <SubPageStructuredDataBreadcrumbList
+          pageTitle={'お料理'}
+        />
+
+        <SubPageBody
           bgName={'oryori-header'}
           pageTitle={'お料理'}
           currentPage={{
