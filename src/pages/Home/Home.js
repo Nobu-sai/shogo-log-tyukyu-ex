@@ -49,8 +49,6 @@ export default class Home extends Component {
 
     // let pathToImagesFolder = "../../assets/images"
 
-      console.log(this.props.pageVariants)
-
     return (
 
       <motion.div 
