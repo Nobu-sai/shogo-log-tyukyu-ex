@@ -8,7 +8,6 @@ import Home from './pages/Home/Home.js'
 import SubPageOheya from './pages/SubPage/-Oheya/SubPageOheya';
 import SubPageOryori from './pages/SubPage/-Oryori/SubPageOryori';
 import SubPageOnsen from './pages/SubPage/-Onsen/SubPageOnsen';
-// import InitialAnimation from './blocks/InitialAnimation/InitialAnimation';
 
 
 
@@ -21,13 +20,14 @@ const App = () => {
   
   
 
-
+  // Prevent MULTIPLE time execution of Initial Animation.
+  // = After the history Object is updated. 
   useEffect(() => {
-    const unlisten = history.listen(() => {
+    history.listen(() => {
       isSiteFirstMount && setIsSiteFirstMount(false);
     });
-    return unlisten;
-  }, [history, isSiteFirstMount]);
+    
+  }, [history]);
   
 
 
@@ -85,13 +85,11 @@ const App = () => {
 
   return (
       <div className='app'>
-        
-        {/* <InitialAnimation /> */}
+                
 
         <AnimatePresence>
             
-            <Switch
-              location={location} 
+            <Switch              
               key={location.pathname}
             >
                        
