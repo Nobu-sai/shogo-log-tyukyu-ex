@@ -281,12 +281,6 @@ body {
 
 @media (min-width: 200px) {
   .header {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 15vh;
-    min-height: 85px;
     overflow: visible;
     z-index: 1001;
   }
@@ -325,19 +319,6 @@ body {
     justify-content: center;
   }
 }
-@media (min-width: 1000px) {
-  .header {
-    height: 70px;
-    top: 0;
-    left: 0;
-  }
-}
-@media (min-width: 2000px) {
-  .header {
-    height: 140px;
-  }
-}
-
 @media (min-width: 200px) {
   .header__main {
     width: 100%;
@@ -361,6 +342,9 @@ body {
     align-items: center;
     justify-content: center;
   }
+}
+.header__initial-animation {
+  z-index: 2000;
 }
 @media (min-width: 200px) {
   .header__site-menu {
@@ -1164,9 +1148,6 @@ body {
   }
 }
 
-.header__initial-animation {
-  z-index: 2000;
-}
 @media (min-width: 200px) {
   .home__section-heading {
     width: 100%;

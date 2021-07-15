@@ -1,6 +1,6 @@
-@use '../../utilities/responsive';
-@use '../../utilities/mixins/background-image';
-@use '../../utilities/variables/base-color';
+@use '../../../utilities/responsive';
+@use '../../../utilities/mixins/background-image';
+@use '../../../utilities/variables/base-color';
 
 .header__initial-animation {
 	z-index: 2000;

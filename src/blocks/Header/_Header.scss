@@ -1,19 +1,19 @@
 @use '../../utilities/variables/font-size';
 @use '../../utilities/responsive';
 
-// .header__grid-container 
+// .header & .header__grid-container 
   // : Styled in Header.js
   // * The assignment of Grid Areas are done here. 
 
 .header {
   @include responsive.respond-to('min', '200') {
-    position: fixed;
-    bottom: 0;
-    left: 0; 
+    // position: fixed;
+    // bottom: 0;
+    // left: 0; 
 
-    width: 100vw;
-    height: 15vh;
-    min-height: 85px;
+    // width: 100vw;
+    // height: 15vh;
+    // min-height: 85px;
 
     // z-index: 1002;
     overflow: visible;
@@ -87,9 +87,9 @@
 
 
   @include responsive.respond-to('min', '1000') {
-    height: 70px;
-    top: 0;
-    left: 0;
+    // height: 70px;
+    // top: 0;
+    // left: 0;
   
 
     &__grid-container {
@@ -103,7 +103,7 @@
   } 
 
   @include responsive.respond-to('min', '2000') {
-    height: 140px; 
+    // height: 140px; 
   } 
 
 }

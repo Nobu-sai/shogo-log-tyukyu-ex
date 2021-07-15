@@ -33,7 +33,10 @@ const App = () => {
 
     const pageVariants = () => ({ 
       exit: {
-        opacity: 0 
+        opacity: 0, 
+        // transition: {
+        //   duration: 4.0,
+        // }
       }
     })
 

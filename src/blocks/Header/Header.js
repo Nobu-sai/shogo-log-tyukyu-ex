@@ -173,6 +173,74 @@ class Header extends Component {
 
   }
 
+    // setHeaderHeight() 
+    
+    setHeaderLayout(screenSize) {
+      // console.log(screenSize)    
+
+      let top;
+      let bottom;
+      if(this.state.windowWidth <= 1000) {
+
+        top = null
+        bottom = 0
+      } else {
+        top = 0
+        bottom = null
+      }
+      
+      return {
+        initial: {          
+          position: 'fixed',
+          top: top,
+            // screenSize == 'smallScrees'
+            // ? 'auto'
+            // : '0',
+          bottom: bottom,
+            // screenSize == 'smallScreens'
+            // ? '0'
+            // : 'auto',
+          left: '0',
+          width: '100vw',			
+          height: '100vh',              
+          display: 'grid',
+          gridTemplate:
+          // The ASSIGNMENT of Grid Areas need to be 
+            // : The SAME in both state (initial and animate)
+            // : The DIFFERENT in different screen sizes. 
+            // P
+              // : Otherwise, the animation of LAYOUT isn't smooth. 
+          screenSize == 'smallScreens' 
+          ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 0% 100% 0%"
+          : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 100% 0% 0%",
+          overflow: 'visible',
+        },
+        animate: {                      
+            height: '15vh',
+            gridTemplate:               
+              screenSize == 'smallScreens' 
+              ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
+              : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",           
+          
+            transition: {            
+            duration: 1.5,
+            delay:  
+                // Needs to be the least time MORE than the Low Order motion variants in HeaderMain/... 
+              screenSize == 'smallScreens' 
+              ? 1.7
+                // : HeaderMain/.../textContainer variants = 0.1s
+                // : HeaderMain/.../motionRect variants = 1.5s
+              : 2.0,
+                // : HeaderMain/.../textContainer variants = 1.5s
+                // : HeaderMain/.../motionRect variants = 1.5s
+            ease: [0.87, 0, 0.13, 1],
+            }, 
+        },        
+      }
+
+
+    }
+      
   
 
   render() {
@@ -188,50 +256,38 @@ class Header extends Component {
     if(siteMenuVisibility === 'show') {
       headerHasBoxShadow = false
     }
-  
-    
-    const initialAnimationBG = (screenSize) =>  {
-      console.log(screenSize)
-      return {
-        initial: {          
-          width: '100vw',			
-          height: '100vh',              
-          display: 'grid',
-          gridTemplate:
-          // The ASSIGNMENT of Grid Areas need to be 
-            // : The SAME in both state (initial and animate)
-            // : The DIFFERENT in different screen sizes. 
-            // P
-              // : Otherwise, the animation of LAYOUT isn't smooth. 
-          screenSize == 'smallScreens' 
-          ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 0% 100% 0%"
-          : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 100% 0% 0%",
-        
-        },
-        animate: {          
-            height: '15vh',
-            gridTemplate:               
-              screenSize == 'smallScreens' 
-              ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
-              : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",           
-          
-            transition: {            
-            duration: 1.5,
-            delay:  
-                // Needs to be the least time MORE than the Low Order motion variants in HeaderMain/... 
-              screenSize == 'smallScreens' 
-              ? 1.7
-                // : HeaderMain/.../textContainer variants = 0.1s
-                // : HeaderMain/.../motionRect variants = 1.5s
-              : 3.0,
-                // : HeaderMain/.../textContainer variants = 1.5s
-                // : HeaderMain/.../motionRect variants = 1.5s
-            ease: [0.87, 0, 0.13, 1],
-            }, 
-        },
-      };
+
+    let top;
+    let bottom;
+    if(this.state.windowWidth <= 1000) {
+
+      top = null
+      bottom = 0
+    } else {
+      top = 0
+      bottom = null
     }
-      
+    
+    const headerStyle = {
+      position: 'fixed',
+      top: top,
+        // this.state.windowWidth <= 1000
+        //       ? ''
+        //       : '0',
+      bottom: bottom,
+        // this.state.windowWidth <= 1000
+        // ? '0'
+        // : '',
+      left: 0,
+      width: '100vw',
+      height: '15vh',
+      display: 'grid',
+      gridTemplate:                           
+        this.state.windowWidth <= 1000 
+        ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
+        : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
+      overflow: 'visible',
+    }
 
     return (
 
@@ -249,9 +305,44 @@ class Header extends Component {
           ref={header => this.header = header }
 
           // Initial Animation
-          initial="initial"
-          animate="animate"
-          variants={initialAnimationBG(this.state.windowWidth <= 1000 ? 'smallScreens' : 'largeScreens')}
+          initial={this.props.isSiteFirstMount ? "initial" : ""}
+          animate={this.props.isSiteFirstMount ? "animate" : ""}
+          // basicStyle={this.props.isSiteFirstMount ? "" : "basicStyle"}
+          style={
+            
+            {
+              position: headerStyle.position,
+              top: headerStyle.top,
+              bottom: headerStyle.bottom,
+              left: headerStyle.left,
+              width: headerStyle.width,
+              height: headerStyle.height,
+              display: headerStyle.display,
+              gridTemplate: headerStyle.gridTemplate,
+              overflow: headerStyle.overflow,
+            //   position: 'fixed',
+            // top:
+            //   0,
+            //   // screenSize == 'smallScrees'
+            //   // ? 'auto'
+            //   // : '0',
+            // // bottom: 
+            //   // screenSize == 'smallScreens'
+            //   // ? '0'
+            //   // : 'auto',
+            // left: 0,
+            // width: '100vw',
+            // height: '15vh',
+            // display: 'grid',
+            // gridTemplate:               
+            //   "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
+            //   // screenSize == 'smallScreens' 
+            //   // ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
+            //   // : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
+            // overflow: 'visible',
+          }
+        }
+          variants={this.setHeaderLayout(this.state.windowWidth <= 1000 ? 'smallScreens' : 'largeScreens')}
           onAnimationStart={() => {
 
             this.controllScrollingUnderneath(true);
