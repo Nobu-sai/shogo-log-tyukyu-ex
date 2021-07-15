@@ -23,11 +23,16 @@ export default class Home extends Component {
           
       }
       this.toggleReservationModal = this.toggleReservationModal.bind(this);      
+      // this.homeBody = React.createRef()  
     }
 
   componentDidMount() {
+    // When the user linked from another page.
+    // => Scroll to the top of the page. 
     window.scrollTo(0, 0);
+
   }
+
 
   toggleReservationModal() {
     console.log()
@@ -53,7 +58,7 @@ export default class Home extends Component {
 
       <motion.div 
         className="home" 
-        ref={home => this.home = home}        
+        ref={homeBody => this.homeBody = homeBody}        
         exit="exit"
         exitBeforeEnter
         variants={this.props.pageVariants()}

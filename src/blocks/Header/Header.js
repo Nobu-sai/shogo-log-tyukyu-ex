@@ -43,7 +43,7 @@ class Header extends Component {
     }, 200)
     
     this.setHeaderColor();
-  
+      
   }
 
   componentDidUpdate() {
@@ -121,15 +121,21 @@ class Header extends Component {
     
   }
 
-  controllScrollingUnderneath(hide) {
+
+  controllScrollingUnderneath(hide, scrollToTop) {
     // Call Sites
     // : componendDidMount()
     // : setSiteMenuMotionIntoViewpoint() 
       //  Which is Called everytime the this.handleOnClick() is Called or everytime Header visibility changes.
         
     // console.log("controllScrollingUnderneath()/above if", hide);
-    // console.log("controllScrollingUnderneath()/above if", document.body);
 
+  	// Scroll to the TOP. When the user Refreshed the page MIDWAY a page.
+      // P
+        // : Placing the screen MIDWAY AFTER the initial animation is wierd. 
+    window.scrollTo(0, 0);
+
+    // Conditionally set overflow Property to the body Tag. 
     if(window.innerWidth >= 1000 && !hide === true) {
       // console.log("window.innerWidth >= 1000 && !hide === true", document.body);
 
@@ -140,8 +146,7 @@ class Header extends Component {
     } else {
 
       if(this.state.siteMenuVisibility || hide === true)  {
-          // console.log("this.state.siteMenuVisibility || hide === true/1", document.body);
-
+          // console.log("this.state.siteMenuVisibility || hide === true/1", document.body);          
           document.body.style.overflow = 'hidden';
 
           // console.log("this.state.siteMenuVisibility || hide === true/2", document.body);;
@@ -154,11 +159,10 @@ class Header extends Component {
           // console.log("!this.state.siteMenuVisibility || hide === false/2", document.body);
 
 
-      } 
+      }     
 
     }
-
-    // console.log("controllScrollingUnderneath()/under if", document.body);
+    
 
   }
 

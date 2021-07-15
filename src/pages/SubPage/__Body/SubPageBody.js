@@ -25,6 +25,8 @@ export default class SubPageBody extends Component {
   }
 
   componentDidMount() {
+	// When the user linked from another page.
+    // => Scroll to the top of the page. 
     window.scrollTo(0, 0);
 
   } 

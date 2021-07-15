@@ -28,8 +28,10 @@ const blackBox =
 	};
       
 
-export default function InitialAnimation(props) {		
-
+export default function InitialAnimation(props) {			
+	
+	      
+	      
 	return (		
 		<motion.div
 			className="initial-animation"
@@ -37,12 +39,12 @@ export default function InitialAnimation(props) {
 			animate="animate"
 			variants={blackBox}
 			onAnimationStart={() => {
-				
-				props.controllScrollingUnderneath(true)
+
+				props.controllScrollingUnderneath(true, true);
 				
 			}}
 			onAnimationComplete={() => {				
-				props.controllScrollingUnderneath(false)				
+				props.controllScrollingUnderneath(false)								
 
 			}}
 		>     

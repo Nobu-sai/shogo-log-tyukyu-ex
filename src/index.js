@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter       
+    <BrowserRouter  
     >
       {/* 
       : BrowserRouter needs to Render here as the Higher Order Component of App.js using useLocation() Hook

@@ -11,11 +11,16 @@ import SubPageOnsen from './pages/SubPage/-Onsen/SubPageOnsen';
 // import InitialAnimation from './blocks/InitialAnimation/InitialAnimation';
 
 
+
 const App = () => {
 
   const [isSiteFirstMount, setIsSiteFirstMount] = useState(true);
   const history = useHistory();
   const location = useLocation();
+
+  
+  
+
 
   useEffect(() => {
     const unlisten = history.listen(() => {
@@ -53,7 +58,7 @@ const App = () => {
     const pageContentsVariants = (isSiteFirstMount) => ({
       initial: {
         opacity: 0,
-        y: '-100vh',
+        y: '-20vh',
         width: '100%',
         height: '100%'
       },
@@ -61,13 +66,21 @@ const App = () => {
         y: 0,
         opacity: 1,
         transition: {
-          duration: 1.5,
-          delay: isSiteFirstMount ? 2.2 : 0,
-          ease: [0.6, -0.05, 0.01, 0.99],
+          duration: 3.0,
+          delay: isSiteFirstMount ? 3.2 : 0,
+          // duration and delay Properties.
+            // : This time is the LEAST requirement, otherwise the scrolling is done AFTER the animation was done.
+              // : This is for the sake of reserving enoughtime used by scrolling to the top AFTER the Initial Animation AFTER REFRESHING a page)
+                // * The scrolling is done by window.scrollToTop() in Header/controllScrollingUnderneath()), 
+                //   Meaning, the MIDWAY page contents is seen a little.
+                  // * This seems the matter of the process order of Browser Stack.
+                    //  * https://www.evernote.com/shard/s350/nl/180370944/6856dfde-0ed2-3837-6868-3b8c166e4adc?title=(Shogo)%20%E4%B8%AD%E7%B4%9AEx/%22Issue%22%20=%20Cannot%20scroll%20to%20the%20TOP%20of%20page%20AFTER%20Reloading%20the%20page. / Research.2
+          ease: [0.6, 0.05, 0.02, 0.99],
         },
       }
 
     })
+    
     
 
   return (
@@ -82,7 +95,7 @@ const App = () => {
               key={location.pathname}
             >
                        
-                <Route path='/oheya'>
+                <Route path='/oheya'>                  
                   <SubPageOheya 
                     isSiteFirstMount={isSiteFirstMount}  
                     pageVariants={pageVariants}
@@ -109,7 +122,7 @@ const App = () => {
                   />
                 </Route>                            
 
-                <Route exact path='/'>
+                <Route exact path='/'>                  
                   <Home 
                     isSiteFirstMount={isSiteFirstMount}
                     pageVariants={pageVariants}
