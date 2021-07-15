@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { withRouter } from "react-router";
 import $ from 'jquery';
+import { motion } from 'framer-motion';
 
 
 // Components
@@ -172,6 +173,7 @@ class Header extends Component {
 
   }
 
+  
 
   render() {
 
@@ -188,10 +190,62 @@ class Header extends Component {
     }
   
     
+    const initialAnimationBG = (screenSize) =>  {
+      console.log(screenSize)
+      return {
+        initial: {
+          // position: 'fixed',						
+          // left: 0,
+          // bottom: 0,
+          // zIndex: 1050,
+          width: '100vw',			
+          height: '100vh',    
+          // backgroundColor: 'hsl(0, 0%, 0%)',
+          // display: 'flex',
+          // alignItems: 'center',
+          // justifyContent: 'center',
+          display: 'grid',
+          gridTemplate:
+          // The ASSIGNMENT of Grid Areas need to be 
+            // : The SAME in both state (initial and animate)
+            // : The DIFFERENT in different screen sizes. 
+            // P
+              // : Otherwise, the animation of LAYOUT isn't smooth. 
+          screenSize == 'smallScreens' 
+          ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 0% 100% 0%"
+          : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 100% 0% 0%",
+        
+        },
+        animate: {          
+            height: '15vh',
+            gridTemplate:               
+              screenSize == 'smallScreens' 
+              ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
+              : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",           
+          
+            transition: {
+            // when: "afterChildren",
+            duration: 1.5,
+            delay:  
+                // Needs to be the least time waiting for Children 
+              screenSize == 'smallScreens' 
+              ? 1.7
+                // : textContainer = 0.1s
+                // : motionRect = 1.5s
+              : 3.0,
+                // : textContainer = 1.5s
+                // : motionRect = 1.5s
+            ease: [0.87, 0, 0.13, 1],
+            }, 
+        },
+      };
+    }
+      
+
     return (
 
 
-      <div 
+      <motion.div 
         className=
           {
             `
@@ -202,6 +256,20 @@ class Header extends Component {
             `
           }        
           ref={header => this.header = header }
+
+          // Initial Animation
+          initial="initial"
+          animate="animate"
+          variants={initialAnimationBG(this.state.windowWidth <= 1000 ? 'smallScreens' : 'largeScreens')}
+          onAnimationStart={() => {
+
+            this.controllScrollingUnderneath(true);
+            
+          }}
+          onAnimationComplete={() => {				
+            this.controllScrollingUnderneath(false)								
+
+          }}
 
       >
       
@@ -214,6 +282,7 @@ class Header extends Component {
             handleOnClick={this.handleOnClick}
             controllScrollingUnderneath={this.controllScrollingUnderneath}
             isSiteFirstMount={this.props.isSiteFirstMount}
+            windowWidth={this.state.windowWidth <= 1000 ? 'smallScreens' : 'largeScreens'}
           />
         </div>
 
@@ -250,7 +319,7 @@ class Header extends Component {
           </div>
 
         }
-      </div>
+      </motion.div>
     
     )
   }

@@ -1,54 +1,67 @@
 import { React, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 import InitialAnimationText from './__Text/InitialAnimation__Text';
-
-const blackBox = 
-	{
-		initial: {
-			position: 'fixed',						
-			left: 0,
-			bottom: 0,
-			zIndex: 1050,
-			width: '100vw',			
-			height: '100vh',    
-			backgroundColor: 'hsl(0, 0%, 0%)',
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'center',
-		},
-		animate: {
-		 	 height: 0,   
-			  transition: {
-				when: "afterChildren",
-				duration: 1.5,
-				ease: [0.87, 0, 0.13, 1],
-			  }, 
-		},
-	};
-      
-
 export default function InitialAnimation(props) {			
 	
-	      
+	console.log(props.windowWidth);
+	
+	const textContainer = (screenSize) => {
+		console.log(screenSize)
+		return {
+			initial: {			
+				// position: 'fixed'			,
+				// top: '0',
+				// left: '0',
+				width: '100vw',			
+				height: '100%',    
+				backgroundColor: 'hsl(0, 0%, 0%)',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				// Without Flexbox, the SVG animation doesn't work. 
+			},
+			animate: {		 				
+				// position: 'static',	
+				width: '100%',
+				//   height: '100%',
+				transition: {
+					when: "afterChildren",
+					duration: 
+						screenSize == 'smallScreens'
+						? 0.1
+						: 1.5,
+					ease: [0.87, 0, 0.13, 1],
+				}, 
+			},
+		};
+	
+	}
+		
 	      
 	return (		
 		<motion.div
-			className="initial-animation"
+			className="header__initial-animation"
 			initial="initial"
 			animate="animate"
-			variants={blackBox}
-			onAnimationStart={() => {
-
-				props.controllScrollingUnderneath(true);
-				
+				// Without this, the text SVG animation doesn't work as well. 
+			style={{
+				zIndex: 2000,
 			}}
-			onAnimationComplete={() => {				
-				props.controllScrollingUnderneath(false)								
-
-			}}
+			variants={textContainer(props.windowWidth)}			
 		>     
-			<InitialAnimationText />
+			<Link 
+				className={`link link_color_${props.contentsColor} header__main-link header__main_flex-container`}
+				to='/'
+				onClick={props.handleOnClick}
+			>
+				<InitialAnimationText 
+					contentsColor={props.contentsColor}
+				/>
+					
+			</Link>
+			
 		</motion.div>
 	
 	)

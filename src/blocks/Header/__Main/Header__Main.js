@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import InitialAnimation from '../../InitialAnimation/InitialAnimation';
 
 export default class HeaderMain extends Component {
@@ -24,17 +24,20 @@ export default class HeaderMain extends Component {
             this.props.isSiteFirstMount &&
             <InitialAnimation 
               controllScrollingUnderneath={this.props.controllScrollingUnderneath}            
+              handleOnClick={this.props.handleOnClick}
+              contentsColor={this.props.contentsColor}
+              windowWidth={this.props.windowWidth}
             /> 
 
           }
-          <Link 
+          {/* <Link 
             className={`link link_color_${this.props.contentsColor} header__main_flex-container`}
             to='/'
             onClick={this.props.handleOnClick}
           >
             <div className={`header__main-logo header__main-logo_color_${this.props.contentsColor}`}></div>
             <div className={`header__main-title header__main-title_color_${this.props.contentsColor}`}>石井花壇</div>
-          </Link>
+          </Link> */}
       </div>
     )
   }

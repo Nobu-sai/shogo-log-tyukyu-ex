@@ -2,7 +2,8 @@
 @use '../../utilities/mixins/background-image';
 @use '../../utilities/variables/base-color';
 
-.initial-animation {
+.header__initial-animation {
+	z-index: 2000;
 	// position: fixed;
 	// top: 0;
 	// left: 0;

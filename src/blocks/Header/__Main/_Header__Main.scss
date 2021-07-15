@@ -20,105 +20,117 @@
       color: #000;
     }
 
-    &_flex-container {
+    // &_flex-container {
 
-      padding: 4px;
-      width: 100%;
-      height: 100%;
+    //   padding: 4px;
+    //   width: 100%;
+    //   height: 100%;
 
-      display: flex;
-      flex-direction: column; 
-      align-items: center;
-      justify-content: space-evenly;
+    //   display: flex;
+    //   flex-direction: column; 
+    //   align-items: center;
+    //   justify-content: space-evenly;
       
       
-    } 
+    // } 
 
-    &-logo {    
-      position: absolute;  
-      top: -25%;
-      left: auto;
+    // &-logo {    
+    //   position: absolute;  
+    //   top: -25%;
+    //   left: auto;
 
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      background-position: center;
-      background-size: 70%;
-      background-repeat: no-repeat;
+    //   border-radius: 50%;
+    //   width: 60px;
+    //   height: 60px;
+    //   background-position: center;
+    //   background-size: 70%;
+    //   background-repeat: no-repeat;
 
-      z-index: 1001;
+    //   z-index: 1001;
 
-        &_color_white {
-          box-shadow: 4px 4px 14px 4px hsla(0, 0%, 0%, 0.9);        
-          background-color:hsla(0, 0%, 0%, 0.9);                 
-          @include background-image.background-image('sakura-logo-white');
+    //     &_color_white {
+    //       box-shadow: 4px 4px 14px 4px hsla(0, 0%, 0%, 0.9);        
+    //       background-color:hsla(0, 0%, 0%, 0.9);                 
+    //       @include background-image.background-image('sakura-logo-white');
           
 
-        }
-        &_color_black {
-          box-shadow: 4px 4px 14px 4px hsla(0, 0%, 100%, 0.9);                  
-          background-color:hsla(0, 0%, 100%, 0.9);         
-          @include background-image.background-image('sakura-logo-black');
+    //     }
+    //     &_color_black {
+    //       box-shadow: 4px 4px 14px 4px hsla(0, 0%, 100%, 0.9);                  
+    //       background-color:hsla(0, 0%, 100%, 0.9);         
+    //       @include background-image.background-image('sakura-logo-black');
           
 
-        }
+    //     }
+    //   }
+
+      &_link  {
+        width: 100%;
+        height: 100%;
       }
-    }
+    
+      &_svg {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
     
-    &-title {
-      margin-top: 14px;
-      font-size: #{font-size.$medium}px;
-      // font-family: 'Sawarabi Mincho', sans-serif;;
-      justify-self: start;  
-      &_color_black {
-        color: #000;        
-      }
-      &_color_white {
-        color: #fff;        
-      }
+    // &-title {
+    //   margin-top: 14px;
+    //   font-size: #{font-size.$medium}px;
+    //   // font-family: 'Sawarabi Mincho', sans-serif;;
+    //   justify-self: start;  
+    //   &_color_black {
+    //     color: #000;        
+    //   }
+    //   &_color_white {
+    //     color: #fff;        
+    //   }
     } 
 
   @include responsive.respond-to('min', '1000') {
     
-    &_flex-container {
-      padding: 0 14px;
-      flex-direction: row;
-      justify-content: start;
+    // &_flex-container {
+    //   padding: 0 14px;
+    //   flex-direction: row;
+    //   justify-content: start;
 
-    }
+    // }
 
-    &-logo {      
-      position: static;
+    // &-logo {      
+    //   position: static;
 
-      box-shadow: none;
-      border-radius: 0;
-      width: 40px;
-      height: 40px;
+    //   box-shadow: none;
+    //   border-radius: 0;
+    //   width: 40px;
+    //   height: 40px;
 
-      background-color: transparent;
-    }
+    //   background-color: transparent;
+    // }
 
-    &-title {
-      margin-top: 0;
-      margin-left: 14px;
-      font-size: #{font-size.$medium}px;
-    }
+    // &-title {
+    //   margin-top: 0;
+    //   margin-left: 14px;
+    //   font-size: #{font-size.$medium}px;
+    // }
 
   }
 
   @include responsive.respond-to('min', '2000') {
-    &_flex-container {      
-      padding: 0 #{font-size.$base * 2};
-    }  
-    &-logo {
-      // margin-left: 28px;
-      width: 80px;
-      height: 80px;
-    }
-    &-title {
-      font-size: #{font-size.$medium * 2 }px;
-    }
+  //   &_flex-container {      
+  //     padding: 0 #{font-size.$base * 2};
+  //   }  
+  //   &-logo {
+  //     // margin-left: 28px;
+  //     width: 80px;
+  //     height: 80px;
+  //   }
+  //   &-title {
+  //     font-size: #{font-size.$medium * 2 }px;
+  //   }
   } 
 
 }

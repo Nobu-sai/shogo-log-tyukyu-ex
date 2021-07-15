@@ -1,6 +1,9 @@
 @use '../../utilities/variables/font-size';
 @use '../../utilities/responsive';
 
+// .header__grid-container 
+  // : Styled in Header.js
+  // * The assignment of Grid Areas are done here. 
 
 .header {
   @include responsive.respond-to('min', '200') {
@@ -12,7 +15,7 @@
     height: 15vh;
     min-height: 85px;
 
-    z-index: 1002;
+    // z-index: 1002;
     overflow: visible;
      
     z-index: 1001;
@@ -38,14 +41,14 @@
       // -> Assign each Grid Area to the Grid Template Area.
     
       &__grid-container {
-        display: grid;
+        // display: grid;
 
-        grid-template:
-        [row1-start] "reservation main site-menu-button" 100% [row1-end]
-        / 30% 40% 30%; 
+        // grid-template:
+        // [row1-start] "reservation main site-menu-button" 100% [row1-end]
+        // / 30% 40% 30%; 
       
-        place-content: center space-evenly;
-        place-items: center center;  
+        // place-content: center space-evenly;
+        // place-items: center center;  
 
       }
       
@@ -59,7 +62,7 @@
           grid-area: main;
           // background-color: blue;
           position: relative;
-          z-index: 1001;
+          z-index: 1003;
         }
         &_site-menu {
           grid-area: site-menu;
@@ -91,9 +94,9 @@
 
     &__grid-container {
 
-      grid-template:
-      [row1-start] "main site-menu reservation" 100% [row1-end]
-      / 20% 60% 20%; 
+      // grid-template:
+      // [row1-start] "main site-menu reservation" 100% [row1-end]
+      // / 20% 60% 20%; 
 
       
     } 
