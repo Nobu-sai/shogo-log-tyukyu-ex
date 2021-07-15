@@ -193,17 +193,9 @@ class Header extends Component {
     const initialAnimationBG = (screenSize) =>  {
       console.log(screenSize)
       return {
-        initial: {
-          // position: 'fixed',						
-          // left: 0,
-          // bottom: 0,
-          // zIndex: 1050,
+        initial: {          
           width: '100vw',			
-          height: '100vh',    
-          // backgroundColor: 'hsl(0, 0%, 0%)',
-          // display: 'flex',
-          // alignItems: 'center',
-          // justifyContent: 'center',
+          height: '100vh',              
           display: 'grid',
           gridTemplate:
           // The ASSIGNMENT of Grid Areas need to be 
@@ -223,18 +215,17 @@ class Header extends Component {
               ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
               : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",           
           
-            transition: {
-            // when: "afterChildren",
+            transition: {            
             duration: 1.5,
             delay:  
-                // Needs to be the least time waiting for Children 
+                // Needs to be the least time MORE than the Low Order motion variants in HeaderMain/... 
               screenSize == 'smallScreens' 
               ? 1.7
-                // : textContainer = 0.1s
-                // : motionRect = 1.5s
+                // : HeaderMain/.../textContainer variants = 0.1s
+                // : HeaderMain/.../motionRect variants = 1.5s
               : 3.0,
-                // : textContainer = 1.5s
-                // : motionRect = 1.5s
+                // : HeaderMain/.../textContainer variants = 1.5s
+                // : HeaderMain/.../motionRect variants = 1.5s
             ease: [0.87, 0, 0.13, 1],
             }, 
         },
