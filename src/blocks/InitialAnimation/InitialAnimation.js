@@ -40,7 +40,7 @@ export default function InitialAnimation(props) {
 			variants={blackBox}
 			onAnimationStart={() => {
 
-				props.controllScrollingUnderneath(true, true);
+				props.controllScrollingUnderneath(true);
 				
 			}}
 			onAnimationComplete={() => {				

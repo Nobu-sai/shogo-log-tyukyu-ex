@@ -122,7 +122,12 @@ class Header extends Component {
   }
 
 
-  controllScrollingUnderneath(hide, scrollToTop) {
+  scrollToTop() {
+    window.scrollTo(0, 0);
+    
+  }
+
+  controllScrollingUnderneath(hide) {
     // Call Sites
     // : componendDidMount()
     // : setSiteMenuMotionIntoViewpoint() 
@@ -130,10 +135,11 @@ class Header extends Component {
         
     // console.log("controllScrollingUnderneath()/above if", hide);
 
+
   	// Scroll to the TOP. When the user Refreshed the page MIDWAY a page.
       // P
         // : Placing the screen MIDWAY AFTER the initial animation is wierd. 
-    window.scrollTo(0, 0);
+    this.scrollToTop()
 
     // Conditionally set overflow Property to the body Tag. 
     if(window.innerWidth >= 1000 && !hide === true) {

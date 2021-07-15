@@ -71,7 +71,7 @@ const App = () => {
           // duration and delay Properties.
             // : This time is the LEAST requirement, otherwise the scrolling is done AFTER the animation was done.
               // : This is for the sake of reserving enoughtime used by scrolling to the top AFTER the Initial Animation AFTER REFRESHING a page)
-                // * The scrolling is done by window.scrollToTop() in Header/controllScrollingUnderneath()), 
+                // * The scrolling is done by window.scrollToTop() Called from Header/scrollToTop() Called from Header/controllScrollingUnderneath()), 
                 //   Meaning, the MIDWAY page contents is seen a little.
                   // * This seems the matter of the process order of Browser Stack.
                     //  * https://www.evernote.com/shard/s350/nl/180370944/6856dfde-0ed2-3837-6868-3b8c166e4adc?title=(Shogo)%20%E4%B8%AD%E7%B4%9AEx/%22Issue%22%20=%20Cannot%20scroll%20to%20the%20TOP%20of%20page%20AFTER%20Reloading%20the%20page. / Research.2
