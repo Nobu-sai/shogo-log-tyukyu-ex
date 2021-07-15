@@ -66,7 +66,7 @@ export default function InitialAnimationText() {
 				/>
 			</pattern>
 			<text				
-				text-anchor="middle"
+				textAnchor="middle"
 				x="50%"
 				y="50%"
 				style={{
