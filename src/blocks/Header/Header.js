@@ -224,16 +224,21 @@ class Header extends Component {
           
             transition: {            
             duration: 1.5,
-            delay:  
-                // Needs to be the least time MORE than the Low Order motion variants in HeaderMain/... 
-              screenSize == 'smallScreens' 
-              ? 1.7
-                // : HeaderMain/.../textContainer variants = 0.1s
-                // : HeaderMain/.../motionRect variants = 1.5s
-              : 2.6,
-                // : HeaderMain/.../textContainer variants = 1.0s
-                // : HeaderMain/.../motionRect variants = 1.5s
-            ease: [0.87, 0, 0.13, 1],
+            delay: 2.5,
+              // smallScreens
+                // : HeaderMain/.../setInitialAnimationBGVariants = 0.1s
+                // : HeaderMain/.../setTextContainerVariants = 1.5s
+                // : X HeaderMain/.../setMotionRectVariants = 2.5s
+                  //  * NOT set "afterChild"
+                // : HeaderMain/.../setTextVariants = 1.0s 
+                // largeScreens & largeScreensExtra
+                  // : HeaderMain/.../setInitialAnimationBGVariants = 1.0s
+                  // : HeaderMain/.../setTextContainerVariants = 1.5s
+                  // : X HeaderMain/.../setMotionRectVariants = 1.5s
+                    //  * NOT set "afterChild"
+                  // : HeaderMain/.../setTextVariants = 1.0s
+            ease:  
+              [0.87, 0, 0.13, 1],
             }, 
         },              
       }
@@ -241,7 +246,7 @@ class Header extends Component {
 
     }
 
-    setHeaderAnimationStyle() {
+    setHeaderStyle() {
 
       let top;
       let bottom;
@@ -287,6 +292,17 @@ class Header extends Component {
       headerHasBoxShadow = false
     }
 
+    let screenSize;
+    if(this.state.windowWidth < 1000)  {
+      screenSize = 'smallScreens';
+
+    } else if (this.state.windowWidth < 2000) {
+      screenSize =  'largeScreens'
+
+    } else if (this.state.windowWidth > 2000) {
+      screenSize = 'largeScreensExtra';
+    }
+
     return (
 
 
@@ -306,9 +322,9 @@ class Header extends Component {
           initial={this.props.isSiteFirstMount ? "initial" : ""}
           animate={this.props.isSiteFirstMount ? "animate" : ""}          
           style={
-            this.props.isSiteFirstMount ? "" : this.setHeaderAnimationStyle()    
+            this.props.isSiteFirstMount ? "" : this.setHeaderStyle()    
         }
-          variants={this.setHeaderAnimationStyleVariants(this.state.windowWidth <= 1000 ? 'smallScreens' : 'largeScreens')}
+          variants={this.setHeaderAnimationStyleVariants(screenSize)}
           onAnimationStart={() => {
 
             this.controllScrollingUnderneath(true);
@@ -327,10 +343,11 @@ class Header extends Component {
         >
           <HeaderMain 
             contentsColor={this.state.contentsColor}
+            headerColor={this.state.headerColor}
             handleOnClick={this.handleOnClick}
             controllScrollingUnderneath={this.controllScrollingUnderneath}
             isSiteFirstMount={this.props.isSiteFirstMount}
-            screenSize={this.state.windowWidth <= 1000 ? 'smallScreens' : 'largeScreens'}
+            screenSize={screenSize}
           />
         </div>
 

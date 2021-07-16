@@ -350,7 +350,7 @@ body {
 }
 @media (min-width: 200px) {
   .header__title {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 @media (min-width: 1000px) {
