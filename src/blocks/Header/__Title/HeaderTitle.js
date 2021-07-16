@@ -8,7 +8,7 @@ export default function HeaderTitle(props) {
 	
 	const textContainer = (screenSize) => {
 		// console.log(screenSize)
-		
+
 		return {
 			initial: {			
 				width: '100vw',			
@@ -24,6 +24,7 @@ export default function HeaderTitle(props) {
 				transition: {
 					when: "afterChildren",
 					duration: 
+						// 1.0,
 						screenSize == 'smallScreens'
 						? 0.1
 						: 1.0,
@@ -33,20 +34,30 @@ export default function HeaderTitle(props) {
 		};
 	
 	}
+
+	
 		
 	const motionRect = (screenSize) => {
+
+		// console.log(screenSize)
 
 		return {
 			initial: {
 				width: '100%',
 				height: '100%',
-				color: 'rgba(75, 85, 99)',
+				color: 
+				'rgba(75, 85, 99)',					
 				fill: 'currentColor',
-				y: 40,
+				y: 
+	
+					'0%'					
 
 			},
-			animate: {
-				y: 80,
+			animate: {				
+				y: 
+					screenSize == 'smallScreens'
+					? '55%'					
+					: '-70%',					
 				transition: {
 				duration: 1.5,
 				ease: [0.87, 0, 0.13, 1],
@@ -62,13 +73,11 @@ export default function HeaderTitle(props) {
 			className="header__initial-animation"
 			initial={props.isSiteFirstMount ? "initial" : ""}
 			animate={props.isSiteFirstMount ? "animate" : ""}
-				// Without this, the text SVG animation doesn't work as well. 
-			// basicStyle={props.isSiteFirstMount ? "" : "basicStyle"}
-			style={{
-				// zIndex: 2000,
+				// Without this, the text SVG animation doesn't work as well. 			
+			style={{				
 				width: '100%',
 			}}
-			variants={textContainer(props.windowWidth)}			
+			variants={textContainer(props.screenSize)}			
 		>     
 			<Link 
 				className={`link link_color_${props.contentsColor} header__main-link header__main_flex-container`}
@@ -81,13 +90,12 @@ export default function HeaderTitle(props) {
 				>
 					<pattern
 						id="pattern"
-						patternUnits="userSpaceOnUse"									
-						// width={750}
-						// height={800}
+						patternUnits="userSpaceOnUse"															
 						width="100%"				
 						height="100%"
 						color={`${props.contentsColor}`}								
 					>
+			
 						<rect 																	
 							style={{
 								width: '100%',
@@ -95,23 +103,30 @@ export default function HeaderTitle(props) {
 								fill: 'currentColor',
 							}}
 						/>
+							{/* 
+								= The NORMAL Styles.
+							
+							*/}							
 						<motion.rect 
 								
-							variants={props.isSiteFirstMount ? motionRect(props.screenSize) : null}
+							variants={motionRect(props.screenSize)}
 						/>
+							{/* 
+								= For the animation FILTER COLOR.
+								=> This moves OVER the above one. 
+								=> The background-color does NOT change in both screen sizes. 
+							*/}
+							
 					</pattern>
 					<text				
 						textAnchor="middle"
 						x="50%"
 						y="50%"
-						style={{
-							// fontSize: '2.25rem',
-							// lineHeight: '2.5rem',
-							// fontWeight: 'bold',
+						style={{														
 							fill: "url(#pattern)" 
 							// fill: `${props.contentsColor}`
 						}}	
-						className={`header__main-title header__main-title_color_${props.contentsColor}`}				
+						className={`header__title header__main-title_color_${props.contentsColor}`}				
 					>
 						ドコデもん				
 					</text>

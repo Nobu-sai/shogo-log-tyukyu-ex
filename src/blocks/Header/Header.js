@@ -230,8 +230,8 @@ class Header extends Component {
               ? 1.7
                 // : HeaderMain/.../textContainer variants = 0.1s
                 // : HeaderMain/.../motionRect variants = 1.5s
-              : 2.0,
-                // : HeaderMain/.../textContainer variants = 1.5s
+              : 2.6,
+                // : HeaderMain/.../textContainer variants = 1.0s
                 // : HeaderMain/.../motionRect variants = 1.5s
             ease: [0.87, 0, 0.13, 1],
             }, 
@@ -287,38 +287,6 @@ class Header extends Component {
       headerHasBoxShadow = false
     }
 
-    // let top;
-    // let bottom;
-    // if(this.state.windowWidth <= 1000) {
-
-    //   top = null
-    //   bottom = 0
-    // } else {
-    //   top = 0
-    //   bottom = null
-    // }
-    
-    // const headerStyle = {
-    //   position: 'fixed',
-    //   top: top,
-    //     // this.state.windowWidth <= 1000
-    //     //       ? ''
-    //     //       : '0',
-    //   bottom: bottom,
-    //     // this.state.windowWidth <= 1000
-    //     // ? '0'
-    //     // : '',
-    //   left: 0,
-    //   width: '100vw',
-    //   height: '15vh',
-    //   display: 'grid',
-    //   gridTemplate:                           
-    //     this.state.windowWidth <= 1000 
-    //     ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
-    //     : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
-    //   overflow: 'visible',
-    // }
-
     return (
 
 
@@ -362,7 +330,7 @@ class Header extends Component {
             handleOnClick={this.handleOnClick}
             controllScrollingUnderneath={this.controllScrollingUnderneath}
             isSiteFirstMount={this.props.isSiteFirstMount}
-            windowWidth={this.state.windowWidth <= 1000 ? 'smallScreens' : 'largeScreens'}
+            screenSize={this.state.windowWidth <= 1000 ? 'smallScreens' : 'largeScreens'}
           />
         </div>
 

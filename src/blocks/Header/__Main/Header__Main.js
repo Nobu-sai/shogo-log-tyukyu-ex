@@ -18,6 +18,9 @@ export default class HeaderMain extends Component {
   render() {
 
 
+    // console.log(this.props.screenSize)
+
+
     return (
       <div className={`header__main header__main_contents-color_${this.props.contentsColor}`}>
             
@@ -25,7 +28,7 @@ export default class HeaderMain extends Component {
               controllScrollingUnderneath={this.props.controllScrollingUnderneath}            
               handleOnClick={this.props.handleOnClick}
               contentsColor={this.props.contentsColor}
-              windowWidth={this.props.windowWidth}
+              screenSize={this.props.screenSize}
               isSiteFirstMount={this.props.isSiteFirstMount}
             /> 
           
