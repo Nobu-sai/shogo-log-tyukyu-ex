@@ -56,7 +56,8 @@
       // Set the Area Nemes to the Grid Items
       &__grid-item {
         width: 100%;   
-        height: 100%;     
+        height: 100%;  
+        overflow: hidden;   
       
         &_title {
           grid-area: title;

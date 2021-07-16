@@ -320,7 +320,7 @@ class Header extends Component {
 
           // Initial Animation
           initial={this.props.isSiteFirstMount ? "initial" : ""}
-          // animate={this.props.isSiteFirstMount ? "animate" : ""}          
+          animate={this.props.isSiteFirstMount ? "animate" : ""}          
           style={
             this.props.isSiteFirstMount ? "" : this.setHeaderStyle()    
         }

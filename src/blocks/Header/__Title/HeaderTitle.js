@@ -36,7 +36,7 @@ export default function HeaderTitle(props) {
 
 		return {
 			initial: {		
-				opacity: 1,	
+				opacity: 1,					
 				width: '100vw',			
 				height: '100%',    
 				backgroundColor: props.headrColor,
@@ -162,9 +162,11 @@ export default function HeaderTitle(props) {
 			animate={props.isSiteFirstMount ? "animate" : ""}
 				// Without this, the text SVG animation doesn't work as well. 			
 			style={{				
+				// zIndex: 1500,
 				width: '100%',
 				height: '100%',
 				backgroundColor: props.headrColor,
+				// opacity: 1,
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center'
