@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 
 // Components
-import HeaderMain from './__Main/Header__Main';
+import HeaderTitle from './__Title/HeaderTitle';
 import HeaderSiteMenu from './__SiteMenu/Header__SiteMenu';
 import HeaderReservation from './__Reservation/Header__Reservation';
 import HeaderButton from './__Button/Header__Button';
@@ -211,16 +211,16 @@ class Header extends Component {
             // P
               // : Otherwise, the animation of LAYOUT isn't smooth. 
           screenSize == 'smallScreens' 
-          ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 0% 100% 0%"
-          : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 100% 0% 0%",
+          ? "[row1-start] 'reservation title site-menu-button' 100% [row1-end] / 0% 100% 0%"
+          : "[row1-start] 'title site-menu reservation' 100% [row1-end] / 100% 0% 0%",
           overflow: 'visible',
         },
         animate: {                      
             height: '15vh',
             gridTemplate:               
               screenSize == 'smallScreens' 
-              ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
-              : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",           
+              ? "[row1-start] 'reservation title site-menu-button' 100% [row1-end] / 30% 40% 30%"
+              : "[row1-start] 'title site-menu reservation' 100% [row1-end] / 20% 60% 20%",           
           
             transition: {            
             duration: 1.5,
@@ -269,8 +269,8 @@ class Header extends Component {
         display: 'grid',
         gridTemplate:                           
           this.state.windowWidth <= 1000 
-          ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
-          : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
+          ? "[row1-start] 'reservation title site-menu-button' 100% [row1-end] / 30% 40% 30%"
+          : "[row1-start] 'title site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
         overflow: 'visible',
       }
 
@@ -339,9 +339,9 @@ class Header extends Component {
       
       
         <div
-          className="header__grid-item header-contents__grid-item header__grid-item_main"
+          className="header__grid-item header-contents__grid-item header__grid-item_title"
         >
-          <HeaderMain 
+          <HeaderTitle
             contentsColor={this.state.contentsColor}
             headerColor={this.state.headerColor}
             handleOnClick={this.handleOnClick}
