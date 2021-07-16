@@ -22,6 +22,9 @@ class Header extends Component {
         // Control the visibility of Header__Menu as its className (with -100vw);
       headerColor: null,
       contnetsColor: null,   
+      // Use State for headerColor and contentsColor for now. 
+        //  P
+          // : When I use a normal Variables under render(), the values are NOT accessible in HeaderTitle and classNames. 
     }
 
     this.trackWindowWidth = this.trackWindowWidth.bind(this);
@@ -282,12 +285,16 @@ class Header extends Component {
 
 
     let siteMenuVisibility = 'hide';
+    let headerHasBoxShadow = true
+    let headerColor;
+    let contentsColor;
+
+
     if (this.state.siteMenuVisibility || this.state.windowWidth >= 1000) {         
       // Since, the change in the State Invokes the render(), I need to assingn the window.innerWidth to the windowWidth State FIRST (trackWindowWidth()). 
       siteMenuVisibility = 'show';      
     } 
 
-    let headerHasBoxShadow = true
     if(siteMenuVisibility === 'show') {
       headerHasBoxShadow = false
     }
@@ -303,6 +310,8 @@ class Header extends Component {
       screenSize = 'largeScreensExtra';
     }
 
+    
+
     return (
 
 
@@ -313,6 +322,7 @@ class Header extends Component {
             header
             header__grid-container 
             header_color_${this.state.headerColor}            
+            // header_color_${headerColor}            
             header_box-shadow_${headerHasBoxShadow}
             `
           }        
@@ -342,8 +352,9 @@ class Header extends Component {
           className="header__grid-item header-contents__grid-item header__grid-item_title"
         >
           <HeaderTitle
+            contentsColor={contentsColor}
             contentsColor={this.state.contentsColor}
-            headerColor={this.state.headerColor}
+            headerColor={headerColor}
             handleOnClick={this.handleOnClick}
             controllScrollingUnderneath={this.controllScrollingUnderneath}
             isSiteFirstMount={this.props.isSiteFirstMount}

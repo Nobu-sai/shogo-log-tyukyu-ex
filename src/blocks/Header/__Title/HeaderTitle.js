@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 
 
-export default function HeaderTitle(props) {			
+export default function HeaderTitle(props) {	
+		
 
 	// The single source of truth for the Dimensions (width and height) of the title text.
 	// => Called from setTextContainerVariants()
@@ -204,7 +205,8 @@ export default function HeaderTitle(props) {
 							patternUnits="userSpaceOnUse"															
 							width="100%"				
 							height="100%"
-							color={`${props.contentsColor}`}								
+							color={props.contentsColor}
+							
 						>
 				
 							<rect 																	
