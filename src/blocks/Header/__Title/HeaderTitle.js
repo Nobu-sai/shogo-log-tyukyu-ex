@@ -5,7 +5,24 @@ import { Link } from 'react-router-dom';
 
 
 export default function HeaderTitle(props) {			
+	console.log(props.contentsColor)
+	// console.log(props.setContentsColor())
+	console.log(props.headrColor)
+	
+	let contentsContainerBGColor;
 
+	// if(props.location.pathname == '/') {     
+	// 	console.log(props.location.pathname)
+	// 	// When the path is the home.       
+	// 	contentsContainerBGColor = 'black'
+	// 		// When it is 'black', the color of CONTENTS is 'white' set in setContentsColor().       
+
+	// } else { 
+	// 	console.log(props.location.pathname) 
+	// 	contentsContainerBGColor = 'white' 
+
+	// }
+	
 	// The single source of truth for the Dimensions (width and height) of the title text.
 	// => Called from setTextContainerVariants()
 	// =>> The children are set with 100%.  
@@ -33,24 +50,25 @@ export default function HeaderTitle(props) {
 	
 	const setInitialAnimationBGVariants = (screenSize) => {
 		// console.log(screenSize)
+		console.log(contentsContainerBGColor)
 
 		return {
-			initial: {		
-				opacity: 1,					
+			initial: {						opacity: 0,					
 				width: '100vw',			
-				height: '100%',    
-				backgroundColor: props.headrColor,
+				height: '100vh',    
+				// backgroundColor: props.headrColor,
+				backgroundColor: contentsContainerBGColor,				
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
 				// Without Flexbox, the SVG animation doesn't work. 
 			},
-			animate: {		 				
+			animate: {			
 				width: '100%',
+				height: '100%',
 				transition: {
 					when: "afterChildren",
-					duration: 
-						// 1.0,
+					duration: 						
 						screenSize == 'smallScreens'
 						? 0.1
 						: 1.0,
@@ -69,20 +87,12 @@ export default function HeaderTitle(props) {
 		let height = setTextDimensionValues().textHeight
 
 		return {
-			initial: {	
-				// opacity: 0,		
-					
+			initial: {									
 				width: width,				
 				height: height,				
-				backgroundColor: props.headrColor,
-				// display: 'flex',
-				// alignItems: 'center',
-				// justifyContent: 'center',
-				// Without Flexbox, the SVG animation doesn't work. 
+				backgroundColor: props.headrColor,									
 			},
-			animate: {		 								
-				// opacity: 1,
-				paddingTop: 120,
+			animate: {		 													
 				transition: {
 					when: "afterChildren",
 					duration: 
@@ -116,10 +126,7 @@ export default function HeaderTitle(props) {
 				height: '100%',
 				color: 'rgba(75, 85, 99)',					
 				fill: 'currentColor',
-				y: 
-	
-					'0'					
-					// 40,
+				y: 0
 
 			},
 			animate: {				
@@ -138,12 +145,12 @@ export default function HeaderTitle(props) {
 		return {
 			initial: {
 				opacity: 0,	
-				// wiringMode: 'horizontal-tb',
+				
 
 			},
 			animate: {					
 				opacity: 1,						
-				// writingMode: 'vertical-lr',
+				
 				transition: {		
 					delay: 0.5,
 					duration: 0.5,
@@ -161,12 +168,10 @@ export default function HeaderTitle(props) {
 			initial={props.isSiteFirstMount ? "initial" : ""}
 			animate={props.isSiteFirstMount ? "animate" : ""}
 				// Without this, the text SVG animation doesn't work as well. 			
-			style={{				
-				// zIndex: 1500,
+			style={{								
 				width: '100%',
 				height: '100%',
-				backgroundColor: props.headrColor,
-				// opacity: 1,
+				backgroundColor: props.headrColor,				
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center'
@@ -179,16 +184,22 @@ export default function HeaderTitle(props) {
 				animate={props.isSiteFirstMount ? "animate" : ""}
 					// Without this, the text SVG animation doesn't work as well. 			
 				// style={props.isSiteFirstMount ? "" : "style"}
-				style={{
-					// paddingTop: '120px',				
+				style={{	
 					width: setTextDimensionValues().textWidth,
 					height: setTextDimensionValues().textHeight,
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
 				}}
 				variants={setTextContainerVariants()}			
 			>     
 				<Link 
 					className={`link link_color_${props.contentsColor} header__main-link header__main_flex-container`}
 					to='/'
+					style={{
+						width: '100%',
+						height: '100%',
+					}}
 					onClick={props.handleOnClick}
 				>
 					<motion.svg 										
@@ -196,7 +207,7 @@ export default function HeaderTitle(props) {
 						style={{
 							width: '100%',
 							height: '100%',
-							backgroundColor: props.headrColor,
+							// backgroundColor: props.headrColor,
 						}}
 					>
 						<pattern
@@ -204,7 +215,10 @@ export default function HeaderTitle(props) {
 							patternUnits="userSpaceOnUse"															
 							width="100%"				
 							height="100%"
-							color={`${props.contentsColor}`}								
+							color={props.contentsColor}															
+							// color={`${props.setContentsColor()}`}	
+							// color="#fff"														
+							
 						>
 				
 							<rect 																	
@@ -234,7 +248,8 @@ export default function HeaderTitle(props) {
 							x="50%"
 							y="50%"
 							style={{														
-								fill: "url(#pattern)" 								
+								fill: "url(#pattern)", 								
+								// fill: 'currentColor',																
 							}}	
 							className={`header__title header__main-title_color_${props.contentsColor}`}				
 							initial="initial"
@@ -244,7 +259,7 @@ export default function HeaderTitle(props) {
 						>
 							ドコデもん				
 						</motion.text>
-				</motion.svg>
+					</motion.svg>
 						
 				</Link>
 				

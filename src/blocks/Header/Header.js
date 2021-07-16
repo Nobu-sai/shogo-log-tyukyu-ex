@@ -20,14 +20,16 @@ class Header extends Component {
       windowWidth: window.innerWidth, 
       siteMenuVisibility: false,   
         // Control the visibility of Header__Menu as its className (with -100vw);
-      headerColor: null,
-      contnetsColor: null,   
+      // headerColor: this.setHeaderColor(),
+      // contnetsColor: null,   
     }
 
     this.trackWindowWidth = this.trackWindowWidth.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this); 
     this.controllScrollingUnderneath = this.controllScrollingUnderneath.bind(this);
-    // this.set
+    // this.setHeaderColor = this.setHeaderColor.bind(this);
+    // this.setContentsColor = this.setContentsColor.bind(this);
+    
   }
 
   
@@ -43,7 +45,7 @@ class Header extends Component {
       this.$header.fadeIn(1000)
     }, 200)
     
-    this.setHeaderColor();
+    // this.setHeaderColor();
       
   }
 
@@ -85,42 +87,51 @@ class Header extends Component {
   }
 
 
-  setHeaderColor() {
+  // setHeaderColor() {
     
-    if(this.props.location.pathname === "/") {     
-      // When the path is the home. 
+  //   if(this.props.location.pathname == '/') {     
+  //     console.log(this.props.location.pathname)
+  //     // When the path is the home. 
+  //     this.setState({
+  //       headerColor: 'black',
+  //     }, ()=> this.setContentsColor())
+  //       // When it is 'black', the color of CONTENTS is 'white' set in setContentsColor().
+        
+  //       // return 'black'
 
-      this.setState({
-        headerColor: 'black',
-      }, ()=> this.setContentsColor())
-        // When it is 'black', the color of CONTENTS is 'white' set in setContentsColor().
+  //   } else { 
+  //     console.log(this.props.location.pathname)
+  //     this.setState({
+  //       headerColor: 'white',
+  //     }, ()=> this.setContentsColor())
+  //     // return 'white'
 
-    } else { 
-
-      this.setState({
-        headerColor: 'white',
-      }, ()=> this.setContentsColor())
-
-    }
+  //   }
     
-  }
+  // }
 
-  setContentsColor() {
+  // setContentsColor() {
   
-    let headerColor = this.state.headerColor;
+  //   // let headerColor = this.setHeaderColor;
+  //   let headerColor = this.state.headerColor;
     
-    if(headerColor === 'black') {
-      this.setState({
-        contentsColor: 'white'
-      })
+  //   console.log(this.setHeaderColor)
+  //   console.log(this.headerColor)
+    
+  //   if(headerColor == 'black') {
+  //     // return 'white'
+  //     this.setState({
+  //       contentsColor: 'white'
+  //     })
       
-    } else {
-      this.setState({
-        contentsColor: 'black'
-      })      
-    }
+  //   } else {
+  //     // return 'black'
+  //     this.setState({
+  //       contentsColor: 'black'
+  //     })      
+  //   }
     
-  }
+  // }
 
 
   scrollToTop() {
@@ -175,7 +186,7 @@ class Header extends Component {
 
     // setHeaderHeight() 
     
-    setHeaderAnimationStyleVariants(screenSize) {
+    setHeaderAnimationStyleVariants(screenSize, headerColor) {
       // console.log(screenSize)    
 
       let top;
@@ -202,7 +213,9 @@ class Header extends Component {
             // : 'auto',
           left: '0',
           width: '100vw',			
-          height: '100vh',              
+          height: '100vh',         
+          // backgroudColor: headerColor, 
+          backgroudColor: 'black', 
           display: 'grid',
           gridTemplate:
           // The ASSIGNMENT of Grid Areas need to be 
@@ -246,7 +259,7 @@ class Header extends Component {
 
     }
 
-    setHeaderStyle() {
+    setHeaderStyle(headerColor) {
 
       let top;
       let bottom;
@@ -266,6 +279,7 @@ class Header extends Component {
         left: 0,
         width: '100vw',
         height: '15vh',
+        backgroudColor: headerColor,
         display: 'grid',
         gridTemplate:                           
           this.state.windowWidth <= 1000 
@@ -280,28 +294,68 @@ class Header extends Component {
 
   render() {
 
+    // const setHeaderColor = () => {
+    // if(this.props.location.pathname == '/') {     
+    //   console.log(this.props.location.pathname)
+    //   // When the path is the home.       
+    //     return 'black'
+    //     // When it is 'black', the color of CONTENTS is 'white' set in setContentsColor().       
+
+    // } else { 
+    //   console.log(this.props.location.pathname) 
+    //   return 'white' 
+
+    // }
+
+    // }
 
     let siteMenuVisibility = 'hide';
+    let headerColor;
+    let contentsColor;
+    let screenSize;
+
     if (this.state.siteMenuVisibility || this.state.windowWidth >= 1000) {         
       // Since, the change in the State Invokes the render(), I need to assingn the window.innerWidth to the windowWidth State FIRST (trackWindowWidth()). 
       siteMenuVisibility = 'show';      
     } 
 
+
     let headerHasBoxShadow = true
     if(siteMenuVisibility === 'show') {
       headerHasBoxShadow = false
     }
-
-    let screenSize;
+        
     if(this.state.windowWidth < 1000)  {
-      screenSize = 'smallScreens';
+      screenSize = 'smallScreens'
 
     } else if (this.state.windowWidth < 2000) {
       screenSize =  'largeScreens'
 
     } else if (this.state.windowWidth > 2000) {
-      screenSize = 'largeScreensExtra';
+      screenSize = 'largeScreensExtra'
     }
+
+    if(this.props.location.pathname == '/') {     
+      console.log(this.props.location.pathname)
+      // When the path is the home.       
+        headerColor = 'black'
+        // When it is 'black', the color of CONTENTS is 'white' set in setContentsColor().       
+
+    } else { 
+      console.log(this.props.location.pathname) 
+      headerColor = 'white' 
+
+    }
+
+    console.log(headerColor)
+      
+    if(headerColor == 'black') {      
+      contentsColor = 'white'      
+    } else {  
+      contentsColor = 'black'      
+    }
+    
+      
 
     return (
 
@@ -312,7 +366,8 @@ class Header extends Component {
             `
             header
             header__grid-container 
-            header_color_${this.state.headerColor}            
+            // header_color_${this.state.headerColor}            
+            header_color_${headerColor}            
             header_box-shadow_${headerHasBoxShadow}
             `
           }        
@@ -322,9 +377,9 @@ class Header extends Component {
           initial={this.props.isSiteFirstMount ? "initial" : ""}
           animate={this.props.isSiteFirstMount ? "animate" : ""}          
           style={
-            this.props.isSiteFirstMount ? "" : this.setHeaderStyle()    
+            this.props.isSiteFirstMount ? "" : this.setHeaderStyle(headerColor)    
         }
-          variants={this.setHeaderAnimationStyleVariants(screenSize)}
+          variants={this.setHeaderAnimationStyleVariants(screenSize, headerColor)}
           onAnimationStart={() => {
 
             this.controllScrollingUnderneath(true);
@@ -341,25 +396,34 @@ class Header extends Component {
         <div
           className="header__grid-item header-contents__grid-item header__grid-item_title"
         >
-          <HeaderTitle
-            contentsColor={this.state.contentsColor}
-            headerColor={this.state.headerColor}
-            handleOnClick={this.handleOnClick}
-            controllScrollingUnderneath={this.controllScrollingUnderneath}
-            isSiteFirstMount={this.props.isSiteFirstMount}
-            screenSize={screenSize}
-          />
+         {/* {
+           !this.state.contnetsColor == 'undefined' && */}
+              <HeaderTitle
+                // contentsColor={this.state.contentsColor}
+                // setContentsColor={this.setContentsColor}
+                contentsColor={contentsColor}
+                // headerColor={this.state.headerColor}
+                headerColor={headerColor}
+                handleOnClick={this.handleOnClick}
+                controllScrollingUnderneath={this.controllScrollingUnderneath}
+                isSiteFirstMount={this.props.isSiteFirstMount}
+                screenSize={screenSize}
+                location={this.props.location}
+              />
+
+         {/* } */}
+          
         </div>
 
         <div 
           className="header__grid-item header__grid-item_site-menu">          
-          <HeaderSiteMenu 
-            handleOnClick={this.handleOnClick}
-            contentsColor={this.state.contentsColor}
-            siteMenuVisibility={siteMenuVisibility} 
-            headerColor={this.state.headerColor}
-      
-          />
+            <HeaderSiteMenu 
+              handleOnClick={this.handleOnClick}
+              contentsColor={this.state.contentsColor}
+              siteMenuVisibility={siteMenuVisibility} 
+              headerColor={this.state.headerColor}
+        
+            />
         </div>
 
         <div 

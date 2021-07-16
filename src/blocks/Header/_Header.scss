@@ -58,12 +58,13 @@
         width: 100%;   
         height: 100%;  
         overflow: hidden;   
+          // Prevent the header reservation and button interven into the initial animaiton. 
       
         &_title {
           grid-area: title;
           // background-color: blue;
           position: relative;
-          z-index: 1003;
+          z-index: 1003;          
         }
         &_site-menu {
           grid-area: site-menu;

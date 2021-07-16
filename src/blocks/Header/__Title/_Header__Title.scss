@@ -4,8 +4,8 @@
 
 
 .header__title {
-	width: 100%;
-	height: 100%;
+	// width: 100%;
+	// height: 100%;
 	// writing-mode: horizontal-tb;
 
 	@include responsive.respond-to('min', '200') {
@@ -20,7 +20,7 @@
 }
 
 .header__initial-animation {
-	z-index: 2000;
+	// z-index: 2000;
 	// position: fixed;
 	// top: 0;
 	// left: 0;
