@@ -175,7 +175,7 @@ class Header extends Component {
 
     // setHeaderHeight() 
     
-    setHeaderLayout(screenSize) {
+    setHeaderAnimationStyleVariants(screenSize) {
       // console.log(screenSize)    
 
       let top;
@@ -235,9 +235,39 @@ class Header extends Component {
                 // : HeaderMain/.../motionRect variants = 1.5s
             ease: [0.87, 0, 0.13, 1],
             }, 
-        },        
+        },              
       }
 
+
+    }
+
+    setHeaderAnimationStyle() {
+
+      let top;
+      let bottom;
+      if(this.state.windowWidth <= 1000) {
+
+        top = null
+        bottom = 0
+      } else {
+        top = 0
+        bottom = null
+      }
+      
+      return {
+        position: 'fixed',
+        top: top,
+        bottom: bottom,
+        left: 0,
+        width: '100vw',
+        height: '15vh',
+        display: 'grid',
+        gridTemplate:                           
+          this.state.windowWidth <= 1000 
+          ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
+          : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
+        overflow: 'visible',
+      }
 
     }
       
@@ -257,37 +287,37 @@ class Header extends Component {
       headerHasBoxShadow = false
     }
 
-    let top;
-    let bottom;
-    if(this.state.windowWidth <= 1000) {
+    // let top;
+    // let bottom;
+    // if(this.state.windowWidth <= 1000) {
 
-      top = null
-      bottom = 0
-    } else {
-      top = 0
-      bottom = null
-    }
+    //   top = null
+    //   bottom = 0
+    // } else {
+    //   top = 0
+    //   bottom = null
+    // }
     
-    const headerStyle = {
-      position: 'fixed',
-      top: top,
-        // this.state.windowWidth <= 1000
-        //       ? ''
-        //       : '0',
-      bottom: bottom,
-        // this.state.windowWidth <= 1000
-        // ? '0'
-        // : '',
-      left: 0,
-      width: '100vw',
-      height: '15vh',
-      display: 'grid',
-      gridTemplate:                           
-        this.state.windowWidth <= 1000 
-        ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
-        : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
-      overflow: 'visible',
-    }
+    // const headerStyle = {
+    //   position: 'fixed',
+    //   top: top,
+    //     // this.state.windowWidth <= 1000
+    //     //       ? ''
+    //     //       : '0',
+    //   bottom: bottom,
+    //     // this.state.windowWidth <= 1000
+    //     // ? '0'
+    //     // : '',
+    //   left: 0,
+    //   width: '100vw',
+    //   height: '15vh',
+    //   display: 'grid',
+    //   gridTemplate:                           
+    //     this.state.windowWidth <= 1000 
+    //     ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
+    //     : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
+    //   overflow: 'visible',
+    // }
 
     return (
 
@@ -306,43 +336,11 @@ class Header extends Component {
 
           // Initial Animation
           initial={this.props.isSiteFirstMount ? "initial" : ""}
-          animate={this.props.isSiteFirstMount ? "animate" : ""}
-          // basicStyle={this.props.isSiteFirstMount ? "" : "basicStyle"}
+          animate={this.props.isSiteFirstMount ? "animate" : ""}          
           style={
-            
-            {
-              position: headerStyle.position,
-              top: headerStyle.top,
-              bottom: headerStyle.bottom,
-              left: headerStyle.left,
-              width: headerStyle.width,
-              height: headerStyle.height,
-              display: headerStyle.display,
-              gridTemplate: headerStyle.gridTemplate,
-              overflow: headerStyle.overflow,
-            //   position: 'fixed',
-            // top:
-            //   0,
-            //   // screenSize == 'smallScrees'
-            //   // ? 'auto'
-            //   // : '0',
-            // // bottom: 
-            //   // screenSize == 'smallScreens'
-            //   // ? '0'
-            //   // : 'auto',
-            // left: 0,
-            // width: '100vw',
-            // height: '15vh',
-            // display: 'grid',
-            // gridTemplate:               
-            //   "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
-            //   // screenSize == 'smallScreens' 
-            //   // ? "[row1-start] 'reservation main site-menu-button' 100% [row1-end] / 30% 40% 30%"
-            //   // : "[row1-start] 'main site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
-            // overflow: 'visible',
-          }
+            this.props.isSiteFirstMount ? "" : this.setHeaderAnimationStyle()    
         }
-          variants={this.setHeaderLayout(this.state.windowWidth <= 1000 ? 'smallScreens' : 'largeScreens')}
+          variants={this.setHeaderAnimationStyleVariants(this.state.windowWidth <= 1000 ? 'smallScreens' : 'largeScreens')}
           onAnimationStart={() => {
 
             this.controllScrollingUnderneath(true);

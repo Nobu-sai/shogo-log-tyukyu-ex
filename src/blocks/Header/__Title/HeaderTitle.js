@@ -8,11 +8,9 @@ export default function HeaderTitle(props) {
 	
 	const textContainer = (screenSize) => {
 		// console.log(screenSize)
+		
 		return {
 			initial: {			
-				// position: 'fixed'			,
-				// top: '0',
-				// left: '0',
 				width: '100vw',			
 				height: '100%',    
 				backgroundColor: 'hsl(0, 0%, 0%)',
@@ -22,9 +20,7 @@ export default function HeaderTitle(props) {
 				// Without Flexbox, the SVG animation doesn't work. 
 			},
 			animate: {		 				
-				// position: 'static',	
 				width: '100%',
-				//   height: '100%',
 				transition: {
 					when: "afterChildren",
 					duration: 
@@ -34,10 +30,6 @@ export default function HeaderTitle(props) {
 					ease: [0.87, 0, 0.13, 1],
 				}, 
 			},
-			basicStyle: {
-				width: '100%',
-
-			}
 		};
 	
 	}
@@ -71,9 +63,10 @@ export default function HeaderTitle(props) {
 			initial={props.isSiteFirstMount ? "initial" : ""}
 			animate={props.isSiteFirstMount ? "animate" : ""}
 				// Without this, the text SVG animation doesn't work as well. 
-			basicStyle={props.isSiteFirstMount ? "" : "basicStyle"}
+			// basicStyle={props.isSiteFirstMount ? "" : "basicStyle"}
 			style={{
-				zIndex: 2000,
+				// zIndex: 2000,
+				width: '100%',
 			}}
 			variants={textContainer(props.windowWidth)}			
 		>     
