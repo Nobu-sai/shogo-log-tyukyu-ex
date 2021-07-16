@@ -35,10 +35,11 @@ export default function HeaderTitle(props) {
 		// console.log(screenSize)
 
 		return {
-			initial: {			
+			initial: {		
+				opacity: 1,	
 				width: '100vw',			
 				height: '100%',    
-				backgroundColor: 'hsl(0, 0%, 0%)',
+				backgroundColor: props.headrColor,
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
@@ -89,16 +90,6 @@ export default function HeaderTitle(props) {
 					ease: [0.87, 0, 0.13, 1],
 				}, 
 			},
-			style: {		 								
-				// opacity: 1,
-				paddingTop: '120px',
-				width: width,				
-				height: height,				
-				backgroundColor: props.headrColor,
-				// display: 'flex',
-				// alignItems: 'center',
-				// justifyContent: 'center',				
-			}, 
 			
 		};
 	
@@ -173,6 +164,10 @@ export default function HeaderTitle(props) {
 			style={{				
 				width: '100%',
 				height: '100%',
+				backgroundColor: props.headrColor,
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center'
 			}}
 			variants={setInitialAnimationBGVariants(props.screenSize)}			
 		>     
@@ -181,12 +176,12 @@ export default function HeaderTitle(props) {
 				initial={props.isSiteFirstMount ? "initial" : ""}
 				animate={props.isSiteFirstMount ? "animate" : ""}
 					// Without this, the text SVG animation doesn't work as well. 			
-				style={props.isSiteFirstMount ? "" : "style"}
-				// style={{
-				// 	paddingTop: '120px',				
-				// 	width: setTextDimensionValues().textWidth,
-				// 	height: setTextDimensionValues().textHeight,
-				// }}
+				// style={props.isSiteFirstMount ? "" : "style"}
+				style={{
+					// paddingTop: '120px',				
+					width: setTextDimensionValues().textWidth,
+					height: setTextDimensionValues().textHeight,
+				}}
 				variants={setTextContainerVariants()}			
 			>     
 				<Link 
@@ -199,6 +194,7 @@ export default function HeaderTitle(props) {
 						style={{
 							width: '100%',
 							height: '100%',
+							backgroundColor: props.headrColor,
 						}}
 					>
 						<pattern

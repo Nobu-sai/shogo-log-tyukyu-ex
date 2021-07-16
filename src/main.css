@@ -281,7 +281,6 @@ body {
 
 @media (min-width: 200px) {
   .header {
-    overflow: visible;
     z-index: 1001;
   }
   .header_color_black {
