@@ -40,14 +40,15 @@ export default function HeaderTitle(props) {
 	
 	const setInitialAnimationBGVariants = (screenSize) => {
 		// console.log(screenSize)
-		console.log(contentsContainerBGColor)
+		// console.log(contentsContainerBGColor)
 
 		return {
-			initial: {						opacity: 0,					
+			initial: {						
+				opacity: 0,					
 				width: '100vw',			
 				height: '100vh',    
 				// backgroundColor: props.headrColor,
-				backgroundColor: contentsContainerBGColor,				
+				// backgroundColor: contentsContainerBGColor,				
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
@@ -209,9 +210,9 @@ export default function HeaderTitle(props) {
 							patternUnits="userSpaceOnUse"															
 							width="100%"				
 							height="100%"
-							// color={props.setContentsColor()}
+							color={props.setContentsColor()}
 								// IS (5/5) white (the returned Variable from Header/setContentsColor())
-							color={props.contentsColor}
+							// color={props.contentsColor}
 								// IS (5/5) white (the returned Variable from Header/setContentsColor())
 							// color={contentsColor}
 								// Is NOT | SOMETIMES (2/5) IS white (the returned Variable from Header/setContentsColor())

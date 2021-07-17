@@ -287,23 +287,9 @@ class Header extends Component {
 
   render() {
 
-    // const setHeaderColor = () => {
-    // if(this.props.location.pathname == '/') {     
-    //   console.log(this.props.location.pathname)
-    //   // When the path is the home.       
-    //     return 'black'
-    //     // When it is 'black', the color of CONTENTS is 'white' set in setContentsColor().       
-
-    // } else { 
-    //   console.log(this.props.location.pathname) 
-    //   return 'white' 
-
-    // }
-
-    // }
-
-    let siteMenuVisibility = 'hide';
+    let siteMenuVisibility = 'hide'
     let headerHasBoxShadow = true
+    let screenSize;
   
 
     if (this.state.siteMenuVisibility || this.state.windowWidth >= 1000) {         
@@ -325,29 +311,6 @@ class Header extends Component {
       screenSize = 'largeScreensExtra'
     }
 
-    if(this.props.location.pathname == '/') {     
-      console.log(this.props.location.pathname)
-      // When the path is the home.       
-        headerColor = 'black'
-        // When it is 'black', the color of CONTENTS is 'white' set in setContentsColor().       
-
-    } else { 
-      console.log(this.props.location.pathname) 
-      headerColor = 'white' 
-
-    }
-
-    console.log(headerColor)
-      
-    if(headerColor == 'black') {      
-      contentsColor = 'white'      
-    } else {  
-      contentsColor = 'black'      
-    }
-    
-      
-
-    
 
     return (
 
@@ -387,7 +350,7 @@ class Header extends Component {
           className="header__grid-item header-contents__grid-item header__grid-item_title"
         >
           <HeaderTitle
-            // contentsColor={this.setContentsColor()}            
+            contentsColor={this.setContentsColor()}            
             setContentsColor={this.setContentsColor}
             headerColor={this.setHeaderColor}
             handleOnClick={this.handleOnClick}
