@@ -206,13 +206,15 @@ class Header extends Component {
           // This is because, 
       let boxShadow;
 
-      if (headerHasBoxShadow == true && this.setHeaderColor() == 'black') {
+      if (headerHasBoxShadow == true) {
+        boxShadow = 'none'
+      } else if (headerHasBoxShadow == true && this.setHeaderColor() == 'black') {
         boxShadow = "4px 4px 14px 4px hsla(0, 0%, 0%, 0.9)"   
         // console.log(boxShadow)     
       } else if (headerHasBoxShadow == true && this.setHeaderColor() == 'black') {
         boxShadow = "4px 4px 14px 4px hsla(0, 0%, 100%, 0.9)"        
         // console.log(boxShadow)     
-      }
+      } 
 
       if(screenSize == 'smallScreens') {
 
@@ -228,6 +230,7 @@ class Header extends Component {
 
       
       return {
+        zIndex: 1001,
         position: 'fixed',
         top: top,
         bottom: bottom,
@@ -338,8 +341,7 @@ class Header extends Component {
           {
             `
             header
-            header__grid-container 
-            // header_box-shadow_${headerHasBoxShadow}
+            header__grid-container             
             `
           }        
             // header_color_${this.state.headerColor}            
