@@ -198,19 +198,32 @@ class Header extends Component {
     }
 
 
-    setHeaderStyle(screenSize) {
+    setHeaderStyle(screenSize, headerHasBoxShadow) {
 
       let top;
       let bottom;      
         // headerColor State is unavailable in my current codes.
           // This is because, 
+      let boxShadow;
+
+      if (headerHasBoxShadow == true && this.setHeaderColor() == 'black') {
+        boxShadow = "4px 4px 14px 4px hsla(0, 0%, 0%, 0.9)"   
+        // console.log(boxShadow)     
+      } else if (headerHasBoxShadow == true && this.setHeaderColor() == 'black') {
+        boxShadow = "4px 4px 14px 4px hsla(0, 0%, 100%, 0.9)"        
+        // console.log(boxShadow)     
+      }
+
       if(screenSize == 'smallScreens') {
 
         top = null
-        bottom = 0
+        bottom = 0        
+
       } else if (screenSize == 'largeScreens' || screenSize == 'largeScreensExtra') {
+
         top = 0
         bottom = null
+
       }
 
       
@@ -219,9 +232,13 @@ class Header extends Component {
         top: top,
         bottom: bottom,
         left: 0,
+        boxShadow: boxShadow,
         width: '100vw',
         height: '15vh',      
         backgroundColor: this.setHeaderColor(),  
+          // Don't change. 
+            // P
+              // : "This & Header/setHeaderAnimationStyleVariants()/animate Prop" would be making the BG FADE IN with animation. 
         display: 'grid',
         gridTemplate:                           
           this.state.windowWidth <= 1000 
@@ -288,8 +305,9 @@ class Header extends Component {
   render() {
 
     let siteMenuVisibility = 'hide'
-    let headerHasBoxShadow = true
-    let screenSize;
+    // let headerHasBoxShadow = true
+    let screenSize
+    let headerHasBoxShadow = true;
   
 
     if (this.state.siteMenuVisibility || this.state.windowWidth >= 1000) {         
@@ -321,7 +339,7 @@ class Header extends Component {
             `
             header
             header__grid-container 
-            header_box-shadow_${headerHasBoxShadow}
+            // header_box-shadow_${headerHasBoxShadow}
             `
           }        
             // header_color_${this.state.headerColor}            
@@ -331,7 +349,7 @@ class Header extends Component {
           // Initial Animation
           initial={this.props.isSiteFirstMount ? "initial" : ""}
           animate={this.props.isSiteFirstMount ? "animate" : ""}          
-          style={this.setHeaderStyle(screenSize)}
+          style={this.setHeaderStyle(screenSize, headerHasBoxShadow)}
           variants={this.setHeaderAnimationStyleVariants(screenSize)}
           onAnimationStart={() => {
 
