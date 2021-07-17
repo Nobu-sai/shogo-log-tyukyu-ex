@@ -198,17 +198,17 @@ class Header extends Component {
     }
 
 
-    setHeaderStyle() {
+    setHeaderStyle(screenSize) {
 
       let top;
       let bottom;      
         // headerColor State is unavailable in my current codes.
           // This is because, 
-      if(this.state.windowWidth <= 1000) {
+      if(screenSize == 'smallScreens') {
 
         top = null
         bottom = 0
-      } else {
+      } else if (screenSize == 'largeScreens' || screenSize == 'largeScreensExtra') {
         top = 0
         bottom = null
       }
@@ -331,7 +331,7 @@ class Header extends Component {
           // Initial Animation
           initial={this.props.isSiteFirstMount ? "initial" : ""}
           animate={this.props.isSiteFirstMount ? "animate" : ""}          
-          style={this.setHeaderStyle()}
+          style={this.setHeaderStyle(screenSize)}
           variants={this.setHeaderAnimationStyleVariants(screenSize)}
           onAnimationStart={() => {
 
