@@ -36,8 +36,7 @@ export default function HeaderTitle(props) {
 		}
 	}
 	
-	const setInitialAnimationBGVariants = (screenSize) => {
-		// console.log(screenSize)
+	const setInitialAnimationBGVariants = () => {		
 
 		return {
 			initial: {		
@@ -56,7 +55,7 @@ export default function HeaderTitle(props) {
 					when: "afterChildren",
 					duration: 
 						// 1.0,
-						screenSize == 'smallScreens'
+						props.screenSize == 'smallScreens'
 						? 0.1
 						: 1.0,
 					ease: [0.87, 0, 0.13, 1],
