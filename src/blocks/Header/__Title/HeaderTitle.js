@@ -42,10 +42,11 @@ export default function HeaderTitle(props) {
 
 		return {
 			initial: {						
-				opacity: 0,					
+				// opacity: 0,					
 				width: '100vw',			
 				height: '100vh',    
 				// backgroundColor: props.headrColor,
+				backgroundColor: props.setHeaderColor(),
 				// backgroundColor: contentsContainerBGColor,				
 				display: 'flex',
 				alignItems: 'center',
@@ -53,6 +54,7 @@ export default function HeaderTitle(props) {
 				// Without Flexbox, the SVG animation doesn't work. 
 			},
 			animate: {			
+				// opacity: 1,
 				width: '100%',
 				height: '100%',
 				transition: {
@@ -77,14 +79,11 @@ export default function HeaderTitle(props) {
 		let height = setTextDimensionValues().textHeight
 
 		return {
-			initial: {									
+			initial: {			
 				width: width,				
 				height: height,				
-				backgroundColor: props.headerColor,
-				// display: 'flex',
-				// alignItems: 'center',
-				// justifyContent: 'center',
-				// Without Flexbox, the SVG animation doesn't work. 
+				// backgroundColor: props.headerColor,
+				// backgroundColor: 'hsl(209, 100%, 43%)',
 			},
 			animate: {		 													
 				transition: {
@@ -120,6 +119,7 @@ export default function HeaderTitle(props) {
 				height: '100%',
 				color: 'rgba(75, 85, 99)',					
 				fill: 'currentColor',
+				// fill: props.setContentsColor(),
 				y: 0
 
 			},
@@ -140,7 +140,6 @@ export default function HeaderTitle(props) {
 			initial: {
 				opacity: 0,	
 				
-
 			},
 			animate: {					
 				opacity: 1,						
@@ -179,11 +178,13 @@ export default function HeaderTitle(props) {
 					// Without this, the text SVG animation doesn't work as well. 			
 				// style={props.isSiteFirstMount ? "" : "style"}
 				style={{	
+					// zIndex: 2000,							
 					width: setTextDimensionValues().textWidth,
 					height: setTextDimensionValues().textHeight,
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center',
+						// X Without Flexbox, the SVG animation doesn't work. ?
 				}}
 				variants={setTextContainerVariants()}			
 			>     
@@ -209,9 +210,9 @@ export default function HeaderTitle(props) {
 							patternUnits="userSpaceOnUse"															
 							width="100%"				
 							height="100%"
-							color={props.setContentsColor()}
-								// IS (5/5) white (the returned Variable from Header/setContentsColor())
-							// color={props.contentsColor}
+							// color={props.setContentsColor()}
+								// IS (4/5) white (the returned Variable from Header/setContentsColor())
+							color={props.contentsColor}
 								// IS (5/5) white (the returned Variable from Header/setContentsColor())
 							// color={contentsColor}
 								// Is NOT | SOMETIMES (2/5) IS white (the returned Variable from Header/setContentsColor())
@@ -223,6 +224,7 @@ export default function HeaderTitle(props) {
 									width: '100%',
 									height: '100%',	
 									fill: 'currentColor',
+									// fill: props.setContentsColor(),
 								}}
 							/>
 								{/* 
@@ -246,7 +248,7 @@ export default function HeaderTitle(props) {
 							y="50%"
 							style={{														
 								fill: "url(#pattern)", 								
-								// fill: 'currentColor',																
+									// To animate with the rect Tags, I need to this.
 							}}	
 							className={`header__title header__main-title_color_${props.contentsColor}`}				
 							initial="initial"

@@ -20,9 +20,9 @@ class Header extends Component {
       windowWidth: window.innerWidth, 
       siteMenuVisibility: false,   
         // Control the visibility of Header__Menu as its className (with -100vw);
-      headerColor: null,
+      // headerColor: null,
       // headerColor: this.setHeaderColor,
-      contnetsColor: null,   
+      // contnetsColor: null,   
       // Use State for headerColor and contentsColor for now. 
         //  P
           // : When I use a normal Variables under render(), the values are NOT accessible in HeaderTitle and classNames. 
@@ -352,7 +352,8 @@ class Header extends Component {
           <HeaderTitle
             contentsColor={this.setContentsColor()}            
             setContentsColor={this.setContentsColor}
-            headerColor={this.setHeaderColor}
+            headerColor={this.setHeaderColor()}
+            setHeaderColor={this.setHeaderColor}
             handleOnClick={this.handleOnClick}
             controllScrollingUnderneath={this.controllScrollingUnderneath}
             isSiteFirstMount={this.props.isSiteFirstMount}
