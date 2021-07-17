@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 
 export default function HeaderTitle(props) {	
 		
+	let contentsColor = props.contentsColor
+	console.log("props.setContentsColor()", props.setContentsColor())
+	console.log("props.contentsColor()", props.contentsColor)
+	console.log("contentsColor = props.contentsColor" , contentsColor)
 
 	// The single source of truth for the Dimensions (width and height) of the title text.
 	// => Called from setTextContainerVariants()
@@ -75,7 +79,7 @@ export default function HeaderTitle(props) {
 					
 				width: width,				
 				height: height,				
-				backgroundColor: props.headrColor,
+				backgroundColor: props.headerColor,
 				// display: 'flex',
 				// alignItems: 'center',
 				// justifyContent: 'center',
@@ -205,7 +209,12 @@ export default function HeaderTitle(props) {
 							patternUnits="userSpaceOnUse"															
 							width="100%"				
 							height="100%"
+							// color={props.setContentsColor()}
+								// IS (5/5) white (the returned Variable from Header/setContentsColor())
 							color={props.contentsColor}
+								// IS (5/5) white (the returned Variable from Header/setContentsColor())
+							// color={contentsColor}
+								// Is NOT | SOMETIMES (2/5) IS white (the returned Variable from Header/setContentsColor())
 							
 						>
 				

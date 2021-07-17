@@ -21,16 +21,20 @@ class Header extends Component {
       siteMenuVisibility: false,   
         // Control the visibility of Header__Menu as its className (with -100vw);
       headerColor: null,
+      // headerColor: this.setHeaderColor,
       contnetsColor: null,   
       // Use State for headerColor and contentsColor for now. 
         //  P
           // : When I use a normal Variables under render(), the values are NOT accessible in HeaderTitle and classNames. 
     }
-
+    // Fnctionalities
     this.trackWindowWidth = this.trackWindowWidth.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this); 
     this.controllScrollingUnderneath = this.controllScrollingUnderneath.bind(this);
-    // this.set
+    // Styles
+    this.setHeaderColor = this.setHeaderColor.bind(this);
+    this.setContentsColor = this.setContentsColor.bind(this);
+    this.setHeaderStyle = this.setHeaderStyle.bind(this);
   }
 
   
@@ -87,45 +91,6 @@ class Header extends Component {
   
   }
 
-
-  setHeaderColor() {
-    
-    if(this.props.location.pathname === "/") {     
-      // When the path is the home. 
-
-      this.setState({
-        headerColor: 'black',
-      }, ()=> this.setContentsColor())
-        // When it is 'black', the color of CONTENTS is 'white' set in setContentsColor().
-
-    } else { 
-
-      this.setState({
-        headerColor: 'white',
-      }, ()=> this.setContentsColor())
-
-    }
-    
-  }
-
-  setContentsColor() {
-  
-    let headerColor = this.state.headerColor;
-    
-    if(headerColor === 'black') {
-      this.setState({
-        contentsColor: 'white'
-      })
-      
-    } else {
-      this.setState({
-        contentsColor: 'black'
-      })      
-    }
-    
-  }
-
-
   scrollToTop() {
     window.scrollTo(0, 0);
     
@@ -176,13 +141,69 @@ class Header extends Component {
 
   }
 
-    // setHeaderHeight() 
+
     
-    setHeaderAnimationStyleVariants(screenSize) {
-      // console.log(screenSize)    
+
+    setHeaderColor() {
+      
+      // if(this.props.location.pathname === "/") {     
+      //   // When the path is the home. 
+
+      //   this.setState({
+      //     headerColor: 'black',
+      //   }, ()=> this.setContentsColor())
+      //     // When it is 'black', the color of CONTENTS is 'white' set in setContentsColor().
+
+      // } else { 
+
+      //   this.setState({
+      //     headerColor: 'white',
+      //   }, ()=> this.setContentsColor())
+
+      // }
+
+      let headerColor;
+
+      if(this.props.location.pathname === "/") {     
+        // When the path is the home.  
+          return headerColor = 'black'
+      } else {   
+          return headerColor = 'white'
+      }
+      
+    }
+
+    setContentsColor() {
+    
+      let contentsColor;
+      // let headerColor = this.state.headerColor;
+      let headerColor = this.setHeaderColor();
+      console.log(headerColor)
+      
+      if(headerColor === 'black') {
+        // this.setState({
+        //   contentsColor: 'white'
+        // })
+        contentsColor = 'white'
+        
+      } else {
+        // this.setState({
+        //   contentsColor: 'black'
+        // })      
+        contentsColor = 'black'
+      }
+
+      return contentsColor;
+      
+    }
+
+
+    setHeaderStyle() {
 
       let top;
-      let bottom;
+      let bottom;      
+        // headerColor State is unavailable in my current codes.
+          // This is because, 
       if(this.state.windowWidth <= 1000) {
 
         top = null
@@ -191,22 +212,36 @@ class Header extends Component {
         top = 0
         bottom = null
       }
+
       
       return {
+        position: 'fixed',
+        top: top,
+        bottom: bottom,
+        left: 0,
+        width: '100vw',
+        height: '15vh',      
+        backgroundColor: this.setHeaderColor(),  
+        display: 'grid',
+        gridTemplate:                           
+          this.state.windowWidth <= 1000 
+          ? "[row1-start] 'reservation title site-menu-button' 100% [row1-end] / 30% 40% 30%"
+          : "[row1-start] 'title site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
+        overflow: 'visible',
+      }
+
+    }
+      
+  
+    
+    setHeaderAnimationStyleVariants(screenSize) {
+      // console.log(screenSize)    
+
+      return {
         initial: {          
-          position: 'fixed',
-          top: top,
-            // screenSize == 'smallScrees'
-            // ? 'auto'
-            // : '0',
-          bottom: bottom,
-            // screenSize == 'smallScreens'
-            // ? '0'
-            // : 'auto',
-          left: '0',
-          width: '100vw',			
-          height: '100vh',              
-          display: 'grid',
+                              	
+          height: '100vh',   
+                              
           gridTemplate:
           // The ASSIGNMENT of Grid Areas need to be 
             // : The SAME in both state (initial and animate)
@@ -249,46 +284,13 @@ class Header extends Component {
 
     }
 
-    setHeaderStyle() {
-
-      let top;
-      let bottom;
-      if(this.state.windowWidth <= 1000) {
-
-        top = null
-        bottom = 0
-      } else {
-        top = 0
-        bottom = null
-      }
-      
-      return {
-        position: 'fixed',
-        top: top,
-        bottom: bottom,
-        left: 0,
-        width: '100vw',
-        height: '15vh',
-        display: 'grid',
-        gridTemplate:                           
-          this.state.windowWidth <= 1000 
-          ? "[row1-start] 'reservation title site-menu-button' 100% [row1-end] / 30% 40% 30%"
-          : "[row1-start] 'title site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
-        overflow: 'visible',
-      }
-
-    }
-      
-  
 
   render() {
 
 
     let siteMenuVisibility = 'hide';
     let headerHasBoxShadow = true
-    let headerColor;
-    let contentsColor;
-
+  
 
     if (this.state.siteMenuVisibility || this.state.windowWidth >= 1000) {         
       // Since, the change in the State Invokes the render(), I need to assingn the window.innerWidth to the windowWidth State FIRST (trackWindowWidth()). 
@@ -321,19 +323,17 @@ class Header extends Component {
             `
             header
             header__grid-container 
-            header_color_${this.state.headerColor}            
-            // header_color_${headerColor}            
             header_box-shadow_${headerHasBoxShadow}
             `
           }        
+            // header_color_${this.state.headerColor}            
+            // header_color_${headerColor}            
           ref={header => this.header = header }
 
           // Initial Animation
           initial={this.props.isSiteFirstMount ? "initial" : ""}
           animate={this.props.isSiteFirstMount ? "animate" : ""}          
-          style={
-            this.props.isSiteFirstMount ? "" : this.setHeaderStyle()    
-        }
+          style={this.setHeaderStyle()}
           variants={this.setHeaderAnimationStyleVariants(screenSize)}
           onAnimationStart={() => {
 
@@ -352,9 +352,9 @@ class Header extends Component {
           className="header__grid-item header-contents__grid-item header__grid-item_title"
         >
           <HeaderTitle
-            contentsColor={contentsColor}
-            contentsColor={this.state.contentsColor}
-            headerColor={headerColor}
+            // contentsColor={this.setContentsColor()}            
+            setContentsColor={this.setContentsColor}
+            headerColor={this.setHeaderColor}
             handleOnClick={this.handleOnClick}
             controllScrollingUnderneath={this.controllScrollingUnderneath}
             isSiteFirstMount={this.props.isSiteFirstMount}
@@ -366,7 +366,7 @@ class Header extends Component {
           className="header__grid-item header__grid-item_site-menu">          
           <HeaderSiteMenu 
             handleOnClick={this.handleOnClick}
-            contentsColor={this.state.contentsColor}
+            contentsColor={this.setContentsColor}
             siteMenuVisibility={siteMenuVisibility} 
             headerColor={this.state.headerColor}
       
@@ -376,7 +376,7 @@ class Header extends Component {
         <div 
           className="header__grid-item header__grid-item_reservation">
             <HeaderReservation 
-              contentsColor={this.state.contentsColor}
+              contentsColor={this.setContentsColor}
               toggleReservationModal={this.props.toggleReservationModal}
             />
         </div>
@@ -390,7 +390,7 @@ class Header extends Component {
           >           
               <HeaderButton
                 handleOnClick={this.handleOnClick}
-                contentsColor={this.state.contentsColor}
+                contentsColor={this.setContentsColor}
               />             
           </div>
 
