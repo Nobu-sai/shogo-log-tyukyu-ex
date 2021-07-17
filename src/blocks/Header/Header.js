@@ -184,16 +184,16 @@ class Header extends Component {
         // this.setState({
         //   contentsColor: 'white'
         // })
-        contentsColor = 'white'
+        return contentsColor = 'white'
         
       } else {
         // this.setState({
         //   contentsColor: 'black'
         // })      
-        contentsColor = 'black'
+        return contentsColor = 'black'
       }
 
-      return contentsColor;
+      // return contentsColor;
       
     }
 
@@ -262,7 +262,7 @@ class Header extends Component {
           
             transition: {            
             duration: 1.5,
-            delay: 2.5,
+            delay: 3.5,
               // smallScreens
                 // : HeaderMain/.../setInitialAnimationBGVariants = 0.1s
                 // : HeaderMain/.../setTextContainerVariants = 1.5s

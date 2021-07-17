@@ -5,10 +5,8 @@ import { Link } from 'react-router-dom';
 
 
 export default function HeaderTitle(props) {	
-			
-
-
-	// }
+		
+	
 	
 	// The single source of truth for the Dimensions (width and height) of the title text.
 	// => Called from setTextContainerVariants()
@@ -67,16 +65,20 @@ export default function HeaderTitle(props) {
 		let height = setTextDimensionValues().textHeight
 
 		return {
-			initial: {			
+			initial: {									
+				opacity: 0,		
 				width: width,				
 				height: height,					
-				// backgroundColor: 'hsl(209, 100%, 43%)',
 			},
-			animate: {		 													
+			animate: {						// borderRadius: '50%',				
+
+				opacity: 1, 													
 				transition: {
-					when: "afterChildren",
+					// when: "afterChildren",
 					duration: 
+						// 1.5,
 						1.5,
+					delay: 1.0,
 					ease: [0.87, 0, 0.13, 1],
 				}, 
 			},
@@ -101,7 +103,7 @@ export default function HeaderTitle(props) {
 
 		return {
 			initial: {
-	
+				
 				width: '100%',
 				height: '100%',
 				color: 'rgba(75, 85, 99)',					
@@ -113,8 +115,10 @@ export default function HeaderTitle(props) {
 			animate: {				
 				y: slideScale,			
 				transition: {	
+					height: '400%',
 					when: "afterChildren",
-					delay: 1.0,
+					delay: 
+						2.0,						
 					duration: 1.5,
 					ease: [0.87, 0, 0.13, 1],
 				},
@@ -132,7 +136,9 @@ export default function HeaderTitle(props) {
 				opacity: 1,						
 				
 				transition: {		
-					delay: 0.5,
+					delay: 
+						// 0.5,
+						2.0,
 					duration: 0.5,
 					ease: [0.87, 0, 0.13, 1],
 				},
@@ -163,9 +169,14 @@ export default function HeaderTitle(props) {
 				initial={props.isSiteFirstMount ? "initial" : ""}
 				animate={props.isSiteFirstMount ? "animate" : ""}
 					// Without this, the text SVG animation doesn't work as well. 							
-				style={{						
+				style={{				
+					borderRadius: '50%',		
 					width: setTextDimensionValues().textWidth,
+					minWidth: '100px',
 					height: setTextDimensionValues().textHeight,					
+					minHeight: '100px',
+					backgroundColor: 'hsl(209, 100%, 43%)',
+					overflow: 'visible'					
 				}}
 				variants={setTextContainerVariants()}			
 			>     
@@ -182,7 +193,8 @@ export default function HeaderTitle(props) {
 						className="header__main_svg"
 						style={{
 							width: '100%',
-							height: '100%',							
+							height: '100%',		
+							color: '#fff',
 						}}
 					>
 						<pattern
@@ -190,23 +202,29 @@ export default function HeaderTitle(props) {
 							patternUnits="userSpaceOnUse"															
 							width="100%"				
 							height="100%"
-							color={props.setContentsColor()}
-								// IS (4/10) white (the returned Variable from Header/setContentsColor())
-							color={props.contentsColor}
-								// IS (9/10) white (the returned Variable from Header/setContentsColor())
-							// color={contentsColor}
-								// Is NOT | SOMETIMES (2/5) IS white (the returned Variable from Header/setContentsColor())
-							style={{
-								// color:props.contentsColor,
-							}}
-						>
-				
+
+							// Color values issues
+								// It seems solved by "Do NOT use % Unit or a Unit RELATIVE to the PARENT (pattern Tag) to pattern Tag/rect Tag." said underneath (rect Tag/style)
+								// color={props.setContentsColor()}
+									// IS (4/10) white (the returned Variable from Header/setContentsColor())
+								color={props.contentsColor}
+									// IS (9/10) white (the returned Variable from Header/setContentsColor())
+								// color={contentsColor}
+									// The props.contentsColor
+									// Is NOT | SOMETIMES (2/5) IS white (the returned Variable from Header/setContentsColor())
+								// color={contentsColor}
+									// Declared in THIS Component. 							
+						>				
 							<rect 																	
 								style={{
-									width: '100%',
-									height: '100%',	
-									fill: 'currentColor',
-									// fill: props.setContentsColor(),
+									// Usage
+									// : Do NOT use % Unit or a Unit RELATIVE to the PARENT (pattern Tag) to pattern Tag/rect Tag.
+										// P
+											// : https://www.evernote.com/shard/s350/nl/180370944/689a5dab-1573-7f98-0557-049f0109aa34?title=(Shogo)%20%E4%B8%AD%E7%B4%9AEx/%22Issue%22%20=%20In%20the%20FIRST%20render,%20Header/headerColor%20State%20is%20undefined%20being%20accessed%20from%20Header/setHeaderStyle()%20which%20is%20Called%20from%20motion.div/style%20Prop.
+												//  The cause for "the animated text (In svg Tag/text Tag) sometimes loses the color" seems because of the WIDTH of svg Tag/pattern Tag/rect Tag set as "100%" even though the PARENT pattern Tag has NOT width.									
+									width: setTextDimensionValues().textWidth,	
+									height: setTextDimensionValues().textHeight, 
+									fill: 'currentColor',									
 								}}
 							/>
 								{/* 
