@@ -280,22 +280,6 @@ body {
 }
 
 @media (min-width: 200px) {
-  .header__title {
-    font-size: 20px;
-  }
-}
-@media (min-width: 1000px) {
-  .header__title {
-    font-size: 28px;
-  }
-}
-@media (min-width: 2000px) {
-  .header__title {
-    font-size: 56px;
-  }
-}
-
-@media (min-width: 200px) {
   .header__site-menu {
     position: fixed;
     top: 0;

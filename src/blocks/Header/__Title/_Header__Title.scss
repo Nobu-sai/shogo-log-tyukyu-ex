@@ -8,15 +8,15 @@
 	// height: 100%;
 	// writing-mode: horizontal-tb;
 
-	@include responsive.respond-to('min', '200') {
-		font-size: 20px;
-	}
-	@include responsive.respond-to('min', '1000') {
-		font-size: 28px;
-	}
-	@include responsive.respond-to('min', '2000') {
-		font-size: 56px;
-	}
+	// @include responsive.respond-to('min', '200') {
+	// 	font-size: 20px;
+	// }
+	// @include responsive.respond-to('min', '1000') {
+	// 	font-size: 28px;
+	// }
+	// @include responsive.respond-to('min', '2000') {
+	// 	font-size: 56px;
+	// }
 }
 
 .header__initial-animation {

@@ -14,25 +14,30 @@ export default function HeaderTitle(props) {
 	// The single source of truth for the Dimensions (width and height) of the title text.
 	// => Called from setTextContainerVariants()
 	// =>> The children are set with 100%.  
-	const setTextDimensionValues = () => {
+	const setResponsiveValues = () => {
 		
-		let textWidth;
-		let textHeight;
+		let textWidth
+		let textHeight
+		let textFontSize
 
 		if(props.screenSize == 'smallScreens') {
 			textWidth = '120px'
 			textHeight = '120px'
+			textFontSize = '20px'
 		} else if (props.screenSize == 'largeScreens') {
-			textWidth = '180px';
-			textHeight = '180px';
+			textWidth = '180px'
+			textHeight = '180px'
+			textFontSize = '28px'
 		} else if (props.screenSize == 'largeScreensExtra') {
-			textWidth = '280px';
-			textHeight = '280px';
+			textWidth = '280px'
+			textHeight = '280px'
+			textFontSize = '56px'
 		}
 
 		return {
 			textWidth: textWidth,
 			textHeight: textHeight,
+			textFontSize: textFontSize,
 		}
 	}
 	
@@ -64,8 +69,8 @@ export default function HeaderTitle(props) {
 		
 		// console.log(screenSize)
 		// console.log(setTextDimensionValues().textWidth)
-		let width = setTextDimensionValues().textWidth
-		let height = setTextDimensionValues().textHeight
+		let width = setResponsiveValues().textWidth
+		let height = setResponsiveValues().textHeight
 
 		return {
 			initial: {									
@@ -174,9 +179,9 @@ export default function HeaderTitle(props) {
 					// Without this, the text SVG animation doesn't work as well. 							
 				style={{				
 					borderRadius: '50%',		
-					width: setTextDimensionValues().textWidth,
+					width: setResponsiveValues().textWidth,
 					minWidth: '100px',
-					height: setTextDimensionValues().textHeight,					
+					height: setResponsiveValues().textHeight,					
 					minHeight: '100px',
 					backgroundColor: 'hsl(209, 100%, 43%)',
 					overflow: 'visible'					
@@ -225,8 +230,8 @@ export default function HeaderTitle(props) {
 										// P
 											// : https://www.evernote.com/shard/s350/nl/180370944/689a5dab-1573-7f98-0557-049f0109aa34?title=(Shogo)%20%E4%B8%AD%E7%B4%9AEx/%22Issue%22%20=%20In%20the%20FIRST%20render,%20Header/headerColor%20State%20is%20undefined%20being%20accessed%20from%20Header/setHeaderStyle()%20which%20is%20Called%20from%20motion.div/style%20Prop.
 												//  The cause for "the animated text (In svg Tag/text Tag) sometimes loses the color" seems because of the WIDTH of svg Tag/pattern Tag/rect Tag set as "100%" even though the PARENT pattern Tag has NOT width.									
-									width: setTextDimensionValues().textWidth,	
-									height: setTextDimensionValues().textHeight, 
+									width: setResponsiveValues().textWidth,	
+									height: setResponsiveValues().textHeight, 
 									fill: 'currentColor',									
 								}}
 							/>
@@ -249,7 +254,8 @@ export default function HeaderTitle(props) {
 							textAnchor="middle"
 							x="50%"
 							y="50%"
-							style={{														
+							style={{		
+								fontSize: setResponsiveValues().textFontSize,												
 								fill: "url(#pattern)", 								
 									// To animate with the rect Tags, I need to this.
 							}}	
