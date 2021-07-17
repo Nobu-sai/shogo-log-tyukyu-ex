@@ -312,14 +312,6 @@ class Header extends Component {
     }
 
 
-    setHeaderGridItemStyle() {
-      return {
-        overflow: 'hidden',
-          // Prevent the header reservation and button interven into the initial animaiton. 
-      }
-    }
-
-
   render() {
 
     let siteMenuVisibility = 'hide'
@@ -382,7 +374,12 @@ class Header extends Component {
       
       
         <div
-          className="header__grid-item header-contents__grid-item header__grid-item_title"
+          className="header__grid-item header-contents__grid-item header__grid-item_title"                    
+          style={{
+            gridArea: 'title',            
+            // overflow: 'hidden',
+          }}
+
         >
           <HeaderTitle
             // contentsColor={this.setContentsColor()}            
@@ -391,29 +388,38 @@ class Header extends Component {
             handleOnClick={this.handleOnClick}
             controllScrollingUnderneath={this.controllScrollingUnderneath}
             isSiteFirstMount={this.props.isSiteFirstMount}
-            screenSize={screenSize}
-            style={this.setHeaderGridItemStyle()}
+            screenSize={screenSize}            
           />
         </div>
 
         <div 
-          className="header__grid-item header__grid-item_site-menu">          
+          className="header__grid-item header__grid-item_site-menu"          
+          style={{
+            gridArea: 'site-menu',            
+            overflow: 'hidden',
+          }}
+        
+        >          
           <HeaderSiteMenu 
             handleOnClick={this.handleOnClick}
             contentsColor={this.setContentsColor}
             siteMenuVisibility={siteMenuVisibility} 
-            headerColor={this.state.headerColor}
-            style={this.setHeaderGridItemStyle()}
+            headerColor={this.state.headerColor} 
       
           />
         </div>
 
         <div 
-          className="header__grid-item header__grid-item_reservation">
+          className="header__grid-item header__grid-item_reservation" 
+          style={{
+            gridArea: 'reservation',
+            overflow: 'hidden',
+          }}
+          
+        >
             <HeaderReservation 
               contentsColor={this.setContentsColor}
               toggleReservationModal={this.props.toggleReservationModal}
-              style={this.setHeaderGridItemStyle()}
             />
         </div>
 
@@ -422,12 +428,18 @@ class Header extends Component {
           this.state.windowWidth <= 1000 &&
 
           <div 
-            className="header__grid-item header__grid-item_site-menu-button"
+            className="header__grid-item header__grid-item_site-menu-button"         
+            style={{
+              gridArea: 'site-menu-button',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              overflow: 'hidden',
+            }}
           >           
               <HeaderButton
                 handleOnClick={this.handleOnClick}
                 contentsColor={this.setContentsColor}
-                style={this.setHeaderGridItemStyle()}
               />             
           </div>
 

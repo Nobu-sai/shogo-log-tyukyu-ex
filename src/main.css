@@ -280,28 +280,6 @@ body {
 }
 
 @media (min-width: 200px) {
-  .header__grid-item {
-    overflow: hidden;
-  }
-  .header__grid-item_title {
-    grid-area: title;
-    position: relative;
-    z-index: 1003;
-  }
-  .header__grid-item_site-menu {
-    grid-area: site-menu;
-  }
-  .header__grid-item_reservation {
-    grid-area: reservation;
-  }
-  .header__grid-item_site-menu-button {
-    grid-area: site-menu-button;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-@media (min-width: 200px) {
   .header__title {
     font-size: 20px;
   }
