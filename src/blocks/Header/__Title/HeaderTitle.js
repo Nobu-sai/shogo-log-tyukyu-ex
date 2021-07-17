@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 
+
 export default function HeaderTitle(props) {	
 		
 	
@@ -19,19 +20,23 @@ export default function HeaderTitle(props) {
 		let textWidth
 		let textHeight
 		let textFontSize
+		let textContainerMarginBottom
 
 		if(props.screenSize == 'smallScreens') {
-			textWidth = '120px'
-			textHeight = '120px'
-			textFontSize = '20px'
+			textWidth = '60px'
+			textHeight = '60px'
+			textFontSize = '24px'
+			textContainerMarginBottom = '80px'
 		} else if (props.screenSize == 'largeScreens') {
 			textWidth = '180px'
 			textHeight = '180px'
-			textFontSize = '28px'
+			textFontSize = '34px'
+			textContainerMarginBottom = '120px'
 		} else if (props.screenSize == 'largeScreensExtra') {
 			textWidth = '280px'
 			textHeight = '280px'
-			textFontSize = '56px'
+			textFontSize = '68px'
+			textContainerMarginBottom = '240px'
 		}
 
 		return {
@@ -65,7 +70,30 @@ export default function HeaderTitle(props) {
 	
 	}
 
-	const setTextContainerVariants	= () => {
+	const setTextContainerStyle = () => {
+		let boxShadow = "4px 4px 24px 14px hsla(0, 0%, 0%, 0.9)"   ;
+
+	 	// if (props.headerColor == 'black') {
+		// 	boxShadow = "4px 4px 24px 14px hsla(0, 0%, 0%, 0.9)"   
+		
+		//   } else if (props.headerColor == 'white') {
+		// 	boxShadow = "4px 4px 24px 14px hsla(0, 0%, 100%, 0.9)"        
+		//   }
+
+		 return {
+			boxShadow: boxShadow,
+			marginBottom: '80px',	
+			borderRadius: '50%',		
+			width: setResponsiveValues().textWidth,
+			// minWidth: '60px',
+			height: setResponsiveValues().textHeight,					
+			// minHeight: '60px',
+			backgroundColor: 'hsl(209, 100%, 43%)',
+			// overflow: 'visible'		
+		 }
+	}
+
+	const setTextContainerAnimationStyleVariants = () => {
 		
 		// console.log(screenSize)
 		// console.log(setTextDimensionValues().textWidth)
@@ -162,13 +190,14 @@ export default function HeaderTitle(props) {
 			initial={props.isSiteFirstMount ? "initial" : ""}
 			animate={props.isSiteFirstMount ? "animate" : ""}
 				// Without this, the text SVG animation doesn't work as well. 			
-			style={{								
+			style={{						
 				width: '100%',
 				height: '100%',
 				backgroundColor: props.headerColor,								
 				display: 'flex',
 				alignItems: 'center',
-				justifyContent: 'center'
+				justifyContent: 'center',
+				overflow: 'visible'	
 			}}
 			variants={setInitialAnimationBGVariants(props.screenSize)}			
 		>     
@@ -176,33 +205,27 @@ export default function HeaderTitle(props) {
 				className="header__initial-animation-text-container"
 				initial={props.isSiteFirstMount ? "initial" : ""}
 				animate={props.isSiteFirstMount ? "animate" : ""}
-					// Without this, the text SVG animation doesn't work as well. 							
-				style={{				
-					borderRadius: '50%',		
-					width: setResponsiveValues().textWidth,
-					minWidth: '100px',
-					height: setResponsiveValues().textHeight,					
-					minHeight: '100px',
-					backgroundColor: 'hsl(209, 100%, 43%)',
-					overflow: 'visible'					
-				}}
-				variants={setTextContainerVariants()}			
+					// Without this, the text SVG animation doesn't work as well. 											
+				style={setTextContainerStyle()}
+				variants={setTextContainerAnimationStyleVariants()}			
 			>     
 				<Link 
-					className={`link link_color_${props.contentsColor} header__main-link header__main_flex-container`}
+					className={`link`}
 					to='/'
 					style={{
 						width: '100%',
 						height: '100%',
+						
 					}}
 					onClick={props.handleOnClick}
 				>
 					<motion.svg 										
 						className="header__main_svg"
-						style={{
+						style={{							
 							width: '100%',
 							height: '100%',		
-							color: '#fff',
+							color: '#fff',														
+							overflow: 'visible'		
 						}}
 					>
 						<pattern
@@ -211,17 +234,19 @@ export default function HeaderTitle(props) {
 							width="100%"				
 							height="100%"
 
+
 							// Color values issues
 								// It seems solved by "Do NOT use % Unit or a Unit RELATIVE to the PARENT (pattern Tag) to pattern Tag/rect Tag." said underneath (rect Tag/style)
 								// color={props.setContentsColor()}
 									// IS (4/10) white (the returned Variable from Header/setContentsColor())
-								color={props.contentsColor}
+								// color={props.contentsColor}
 									// IS (9/10) white (the returned Variable from Header/setContentsColor())
 								// color={contentsColor}
 									// The props.contentsColor
 									// Is NOT | SOMETIMES (2/5) IS white (the returned Variable from Header/setContentsColor())
 								// color={contentsColor}
 									// Declared in THIS Component. 							
+								color="#fff"
 						>				
 							<rect 																	
 								style={{
@@ -242,6 +267,7 @@ export default function HeaderTitle(props) {
 							<motion.rect 
 									
 								variants={setMotionRectVariants()}
+								
 							/>
 								{/* 
 									= For the animation FILTER COLOR.
@@ -254,12 +280,14 @@ export default function HeaderTitle(props) {
 							textAnchor="middle"
 							x="50%"
 							y="50%"
-							style={{		
+							style={{										
+								
 								fontSize: setResponsiveValues().textFontSize,												
+								fontFamily: "'Otomanopee One', sans-serif",
 								fill: "url(#pattern)", 								
 									// To animate with the rect Tags, I need to this.
-							}}	
-							className={`header__title header__main-title_color_${props.contentsColor}`}				
+								overflow: 'visible',
+							}}								
 							initial="initial"
 							animate="animate"
 							variants={setTextVariants()}
@@ -272,6 +300,7 @@ export default function HeaderTitle(props) {
 				</Link>
 				
 			</motion.div>
+			
 		</motion.div>
 	
 	)

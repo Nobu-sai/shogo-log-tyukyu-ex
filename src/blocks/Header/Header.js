@@ -42,6 +42,7 @@ class Header extends Component {
     this.setHeaderColor = this.setHeaderColor.bind(this);
     this.setContentsColor = this.setContentsColor.bind(this);
     this.setHeaderStyle = this.setHeaderStyle.bind(this);
+    this.setHeaderAnimationStyleVariants = this.setHeaderAnimationStyleVariants.bind(this)
   }
 
   
@@ -208,18 +209,21 @@ class Header extends Component {
     setHeaderStyle(screenSize, headerHasBoxShadow) {
 
       let top;
-      let bottom;      
+      let bottom
+      
         // headerColor State is unavailable in my current codes.
           // This is because, 
-      let boxShadow;
+      let boxShadow
+      let height
 
-      if (headerHasBoxShadow == true) {
+      if (headerHasBoxShadow == false) {
         boxShadow = 'none'
-      } else if (headerHasBoxShadow == true && this.setHeaderColor() == 'black') {
-        boxShadow = "4px 4px 14px 4px hsla(0, 0%, 0%, 0.9)"   
+      // } else if (headerHasBoxShadow == true && this.setHeaderColor() == 'black') {
+      } else if (headerHasBoxShadow) {
+        boxShadow = "4px 4px 24px 14px hsla(0, 0%, 0%, 0.9)"   
         // console.log(boxShadow)     
-      } else if (headerHasBoxShadow == true && this.setHeaderColor() == 'black') {
-        boxShadow = "4px 4px 14px 4px hsla(0, 0%, 100%, 0.9)"        
+      // } else if (headerHasBoxShadow == true && this.setHeaderColor() == 'white') {
+      //   boxShadow = "4px 4px 24px 14px hsla(0, 0%, 100%, 0.9)"        
         // console.log(boxShadow)     
       } 
 
@@ -227,11 +231,13 @@ class Header extends Component {
 
         top = null
         bottom = 0        
+        height = '200px'
 
       } else if (screenSize == 'largeScreens' || screenSize == 'largeScreensExtra') {
 
         top = 0
         bottom = null
+        height = '200px'
 
       }
 
@@ -244,7 +250,7 @@ class Header extends Component {
         left: 0,
         boxShadow: boxShadow,
         width: '100vw',
-        height: '15vh',      
+        height: height,      
         backgroundColor: this.setHeaderColor(),  
           // Don't change. 
             // P
@@ -264,6 +270,20 @@ class Header extends Component {
     setHeaderAnimationStyleVariants(screenSize) {
       // console.log(screenSize)    
 
+      // let height = this.setHeaderStyle().height
+      // console.log(height)
+      let height
+
+      if(screenSize == 'smallScreens') {
+
+        height = '200px'
+
+      } else if (screenSize == 'largeScreens' || screenSize == 'largeScreensExtra') {
+
+        height = '200px'
+
+      }
+
       return {
         initial: {          
                               	
@@ -281,7 +301,10 @@ class Header extends Component {
           overflow: 'visible',
         },
         animate: {                      
-            height: '15vh',
+            height: 
+              '15vh',
+              // height,
+
             gridTemplate:               
               screenSize == 'smallScreens' 
               ? "[row1-start] 'reservation title site-menu-button' 100% [row1-end] / 30% 40% 30%"
@@ -382,13 +405,14 @@ class Header extends Component {
 
         >
           <HeaderTitle
-            // contentsColor={this.setContentsColor()}            
+            contentsColor={this.setContentsColor()}            
             setContentsColor={this.setContentsColor}            
             headerColor={this.setHeaderColor()}            
             handleOnClick={this.handleOnClick}
             controllScrollingUnderneath={this.controllScrollingUnderneath}
             isSiteFirstMount={this.props.isSiteFirstMount}
-            screenSize={screenSize}            
+            screenSize={screenSize}      
+            boxShadow={this.setHeaderStyle().boxShadow}      
           />
         </div>
 
