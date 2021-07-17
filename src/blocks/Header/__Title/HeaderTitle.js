@@ -38,9 +38,7 @@ export default function HeaderTitle(props) {
 		}
 	}
 	
-	const setInitialAnimationBGVariants = (screenSize) => {
-		// console.log(screenSize)
-		// console.log(contentsContainerBGColor)
+	const setInitialAnimationBGVariants = () => {		
 
 		return {
 			initial: {						
@@ -59,8 +57,9 @@ export default function HeaderTitle(props) {
 				height: '100%',
 				transition: {
 					when: "afterChildren",
-					duration: 						
-						screenSize == 'smallScreens'
+					duration: 
+						// 1.0,
+						props.screenSize == 'smallScreens'
 						? 0.1
 						: 1.0,
 					ease: [0.87, 0, 0.13, 1],
