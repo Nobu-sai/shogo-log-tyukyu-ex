@@ -1,3 +1,10 @@
+// Usage
+// : ALL Style for Header ITSELF (Ex: Header itself Styles, Grid Layout) HERE.
+  // * The CHILDREN Components are different (Ex: HeaderSiteMenu) except to HeaderTitle.
+
+
+
+
 // Liberaries
 import React, { Component } from 'react'
 import { withRouter } from "react-router";
@@ -305,6 +312,14 @@ class Header extends Component {
     }
 
 
+    setHeaderGridItemStyle() {
+      return {
+        overflow: 'hidden',
+          // Prevent the header reservation and button interven into the initial animaiton. 
+      }
+    }
+
+
   render() {
 
     let siteMenuVisibility = 'hide'
@@ -377,6 +392,7 @@ class Header extends Component {
             controllScrollingUnderneath={this.controllScrollingUnderneath}
             isSiteFirstMount={this.props.isSiteFirstMount}
             screenSize={screenSize}
+            style={this.setHeaderGridItemStyle()}
           />
         </div>
 
@@ -387,6 +403,7 @@ class Header extends Component {
             contentsColor={this.setContentsColor}
             siteMenuVisibility={siteMenuVisibility} 
             headerColor={this.state.headerColor}
+            style={this.setHeaderGridItemStyle()}
       
           />
         </div>
@@ -396,6 +413,7 @@ class Header extends Component {
             <HeaderReservation 
               contentsColor={this.setContentsColor}
               toggleReservationModal={this.props.toggleReservationModal}
+              style={this.setHeaderGridItemStyle()}
             />
         </div>
 
@@ -409,6 +427,7 @@ class Header extends Component {
               <HeaderButton
                 handleOnClick={this.handleOnClick}
                 contentsColor={this.setContentsColor}
+                style={this.setHeaderGridItemStyle()}
               />             
           </div>
 
