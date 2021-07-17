@@ -5,11 +5,8 @@ import { Link } from 'react-router-dom';
 
 
 export default function HeaderTitle(props) {	
-		
-	let contentsColor = props.contentsColor
-	console.log("props.setContentsColor()", props.setContentsColor())
-	console.log("props.contentsColor()", props.contentsColor)
-	console.log("contentsColor = props.contentsColor" , contentsColor)
+			
+
 
 	// }
 	
@@ -41,20 +38,11 @@ export default function HeaderTitle(props) {
 	const setInitialAnimationBGVariants = () => {		
 
 		return {
-			initial: {						
-				// opacity: 0,					
+			initial: {														
 				width: '100vw',			
-				height: '100vh',    
-				// backgroundColor: props.headrColor,
-				backgroundColor: props.setHeaderColor(),
-				// backgroundColor: contentsContainerBGColor,				
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'center',
-				// Without Flexbox, the SVG animation doesn't work. 
+				height: '100vh',    					
 			},
-			animate: {			
-				// opacity: 1,
+			animate: {							
 				width: '100%',
 				height: '100%',
 				transition: {
@@ -81,8 +69,7 @@ export default function HeaderTitle(props) {
 		return {
 			initial: {			
 				width: width,				
-				height: height,				
-				// backgroundColor: props.headerColor,
+				height: height,					
 				// backgroundColor: 'hsl(209, 100%, 43%)',
 			},
 			animate: {		 													
@@ -119,7 +106,7 @@ export default function HeaderTitle(props) {
 				height: '100%',
 				color: 'rgba(75, 85, 99)',					
 				fill: 'currentColor',
-				// fill: props.setContentsColor(),
+					// Without this, the text is NOT set as the props.contentsColor (set in the parent pattern Tag) or NOT shown.				
 				y: 0
 
 			},
@@ -164,7 +151,7 @@ export default function HeaderTitle(props) {
 			style={{								
 				width: '100%',
 				height: '100%',
-				backgroundColor: props.headrColor,				
+				backgroundColor: props.headerColor,								
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center'
@@ -175,16 +162,10 @@ export default function HeaderTitle(props) {
 				className="header__initial-animation-text-container"
 				initial={props.isSiteFirstMount ? "initial" : ""}
 				animate={props.isSiteFirstMount ? "animate" : ""}
-					// Without this, the text SVG animation doesn't work as well. 			
-				// style={props.isSiteFirstMount ? "" : "style"}
-				style={{	
-					// zIndex: 2000,							
+					// Without this, the text SVG animation doesn't work as well. 							
+				style={{						
 					width: setTextDimensionValues().textWidth,
-					height: setTextDimensionValues().textHeight,
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-						// X Without Flexbox, the SVG animation doesn't work. ?
+					height: setTextDimensionValues().textHeight,					
 				}}
 				variants={setTextContainerVariants()}			
 			>     
@@ -201,8 +182,7 @@ export default function HeaderTitle(props) {
 						className="header__main_svg"
 						style={{
 							width: '100%',
-							height: '100%',
-							// backgroundColor: props.headrColor,
+							height: '100%',							
 						}}
 					>
 						<pattern
@@ -210,13 +190,15 @@ export default function HeaderTitle(props) {
 							patternUnits="userSpaceOnUse"															
 							width="100%"				
 							height="100%"
-							// color={props.setContentsColor()}
-								// IS (4/5) white (the returned Variable from Header/setContentsColor())
+							color={props.setContentsColor()}
+								// IS (4/10) white (the returned Variable from Header/setContentsColor())
 							color={props.contentsColor}
-								// IS (5/5) white (the returned Variable from Header/setContentsColor())
+								// IS (9/10) white (the returned Variable from Header/setContentsColor())
 							// color={contentsColor}
 								// Is NOT | SOMETIMES (2/5) IS white (the returned Variable from Header/setContentsColor())
-							
+							style={{
+								// color:props.contentsColor,
+							}}
 						>
 				
 							<rect 																	

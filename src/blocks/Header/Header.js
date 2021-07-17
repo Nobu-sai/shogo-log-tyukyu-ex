@@ -350,10 +350,9 @@ class Header extends Component {
           className="header__grid-item header-contents__grid-item header__grid-item_title"
         >
           <HeaderTitle
-            contentsColor={this.setContentsColor()}            
-            setContentsColor={this.setContentsColor}
-            headerColor={this.setHeaderColor()}
-            setHeaderColor={this.setHeaderColor}
+            // contentsColor={this.setContentsColor()}            
+            setContentsColor={this.setContentsColor}            
+            headerColor={this.setHeaderColor()}            
             handleOnClick={this.handleOnClick}
             controllScrollingUnderneath={this.controllScrollingUnderneath}
             isSiteFirstMount={this.props.isSiteFirstMount}
