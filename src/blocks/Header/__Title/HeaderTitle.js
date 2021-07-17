@@ -4,22 +4,12 @@ import { Link } from 'react-router-dom';
 
 
 
-export default function HeaderTitle(props) {			
-	console.log(props.contentsColor)
-	// console.log(props.setContentsColor())
-	console.log(props.headrColor)
-	
-	let contentsContainerBGColor;
-
-	// if(props.location.pathname == '/') {     
-	// 	console.log(props.location.pathname)
-	// 	// When the path is the home.       
-	// 	contentsContainerBGColor = 'black'
-	// 		// When it is 'black', the color of CONTENTS is 'white' set in setContentsColor().       
-
-	// } else { 
-	// 	console.log(props.location.pathname) 
-	// 	contentsContainerBGColor = 'white' 
+export default function HeaderTitle(props) {	
+		
+	let contentsColor = props.contentsColor
+	console.log("props.setContentsColor()", props.setContentsColor())
+	console.log("props.contentsColor()", props.contentsColor)
+	console.log("contentsColor = props.contentsColor" , contentsColor)
 
 	// }
 	
@@ -90,7 +80,11 @@ export default function HeaderTitle(props) {
 			initial: {									
 				width: width,				
 				height: height,				
-				backgroundColor: props.headrColor,									
+				backgroundColor: props.headerColor,
+				// display: 'flex',
+				// alignItems: 'center',
+				// justifyContent: 'center',
+				// Without Flexbox, the SVG animation doesn't work. 
 			},
 			animate: {		 													
 				transition: {
@@ -215,9 +209,12 @@ export default function HeaderTitle(props) {
 							patternUnits="userSpaceOnUse"															
 							width="100%"				
 							height="100%"
-							color={props.contentsColor}															
-							// color={`${props.setContentsColor()}`}	
-							// color="#fff"														
+							// color={props.setContentsColor()}
+								// IS (5/5) white (the returned Variable from Header/setContentsColor())
+							color={props.contentsColor}
+								// IS (5/5) white (the returned Variable from Header/setContentsColor())
+							// color={contentsColor}
+								// Is NOT | SOMETIMES (2/5) IS white (the returned Variable from Header/setContentsColor())
 							
 						>
 				
