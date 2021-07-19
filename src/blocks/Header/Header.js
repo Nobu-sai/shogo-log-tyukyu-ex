@@ -119,7 +119,12 @@ class Header extends Component {
     this.scrollToTop()
 
     // Conditionally set overflow Property to the body Tag. 
-    if(window.innerWidth >= 1000 && !hide === true) {
+    // Usage
+      // Use || to evaluate if the !hide === true
+        // P
+        // : The ESCAP hatch for I EXPLICITLY control the body Tag scrolling. 
+        // : Otherwise, (using &&) I need to pass the hide Param from EVERYWHARE. 
+    if(window.innerWidth >= 1000 || !hide === true) {      
       // console.log("window.innerWidth >= 1000 && !hide === true", document.body);
 
       document.body.style.overflow = 'unset';   
@@ -128,13 +133,13 @@ class Header extends Component {
 
     } else {
 
-      if(this.state.siteMenuVisibility || hide === true)  {
+      if(this.state.siteMenuVisibility || hide === true)  {      
           // console.log("this.state.siteMenuVisibility || hide === true/1", document.body);          
           document.body.style.overflow = 'hidden';
 
           // console.log("this.state.siteMenuVisibility || hide === true/2", document.body);;
 
-      } else if (!this.state.siteMenuVisibility || hide === false) {
+      } else if (!this.state.siteMenuVisibility || hide === false) { 
           // console.log("!this.state.siteMenuVisibility || hide === false/2", document.body);
 
           document.body.style.overflow = 'unset';   

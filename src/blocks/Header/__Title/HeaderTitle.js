@@ -249,7 +249,6 @@ export default function HeaderTitle(props) {
 						height: '100%',
 						
 					}}
-					// onClick={props.handleOnClick}
 				>
 					<motion.svg 										
 						className="header__main_svg"
