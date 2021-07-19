@@ -20,29 +20,45 @@ export default function HeaderTitle(props) {
 		let textWidth
 		let textHeight
 		let textFontSize
+		let textContainerInitialMarginTop
+		let textContainerInitialMarginBottom
 		let textContainerMarginBottom
+		let textContainerMarginTop
 
 		if(props.screenSize == 'smallScreens') {
 			textWidth = '60px'
 			textHeight = '60px'
 			textFontSize = '24px'
-			textContainerMarginBottom = '80px'
+			textContainerInitialMarginTop = '0'
+			textContainerInitialMarginBottom = '100vh'
+			textContainerMarginTop = '0'
+			textContainerMarginBottom = '35%'
 		} else if (props.screenSize == 'largeScreens') {
 			textWidth = '180px'
 			textHeight = '180px'
 			textFontSize = '34px'
-			textContainerMarginBottom = '120px'
+			textContainerInitialMarginTop = '100vh'
+			textContainerInitialMarginBottom = '0'
+			textContainerMarginBottom = '0'
+			textContainerMarginTop = '0'
 		} else if (props.screenSize == 'largeScreensExtra') {
 			textWidth = '280px'
 			textHeight = '280px'
 			textFontSize = '68px'
-			textContainerMarginBottom = '240px'
+			textContainerInitialMarginTop = '100vh'
+			textContainerInitialMarginBottom = '0'
+			textContainerMarginBottom = '0'
+			textContainerMarginTop = '0'
 		}
 
 		return {
 			textWidth: textWidth,
 			textHeight: textHeight,
 			textFontSize: textFontSize,
+			textContainerInitialMarginTop: textContainerInitialMarginTop,
+			textContainerInitialMarginBottom: textContainerInitialMarginBottom,
+			textContainerMarginTop: textContainerMarginTop,
+			textContainerMarginBottom: textContainerMarginBottom,
 		}
 	}
 	
@@ -80,9 +96,14 @@ export default function HeaderTitle(props) {
 		// 	boxShadow = "4px 4px 24px 14px hsla(0, 0%, 100%, 0.9)"        
 		//   }
 
+		console.log(setResponsiveValues().textContainerMarginTop)	
+
 		 return {
 			boxShadow: boxShadow,
-			marginBottom: '80px',	
+			marginTop: 
+				setResponsiveValues().textContainerMarginTop,	
+			marginBottom: 
+				setResponsiveValues().textContainerMarginBottom,	
 			borderRadius: '50%',		
 			width: setResponsiveValues().textWidth,
 			// minWidth: '60px',
@@ -102,12 +123,19 @@ export default function HeaderTitle(props) {
 
 		return {
 			initial: {									
-				opacity: 0,		
+				marginTop: setResponsiveValues().textContainerInitialMarginTop,
+				marginBottom: setResponsiveValues().textContainerInitialMarginBottom,
+				// margin: '-100vh',	
 				width: width,				
 				height: height,					
+				opacity: 0,	
 			},
-			animate: {						// borderRadius: '50%',				
+			animate: {										
 
+				marginTop: 
+					setResponsiveValues().textContainerMarginTop,	
+				marginBottom: 
+					setResponsiveValues().textContainerMarginBottom,	
 				opacity: 1, 													
 				transition: {
 					// when: "afterChildren",
@@ -151,10 +179,10 @@ export default function HeaderTitle(props) {
 			animate: {				
 				y: slideScale,			
 				transition: {	
-					height: '400%',
+					// height: '400%',
 					when: "afterChildren",
 					delay: 
-						2.0,						
+						3.0,						
 					duration: 1.5,
 					ease: [0.87, 0, 0.13, 1],
 				},
@@ -174,7 +202,7 @@ export default function HeaderTitle(props) {
 				transition: {		
 					delay: 
 						// 0.5,
-						2.0,
+						2.5,
 					duration: 0.5,
 					ease: [0.87, 0, 0.13, 1],
 				},

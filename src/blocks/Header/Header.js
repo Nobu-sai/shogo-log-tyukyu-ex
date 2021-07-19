@@ -312,7 +312,7 @@ class Header extends Component {
           
             transition: {            
             duration: 1.5,
-            delay: 3.5,
+            delay: 4.0,
               // smallScreens
                 // : HeaderMain/.../setInitialAnimationBGVariants = 0.1s
                 // : HeaderMain/.../setTextContainerVariants = 1.5s
