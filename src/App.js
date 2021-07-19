@@ -34,15 +34,9 @@ const App = () => {
     const pageVariants = () => {
       console.log('exit')
 
-      return { 
-        initial: {
-          opacity: 1,
-        },
+      return {        
         exit: {
-          opacity: 0, 
-          transition: {
-            duration: 4.0,
-          }
+          opacity: 0,          
         }
       }
     }
