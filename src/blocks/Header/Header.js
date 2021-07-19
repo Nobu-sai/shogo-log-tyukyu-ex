@@ -262,7 +262,7 @@ class Header extends Component {
               // : "This & Header/setHeaderAnimationStyleVariants()/animate Prop" would be making the BG FADE IN with animation. 
         display: 'grid',
         gridTemplate:                           
-          this.state.windowWidth <= 1000 
+          screenSize == 'smallScreens'
           ? "[row1-start] 'reservation title site-menu-button' 100% [row1-end] / 30% 40% 30%"
           : "[row1-start] 'title site-menu reservation' 100% [row1-end] / 20% 60% 20%",                   
         overflow: 'visible',
