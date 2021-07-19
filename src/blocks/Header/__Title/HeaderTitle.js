@@ -99,6 +99,7 @@ export default function HeaderTitle(props) {
 		console.log(setResponsiveValues().textContainerMarginTop)	
 
 		 return {
+			zIndex: 1100, 
 			boxShadow: boxShadow,
 			marginTop: 
 				setResponsiveValues().textContainerMarginTop,	

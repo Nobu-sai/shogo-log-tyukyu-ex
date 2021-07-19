@@ -389,8 +389,7 @@ class Header extends Component {
 
         >
           <HeaderTitle
-            contentsColor={this.setContentsColor()}            
-            setContentsColor={this.setContentsColor}            
+            contentsColor={this.setContentsColor()}                        
             headerColor={this.setHeaderColor()}            
             handleOnClick={this.handleOnClick}
             controllScrollingUnderneath={this.controllScrollingUnderneath}
@@ -409,10 +408,10 @@ class Header extends Component {
         
         >          
           <HeaderSiteMenu 
-            handleOnClick={this.handleOnClick}
-            contentsColor={this.setContentsColor}
-            siteMenuVisibility={siteMenuVisibility} 
-            headerColor={this.state.headerColor} 
+            handleOnClick={this.handleOnClick}            
+            siteMenuVisibility={siteMenuVisibility}  
+            headerColor={this.setHeaderColor()}        
+            contentsColor={this.setContentsColor()}                        
       
           />
         </div>
@@ -426,8 +425,9 @@ class Header extends Component {
           
         >
             <HeaderReservation 
-              contentsColor={this.setContentsColor}
               toggleReservationModal={this.props.toggleReservationModal}
+              headerColor={this.setHeaderColor()}        
+              contentsColor={this.setContentsColor()}                        
             />
         </div>
 
@@ -447,7 +447,8 @@ class Header extends Component {
           >           
               <HeaderButton
                 handleOnClick={this.handleOnClick}
-                contentsColor={this.setContentsColor}
+                headerColor={this.setHeaderColor()}        
+                contentsColor={this.setContentsColor()}                        
               />             
           </div>
 
