@@ -214,7 +214,6 @@ class Header extends Component {
         // headerColor State is unavailable in my current codes.
           // This is because, 
       let boxShadow
-      let height
 
       if (headerHasBoxShadow == false) {
         boxShadow = 'none'
@@ -231,13 +230,11 @@ class Header extends Component {
 
         top = null
         bottom = 0        
-        height = '200px'
 
       } else if (screenSize == 'largeScreens' || screenSize == 'largeScreensExtra') {
 
         top = 0
         bottom = null
-        height = '200px'
 
       }
 
@@ -249,8 +246,9 @@ class Header extends Component {
         bottom: bottom,
         left: 0,
         boxShadow: boxShadow,
+        margin: 'auto',
         width: '100vw',
-        height: height,      
+        height: '15vh',      
         backgroundColor: this.setHeaderColor(),  
           // Don't change. 
             // P
@@ -270,19 +268,6 @@ class Header extends Component {
     setHeaderAnimationStyleVariants(screenSize) {
       // console.log(screenSize)    
 
-      // let height = this.setHeaderStyle().height
-      // console.log(height)
-      let height
-
-      if(screenSize == 'smallScreens') {
-
-        height = '200px'
-
-      } else if (screenSize == 'largeScreens' || screenSize == 'largeScreensExtra') {
-
-        height = '200px'
-
-      }
 
       return {
         initial: {          
@@ -303,7 +288,6 @@ class Header extends Component {
         animate: {                      
             height: 
               '15vh',
-              // height,
 
             gridTemplate:               
               screenSize == 'smallScreens' 
