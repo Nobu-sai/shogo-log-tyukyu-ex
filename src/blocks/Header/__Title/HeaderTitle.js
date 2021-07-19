@@ -32,23 +32,23 @@ export default function HeaderTitle(props) {
 			textContainerInitialMarginTop = '0'
 			textContainerInitialMarginBottom = '100vh'
 			textContainerMarginTop = '0'
-			textContainerMarginBottom = '35%'
+			textContainerMarginBottom = '14vh'
 		} else if (props.screenSize == 'largeScreens') {
-			textWidth = '180px'
-			textHeight = '180px'
+			textWidth = '100px'
+			textHeight = '100px'
 			textFontSize = '34px'
 			textContainerInitialMarginTop = '100vh'
 			textContainerInitialMarginBottom = '0'
 			textContainerMarginBottom = '0'
-			textContainerMarginTop = '0'
+			textContainerMarginTop = '5vh'
 		} else if (props.screenSize == 'largeScreensExtra') {
-			textWidth = '280px'
-			textHeight = '280px'
+			textWidth = '200px'
+			textHeight = '200px'
 			textFontSize = '68px'
 			textContainerInitialMarginTop = '100vh'
 			textContainerInitialMarginBottom = '0'
 			textContainerMarginBottom = '0'
-			textContainerMarginTop = '0'
+			textContainerMarginTop = '5vh'
 		}
 
 		return {
@@ -139,8 +139,7 @@ export default function HeaderTitle(props) {
 				opacity: 1, 													
 				transition: {
 					// when: "afterChildren",
-					duration: 
-						// 1.5,
+					duration: 						
 						1.5,
 					delay: 1.0,
 					ease: [0.87, 0, 0.13, 1],
@@ -168,8 +167,9 @@ export default function HeaderTitle(props) {
 		return {
 			initial: {
 				
-				width: '100%',
-				height: '100%',
+				
+				width: setResponsiveValues().textWidth,	
+				height: setResponsiveValues().textHeight,
 				color: 'rgba(75, 85, 99)',					
 				fill: 'currentColor',
 					// Without this, the text is NOT set as the props.contentsColor (set in the parent pattern Tag) or NOT shown.				
@@ -179,10 +179,10 @@ export default function HeaderTitle(props) {
 			animate: {				
 				y: slideScale,			
 				transition: {	
-					// height: '400%',
+					height: '400%',
 					when: "afterChildren",
-					delay: 
-						3.0,						
+					delay: 		
+						3.0,											
 					duration: 1.5,
 					ease: [0.87, 0, 0.13, 1],
 				},
@@ -200,9 +200,8 @@ export default function HeaderTitle(props) {
 				opacity: 1,						
 				
 				transition: {		
-					delay: 
-						// 0.5,
-						2.5,
+					delay: 						
+						2.5,							
 					duration: 0.5,
 					ease: [0.87, 0, 0.13, 1],
 				},
@@ -276,13 +275,13 @@ export default function HeaderTitle(props) {
 									// Declared in THIS Component. 							
 								color="#fff"
 						>				
+							{/* // Usage of rect Tags
+							// : Do NOT use % Unit or a Unit RELATIVE to the PARENT (pattern Tag) to pattern Tag/rect Tag.
+								// P
+									// : https://www.evernote.com/shard/s350/nl/180370944/689a5dab-1573-7f98-0557-049f0109aa34?title=(Shogo)%20%E4%B8%AD%E7%B4%9AEx/%22Issue%22%20=%20In%20the%20FIRST%20render,%20Header/headerColor%20State%20is%20undefined%20being%20accessed%20from%20Header/setHeaderStyle()%20which%20is%20Called%20from%20motion.div/style%20Prop.
+										//  The cause for "the animated text (In svg Tag/text Tag) sometimes loses the color" seems because of the WIDTH of svg Tag/pattern Tag/rect Tag set as "100%" even though the PARENT pattern Tag has NOT width.									 */}
 							<rect 																	
 								style={{
-									// Usage
-									// : Do NOT use % Unit or a Unit RELATIVE to the PARENT (pattern Tag) to pattern Tag/rect Tag.
-										// P
-											// : https://www.evernote.com/shard/s350/nl/180370944/689a5dab-1573-7f98-0557-049f0109aa34?title=(Shogo)%20%E4%B8%AD%E7%B4%9AEx/%22Issue%22%20=%20In%20the%20FIRST%20render,%20Header/headerColor%20State%20is%20undefined%20being%20accessed%20from%20Header/setHeaderStyle()%20which%20is%20Called%20from%20motion.div/style%20Prop.
-												//  The cause for "the animated text (In svg Tag/text Tag) sometimes loses the color" seems because of the WIDTH of svg Tag/pattern Tag/rect Tag set as "100%" even though the PARENT pattern Tag has NOT width.									
 									width: setResponsiveValues().textWidth,	
 									height: setResponsiveValues().textHeight, 
 									fill: 'currentColor',									
