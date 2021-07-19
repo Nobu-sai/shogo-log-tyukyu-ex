@@ -111,7 +111,10 @@ export default function HeaderTitle(props) {
 			height: setResponsiveValues().textHeight,					
 			// minHeight: '60px',
 			backgroundColor: 'hsl(209, 100%, 43%)',
-			// overflow: 'visible'		
+			// overflow: 'visible'	
+			opacity: 1,
+				// P
+					// : Otherwise, when the textContainer is clicked, it will DISAPPEAR with being set opacity: 0; in setTextContainerAnimationStyleVariants()/initial variant. 	
 		 }
 	}
 
@@ -236,6 +239,7 @@ export default function HeaderTitle(props) {
 					// Without this, the text SVG animation doesn't work as well. 											
 				style={setTextContainerStyle()}
 				variants={setTextContainerAnimationStyleVariants()}			
+				onClick={props.handleOnClick}
 			>     
 				<Link 
 					className={`link`}
@@ -245,7 +249,7 @@ export default function HeaderTitle(props) {
 						height: '100%',
 						
 					}}
-					onClick={props.handleOnClick}
+					// onClick={props.handleOnClick}
 				>
 					<motion.svg 										
 						className="header__main_svg"
