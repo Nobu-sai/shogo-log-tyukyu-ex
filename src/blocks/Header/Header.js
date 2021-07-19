@@ -186,7 +186,6 @@ class Header extends Component {
       let contentsColor;
       // let headerColor = this.state.headerColor;
       let headerColor = this.setHeaderColor();
-      console.log(headerColor)
       
       if(headerColor === 'black') {
         // this.setState({

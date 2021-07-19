@@ -96,7 +96,7 @@ export default function HeaderTitle(props) {
 		// 	boxShadow = "4px 4px 24px 14px hsla(0, 0%, 100%, 0.9)"        
 		//   }
 
-		console.log(setResponsiveValues().textContainerMarginTop)	
+		// console.log(setResponsiveValues().textContainerMarginTop)	
 
 		 return {
 			zIndex: 1100, 

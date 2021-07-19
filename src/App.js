@@ -31,14 +31,21 @@ const App = () => {
   
 
 
-    const pageVariants = () => ({ 
-      exit: {
-        opacity: 0, 
-        // transition: {
-        //   duration: 4.0,
-        // }
+    const pageVariants = () => {
+      console.log('exit')
+
+      return { 
+        initial: {
+          opacity: 1,
+        },
+        exit: {
+          opacity: 0, 
+          transition: {
+            duration: 4.0,
+          }
+        }
       }
-    })
+    }
 
     const pageContainerVariants = () => ({
       initial: {
@@ -92,7 +99,9 @@ const App = () => {
 
         <AnimatePresence>
             
-            <Switch              
+            <Switch
+              location={location}              
+                // Without this the exit animation somehow does NOT work. 
               key={location.pathname}
             >
                        

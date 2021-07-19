@@ -58,8 +58,8 @@ export default class Home extends Component {
 
       <motion.div 
         className="home" 
-        ref={homeBody => this.homeBody = homeBody}        
-        exit="exit"
+        ref={homeBody => this.homeBody = homeBody}         
+        exit="exit"        
         exitBeforeEnter
         variants={this.props.pageVariants()}
       >  

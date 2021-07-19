@@ -63,8 +63,8 @@ export default class SubPageBody extends Component {
 
 	return (
 		<motion.div
-			className="sub-page__body"	
-			exit="exit"
+			className="sub-page__body"		
+			exit="exit"			
 			exitBeforeEnter
 			variants={this.props.pageVariants()}
 			
