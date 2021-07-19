@@ -1,17 +1,33 @@
 // Usage
 // : ALL Style for HeaderTitle HERE.
 
-import { React } from 'react';
+import { React, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 
 
 export default function HeaderTitle(props) {	
+
+	const location = useLocation()
+	let doesNotShowMenu = true
+	
+
+	useEffect(()=>{
+	
+
+		// if(!location.pathname === '/') {	
+			// Somehow doesn't work even in a subpage. 
+			// => For doesNotShowMenu Variable, reserve the Declaration and Assignment of Value.
+		if(location.pathname === '/') {		
+			doesNotShowMenu = false
+			// console.log(doesNotShowMenu)	
+			// console.log(location)
 		
-	
-	
+		}
+	}, [location])	
+
 	// The single source of truth for the Dimensions (width and height) of the title text.
 	// => Called from setTextContainerVariants()
 	// =>> The children are set with 100%.  
@@ -239,7 +255,6 @@ export default function HeaderTitle(props) {
 					// Without this, the text SVG animation doesn't work as well. 											
 				style={setTextContainerStyle()}
 				variants={setTextContainerAnimationStyleVariants()}			
-				onClick={props.handleOnClick}
 			>     
 				<Link 
 					className={`link`}
@@ -249,6 +264,7 @@ export default function HeaderTitle(props) {
 						height: '100%',
 						
 					}}
+					onClick={e => props.handleOnClick(e, doesNotShowMenu)}
 				>
 					<motion.svg 										
 						className="header__main_svg"

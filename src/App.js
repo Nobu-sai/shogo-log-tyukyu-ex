@@ -32,7 +32,7 @@ const App = () => {
 
 
     const pageVariants = () => {
-      console.log('exit')
+      // console.log('exit')
 
       return {        
         exit: {

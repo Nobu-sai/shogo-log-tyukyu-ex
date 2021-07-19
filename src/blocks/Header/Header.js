@@ -78,24 +78,27 @@ class Header extends Component {
   }
 
 
-  handleOnClick(e) {
+  handleOnClick(e, doesNotShowMenu) {
     // this.toggleMenuVisibility();
-    this.setSiteMenuMotionIntoViewpoint();
+    this.setSiteMenuMotionIntoViewpoint(doesNotShowMenu);
     e && e.stopPropagation();
   }
 
-  setSiteMenuMotionIntoViewpoint() {
+  setSiteMenuMotionIntoViewpoint(doesNotShowMenu) {
 
-    this.setState(
-    {
-      siteMenuVisibility: !this.state.siteMenuVisibility
-    }
-  , () => {
-      this.controllScrollingUnderneath();
-    }
-  
-    )
+    if(!doesNotShowMenu) {
+      this.setState(
+      {
+        siteMenuVisibility: !this.state.siteMenuVisibility
+      }
+    , () => {
+        this.controllScrollingUnderneath();
+      }
+    
+      )
 
+
+    }
   
   }
 
