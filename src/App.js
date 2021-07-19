@@ -71,7 +71,7 @@ const App = () => {
         opacity: 1,
         transition: {
           duration: 3.0,
-          delay: isSiteFirstMount ? 3.2 : 0,
+          delay: isSiteFirstMount ? 4.0 : 0,
           // duration and delay Properties.
             // : This time is the LEAST requirement, otherwise the scrolling is done AFTER the animation was done.
               // : This is for the sake of reserving enoughtime used by scrolling to the top AFTER the Initial Animation AFTER REFRESHING a page)
