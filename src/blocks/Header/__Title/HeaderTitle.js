@@ -297,8 +297,9 @@ export default function HeaderTitle(props) {
 								
 								*/}							
 							<motion.rect 
-									
-								variants={setMotionRectVariants()}
+								initial="initial"
+								animate="animate"
+								variants={setMotionRectVariants()}								
 								
 							/>
 								{/* 
