@@ -14,25 +14,30 @@ import HomeAccess from './HomeAccess/HomeAccess';
 import Footer from '../../blocks/Footer/Footer';
 import ReservationModal from '../../blocks/ReservationModal/ReservationModal';
 
+
 export default class Home extends Component {
   constructor(props) {
       super(props)
 
       this.state = {
         reservationModalIsOpen: false,
+        scrollY: null,
           
       }
-      this.toggleReservationModal = this.toggleReservationModal.bind(this);      
-      // this.homeBody = React.createRef()  
+      this.toggleReservationModal = this.toggleReservationModal.bind(this);            
     }
 
   componentDidMount() {
     // When the user linked from another page.
     // => Scroll to the top of the page. 
     window.scrollTo(0, 0);
+ 
 
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScrolling);
+}
 
   toggleReservationModal() {
     console.log()
@@ -40,6 +45,7 @@ export default class Home extends Component {
       reservationModalIsOpen: !this.state.reservationModalIsOpen, 
     })
   }
+
 
 
   render() { 
@@ -53,6 +59,7 @@ export default class Home extends Component {
       ]
 
     // let pathToImagesFolder = "../../assets/images"
+    // console.log(window.srcElement.body.scrollTop)
 
     return (
 
@@ -62,6 +69,7 @@ export default class Home extends Component {
         exit="exit"        
         exitBeforeEnter
         variants={this.props.pageVariants()}
+        
       >  
 
         
@@ -94,7 +102,7 @@ export default class Home extends Component {
           <motion.div
             initial="initial"
             animate="animate"
-            variants={this.props.pageContentsVariants(this.props.isSiteFirstMount)}
+            variants={this.props.pageContentsVariants(this.props.isSiteFirstMount)}           
           >
             <HomeTop />        
             <HomeFeatures />
@@ -109,10 +117,12 @@ export default class Home extends Component {
                   toggleReservationModal={this.toggleReservationModal}
                 />
             }      
+
             
           </motion.div>
 
         </motion.div>
+        
           
       </motion.div>
     )

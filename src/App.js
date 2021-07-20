@@ -9,16 +9,48 @@ import SubPageOheya from './pages/SubPage/-Oheya/SubPageOheya';
 import SubPageOryori from './pages/SubPage/-Oryori/SubPageOryori';
 import SubPageOnsen from './pages/SubPage/-Onsen/SubPageOnsen';
 
+import ScrollTop from './blocks/ScrollTop/ScrollTop';
+
 
 
 const App = () => {
 
-  const [isSiteFirstMount, setIsSiteFirstMount] = useState(true);
   const history = useHistory();
   const location = useLocation();
+  const [isSiteFirstMount, setIsSiteFirstMount] = useState(true);
 
-  
-  
+  // const trackWindowWidth = () => {
+  //   if(windowWidth < 1000)  {
+  //   return 'smallScreens'
+
+  //   } else if (windowWidth < 2000) {
+  //     return 'largeScreens'
+
+  //   } else if (windowWidth > 2000) { 
+  //     return 'largeScreensExtra'
+  //   }
+  // } 
+
+  const [screenSize, setScreenSize] = useState(
+    () => {
+      if(window.innerWidth < 1000)  {
+        return 'smallScreens'
+
+      } else if (window.innerWidth < 2000) {
+
+        return 'largeScreens'
+
+      } else if (window.innerWidth >= 2000) { 
+
+        return 'largeScreensExtra'
+
+      }
+    } 
+    // Pass this Anonymous Function.
+      // P
+        // : Pass the screenSize State to the Children Components (Ex: ScrollTop) when the first Mount. 
+
+  );
 
   // Prevent MULTIPLE time execution of Initial Animation.
   // = After the history Object is updated. 
@@ -29,7 +61,35 @@ const App = () => {
     
   }, [history]);
   
+  // Set the Breakpoints for screen size in this entire app. 
+  useEffect(() => {
+    const trackWindowWidth = () => {
 
+      if(window.innerWidth < 1000)  {        
+        setScreenSize('smallScreens')
+        // console.log(screenSize)
+
+      } else if (window.innerWidth < 2000) {
+        setScreenSize('largeScreens')
+        // console.log(screenSize)
+
+      } else if (window.innerWidth >= 2000) { 
+        setScreenSize('largeScreensExtra')
+        // console.log(screenSize)
+      }
+
+    }
+
+    window.addEventListener('resize', trackWindowWidth);    
+
+    // console.log(screenSize)
+
+    return () => {
+      window.removeEventListener('resize', trackWindowWidth)
+    }
+    
+  }, [screenSize]);
+    
 
     const pageVariants = () => {
       // console.log('exit')
@@ -84,14 +144,16 @@ const App = () => {
       }
 
     })
-    
-    
-
+          
+        
   return (
       <div className='app'>
                 
 
         <AnimatePresence>
+            <ScrollTop 
+              screenSize={screenSize}
+            />
             
             <Switch
               location={location}              
