@@ -273,7 +273,12 @@ export default function HeaderTitle(props) {
 						height: '100%',
 						
 					}}
-					onClick={e => props.handleOnClick(e, doesNotShowMenu)}
+					onClick={e => 
+						{ 
+							props.handleOnClick(e, doesNotShowMenu)
+							props.controllScrollingUnderneath(true)
+						}
+					}
 				>
 					<motion.svg 										
 						className="header__main_svg"

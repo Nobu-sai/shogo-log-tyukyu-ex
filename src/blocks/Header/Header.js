@@ -107,7 +107,7 @@ class Header extends Component {
     
   }
 
-  controllScrollingUnderneath(hide) {
+  controllScrollingUnderneath(hide, scrollTop = false) {
     // Call Sites
     // : componendDidMount()
     // : setSiteMenuMotionIntoViewpoint() 
@@ -119,7 +119,9 @@ class Header extends Component {
   	// Scroll to the TOP. When the user Refreshed the page MIDWAY a page.
       // P
         // : Placing the screen MIDWAY AFTER the initial animation is wierd. 
-    this.scrollToTop()
+    if(scrollTop) {
+        this.scrollToTop()
+    }
 
     // Conditionally set overflow Property to the body Tag. 
     // Usage
