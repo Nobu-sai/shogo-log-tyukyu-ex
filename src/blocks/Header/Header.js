@@ -38,6 +38,7 @@ class Header extends Component {
     this.trackWindowWidth = this.trackWindowWidth.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this); 
     this.controllScrollingUnderneath = this.controllScrollingUnderneath.bind(this);
+    this.scrollToTop = this.scrollToTop.bind(this)
     // Styles
     this.setHeaderColor = this.setHeaderColor.bind(this);
     this.setContentsColor = this.setContentsColor.bind(this);
@@ -84,6 +85,7 @@ class Header extends Component {
     e && e.stopPropagation();
   }
 
+  
   setSiteMenuMotionIntoViewpoint(doesNotShowMenu) {
 
     if(!doesNotShowMenu) {
@@ -103,8 +105,8 @@ class Header extends Component {
   }
 
   scrollToTop() {
-    window.scrollTo(0, 0);
-    
+    console.log("Will scroll")
+    window.scrollTo(0, 0);    
   }
 
   controllScrollingUnderneath(hide, scrollTop = false) {
@@ -304,7 +306,7 @@ class Header extends Component {
               : "[row1-start] 'title site-menu reservation' 100% [row1-end] / 20% 60% 20%",           
           
             transition: {            
-            duration: 1.5,
+            duration: 2.5,
             delay: 4.0,
               // smallScreens
                 // : HeaderMain/.../setInitialAnimationBGVariants = 0.1s
@@ -376,15 +378,22 @@ class Header extends Component {
           animate={this.props.isSiteFirstMount ? "animate" : ""}          
           style={this.setHeaderStyle(screenSize, headerHasBoxShadow)}
           variants={this.setHeaderAnimationStyleVariants(screenSize)}
-          onAnimationStart={() => {
-
-            this.controllScrollingUnderneath(true);
+          onAnimationStart={() => { 
+            this.controllScrollingUnderneath(true);             
             
           }}
-          onAnimationComplete={() => {				
+          onAnimationComplete={() => {				 
             this.controllScrollingUnderneath(false)								
 
           }}
+
+          onUpdate={
+            () => {				
+              this.scrollToTop()     
+                // Scroll to the top of the page BEFORE the animation ends
+                // => NOT in onAnimatiionComplete             
+            }
+          }
 
       >
       
