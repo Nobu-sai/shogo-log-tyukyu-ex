@@ -159,7 +159,8 @@ class Header extends Component {
 
 
     
-
+    // Set the Header color 
+    // => Conditionally based on the page.
     setHeaderColor() {
       
       // if(this.props.location.pathname === "/") {     
@@ -189,6 +190,9 @@ class Header extends Component {
       
     }
 
+    
+    // Set the Header CONTNETS' color 
+    // => Conditionally based on the HEADER color (set by setHeaderColor).
     setContentsColor() {
     
       let contentsColor;
@@ -213,6 +217,7 @@ class Header extends Component {
     }
 
 
+    // Set Header basic Styles
     setHeaderStyle(screenSize, headerHasBoxShadow) {
 
       let top;
@@ -271,7 +276,7 @@ class Header extends Component {
     }
       
   
-    
+    // Set Header ANIMATED Styles as Framer motion/variants
     setHeaderAnimationStyleVariants(screenSize) {
       // console.log(screenSize)    
 
