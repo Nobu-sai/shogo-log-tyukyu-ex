@@ -104,12 +104,15 @@ class Header extends Component {
   
   }
 
+  
+  // Scroll to the TOP of each page. 
   scrollToTop() {
-    console.log("Will scroll")
+    // console.log("Will scroll")
     window.scrollTo(0, 0);    
   }
 
-  controllScrollingUnderneath(hide, scrollTop = false) {
+  // Control the overflow of page or body Tag using.
+  controllScrollingUnderneath(hide) {
     // Call Sites
     // : componendDidMount()
     // : setSiteMenuMotionIntoViewpoint() 
@@ -117,13 +120,6 @@ class Header extends Component {
         
     // console.log("controllScrollingUnderneath()/above if", hide);
 
-
-  	// Scroll to the TOP. When the user Refreshed the page MIDWAY a page.
-      // P
-        // : Placing the screen MIDWAY AFTER the initial animation is wierd. 
-    if(scrollTop) {
-        this.scrollToTop()
-    }
 
     // Conditionally set overflow Property to the body Tag. 
     // Usage
@@ -390,7 +386,10 @@ class Header extends Component {
           onUpdate={
             () => {				
               this.scrollToTop()     
-                // Scroll to the top of the page BEFORE the animation ends
+              // : Scroll to the TOP. When the user Refreshed the page MIDWAY a page.
+                // P
+                  // : Placing the screen MIDWAY AFTER the initial animation is wierd. 
+              // : Scroll to the top of the page BEFORE the animation ends
                 // => NOT in onAnimatiionComplete             
             }
           }
