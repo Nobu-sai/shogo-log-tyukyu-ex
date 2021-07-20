@@ -13,7 +13,8 @@ export default function HeaderTitle(props) {
 	const location = useLocation()
 	let doesNotShowMenu = true
 	
-
+	// Conditionally set the behavior from Onclick Event over the title. 
+	// => Open the HeaderSiteMenu or NOT. 
 	useEffect(()=>{
 	
 
@@ -78,6 +79,9 @@ export default function HeaderTitle(props) {
 		}
 	}
 	
+	// The BG for the ENTIRE Initial Animation.
+	// = The DIRECT Children of Header Grid Item/title
+	// => Set the position of Title by Flexbox.		
 	const setInitialAnimationBGVariants = () => {		
 
 		return {
@@ -102,6 +106,7 @@ export default function HeaderTitle(props) {
 	
 	}
 
+	// Set the basic Styles
 	const setTextContainerStyle = () => {
 		let boxShadow = "4px 4px 24px 14px hsla(0, 0%, 0%, 0.9)"   ;
 
@@ -134,6 +139,7 @@ export default function HeaderTitle(props) {
 		 }
 	}
 
+	// Set the ANIMATED styles
 	const setTextContainerAnimationStyleVariants = () => {
 		
 		// console.log(screenSize)
@@ -170,7 +176,9 @@ export default function HeaderTitle(props) {
 	
 
 	}
-		
+	
+	// Set the svg Tag/pattern Tag/rect Tag Animated Styles.
+	// => Determines the TEXT animaiton color change. 
 	const setMotionRectVariants = () => {
 
 		// console.log(screenSize)
@@ -210,6 +218,7 @@ export default function HeaderTitle(props) {
 		}
 	}
 
+	// Set Animated Styles for text itself. 
 	const setTextVariants = () => {
 		return {
 			initial: {
